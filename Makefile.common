@@ -1,0 +1,846 @@
+VERSION:=1.13.1git
+
+MAIN_OBJS:=actions.o \
+	actorio.o \
+	actors.o  \
+	args.o \
+	browser.o \
+	cheat.o \
+	cheat_screen.o \
+	combat.o \
+	dir.o \
+	drag.o \
+	effects.o \
+	exult.o \
+	exultmenu.o \
+	game.o \
+	gameclk.o \
+	gamedat.o \
+	gamemap.o \
+	gamerend.o \
+	gamewin.o \
+	istring.o \
+	keys.o \
+	keyactions.o \
+	menulist.o \
+	monsters.o \
+	mouse.o \
+	npcnear.o \
+	npctime.o \
+	palette.o \
+	party.o \
+	paths.o \
+	playscene.o \
+	readnpcs.o \
+	schedule.o \
+	shapeid.o \
+	touchui.o \
+	tqueue.o \
+	txtscroll.o \
+	verify.o \
+	version.o
+
+PATH_OBJS:= \
+	pathfinder/Astar.o \
+	pathfinder/path.o \
+	pathfinder/PathFinder.o \
+	pathfinder/Zombie.o
+
+CONF_OBJS:= \
+	conf/Configuration.o \
+	conf/XMLEntity.o
+# unused: xmain.o
+
+TIMIDITY_OBJS:=\
+	audio/midi_drivers/timidity/timidity.o \
+	audio/midi_drivers/timidity/timidity_common.o \
+	audio/midi_drivers/timidity/timidity_controls.o \
+	audio/midi_drivers/timidity/timidity_filter.o \
+	audio/midi_drivers/timidity/timidity_instrum.o \
+	audio/midi_drivers/timidity/timidity_mix.o \
+	audio/midi_drivers/timidity/timidity_output.o \
+	audio/midi_drivers/timidity/timidity_playmidi.o \
+	audio/midi_drivers/timidity/timidity_readmidi.o \
+	audio/midi_drivers/timidity/timidity_resample.o \
+	audio/midi_drivers/timidity/timidity_sdl_a.o \
+	audio/midi_drivers/timidity/timidity_sdl_c.o \
+	audio/midi_drivers/timidity/timidity_tables.o
+
+MIDI_DRV_ALSA_OBJS:=\
+	audio/midi_drivers/ALSAMidiDriver.o
+
+MIDI_DRV_MACOSX_OBJS:=\
+	audio/midi_drivers/CoreAudioMidiDriver.o \
+	audio/midi_drivers/CoreMidiDriver.o
+
+MIDI_DRV_UNIXSEQ_OBJS:=\
+	audio/midi_drivers/UnixSeqMidiDriver.o
+
+# Note we now always compile all midi drivers
+MIDI_DRV_OBJS:=\
+	$(MIDI_DRV_ALSA_OBJS) \
+	$(MIDI_DRV_MACOSX_OBJS) \
+	$(MIDI_DRV_UNIXSEQ_OBJS) \
+	audio/midi_drivers/FluidSynthMidiDriver.o \
+	audio/midi_drivers/fmopl.o \
+	audio/midi_drivers/FMOplMidiDriver.o \
+	audio/midi_drivers/LowLevelMidiDriver.o \
+	audio/midi_drivers/MidiDriver.o \
+	audio/midi_drivers/MT32EmuMidiDriver.o \
+	audio/midi_drivers/TimidityMidiDriver.o \
+	audio/midi_drivers/WindowsMidiDriver.o \
+	audio/midi_drivers/XMidiEventList.o \
+	audio/midi_drivers/XMidiFile.o \
+	audio/midi_drivers/XMidiSequence.o \
+	$(TIMIDITY_OBJS)
+
+AUDIO_OBJS:=\
+	audio/Audio.o \
+	audio/conv.o \
+	audio/Midi.o \
+	audio/soundtest.o \
+	audio/AudioChannel.o    \
+	audio/AudioMixer.o    \
+	audio/AudioSample.o    \
+	audio/OggAudioSample.o    \
+	audio/RawAudioSample.o    \
+	audio/VocAudioSample.o    \
+	audio/WavAudioSample.o    \
+	$(MIDI_DRV_OBJS)
+# unused: test.o u7audiotool.o
+
+FLIC_OBJS:=\
+	flic/playfli.o
+
+FILE_OBJS:= \
+	files/crc.o \
+	files/Flat.o \
+	files/Flex.o \
+	files/IFF.o \
+	files/listfiles.o \
+	files/msgfile.o \
+	files/Table.o \
+	files/U7file.o \
+	files/U7fileman.o \
+	files/U7obj.o \
+	files/utils.o \
+	files/sha1/sha1.o
+
+SDLRWOPS_OBJS:= \
+	files/sdlrwopsstreambuf.o \
+	files/sdlrwopsistream.o \
+	files/sdlrwopsostream.o
+
+# Zipfile support objs
+ZIP_OBJS:=\
+	files/zip/zip.o \
+	files/zip/unzip.o
+
+GAMEMGR_OBJS:= \
+	gamemgr/bggame.o \
+	gamemgr/devgame.o \
+	gamemgr/modmgr.o \
+	gamemgr/sigame.o
+
+GUMPS_OBJS:= \
+	gumps/Actor_gump.o \
+	gumps/AudioOptions_gump.o \
+	gumps/Book_gump.o \
+	gumps/GameEngineOptions_gump.o \
+	gumps/CombatStats_gump.o \
+	gumps/Dynamic_container_gump.o \
+	gumps/Dynamic_button.o \
+	gumps/Dynamic_text_widget.o \
+	gumps/Dynamic_shape_widget.o \
+	gumps/Dynamic_slider.o \
+	gumps/Enabled_button.o \
+	gumps/Face_button.o \
+	gumps/Face_stats.o \
+	gumps/File_gump.o \
+	gumps/Gamemenu_gump.o \
+	gumps/GameDisplayOptions_gump.o \
+	gumps/Mixer_gump.o \
+	gumps/Modal_gump.o \
+	gumps/Gump.o \
+	gumps/Gump_button.o \
+	gumps/Gump_manager.o \
+	gumps/Gump_widget.o \
+	gumps/Gump_ToggleButton.o \
+	gumps/ShortcutBar_gump.o \
+	gumps/ItemMenu_gump.o \
+	gumps/Jawbone_gump.o \
+	gumps/misc_buttons.o \
+	gumps/Newfile_gump.o \
+	gumps/Notebook_gump.o \
+	gumps/Paperdoll_gump.o \
+	gumps/Scroll_gump.o \
+	gumps/Sign_gump.o \
+	gumps/Slider_gump.o \
+	gumps/Slider_widget.o \
+	gumps/Spellbook_gump.o \
+	gumps/Stats_gump.o \
+	gumps/Text_button.o \
+	gumps/Text_gump.o \
+	gumps/InputOptions_gump.o \
+	gumps/VideoOptions_gump.o \
+	gumps/Yesno_gump.o \
+	gumps/StringList_widget.o \
+	gumps/AdvancedOptions_gump.o \
+	gumps/ConfigSetting_widget.o \
+	gumps/DropDown_widget.o \
+	gumps/Scrollable_widget.o
+
+IMAGEWIN_OBJS:=\
+	imagewin/ibuf8.o \
+	imagewin/imagebuf.o \
+	imagewin/imagewin.o \
+	imagewin/iwin8.o \
+	imagewin/save_screenshot.o \
+	imagewin/scale_2x.o \
+	imagewin/scale_2xSaI.o \
+	imagewin/scale_bilinear.o \
+	imagewin/scale_hq2x.o \
+	imagewin/scale_hq3x.o \
+	imagewin/scale_hq4x.o \
+	imagewin/scale_xbr.o \
+	imagewin/scale_interlace.o \
+	imagewin/scale_point.o \
+	imagewin/BilinearScaler.o \
+	imagewin/BilinearScalerInternal_2x.o \
+	imagewin/BilinearScalerInternal_Arb.o \
+	imagewin/BilinearScalerInternal_X1Y12.o \
+	imagewin/BilinearScalerInternal_X2Y24.o \
+	imagewin/PointScaler.o
+
+### Just in case...
+
+#NMake Line\
+!if 0
+
+#NMake Line\
+!else
+
+#NMake Line\
+
+#NMake Line\
+!endif
+
+SHAPES_OBJS:= \
+	shapes/font.o \
+	shapes/fontvga.o\
+	shapes/items.o \
+	shapes/miscinf.o\
+	shapes/shapeinf.o\
+	shapes/shapevga.o \
+	shapes/u7drag.o \
+	shapes/vgafile.o \
+	shapes/shapeinf/ammoinf.o \
+	shapes/shapeinf/aniinf.o \
+	shapes/shapeinf/armorinf.o \
+	shapes/shapeinf/bodyinf.o \
+	shapes/shapeinf/continf.o \
+	shapes/shapeinf/effhpinf.o \
+	shapes/shapeinf/expinf.o \
+	shapes/shapeinf/frnameinf.o \
+	shapes/shapeinf/frflags.o \
+	shapes/shapeinf/frusefun.o \
+	shapes/shapeinf/gumpinf.o \
+	shapes/shapeinf/lightinf.o \
+	shapes/shapeinf/monstinf.o \
+	shapes/shapeinf/npcdollinf.o \
+	shapes/shapeinf/objdollinf.o \
+	shapes/shapeinf/sfxinf.o \
+	shapes/shapeinf/warminf.o \
+	shapes/shapeinf/weaponinf.o
+
+OBJS_OBJS:= \
+	objs/animate.o \
+	objs/barge.o \
+	objs/chunks.o \
+	objs/chunkter.o \
+	objs/contain.o \
+	objs/egg.o \
+	objs/iregobjs.o \
+	objs/jawbone.o \
+	objs/mappatch.o \
+	objs/objnames.o \
+	objs/objs.o \
+	objs/spellbook.o \
+	objs/virstone.o
+
+USECODE_OBJS:= \
+	usecode/debugserver.o \
+	usecode/ucdebugging.o \
+	usecode/ucserial.o \
+	usecode/conversation.o \
+	usecode/intrinsics.o \
+	usecode/keyring.o \
+	usecode/stackframe.o \
+	usecode/ucdisasm.o \
+	usecode/ucfunction.o \
+	usecode/ucinternal.o \
+	usecode/ucmachine.o \
+	usecode/ucsched.o \
+	usecode/ucsymtbl.o \
+	usecode/useval.o
+
+OBJS:=$(MAIN_OBJS) $(PATH_OBJS) $(CONF_OBJS) $(AUDIO_OBJS) $(FLIC_OBJS) $(FILE_OBJS) $(SDLRWOPS_OBJS) $(GAMEMGR_OBJS) $(GUMPS_OBJS) $(OBJS_OBJS) $(SHAPES_OBJS) $(IMAGEWIN_OBJS) $(USECODE_OBJS) $(ZIP_OBJS) $(SERVER_OBJS) $(ICON_OBJS) $(IOS_OBJS) $(ANDROID_OBJS) $(WIN32_OBJS)
+
+EXULT_FLX := data/exult.flx data/exult_flx.h
+EXULT_FLX_OBJECTS := \
+	data/flx.in \
+	data/quotes.txt \
+	data/credits.txt \
+	data/exult_logo.shp \
+	data/exult0.pal \
+	data/meditown.mid \
+	data/pointers.shp \
+	data/extras.shp \
+	data/notebook.shp \
+	data/stats_extra.shp \
+	data/savegump.shp \
+	data/sav_downdown.shp \
+	data/sav_down.shp \
+	data/sav_up.shp \
+	data/sav_upup.shp \
+	data/sav_slider.shp \
+	data/sav_selected.shp \
+	data/hp_bar.shp \
+	data/sfx_icon.shp \
+	data/mtgm.mid \
+	data/exultmsg.txt \
+	data/exultmsg_de.txt \
+	data/exultmsg_es.txt \
+	data/exultmsg_fr.txt \
+	data/transparentmenu.shp \
+	data/checkmark_background.shp \
+	data/fs_badges.shp \
+	data/fonts_original.vga \
+	data/fonts_serif.vga \
+	data/shortcutbar.vga
+
+EXULT_FONTS_ORIGINAL_VGA := data/fonts_original.vga data/fonts_original_vga.h
+EXULT_FONTS_ORIGINAL_VGA_OBJECTS := \
+	data/fonts/original.in \
+	data/fonts/0_original.shp \
+	data/fonts/1_wood_runic.shp \
+	data/fonts/2_small_black.shp \
+	data/fonts/3_metal_runic.shp \
+	data/fonts/4_tiny_black.shp \
+	data/fonts/5_tiny_white.shp \
+	data/fonts/6_gold_runic.shp \
+	data/fonts/7_original.shp \
+	data/fonts/8_tiny_ophidian.shp \
+	data/fonts/9_metal_ophidian.shp \
+	data/fonts/10_gold_ophidian.shp \
+	data/fonts/3_mainshp_original.shp \
+	data/fonts/4_endgame_original.shp \
+	data/fonts/5_endgame_original.shp \
+	data/fonts/6_endgame_original.shp \
+	data/fonts/14_intro_original.shp \
+	data/fonts/9_mainshp_bg.shp \
+	data/fonts/9_mainshp_si.shp \
+	data/fonts/font.shp \
+	data/fonts/fonton.shp \
+	data/fonts/navfont.shp \
+	data/fonts/navfonton.shp
+
+EXULT_FONTS_SERIF_VGA := data/fonts_serif.vga data/fonts_serif_vga.h
+EXULT_FONTS_SERIF_VGA_OBJECTS := \
+	data/fonts/serif.in \
+	data/fonts/0_serif.shp \
+	data/fonts/1_wood_runic.shp \
+	data/fonts/2_small_black.shp \
+	data/fonts/3_metal_runic.shp \
+	data/fonts/4_tiny_black.shp \
+	data/fonts/5_tiny_white.shp \
+	data/fonts/6_gold_runic.shp \
+	data/fonts/7_serif.shp \
+	data/fonts/8_tiny_ophidian.shp \
+	data/fonts/9_metal_ophidian.shp \
+	data/fonts/10_gold_ophidian.shp \
+	data/fonts/3_mainshp_serif.shp \
+	data/fonts/4_endgame_serif.shp \
+	data/fonts/5_endgame_serif.shp \
+	data/fonts/6_endgame_serif.shp \
+	data/fonts/14_intro_serif.shp \
+	data/fonts/9_mainshp_bg.shp \
+	data/fonts/9_mainshp_si.shp \
+	data/fonts/font.shp \
+	data/fonts/fonton.shp \
+	data/fonts/navfont.shp \
+	data/fonts/navfonton.shp
+
+EXULT_SHORTCUTBAR_VGA := data/shortcutbar.vga data/shortcutbar_vga.h
+EXULT_SHORTCUTBAR_VGA_OBJECTS := \
+	data/sb_combat.shp \
+	data/sb_disk.shp \
+	data/sb_jawbone.shp \
+	data/sb_keyring.shp \
+	data/sb_spellbook.shp \
+	data/sb_target.shp \
+	data/sb_food.shp \
+	data/sb_key.shp \
+	data/sb_maps.shp \
+	data/sb_notebook.shp \
+	data/sb_backpack.shp
+
+EXULT_BG_FLX := data/exult_bg.flx data/exult_bg_flx.h
+EXULT_BG_FLX_OBJECTS := \
+	data/bg/flx.in \
+	data/bg/BGmap.shp \
+	data/bg/defaultkeys.txt	\
+	data/bg/u7menupal.pal \
+	data/bg/bg_paperdol.vga \
+	data/bg/bg_mr_faces.vga \
+	data/bg/bodies.txt \
+	data/bg/shape_files.txt \
+	data/bg/avatar_data.txt \
+	data/bg/paperdol_info.txt \
+	data/bg/shape_info.txt \
+	data/bg/blends.dat \
+	data/bg/container.dat \
+	data/bg/autonotes.txt \
+	data/bg/intro_hand.shp \
+	data/bg/introsfx_mt32.flx \
+	data/bg/introsfx_sb.flx \
+	data/bg/gump_info.txt \
+	data/bg/global_flags.txt
+
+EXULT_BG_INTROSFX_MT32 := data/bg/introsfx_mt32.flx data/bg/introsfx_mt32.h
+EXULT_BG_INTROSFX_MT32_OBJECTS = \
+	data/bg/introsfx_mt.in \
+	data/bg/intro_mt_static1.wav \
+	data/bg/intro_mt_static2.wav \
+	data/bg/intro_mt_static3.wav \
+	data/bg/intro_mt_guardian1.wav \
+	data/bg/intro_mt_guardian2.wav \
+	data/bg/intro_mt_guardian3.wav \
+	data/bg/intro_mt_guardian4.wav \
+	data/bg/intro_mt_outstatic.wav \
+	data/bg/intro_mt_outnoise.wav \
+	data/bg/intro_mt_monitorslap.wav \
+	data/bg/intro_mt_moongate.wav \
+	data/bg/intro_mt_shot.wav
+
+EXULT_BG_INTROSFX_SB := data/bg/introsfx_sb.flx data/bg/introsfx_sb.h
+EXULT_BG_INTROSFX_SB_OBJECTS = \
+	data/bg/introsfx_sb.in \
+	data/bg/intro_sb_static1.wav \
+	data/bg/intro_sb_static2.wav \
+	data/bg/intro_sb_static3.wav \
+	data/bg/intro_sb_guardian1.wav \
+	data/bg/intro_sb_guardian2.wav \
+	data/bg/intro_sb_guardian3.wav \
+	data/bg/intro_sb_guardian4.wav \
+	data/bg/intro_sb_outstatic.wav \
+	data/bg/intro_sb_outnoise.wav \
+	data/bg/intro_sb_monitorslap.wav \
+	data/bg/intro_sb_moongate.wav \
+	data/bg/intro_sb_shot.wav
+
+EXULT_SI_FLX := data/exult_si.flx data/exult_si_flx.h
+EXULT_SI_FLX_OBJECTS := \
+	data/si/flx.in \
+	data/si/SImap.shp \
+	data/si/defaultkeys.txt \
+	data/si/bodies.txt \
+	data/si/shape_files.txt \
+	data/si/avatar_data.txt \
+	data/si/paperdol_info.txt \
+	data/si/shape_info.txt \
+	data/si/blends.dat \
+	data/si/container.dat \
+	data/si/autonotes.txt \
+	data/si/ext_intro_castle.flc \
+	data/si/ext_intro_ship1.flc \
+	data/si/ext_intro_ship2.flc \
+	data/si/ext_intro_pil1.flc \
+	data/si/ext_intro_a.xmi \
+	data/si/ext_intro_r.xmi \
+	data/si/ext_intro_si01.ogg \
+	data/si/ext_intro_sanctum1.flc \
+	data/si/ext_intro_sanctum2.flc \
+	data/si/ext_intro_sanctum3.flc \
+	data/si/gump_info.txt \
+	data/si/global_flags.txt
+
+EXULT_BG_PAPERDOL_VGA := data/bg/bg_paperdol.vga data/bg/bg_paperdol_vga.h
+EXULT_BG_PAPERDOL_VGA_OBJECTS := \
+	data/bg/amulets.shp \
+	data/bg/bgfiredoom.shp \
+	data/bg/bluedress.shp \
+	data/bg/caddellite_helmet.shp \
+	data/bg/cleaver.shp \
+	data/bg/custom_sword.shp \
+	data/bg/death_scythe.shp \
+	data/bg/dupre_face.shp \
+	data/bg/fellowshipstaff.shp \
+	data/bg/fem_av_face.shp \
+	data/bg/firesword.shp \
+	data/bg/firewand.shp \
+	data/bg/gorget.shp \
+	data/bg/great_dagger.shp \
+	data/bg/greaves.shp \
+	data/bg/greencloak.shp \
+	data/bg/greentop.shp \
+	data/bg/greycloak.shp \
+	data/bg/hawk.shp \
+	data/bg/hoe_of_destruction.shp \
+	data/bg/hoods.shp \
+	data/bg/iolo_face.shp \
+	data/bg/jaana_face.shp \
+	data/bg/julia_face.shp \
+	data/bg/katrina_face.shp \
+	data/bg/knife.shp \
+	data/bg/lightning_whip.shp \
+	data/bg/magic_boomerang.shp \
+	data/bg/magic_helmet.shp \
+	data/bg/main_gauche.shp \
+	data/bg/male_av_face.shp \
+	data/bg/musket.shp \
+	data/bg/musket_ammo.shp \
+	data/bg/orangedress.shp \
+	data/bg/pants.shp \
+	data/bg/ring_of_protection.shp \
+	data/bg/sentri_face.shp \
+	data/bg/shamino_face.shp \
+	data/bg/shoes.shp \
+	data/bg/spark_face.shp \
+	data/bg/spiked_shield.shp \
+	data/bg/starburst.shp \
+	data/bg/throwing_axe.shp \
+	data/bg/triple_xbow.shp \
+	data/bg/tseramed_face.shp \
+	data/bg/swamp_boots.shp \
+	data/bg/spellbook.shp \
+	data/bg/av_costume.shp \
+	data/bg/oil_flask.shp \
+	data/bg/love_arrows.shp \
+	data/bg/magebane.shp \
+	data/bg/shieldbacks.shp \
+	data/bg/diaper.shp \
+	data/bg/bg_paperdol.in
+
+EXULT_BG_MR_FACES_VGA := data/bg/bg_mr_faces.vga data/bg/bg_mr_faces_vga.h
+EXULT_BG_MR_FACES_VGA_OBJECTS := \
+	data/bg/mr_faces.shp \
+	data/bg/bg_mr_faces.in
+
+FLEXES := $(EXULT_FLX) $(EXULT_BG_FLX) $(EXULT_SI_FLX)
+BG_PAPERDOLL := $(EXULT_BG_PAPERDOL_VGA)
+BG_MR_FACES := $(EXULT_BG_MR_FACES_VGA)
+
+all: $(EXEC)
+
+$(MIDI_DRV_ALSA_OBJS) : CXXFLAGS:=$(ALSA_CFLAGS) $(CXXFLAGS)
+
+$(MIDI_DRV_MACOSX_OBJS) : CXXFLAGS:=$(MACOS_CFLAGS) $(patsubst $(ARCHFLAGS),,$(CXXFLAGS))
+
+ios/ios_utils.o : CXXFLAGS:=-MMD -std=c++17 -fdiagnostics-color=always $(IOS_CFLAGS) $(strip $(OPT_LEVEL) $(WARNINGS))
+
+ios/GamePadView.o : CFLAGS:=-MMD -std=c11 -fdiagnostics-color=always $(IOS_CFLAGS) $(strip $(OPT_LEVEL) $(WARNINGS))
+
+ifneq ($(ANDROID_OBJS),)
+$(ANDROID_OBJS) : CXXFLAGS:=-MMD -std=c++17 -fdiagnostics-color=always $(ANDROID_CFLAGS) $(strip $(OPT_LEVEL) $(WARNINGS))
+endif
+
+%.o: %.mm
+	$(CXX) -x objective-c++ $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
+
+%.o: %.m
+	$(CC) -x objective-c $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+
+$(MIDI_DRV_UNIXSEQ_OBJS) : CXXFLAGS:=$(UNIXSEQ_CFLAGS) $(CXXFLAGS)
+
+ucinternal.o : ucinternal.cc ucinternal.h bgintrinsics.h siintrinsics.h sibetaintrinsics.h opcodes.h usefuns.h
+
+# Generated flex dependencies...
+
+exult.o : exult.cc $(EXULT_FLX) $(EXULT_BG_FLX) $(EXULT_SI_FLX)
+
+exultmenu.o : exultmenu.cc $(EXULT_FLX)
+
+game.o : game.cc $(EXULT_FLX)
+
+shapeid.o : shapeid.cc $(EXULT_BG_FLX) $(EXULT_SI_FLX)
+
+audio/Midi.o : audio/Midi.cc $(EXULT_FLX)
+
+gumps/AudioOptions_gump.o : gumps/AudioOptions_gump.cc $(EXULT_FLX)
+
+gumps/GameEngineOptions_gump.o : gumps/GameEngineOptions_gump.cc $(EXULT_FLX)
+
+gumps/Face_stats.o : gumps/Face_stats.cc $(EXULT_FLX)
+
+gumps/Gamemenu_gump.o : gumps/Gamemenu_gump.cc $(EXULT_FLX)
+
+gumps/Gump.o : gumps/Gump.cc $(EXULT_BG_FLX) $(EXULT_SI_FLX)
+
+gumps/GameDisplayOptions_gump.o : gumps/GameDisplayOptions_gump.cc $(EXULT_FLX)
+
+gumps/Mixer_gump.o : gumps/Mixer_gump.cc $(EXULT_FLX)
+gumps/ItemMenu_gump.o : gumps/ItemMenu_gump.cc $(EXULT_FLX)
+
+gumps/InputOptions_gump.o : gumps/InputOptions_gump.cc $(EXULT_FLX)
+
+gumps/Modal_gump.o : gumps/Modal_gump.cc $(EXULT_FLX)
+
+gumps/Newfile_gump.o : gumps/Newfile_gump.cc $(EXULT_FLX)
+
+gumps/Notebook_gump.o : gumps/Notebook_gump.cc $(EXULT_FLX)
+
+gumps/Scrollable_widget.o : gumps/Scrollable_widget.cc $(EXULT_FLX)
+
+gumps/ShortcutBar_gump.o : gumps/ShortcutBar_gump.cc $(EXULT_FLX)
+
+gumps/Stats_gump.o : gumps/Stats_gump.cc $(EXULT_FLX)
+
+gumps/VideoOptions_gump.o : gumps/VideoOptions_gump.cc $(EXULT_FLX)
+
+gamemgr/bggame.o : gamemgr/bggame.cc $(EXULT_BG_FLX)
+
+gamemgr/sigame.o : gamemgr/sigame.cc $(EXULT_SI_FLX)
+
+shapes/items.o : shapes/items.cc $(EXULT_BG_FLX) $(EXULT_SI_FLX)
+
+shapes/shapevga.o : shapes/shapevga.cc $(EXULT_BG_FLX) $(EXULT_SI_FLX)
+
+usecode/conversation.o : shapes/shapevga.cc $(EXULT_BG_FLX)
+
+version.o: gitinfo.h
+
+$(EXEC) : $(BG_PAPERDOLL) $(FLEXES) $(OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) $(OBJS) $(LIBS)
+
+expack$(EXEEXT) : tools/expack.o $(FILE_OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) tools/expack.o $(FILE_OBJS)
+
+$(EXULT_FLX): expack$(EXEEXT) $(EXULT_FLX_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/flx.in
+
+$(EXULT_FONTS_ORIGINAL_VGA): expack$(EXEEXT) $(EXULT_FONTS_ORIGINAL_VGA_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/fonts/original.in
+
+$(EXULT_FONTS_SERIF_VGA): expack$(EXEEXT) $(EXULT_FONTS_SERIF_VGA_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/fonts/serif.in
+
+$(EXULT_SHORTCUTBAR_VGA): expack$(EXEEXT) $(EXULT_SHORTCUTBAR_VGA_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/shortcutbar.in
+
+$(EXULT_BG_FLX): expack$(EXEEXT) $(EXULT_BG_FLX_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/bg/flx.in
+
+$(EXULT_BG_INTROSFX_MT32): expack$(EXEEXT) $(EXULT_BG_INTROSFX_MT32_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/bg/introsfx_mt.in
+
+$(EXULT_BG_INTROSFX_SB): expack$(EXEEXT) $(EXULT_BG_INTROSFX_SB_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/bg/introsfx_sb.in
+
+$(EXULT_SI_FLX): expack$(EXEEXT) $(EXULT_SI_FLX_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/si/flx.in
+
+$(BG_PAPERDOLL): expack$(EXEEXT) $(EXULT_BG_PAPERDOL_VGA_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/bg/bg_paperdol.in
+
+$(BG_MR_FACES): expack$(EXEEXT) $(EXULT_BG_MR_FACES_VGA_OBJECTS)
+	$(SRC)/expack$(EXEEXT) -i data/bg/bg_mr_faces.in
+
+cmanip$(EXEEXT) : tools/cmanip.o $(CONF_OBJS) $(FILE_OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) tools/cmanip.o $(CONF_OBJS) $(FILE_OBJS)
+
+IPACK_OBJS:=\
+	files/Flat.o \
+	files/Flex.o \
+	files/IFF.o \
+	files/Table.o \
+	files/U7file.o \
+	files/U7fileman.o \
+	files/U7obj.o \
+	files/utils.o \
+	files/listfiles.o \
+	imagewin/ibuf8.o \
+	imagewin/imagebuf.o \
+	shapes/pngio.o \
+	shapes/vgafile.o \
+	tools/ipack.o
+
+ipack$(EXEEXT) : $(IPACK_OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) $(IPACK_OBJS) -lpng -lz
+
+mklink$(EXEEXT) : tools/mklink.o
+	$(CXX) $(LDFLAGS) -o $(@) tools/mklink.o
+
+mockup$(EXEEXT): tools/mockup/main.o
+	$(CC) $(LDFLAGS) -o $(@) tools/mockup/main.o $(subst -mwindows,-mconsole,$(SDL_IMAGE_LIBS))
+
+rip$(EXEEXT) : tools/rip.o
+	$(CXX) $(LDFLAGS) -o $(@) tools/rip.o
+
+libsmooth_randomize$(LIBEXT): tools/smooth/plugins/plugin_randomize.o
+	$(CXX) -shared -o $(@) tools/smooth/plugins/plugin_randomize.o $(subst -mwindows,-mconsole,$(SDL_LIBS)) $(LDFLAGS)
+
+libsmooth_smooth$(LIBEXT): tools/smooth/plugins/plugin_smooth.o
+	$(CXX) -shared -o $(@) tools/smooth/plugins/plugin_smooth.o $(subst -mwindows,-mconsole,$(SDL_LIBS)) $(LDFLAGS)
+
+libsmooth_stream$(LIBEXT): tools/smooth/plugins/plugin_stream.o
+	$(CXX) -shared -o $(@) tools/smooth/plugins/plugin_stream.o $(subst -mwindows,-mconsole,$(SDL_LIBS)) $(LDFLAGS)
+
+SMOOTH_OBJS:=\
+	tools/smooth/config.o \
+	tools/smooth/image.o \
+	tools/smooth/linked.o \
+	tools/smooth/param.o \
+	tools/smooth/plugin.o \
+	tools/smooth/smooth.o
+
+smooth$(EXEEXT) : $(SMOOTH_OBJS)
+	$(CC) $(LDFLAGS) -o $(@) $(SMOOTH_OBJS) $(subst -mwindows,-mconsole,$(SDL_IMAGE_LIBS))
+
+shp2pcx$(EXEEXT) : tools/shp2pcx.o
+	$(CXX) $(LDFLAGS) -o $(@) tools/shp2pcx.o
+
+splitshp$(EXEEXT) : tools/splitshp.o
+	$(CXX) $(LDFLAGS) -o $(@) tools/splitshp.o
+
+textpack$(EXEEXT) : tools/textpack.o $(FILE_OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) tools/textpack.o $(FILE_OBJS)
+
+u7voice2syx$(EXEEXT) : tools/u7voice2syx.o $(FILE_OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) tools/u7voice2syx.o $(FILE_OBJS)
+
+wuc$(EXEEXT) : tools/wuc.o tools/uctools.h usecode/bgintrinsics.h usecode/siintrinsics.h usecode/sibetaintrinsics.h
+	$(CXX) $(LDFLAGS) -o $(@) tools/wuc.o
+
+EXULT_THUMB_OBJS:=\
+	files/Flat.o \
+	files/Flex.o \
+	files/IFF.o \
+	files/Table.o \
+	files/U7file.o \
+	files/U7fileman.o \
+	files/U7obj.o \
+	files/utils.o \
+	files/listfiles.o \
+	imagewin/ibuf8.o \
+	imagewin/imagebuf.o \
+	shapes/pngio.o \
+	shapes/vgafile.o \
+	tools/exult_shp_thumbnailer.o
+
+exult_shp_thumbnailer$(EXEEXT) : $(EXULT_THUMB_OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) $(EXULT_THUMB_OBJS) $(GTK_LIBS) -lpng -lz
+
+UCC_OBJS:=\
+	ucparse.o \
+	uclex.o \
+	usecode/ucsymtbl.o \
+	tools/compiler/ucmain.o \
+	tools/compiler/ucexpr.o \
+	tools/compiler/ucfun.o \
+	tools/compiler/ucloc.o \
+	tools/compiler/ucstmt.o \
+	tools/compiler/ucsym.o \
+	tools/compiler/ucclass.o
+
+ucc$(EXEEXT) : $(UCC_OBJS) files/utils.h usecode/bgintrinsics.h usecode/siintrinsics.h usecode/sibetaintrinsics.h usecode/opcodes.h usecode/ucsymtbl.h
+	$(CXX) $(LDFLAGS) -o $(@) $(UCC_OBJS)
+
+ucparse.cc: tools/compiler/ucparse.yy
+	bison -d -Wno-yacc tools/compiler/ucparse.yy -o ucparse.cc --header=ucparse.h
+
+uclex.cc: tools/compiler/uclex.ll
+	flex -o uclex.cc tools/compiler/uclex.ll
+
+UCXT_OBJS:=\
+	$(CONF_OBJS) \
+	$(ZIP_OBJS) \
+	$(FILE_OBJS) \
+	gamemgr/modmgr.o \
+	usecode/ucsymtbl.o \
+	tools/ucxt/src/ops.o \
+	tools/ucxt/src/ucdata.o \
+	tools/ucxt/src/ucfunc.o \
+	tools/ucxt/src/ucxt.o
+
+ucxt$(EXEEXT) : $(UCXT_OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) $(UCXT_OBJS) $(ZIP_LIBS)
+
+CONFREGRESS_OBJS:=$(CONF_OBJS) conf/xmain.o files/utils.o files/listfiles.o 
+
+confregress$(EXEEXT)  : $(CONFREGRESS_OBJS)
+	$(CXX) $(LDFLAGS) -o $(@) $(CONFREGRESS_OBJS)
+
+TOOL_OBJS:=tools/expack.o $(FILE_OBJS) tools/cmanip.o tools/ipack.o $(IPACK_OBJS) \
+	tools/mockup/main.o tools/mklink.o tools/rip.o tools/shp2pcx.o \
+	tools/splitshp.o $(SMOOTH_OBJS) tools/smooth/plugins/plugin_smooth.o \
+	tools/smooth/plugins/plugin_randomize.o tools/smooth/plugins/plugin_stream.o \
+	tools/textpack.o tools/u7voice2syx.o tools/wuc.o $(UCXT_OBJS) $(UCC_OBJS) \
+	$(CONFREGRESS_OBJS) tools/ucxt/head2data.o
+
+head2data.o : tools/ucxt/head2data.cc usecode/bgintrinsics.h usecode/siintrinsics.h usecode/sibetaintrinsics.h
+
+head2data$(EXEEXT) : tools/ucxt/head2data.o $(FILE_OBJS) usecode/bgintrinsics.h usecode/siintrinsics.h usecode/sibetaintrinsics.h
+	$(CXX) $(LDFLAGS) -o $(@) tools/ucxt/head2data.o $(FILE_OBJS)
+
+head2data.test: head2data$(EXEEXT)
+	$(SRC)/head2data$(EXEEXT) data/u7bgintrinsics.data data/u7siintrinsics.data data/u7sibetaintrinsics.data
+
+
+#gitinfo.h will be regenerated if certain git files change
+gitinfo.h: .git/index .git/HEAD .git/config Makefile.common
+	@if git rev-parse HEAD >/dev/null 2>&1;then  \
+		echo //this file is generated by the exult build process > gitinfo-new.h; \
+		echo "#define GIT_REVISION \"`git rev-parse HEAD`\"" >> gitinfo-new.h; \
+		echo "static constexpr const char* GIT_TAG[] = {">> gitinfo-new.h; \
+		git tag -l --points-at HEAD --format="\"%(refname:short)\"," >> gitinfo-new.h; \
+		echo "\"\"};">> gitinfo-new.h; \
+		git branch --list "`git branch --show-current`" --format="%(if)%(upstream)%(then)#define GIT_REMOTE_BRANCH \"%(upstream:strip=-1)\"%(end)" >> gitinfo-new.h; \
+		echo >> gitinfo-new.h; \
+		echo "#define GIT_REMOTE_URL \"`git ls-remote --get-url`\"" >> gitinfo-new.h; \
+		echo >> gitinfo-new.h; \
+		echo Built gitinfo.h; \
+		if test -f gitinfo.h && diff -q gitinfo-new.h gitinfo.h >/dev/null; then \
+			rm gitinfo-new.h; \
+		else \
+			mv gitinfo-new.h gitinfo.h; \
+		fi; \
+	fi
+
+
+#these do nothing but are here just incase the files dosn't exist so prerequities are met
+.git/index:
+.git/HEAD:
+.git/config:
+
+clean:
+	rm -f $(OBJS) $(OBJS:%.o=%.d) tools/expack.o $(EXEC) expack$(EXEEXT) tools/ipack.o ipack$(EXEEXT) data/exult.flx data/exult_flx.h data/exult_bg.flx data/exult_bg_flx.h data/exult_si.flx data/exult_si_flx.h data/bg/bg_paperdol.vga data/bg/bg_mr_faces.vga data/bg/bg_paperdol_vga.h data/bg/bg_mr_faces_vga.h gitinfo.h data/fonts_original.vga data/fonts_original.vga.h data/fonts_serif.vga data/fonts_serif.vga.h data/shortcutbar.vga data/shortcutbar.vga.h
+
+tools:  expack$(EXEEXT) cmanip$(EXEEXT) ipack$(EXEEXT) mklink$(EXEEXT) mockup$(EXEEXT) rip$(EXEEXT) shp2pcx$(EXEEXT) smooth$(EXEEXT) splitshp$(EXEEXT) textpack$(EXEEXT) wuc$(EXEEXT) u7voice2syx$(EXEEXT) ucc$(EXEEXT) ucxt$(EXEEXT)  \
+	$(SRC)/head2data$(EXEEXT) head2data.test libsmooth_randomize$(LIBEXT) libsmooth_smooth$(LIBEXT) libsmooth_stream$(LIBEXT)
+
+# Thumbnailer needs gdk so don't include it in the default tools target
+alltools:  tools exult_shp_thumbnailer$(EXEEXT)
+
+toolsclean:
+	rm -f $(TOOL_OBJS:%.o=%.d)
+	rm -f tools/expack.o expack$(EXEEXT) $(FILE_OBJS)
+	rm -f tools/cmanip.o cmanip$(EXEEXT)
+	rm -f tools/ipack.o ipack$(EXEEXT) $(IPACK_OBJS)
+	rm -f tools/mockup/main.o mockup$(EXEEXT)
+	rm -f tools/mklink.o mklink$(EXEEXT)
+	rm -f tools/rip.o rip$(EXEEXT)
+	rm -f tools/shp2pcx.o shp2pcx$(EXEEXT)
+	rm -f tools/splitshp.o splitshp$(EXEEXT)
+	rm -f $(SMOOTH_OBJS) smooth$(EXEEXT)
+	rm -f libsmooth_randomize$(LIBEXT) tools/smooth/plugins/plugin_smooth.o
+	rm -f libsmooth_smooth$(LIBEXT) tools/smooth/plugins/plugin_randomize.o
+	rm -f libsmooth_stream$(LIBEXT) tools/smooth/plugins/plugin_stream.o
+	rm -f tools/textpack.o textpack$(EXEEXT)
+	rm -f tools/u7voice2syx.o u7voice2syx$(EXEEXT)
+	rm -f tools/wuc.o wuc$(EXEEXT)
+	rm -f tools/exult_shp_thumbnailer.o exult_shp_thumbnailer$(EXEEXT)
+	rm -f $(UCXT_OBJS) ucxt$(EXEEXT)
+	rm -f $(UCC_OBJS) ucc$(EXEEXT) ucparse.cc ucparse.h uclex.cc
+	rm -f $(CONFREGRESS_OBJS) confregress$(EXEEXT)
+	rm -f tools/ucxt/head2data.o head2data$(EXEEXT) data/u7bgintrinsics.data data/u7siintrinsics.data data/u7sibetaintrinsics.data

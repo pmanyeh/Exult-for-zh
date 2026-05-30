@@ -1,0 +1,1363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faqs SYSTEM "docs.dtd">
+<faqs title="Exult" changed="25 April 2024 (GMT)">
+	<section title="Introduction">
+		<sub name="exult_version">
+			<header>Exult Version</header>
+			<body>
+				<para>
+					These frequently asked questions are for the snapshot version of <Exult/>.
+					If you have another <Exult/> version this FAQ can be found where you installed it.
+				</para>
+			</body>
+		</sub>
+		<sub name="why_name_exult">
+			<header>Why is it called <Exult/> - what is the meaning of this name?</header>
+			<body>
+				<cite name="Jeff wrote on the Boards">
+					I originally wrote it [Exult] solely for X-windows, so that's where
+					the 'X' comes from. The "ult", of course, comes from Ultima. It
+					was only about 6 months ago [02/29/2000] that I replaced the X code with SDL,
+					which is multiplatform. Then Arthuris ported it to Win32 (and to
+					BeOS). He had also ported the earlier version, but it was much harder
+					to maintain that way.
+				</cite>
+				<cite name="Ibrahim Holtzmann">
+					I'd like to point out that "exult" is also an English verb that
+					means "to rejoice, to exhibit great happiness".
+				</cite>
+			</body>
+		</sub>
+		<sub name="is_exult_free">
+			<header>Is <Exult/> free ?</header>
+			<body>
+				<para>
+					<Exult/> is more than free: it's Free (notice the caps). <Exult/> is released
+					under the GNU GPL (General Public License). This means that the source code
+					for <Exult/> is freely available and you can do whatever you want with it.
+					However, if you make modifications to any of <Exult/>s components and publicly
+					redistribute your work you are required to make the source freely available
+					in turn. Obviously the <Exult/> team would be very grateful if any
+					modifications you make are contributed back to the main code, so that
+					everyone can benefit from them. If you want to work on <Exult/> please contact
+					us via our
+					<extref target="https://github.com/exult/exult/discussions">forum</extref>.<br/>
+					More information on the GNU GPL at
+					<extref target="https://www.gnu.org/copyleft/gpl.html"/>.
+				</para>
+			</body>
+		</sub>
+		<sub name="exult_donation">
+			<header>Do you accept donations?</header>
+			<body>
+				<para>
+					No, the <Exult/> team will not accept donations. For us there are greater legal matters
+					involved, which none of us particularly want to explore. We do not want to risk the
+					wrath of EA for directly profiting off <Exult/>.<br/>
+				</para>
+			</body>
+		</sub>
+		<sub name="origin_exult">
+			<header>Does Origin or EA support <Exult/>?</header>
+			<body>
+				<para>
+					First of all, Origin has been wiped from existence by EA a long time ago.
+					Furthermore, Origin and/or people that worked for Origin have claimed that
+					the source code for Ultima VII (BG/SI) has been lost for some time.
+					So there is no chance for the <Exult/> team to have a look at the actual code.
+				</para>
+				<para>
+					Also the team tried to contact some people from Origin years ago but received
+					neither positive or negative response on the <Exult/> project. So far it seems
+					that EA has decided to ignore <Exult/>.
+				</para>
+				<para>
+					On the other hand former Origin employees contacted the team and congratulated
+					on their effort. Most noticeable are Lord British himself and Ken Demarest
+					(Programming Manager of Ultima VII)(hint:spell his name backwards).
+				</para>
+			</body>
+		</sub>
+		<sub name="other_ultimas">
+			<header>Will <Exult/> support other Ultima games?</header>
+			<body>
+				<para>
+					<Exult/> supports only Ultima VII (BG/SI and the add-ons). It will never support
+					any other Ultima nor do members of the team plan to develop something similar.
+					The reasons for this are that no other Ultima is similar to Ultima VII in the
+					internal workings and also the team used to be quite sick of reverse engineering
+					a game already.
+				</para>
+			</body>
+		</sub>
+		<sub name="pentagram">
+			<header>But isn't <Pentagram/> some kind of <Exult/> for U8?</header>
+			<body>
+				<para>
+					<Pentagram/> is a pet project by some members of the <Exult/> team (currently mostly
+					Willem, Colourless, Fingolfin and Darke). It is a <strong>map and shapes viewer</strong>
+					and nothing more (although the team does indeed invest some time to disassemble the Usecode
+					of U8). It isn't meant to be something similar to <Exult/>. It is rather a clever plan
+					to stir up interest in other coders to carry this basic work further.<br/>
+					Any <strong>developer</strong> is welcome to take a look and contact us.
+				</para>
+				<para>
+					After years this plan has come to fruit and <Pentagram/> has been merged into
+					<strong>ScummVM</strong>. Even support for the two games <strong>Crusader: No Remorse</strong>
+					and <strong>Crusader: No Regret</strong>, which use the same engine, has been progressing
+					in <strong>ScummVM</strong>'s code.
+				</para>
+				<para>
+					On the official <Pentagram/> homepage at <extref target="http://pentagram.info/"/>
+					you will find more information on this project of before the merge with
+					<strong>ScummVM</strong>.
+				</para>
+			</body>
+		</sub>
+		<sub name="multiplayer">
+			<header>Will there be a multiplayer <Exult/>?</header>
+			<body>
+				<para>
+					No.
+				</para>
+				<cite name="Jeff on the Forum">
+					The question is 'why?'. I continue working on <Exult/>, in large part, because
+					nobody makes games like Ultima VII anymore. While I think a multiplayer game
+					would be technically interesting, I don't see the need. There are <em>lots</em>
+					of them already, and many experienced people working on new ones.
+				</cite>
+				<para>
+					Note however that <Exult/> is open source. If you want a multiplayer Ultima VII no one
+					holds you back to code it in.
+				</para>
+			</body>
+		</sub>
+		<sub name="whereis_exult">
+			<header>Where do I find <Exult/>?</header>
+			<body>
+				<para>
+					The latest official version is found on
+					<extref target="https://exult.info/"/><br/>
+					The source code of <Exult/> is hosted on GitHub's Git server which you can
+					browse and download at <extref target="https://github.com/exult"/>.<br/>
+					Daily snapshots of the source code, Windows and macOS binaries can be found at
+					<extref target="https://exult.info/download.html"/>.<br/>
+					Paulo started a PPA for Ubuntu at
+					<extref target="https://launchpad.net/~exult-team/+archive/exult-daily"/>.<br/>
+				</para>
+				<para>
+					To use the PPA for Ubuntu follow these steps in terminal:<br/>
+					<kbd>$  sudo apt-add-repository ppa:exult-team/exult-daily</kbd><br/>
+					#Adds the repository - you will be required to accept the key file.
+					Just press 'Enter'<br/>
+					<kbd>$ sudo apt-get update</kbd><br/>
+					#Updates your cache.<br/>
+					<kbd>$ sudo apt-get install exult exult-audiopack</kbd><br/>
+					#Installs Exult itself and audio files
+				</para>
+			</body>
+		</sub>
+		<sub name="whatis_snapshot">
+			<header>What is a snapshot? Are these screenshots or what?</header>
+			<body>
+				<para>
+					Bugs and not yet implemented features in <Exult/> get fixed almost daily in the code.
+					A release is very time consuming that's why there are so few.
+				</para>
+				<para>
+					The snapshot is the newest source code of the program. It is updated every
+					night if commits landed in our repository on that day. There is information on how to
+					build your own binary in the source but there is also the newest pre-compiled Windows
+					and macOS executables.<br/>
+					If there is no new one this means that either there were no changes to the code
+					or the source failed to compile.
+				</para>
+			</body>
+		</sub>
+		<sub name="compile_snapshot">
+			<header>How do I compile a source code snapshot for my OS?</header>
+			<body>
+				<para>
+					The source code snapshots contain the files Readme.windows, Readme.MacOSX
+					that explain everything. The instructions for Linux systems are
+					traditionally in the file called INSTALL.
+				</para>
+			</body>
+		</sub>
+		<sub name="latest_version">
+			<header>What is the latest version of <Exult/>?</header>
+			<body>
+				<para>
+					The current official release is 1.8.<br/>
+					See also <ref target="whereis_exult"/>
+					to learn where to get the latest version.
+				</para>
+				<para>
+					To find out which version you are running, press <key>v</key> while in game.
+				</para>
+				<para>
+					At the moment we recommend that people use the latest snapshot rather than
+					our last official version since many critical bugs have been fixed since the
+					last release.
+				</para>
+			</body>
+		</sub>
+		<sub name="what_platforms">
+			<header>On what platform does <Exult/> run?</header>
+			<body>
+				<para>
+					<Exult/> should be able to be compiled (with minor modifications) on
+					any platform that SDL2 supports. Right now the source can be compiled
+					in <strong>Linux, macOS, OpenBSD, FreeBSD,</strong> and
+					<strong>Windows (XP/Vista/7, 10, 11)</strong>.
+				</para>
+				<ul>
+					<li><strong>iOS (iPhone and iPad)</strong><br/>
+					After initial porting by our member Lanica Dragon, Chaoji Li (aka Litchie)
+					successfully ported <Exult/> to iOS. On the iPad <Exult/>  really shines
+					and is very enjoyable. However Ultima VII's item management makes it much
+					harder to use on the smaller iPhone screens.<br/></li>
+
+					<li><strong>Android, Java</strong><br/>
+					Jeff, Dr.Code, is started porting <Exult/> to Android by rewriting it in Java.
+					Unfortunately this port has been abandoned but its former progress can be viewed in its
+					old	<extref target="https://goo.gl/VJCNG">forum</extref> thread.</li>
+
+					<li><strong>Android, native</strong><br/>
+					KenC ported <Exult/> directly to Android, without rewriting it in Java. After a long
+					hiatus he continued his work on
+					<extref target="https://github.com/ceckak/exult/tree/android-port">Github</extref>,
+					before we merged it with <Exult/> after our 1.8 release.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="old_platforms">
+			<header>Platforms <Exult/> used to run on</header>
+			<body>
+				<para>
+					<Exult/> used to run on many more platforms but these are mostly devices and operating systems that have
+					not been in use for ages now. Support for these has been removed from the Exult source to streamline
+					our code. Or the 3rd party ports have been inactive for years.
+				</para>
+				<ul>
+					<li><strong>Windows 9X, 2k, XP</strong><br/>
+					Since we needed to go forward with our code we decided to no longer support the old Windows versions.</li>
+					<li><strong>Zaurus</strong><br/>
+					Artaxerxes developed the port to Zaurus, a Linux/ARM based PDA.
+					It is already fully playable (Artaxerxes played through SI). Pictures of the Zaurus
+					running SI can be found at
+					<extref target="https://exult.info/images/screenshots/zaurus/"/>.</li>
+					<li><strong>PocketPC</strong><br/>
+					Lanica Dragon successfully ported <Exult/> to the PocketPC.</li>
+					<li><strong>Amiga/MorphOS</strong><br/>
+					Ruediger Hanke ported <Exult/> to MorphOS and AmigaOS. Unfortunately the port has
+					been abandoned for quite some time now. But you can only find the archived homepage
+					for this port at
+					<extref target="https://web.archive.org/web/20070927190600/http://www.muenster.de/~tomjoad/exult.html"/>.
+					Unfortunately the download is no longer available.</li>
+					<li><strong>Dingoo</strong><br/>
+					<Exult/> has been ported to Dingoo (see
+					<extref target="https://crankgaming.blogspot.com/2010/09/exult-v14svn6317-for-dingux-beta2.html">this Announcement</extref>)
+					by SiENcE.</li>
+					<li><strong>Sony PSP</strong><br/>
+					Phantom Fighter ported <Exult/> 1.2 to <extref target="http://thefoodsucks.com/portfolio/exult-psp/">Sony PSP</extref></li>
+					<li><strong>Xbox 360</strong><br/>
+					And Cancerous1 is in the progress of porting <Exult/> to
+					<extref target="https://code.google.com/p/exultx-nosdlmixer/">Xbox 360</extref>.</li>
+				</ul>
+				<para>
+					A long time ago <Exult/> used to compile on <strong>MacOS 8.5</strong> (or higher),
+					<strong>Solaris</strong> and <strong>BeOS</strong>.
+				</para>
+			</body>
+		</sub>
+		<sub name="any_port">
+			<header>Will there be a port of <Exult/> for &lt;insert platform here&gt;?</header>
+			<body>
+				<para>
+					That depends on a great many things. For one, it requires a developer that (1) has the
+					necessary free time, (2) the necessary knowledge about programming for the platform in
+					question, (3) the necessary motivation to do the port and (4) access to the platform in
+					question. Any of the <Exult/> developers may lack one or more of the items above, but it
+					will probably the fourth (and, by consequence, the third) item. This is likely fatal
+					for the port: programming using an emulator (if one is even available) may result in a
+					port that works on the emulator but not on the original (unless the emulator is that
+					good), and programming without any access at all to the platform in question is a
+					pointless and frustrating exercise in futility.
+				</para>
+				<para>
+					Moreover, some platforms might require BG and/or SI to come bundled with <Exult/>; that alone
+					would disqualify any official builds for legal reasons.
+				</para>
+			</body>
+		</sub>
+	</section>
+	<section title="Exult and Ultima VII">
+		<sub name="u7_needed">
+			<header>Do I need Ultima VII?</header>
+			<body>
+				<para>
+					Yes. <Exult/> won't work without the original files.
+				</para>
+			</body>
+		</sub>
+		<sub name="u7_versions">
+			<header>Does <Exult/> work on all versions of the game?</header>
+			<body>
+				<para>
+					It seems to run most of the available versions of the game. The most common
+					ones nowadays with the included Add-ons (Forge of Virtue and Silver Seed)
+					run for sure.
+				</para>
+				<para>
+					In the past there were reported problems with the localized versions of the
+					game (French, German and Spanish) but these should not be a problem anymore.
+					The reported problems were that conversation threads didn't seem to skip to the
+					next line in the proper places and therefore were unreadable in some cases.<br/>
+					SI was published in English and Spanish (to our surprise)
+					but we seem to have fixed the main problem with the Spanish version.
+				</para>
+				<para>
+					If you are running a localized version of BG or SI and you notice any
+					problems please contact us.
+				</para>
+			</body>
+		</sub>
+		<sub name="play_serpentbeta">
+			<header>Can you play the beta of Serpent Isle?</header>
+			<body>
+				<para>
+					We added support for the beta version of Serpent Isle that surfaced at some point.<br/>
+					It's interesting to see how SI changed from this beta but it's not stable enough to
+					play through the game.
+				</para>
+			</body>
+		</sub>
+		<sub name="play_through_u7">
+			<header>Can you play through Ultima VII yet?</header>
+			<body>
+				<para>
+					You can play through the BG, FoV, SI and SS without cheating and
+					plot holes.
+				</para>
+			</body>
+		</sub>
+		<sub name="si_support">
+			<header>How about Serpent Isle?</header>
+			<body>
+				<para>
+					Serpent Isle has been playable without cheating and plot holes for a long time now.
+				</para>
+				<para>
+					Old quotes on this topic from the time when SI wasn't playable at all in <Exult/>.
+				</para>
+				<cite name="Colourless">
+					I can't say much about the what will happen except that a completely
+					working Serpent Isle will be an annoying task to complete. It is
+					close to BG in some ways, but very different in others.
+				</cite>
+				<cite name="Jeff">
+					My feelings about SI are the same as Colourless, who has done all
+					the work so far on it. I'd much prefer to add enhancements to BG
+					(which would apply to SI as well), and perhaps write a new RPG.
+					Now, if EA would provide us with information about SI's internals,
+					that would change things. And also, since <Exult/> is open-source,
+					it would be fine if anyone wants to volunteer to work on SI.
+				</cite>
+			</body>
+		</sub>
+		<sub name="addon_support">
+			<header>Do the Add-ons work?</header>
+			<body>
+				<para>
+					"Forge of Virtue" (Add-on to Black Gate) and the "The Silver Seed"
+					(Add-on to Serpent Isle) are bug-free.
+				</para>
+			</body>
+		</sub>
+		<sub name="old_savegames">
+			<header>Do save games from the original work in <Exult/>?</header>
+			<body>
+				<para>
+					Save games that were made with the original Ultima VII or U7Run don't work
+					with <Exult/>. You have to start a new game when you begin playing with <Exult/>.
+					Sorry!
+				</para>
+			</body>
+		</sub>
+		<sub name="saves_compatibility">
+			<header>Do <Exult/> savegames work on all Operating Systems?</header>
+			<body>
+				<para>
+					<Exult/> savegames are compatible on all supported Operating Systems. For example
+					a saved game of the macOS port of <Exult/> works on Windows 10 as well.
+				</para>
+				<para>
+					However it is not advisable to continue playing with savegames of games started
+					with old versions of <Exult/>.
+				</para>
+			</body>
+		</sub>
+		<sub name="u7_download">
+			<header>Where do I find Ultima VII on the net to download?</header>
+			<body>
+				<para>
+					If you are looking for a legitimate copy of the games, go to
+					<extref target="https://www.gog.com">GOG.com</extref>. They are offering the
+					complete Ultima VII since November 2011 for a decent price.
+				</para>
+				<para>
+					<em>Don't</em> ask the team for copies. And please don't ask for
+					the answers to the copyright questions.
+				</para>
+			</body>
+		</sub>
+	</section>
+	<section title="Miscellaneous">
+		<sub name="walkthroughs">
+			<header>Where do I find a walkthrough?</header>
+			<body>
+				<para>
+					If you need help with the game itself, like walkthroughs, hints, location of
+					NPCs items, take a look at the following sites:
+				</para>
+				<ul>
+					<li><extref target="https://web.archive.org/web/20151106222650/http://www.ultimainfo.net/Codex/Ultima7.htm">
+						Paulon Dragons selection of notes and information on Ultima VII</extref></li>
+					<li><extref target="https://web.archive.org/web/20151106222650/http://www.ultimainfo.net/Codex/FAQ2.htm#U7">
+						The Ultima VII section of Paulon Dragons Ultima games FAQ</extref></li>
+					<li><extref target="https://web.archive.org/web/20151106222650/http://www.ultimainfo.net/FAQ/ultimafaqs.htm#11">
+						The Ultima VII section of the more detailed Ultima Gameplay FAQ</extref></li>
+				</ul>
+				<para>
+					Please be aware that if you play by using a walkthrough you may accidentally skip important parts of the game,
+					especially when playing SI you have to be careful since SI is much more linear than BG.<br/>
+					Please see <ref target="why_gameplayfaq"/> for more information.
+				</para>
+			</body>
+		</sub>
+		<sub name="where_cfg">
+			<header>Where do I find the configuration file?</header>
+			<body>
+				<para>
+					You can find exult.cfg in specific directories:
+				</para>
+				<ul>
+					<li>On Linux systems you can expect to find it in <kbd>$HOME/.exult.cfg</kbd></li>
+					<li>macOS saves it to <kbd>~/Library/Preferences/exult.cfg</kbd></li>
+					<li>Windows (7, 8, 10, 11) save exult.cfg to <kbd>LOCAL_APPDATA\Exult</kbd>,
+						but on these this translates to <kbd>C:\Users\YourUsername\AppData\Local\Exult</kbd></li>
+					<li>On all supported Windows versions you can quickly access this folder by executing<br/>
+						<kbd>shell:Local AppData\Exult</kbd><br/>
+						in the 'Quick Access' of Explorer.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="savegames_gone">
+			<header>I updated Exult to the new version. Where have my savegames gone?</header>
+			<body>
+				<para>
+					With version 1.4.9rc1 we changed the location where Exult saves its savegames to.
+					The new location differs depending on your operating system, for details see
+					<extref doc="docs" target="path_config">Path-Settings</extref>.<br/>
+					Your old savegames are probably still in the folder of the original games as
+					we used to save them there.<br/>
+					Just copy them from the old location to the new location.
+				</para>
+				<para>
+					However it is not advisable to continue playing with savegames of games started
+					with old versions of <Exult/>.
+				</para>
+			</body>
+		</sub>
+		<sub name="si_ext_intro">
+			<header>Will you implement the extended intro for SI?</header>
+			<body>
+				<para>
+					In February 2021 we did implement the extended intro in Exult and it is now the
+					default intro played when you start a SI game in <Exult/>.<br/>
+					Below you can find our old view on implementing it.
+				</para>
+				<para>
+					Information on the extended intro for Serpent Isle can be found at
+					<extref target="https://ultimacodex.com/2011/11/the-original-serpent-isle-introduction/"/>.
+					At this moment we don't even think about implementing this extended intro.<br/>
+					Why not?<br/>
+					It sure would be nice to use it. But you may have noticed some effects
+					missing from the intro. You may have noticed that there is no sound. You may
+					have noticed that there is neither speech nor subtitles.<br/>
+					All that would have to be addressed and add to that the longer running time and
+					that you have to synchronize the music with it. Then what about the size of it?
+					You would need to compress it and make sure all our supported platforms make use
+					of it.
+				</para>
+				<para>
+					Everyone volunteering to do it is welcome to.
+				</para>
+			</body>
+		</sub>
+		<sub name="party_formation">
+			<header>Why is the party formation different?</header>
+			<body>
+				<para>
+					In <Exult/> the party (the Avatar and his companions) move quite differently than
+					they do in the original. The problem is that this was controlled by the original
+					executable. Changing the formation now is not as easy as it sounds as the party
+					formation has effects on other game internals. Changing it to be more like the
+					original may force us to replay the whole game to make sure we didn't introduce
+					new bugs.
+				</para>
+				<para>
+					Some time ago Jeff added an optional formation that behaves way more like in the
+					original game and it has become the default formation now.<br/>
+					This can be changed in the <extref doc="docs" target="exult_config">exult.cfg</extref>.
+				</para>
+				<cite name="Jeff">
+					It's not a bug, it's a feature! I like it that way.  Everyone is sensitive to
+					different things, and I always though the formation-walking in the original
+					Ultima VII looked really stupid. Eventually, someone may add the original type of walking
+					to <Exult/>, probably as an option.
+				</cite>
+			</body>
+		</sub>
+		<sub name="save_crash">
+			<header>What should I do when Exult keeps crashing when I try to save?</header>
+			<body>
+				<para>
+					This is <strong>not</strong> normal behavior for <Exult/>. Normally when you restart
+					and "Journey Onward" <Exult/> will actually restore to the point you saved.
+				</para>
+				<para>
+					<em>Please do not play further</em> at this point. You should restore to an earlier
+					save game, no matter how much game time you loose. Your game must have gotten
+					corrupted and when you play on with it you will most likely experience even more
+					serious problems.
+				</para>
+				<para>
+					Please also avoid saving when a scripted sequence is running. Whenever you can't control
+					the Avatar on your own a scripted scene is running and saving at this time may break the
+					game on reloading.
+				</para>
+			</body>
+		</sub>
+		<sub name="choppy_game">
+			<header>Why does the game run so choppy?</header>
+			<body>
+				<para>
+					Well, every Ultima required a fast computer. Even though <Exult/> is just an
+					engine that runs the ancient Ultima VII it still requires a fast computer.
+				</para>
+				<para>
+					Seriously, if the game runs choppy for you, try the speed setting in the Game Options
+					menu and if that doesn't help also play with the original resolution (320x200),
+					try a different scaler or disable scaling altogether.
+				</para>
+			</body>
+		</sub>
+		<sub name="no_sfx">
+			<header>Why can't I hear the Sound Effects?</header>
+			<body>
+				<para>
+					Please read the Audio section of our <extref doc="docs" target="wave_sfx"/>.
+				</para>
+			</body>
+		</sub>
+		<sub name="no_intro_speech">
+			<header>Why can't I hear the speech in the intro?</header>
+			<body>
+				<para>
+					We've been made aware that if your introsnd.dat file becomes corrupt you might lose
+					speech in the intro. The file is located in your games static folder. So if you hit
+					this problem you need to restore this file.
+				</para>
+			</body>
+		</sub>
+		<sub name="red_x">
+			<header>What does the red crossed out speaker next to the gamename mean?</header>
+			<body>
+				<para>
+					It means that you have not configured the sound effects yet or correctly.<br/>
+					Please read the Audio section of our <extref doc="docs" target="wave_sfx"/>.
+				</para>
+			</body>
+		</sub>
+		<sub name="diferent_volume">
+			<header>Why is the music so much louder/softer than the sfx/speech?</header>
+			<body>
+				<para>
+					Some music is played via midi but the sfx (sound effects) and speech are
+					played via wave. Midi and wave volume are set up separately in the settings
+					of your Operating System and not by <Exult/>.<br/>
+					However music playback through the digital music files or FMOpl are not using
+					the system's midi volume setting and are controlled similar to the SFX.
+				</para>
+			</body>
+		</sub>
+		<sub name="blank_screen">
+			<header>Why does my monitor stay black when I try to run <Exult/>?</header>
+			<body>
+				<para>
+					The most common reason for this is that you try to run <Exult/> full screen in a
+					resolution that isn't supported by either your monitor or your graphics card.
+					Edit your exult.cfg (see <extref doc="docs" target="exult_config"/>) to disable
+					full screen. If <Exult/> now runs fine in a window you have to select a different
+					resolution (also editable in exult.cfg) to run it full screen.<br/>
+					If it still doesn't run please contact us.
+				</para>
+			</body>
+		</sub>
+		<sub name="improvements">
+			<header>
+				What are the improvements in <Exult/> over the original Ultima VII?</header>
+			<body>
+				<ul>
+				<li>Many more keyboard shortcuts than the original had. Including in BG the
+					<key>k</key> key that checks if you have the right key for a lock in your
+					inventory. The list of keys can be found in the Documentation.</li>
+				<li>A new worked over Game Options menu. This menu is explained in detail in the
+					<extref target="docs.html">Documentation</extref> and many of the following
+					improvements  and Video/Audio options can be accessed via this menu. Open
+					this Game Options Menu by pressing <key>Esc</key> in the game.</li>
+				<li>SI style paperdoll (inventory screen) in BG. Very impressive. For this you
+					need to have Serpent Isle installed on your hard drive and you must set the
+					path to it in exult.cfg (see the Documentation) and activate it in the
+					Gameplay Options.<br/>
+					This new inventory screen acts sometimes a little buggy, so if an item seems
+					to have disappeared disable the paperdolls in the Gameplay Options.</li>
+				<li>A beautiful new save game box. This allows you much more save games than
+					the original (you should run out of disc space before you run out of save game
+					slots), shows a screenshot of the location you saved at, the members of your
+					party, your stats, game time and the date you actually saved. The save game
+					box is opened either via the game menu or the <key>s</key> key.</li>
+				<li>Face status bars at the bottom of the screen that show your health (and that
+					of your party members) as well as your mana. Double-clicking on the face opens
+					the inventory and double-clicking on the bars shows the status screen.</li>
+				<li>Middle mouse button support. In the normal game, the middle mouse button
+					activates the target-function (which could also be accomplished by pressing
+					't'). for modal gumps, the middle mouse acts as 'return', the right button
+					as 'escape', so you can now for example accept the default slider value by
+					just pressing the middle button. The escape function is also available
+					during most other actions like selecting a target or conversations.</li>
+				<li>Wheel mouse support. If you have a wheel mouse some features are auto-enabled
+					in <Exult/>.<br/>
+					In slider gumps (e.g. how much gold you want to
+					drop), scrolling the mouse up/down, moves the slider either left or right.
+					Holding down <key>Alt</key> while using the wheel scrolls 10 steps.<br/>
+					The save game menu scrolls one line, while pressing <key>Alt</key> it scrolls
+					pages.<br/>
+					You can also scroll the map of the game up or down and while pressing
+					<key>Alt</key>  you scroll left or right.</li>
+				<li>Fast Mouse which makes the mouse cursor move faster in full screen mode.</li>
+				<li>Multiracial Avatar in BG. As with the paperdoll support you need to have SI
+					installed and the path set in exult.cfg.</li>
+				<li>Higher resolutions than the original. You can set the resolution as high as
+					your computer supports. But there are some issues with it and it is considered
+					cheating.</li>
+				<li>Compressed save games. <Exult/> compresses save games by default as
+					zip files. They are still labeled *.sav and have the save game name in the zip
+					comment.</li>
+				<li>A notebook for making notes and the possibility to automatically add notes.</li>
+				<li>Shortcut bar on top of the screen with many useful shortcuts. This is especially
+					useful for touch devices without a physical keyboard (.e.g. iOS devices).</li>
+				<li>The Serpent Isle extended intro. This was slimmed down in the original to save
+					floppy disk space but we restored it from material posted online by the artist
+					Denis Loubet.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="paperdoll_issues">
+			<header>
+				Are there issues with the SI style paperdoll in BG?
+			</header>
+			<body>
+				<para>
+					There are some issues. The paperdoll in BG is still limited to the slots
+					it had originally.<br/>
+					That means:
+				</para>
+				<ul>
+					<li>You can either equip a pair of gauntlets or one/two rings.</li>
+					<li>The 'shield behind back', 'weapon behind back' and 'belt' slots are one
+					and the same in BG. (So if you have a weapon on your back, you can't use your
+					belt slot)</li>
+					<li>If an item seems to have disappeared disable the paperdolls in the Game
+					Options, retrieve the item and enable the paperdolls again.</li>
+				</ul>
+				<para>
+					Sparks paperdoll looks very odd (Spark on steroids) as there is no paperdoll
+					for kids in SI and we have to use the adult paperdoll. For this to change we'd
+					need a volunteer to recreate a lot of paperdoll art for a smaller paperdoll.
+				</para>
+			</body>
+		</sub>
+		<sub name="disable_improvements">
+			<header>
+				How do I disable all improvements?
+			</header>
+			<body>
+				<para>
+					To get an Ultima VII that looks and behaves as close to the original as possible there
+					are several things to do (though I wonder why you'd want to do that):
+				</para>
+				<ul>
+					<li>make custom key bindings files (see <extref target="docs.html">Documentation</extref>)
+						in which you disable all the keys that were not in the original for Black Gate and
+						Serpents Isle.<br/>
+						To enable the old save game menu you have to assign <key>s</key> to old_file_gump
+						(the line in your custom key bindings file should look like: S old_file_gump)</li>
+					<li>Edit the exult.cfg file to point to those custom keys.</li>
+					<li>Disable SI-style paperdolls for BG in exult.cfg (see the documentation for that).</li>
+					<li>Alternatively click on the disk icon and disable the paperdolls in the Gameplay Display
+						options.</li>
+					<li>Edit the exult.cfg to use the resolution of 320x200, to run in full screen and
+						disable scalers.</li>
+					<li>The disc icon in the Avatar paperdoll opens the new game menu. As of now this cannot
+						be altered. Sorry!</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="exult_engine">
+			<header>
+				I heard that <Exult/> is meant to be a game engine. Can I make my own game with <Exult/>?
+			</header>
+			<body>
+				<para>
+					We've been working on "<Studio/>" which is aimed to be an editor for
+					all kinds of files that are used by Ultima VII and it is coming along nicely.
+				</para>
+				<para>
+					For much more information "<Studio/>" see <extref doc="studio" target="whatis_studio"/>.
+				</para>
+				<cite name="Jeff">
+					As for the future, my main plan is to add editing capabilities,
+					with the long-range goal of writing an original RPG.
+				</cite>
+			</body>
+		</sub>
+		<sub name="mods_patches">
+			<header>Are there patches or Mods for <Exult/></header>
+			<body>
+				<para>
+					With <Studio/> advancing more and more, there are actually now a couple of patches
+					and Mods (modifications) for <Exult/>.<br/>
+					A nice collection can be found at
+					<extref target="https://www.exult.info/seventowers/">Seven Towers</extref>, Marzo's Mods
+					and his documentation of Ultima VII/<Exult/> Usecode. Other patches/mods can be
+					found at:
+				</para>
+				<para>
+					A list of all known mods can be found on our
+					<extref target="https://github.com/exult/exult/discussions/260">Github</extref>
+					with most being available on our
+					<extref target="https://exult.info/download.html">download page</extref>.
+				</para>
+				<para>
+					All the patches and mods require that you install the latest snapshot. They are not likely to
+					work with the last official release.
+				</para>
+				<para>
+					The <extref doc="docs" target="mods_intro"/> gives detailed instructions on how to install
+					mods and patches in <Exult/>.
+				</para>
+			</body>
+		</sub>
+	</section>
+	<section title="Bugs, known issues and not yet implemented features">
+		<sub name="known_bugs">
+			<header>Bugs</header>
+			<body>
+				<para>
+					To see a list of open bug reports go to
+					<extref target="https://github.com/exult/exult/issues"/> and our old bugtracker at
+					<extref target="https://sourceforge.net/p/exult/bugs/"/>.
+				</para>
+			</body>
+		</sub>
+		<sub name="bug_report">
+			<header>How do I submit a proper bug report?</header>
+			<body>
+				<ol>
+					<li>Read the <extref target="https://exult.info/docs.html">Documentation</extref>
+						and this FAQ to see if that is not already covered and you have all set up correctly.</li>
+					<li>Before you report a bug to the
+						<extref target="https://github.com/exult/exult/issues">bug tracker</extref>
+						please try the latest
+						<extref target="https://exult.info/download.html">snapshot</extref>.
+						If the bug still occurs make sure that no one else has already reported the bug
+						(in the bug tracker).</li>
+					<li>You can only submit a bug report in our tracker if you are a
+						<extref target="https://github.com">GitHub</extref> member.</li>
+					<li>Make sense in the topic! For example, if the problem is with Rowenna in Skara Brae
+						don't just write "Skara Brae" in the topic. "BG: Rowenna crashes game" makes more
+						sense.</li>
+					<li>Include information on what version of <Exult/> you are using. You should have used
+						the latest snapshot but please tell us the date of the snapshot.</li>
+					<li>State which Operating System you use (Windows 11, Ubuntu, macOS 14.4,...).</li>
+					<li>Please include a save game (use common sense if it is really needed). You will find
+						those in the game directories you put in the exult.cfg. They are called exult**bg.sav
+						(** is a number) for BG and exult**si.sav for SI. You can look up the filename in the
+						save game dialog as well (to the right, above the party members). As some parts of the game
+						may require you to complete other quests or stuff before you get to the bug you want to
+						report it's much easier for the team to look at the problem (speeds the process up a bit
+						as they are much more likely you take a look at the problem this way).</li>
+					<li>You may be asked to provide the log files of <Exult/>. These are named stdout.txt and
+						stderr.txt and can be found where exult.cfg is saved to, see
+						<ref1 target="where_cfg"/>.</li>
+					<li>You may be asked to provide the log files of <Studio/>. These are named studio_out.txt and
+						studio_err.txt and can also be found where exult.cfg is saved to, see
+						<ref1 target="where_cfg"/>.</li>
+					<li><em>One</em> bug per subject please. It's easier to track what has been fixed if you
+						follow this.</li>
+				</ol>
+				<para>
+					Any bug report that requires a save game will most likely be
+					<strong>tagged invalid</strong> if we don't receive a save game after we requested it.
+				</para>
+				<para>
+					So if you want to have a bug fixed, please follow these steps!
+				</para>
+			</body>
+		</sub>
+		<sub name="by_design">
+			<header>Broken by Design</header>
+			<body>
+				<para>
+					<Exult/> often behaves and works differently than the original Ultima VII. These
+					behaviors are sometimes features that just differ from the way the original
+					worked.<br/>
+					Some are bugs that the development team consider to have almost no detrimental
+					effect to the enjoyment/running of the game, but would require a large amount
+					of time and effort to fix.<br/>
+					Please don't bother the team about those as some of these will be fixed in the
+					future, others will only be fixed when someone who thinks it should be done
+					differently sits down and codes it.<br/>
+					The following are such 'features' of <Exult/>:
+				</para>
+				<ul>
+					<li>Birds and animals open doors and such, like the human and sentient
+						creatures of Britannia do. You should rarely encounter this anymore
+						since there are better intelligence checks, but it can still happen.</li>
+					<li>The way the Avatar and the companions walk. Is it 2 frames or 3 frames?
+						This has been changed a lot as this was disputed almost every four weeks.
+						Finally it works like the original and the Avatar uses two frames and the
+						companions use three frames.</li>
+					<li>Some music loops endlessly in <Exult/>. This is actually a correction of a bug
+						in the original. We respects the midi looping flag as set by Ultima VII's original data
+						files but the original didn't. Users who prefer the original (broken) are able
+						to choose so in the Game menu.</li>
+					<li>Some sound effects (sfx) are missing. While we still haven't implemented some sfx,
+						most are playing and we have improved upon the original by allowing more sound
+						effects to play at the same time and also balance the effect when it is a continuous
+						one, meaning its volume is affected how near you are the sfx playing object and also
+						differs between left and right. However we found the fire effects to be terrible in
+						quality and have disabled these. So no crackling fire for the flaming sword,
+						campfires, etc.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="known_issues">
+			<header>Known Issues</header>
+			<body>
+				<ul>
+					<li>There might be a bug when you have any of the games installed in a
+						path with spaces in it (see <extref doc="docs" target="path_config"/>).</li>
+					<li>Stealing and killing innocent NPCs doesn't work yet like it does in the original.</li>
+					<li>Movement is sometimes jerky or slow.</li>
+					<li>If you run a resolution higher than the original (320x200) some NPCs
+						that are further away from the Avatar may seem to disappear and reappear when
+						you get away or closer to them.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="compile_issues">
+			<header>Known Compile Issues</header>
+			<body>
+				<ul>
+					<li>After compiling, remember to copy the exult*.flx files from the data folder in
+						the source to the <Exult/> data folder you chose in exult.cfg. This applies only if
+						you don't use <kbd>make install</kbd>.</li>
+				</ul>
+			</body>
+		</sub>
+	</section>
+	<section title="Gameplay FAQ">
+		<sub name="why_gameplayfaq">
+			<header>Why is there a gameplay FAQ?</header>
+			<body>
+				<para>
+					Although you can find many useful gameplay FAQs on the internet we do get asked
+					some questions quite frequently as people think these are bugs with <Exult/>.
+				</para>
+				<para>
+					Most of the times the problem is that people don't play the game regularly but depend
+					overly on walkthroughs and don't read what NPCs in the game tell you to do.
+				</para>
+				<para>
+					<strong>Note that this section contains text that may spoil your game.
+					Caution is advised.</strong>
+				</para>
+				<para>
+					We added a mark to the question (BG/FoV/SI/SS) to show which Ultima VII game is
+					affected by this. See <extref doc="docs" target="terms"/> to learn which game
+					these marks point to.
+				</para>
+			</body>
+		</sub>
+		<sub name="who_speaks">
+			<header>Why don't all NPCs have audible speech (BG+SI)?</header>
+			<body>
+				<para>
+					The documentation and installation files of the original may be a bit misleading.
+					There are only a few NPCs in the games that have audible speech. In BG only the
+					Guardian can be heard during the game.<br/>
+					Apart from the Intro you can only hear the Guardian and the Great Earth Serpent
+					in SI.
+				</para>
+			</body>
+		</sub>
+		<sub name="reagents_differ">
+			<header>Why do spells require different reagents than the manual lists (BG+SI)?</header>
+			<body>
+				<para>
+					The manuals of both BG and SI listed different requirements for two spells than what
+					was actually required in the original game and <Exult/>.
+				</para>
+				<ul>
+					<li>BG Restoration<br/>
+						The original game and <Exult/> use garlic, ginseng, mandrake root, spider silk.<br/>
+						Manual lists garlic, ginseng, mandrake root, sulfurous ash.</li>
+					<li>SI Imbalance<br/>
+						The original game and <Exult/> use bloodspawn, nightshade, serpent scale, sulfurous ash,
+						worm heart,<br/>
+						while the Manual lists nightshade, serpent scale, sulfurous ash, worm heart.</li>
+				</ul>
+				<para>
+					Unfortunately very old <Exult/> versions were also wrong in more spell requirements and
+					reagent costs. This has since been corrected.
+				</para>
+			</body>
+		</sub>
+		<sub name="sextant_roof">
+			<header>Why can't I see my location on the map (BG+SI)?</header>
+			<body>
+				<para>
+					To see your location marked on the map with a yellow cross you need to have sextant
+					in your inventory. And you need to be in the open. Since you can't use a sextant
+					under a roof, in a cave or in a dungeon you will not see your position marked there.
+				</para>
+			</body>
+		</sub>
+		<sub name="how_move_ships">
+			<header>So why can't I sail a ship in BG?</header>
+			<body>
+				<para>
+					To sail a ship in BG you naturally need to have the deed to this ship in your party.
+					Then double-click on the sail of the ship and your party moves aboard it and sits down.
+					Once they are all seated, double-click the gangplank to close it. Now double-click on
+					the sail once more to have it unfold. You should be able to move the ship then.
+				</para>
+			</body>
+		</sub>
+		<sub name="virtue_stones">
+			<header>Why can't I cast mark/recall on the Virtue Runes (BG)?</header>
+			<body>
+				<para>
+					You never could do this in the original as well. You have to use the
+					<strong>Virtue Stones</strong> that you find in the same building as the runes.
+				</para>
+			</body>
+		</sub>
+		<sub name="skarabrae_sacrifice">
+			<header>Why can't I get the sacrifice in Skara Brae to work (BG)?</header>
+			<body>
+				<para>
+					"I'm trying to get Forsythe in Skara Brae to sacrifice himself to destroy the well of
+					souls. But I can't seem to get Rowenna or Trent to talk to me about sacrifice."<br/>
+					The solution to this is that Rowenna and Trent are standing too far apart. When you
+					reunited the pair you initiated the conversation with Trent from too far away
+					(this happens when you run at a higher resolution than the original one).<br/>
+					Now you can either reload a game from before you reunited them or you have to hackmove
+					Rowenna closer to Trent. After that the two will talk to you about sacrifice.
+				</para>
+				<para>
+					Stuart Hillman told us of another way around this bug: Stand next to Trent when talking to Rowenna
+					and next to her when talking to Trent.
+				</para>
+			</body>
+		</sub>
+		<sub name="skarabrae_forsythe">
+			<header>Why can't I talk to the mayor of Skara Brae (BG)?</header>
+			<body>
+				<para>
+					You might be talking to "The Other Forsythe"(TM). There's a ghost in the Skara Brae
+					town hall that looks like Forsythe, but isn't.<br/>
+					This was fixed in more recent versions of <Exult/> but with games started with earlier
+					versions this bug is still present. You need to start a new game of <Exult/> to fix
+					this. But this bug poses no problem, so if you don't want to start a new game,
+					just ignore that clone and search for the real Forsythe.
+				</para>
+			</body>
+		</sub>
+		<sub name="skarabrae_mute">
+			<header>Why can't I talk to anyone in Skara Brae (BG)?</header>
+			<body>
+				<para>
+					To talk to the ghosts in Skara Brae you need to cast Seance. But this spell has a time
+					limit so you might need to cast it again when the ghosts ignore you.
+				</para>
+			</body>
+		</sub>
+		<sub name="tetrahedron">
+			<header>Multiple problems with the tetrahedron generator and prism (BG)?</header>
+			<body>
+				<para>
+					Some of our users have problems entering the generator and finding the prism afterwards.
+				</para>
+				<para>
+					To enter the tetrahedron generator you have to wear the ethereal ring (enchanted by Penumbra).
+					It is important to <strong>wear</strong> the ring on a finger and not just hold it like a weapon.
+				</para>
+				<para>
+					After you defeated the enemy you have to double click the prism to destroy the generator.
+					You will then find the black prism (without the yellow outline) to your feet. Look
+					closely and take it with you.
+				</para>
+			</body>
+		</sub>
+		<sub name="alagnar_dead">
+			<header>Why is Alagnar not dead (BG)?</header>
+			<body>
+				<para>
+					At a certain point in the game Alagnar is supposed to be murdered. Unfortunately
+					there is a bug in the original game data, that lets him walk around alive in his
+					own murder scene. To avoid this bug you have to enter his house through the south door.
+				</para>
+			</body>
+		</sub>
+		<sub name="demon_gem">
+			<header>Where did my gem of the Demon vanish to (FoV)?</header>
+			<body>
+				<para>
+					For forging the black sword you need to bind the demon to the gem you got from
+					that invincible dragon you met in the test of courage. Some people mistake that
+					little dark-blue gem with the glowing gem you received from Lord British.<br/>
+					If you use the glowing gem on the isle of fire it just vanishes with a shattering
+					sound.
+				</para>
+			</body>
+		</sub>
+		<sub name="stone_of_castambre">
+			<header>Attacking the Stone of Castambre doesn't work (FoV)</header>
+			<body>
+				<para>
+					You need to <em>use</em> (double-click) the pick while it's in your hands
+					instead of attacking with it. After that, select the tree with the resulting
+					crosshairs.
+				</para>
+			</body>
+		</sub>
+		<sub name="pikeman_disappears">
+			<header>Where is the pikeman that lets you train in Monitor (SI)?</header>
+			<body>
+				<para>
+					The pikeman that lets you enter the list field in Monitor sometimes disappears due
+					to a bug in the game (even the original).<br/>
+					This bug occurs when you enter the banquet scene of Monitor. To avoid this bug, we
+					recommend, that you approach the banquet hall from the right and/or double-click the
+					entrance door to the hall when the party is standing very close to it.
+				</para>
+			</body>
+		</sub>
+		<sub name="hawk_gangplank">
+			<header>How to break the game by closing Capt. Hawk's gangplank (SI)?</header>
+			<body>
+				<para>
+					When you are at the Sleeping Bull, do <em>NOT</em> close the gangplank to Captain Hawk's ship.
+					After you've got him out of Jail and you are ready for him to take you to Moonshade, he will
+					not be able to do so when the gangplank is closed. If you have accidentally done that you will
+					have to resort to cheating (enable hackmover) for fixing that.
+				</para>
+			</body>
+		</sub>
+		<sub name="fedabiblio_quest">
+			<header>How do I get the Mandrake Roots for Fedabiblio (SI)?</header>
+			<body>
+				<para>
+					Fedabiblio in Moonshade sends you on a quest to find fresh Mandrake Roots. You get
+					to Monk Island but can't find the any fresh roots.<br/>
+					The problem is that fresh roots only appear depending on the tide. One of the nameless
+					monks of the island tells you to ask him when the tide is right. Keep coming back to him
+					and when he tells you the tide is right walk to the northern shore of the island to find
+					fresh roots.
+				</para>
+			</body>
+		</sub>
+		<sub name="pothos_mad_mage">
+			<header>Why won't Pothos take the blood moss and talk about the mad mage (SI)?</header>
+			<body>
+				<para>
+					Pothos won't take the moss if he hasn't sent you to fetch it for him. If you want
+					him to tell you about the mad mage and how to get to him you first have to talk with
+					Bucia (also in Moonshade) about Pothos. Then you can talk to Pothos about it and he will
+					sent you off to fetch him fresh blood moss. Read what he says because it is important to
+					get <strong>fresh</strong> blood moss.
+				</para>
+			</body>
+		</sub>
+		<sub name="great_hierophant">
+			<header>Why can't I summon the Great Hierophant (SI)?</header>
+			<body>
+				<para>
+					If you follow some walkthrough you might find that your summoning of the
+					Great Hierophant doesn't work. This is a problem with the walkthrough. You
+					need to have a personal item of the Great Hierophant in your inventory, namely
+					the Serpent Staff.
+				</para>
+				<para>
+					If possible don't just play following the walkthrough, but go out and explore
+					Serpent Isle. It's hard to imagine someone could miss the cave to the east of
+					Monitor.
+				</para>
+			</body>
+		</sub>
+		<sub name="xenka_sacrifice">
+			<header>Why won't Xenka speak about sacrifice (SI)?</header>
+			<body>
+				<para>
+					For Xenka to speak about sacrifice some parts of the game need to have been played
+					correctly. The sacrifice conversation option will only turn up if:
+				</para>
+				<ul>
+					<li>you have returned the amulet to the Gwani <strong>AND</strong></li>
+					<li>you have spoken with the Chaos Hierophant <strong>AND</strong></li>
+					<li>you have picked up the Serpent Staff from its proper location
+					(see <ref target="serpent_staff"/>) <strong>AND</strong></li>
+					<li>you have not yet healed the Chaos Serpent</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="si_npc_gone">
+			<header>Where did XY disappear to (SI)?</header>
+			<body>
+				<para>
+					SI is very plot driven, so to stop people from breaking the plot, certain NPCs
+					stay in a unaccessible spot on the map until you meet them by following the plot,
+					or disappear from the map until they are needed again. If you cheat by
+					teleporting to them before the scripted meeting you are bound to break the plot
+					and most likely forced to reload an earlier savegame or start the whole game again.<br/>
+					So please take care when teleporting around the map.
+				</para>
+			</body>
+		</sub>
+		<sub name="karnax_gone">
+			<header>Why can't I find Karnax, Xenka or the other monks (SI)?</header>
+			<body>
+				<para>
+					See the above question. You have to use the Dark Path to make the monks appear
+					on Monk Island. If you just use the teleport cheat they won't show up.
+				</para>
+				<para>
+					The same applies to Xenka. Even though Xenka returns to Monk Island while you
+					are there, next time you return to the island you will need to go through the
+					Dark Path. Otherwise she will not be found there.
+				</para>
+			</body>
+		</sub>
+		<sub name="cure_companions">
+			<header>Why can't I cure my friends of their madness (SI)?</header>
+			<body>
+				<para>
+					After defeating the Banes in the White Dragon Castle, your friends are dead and
+					need to be revived and subsequently cured of their madness. Instead of reviving
+					them through the hourglass, take the bodies to Monk Island monastery. Ask Karnax
+					to revive them and then cure them with the respective waters. If you revive and
+					cure them elsewhere, you will not be able to cure the last of them because you
+					need to be on Monk Island.
+				</para>
+			</body>
+		</sub>
+		<sub name="serpent_staff">
+			<header>An important note about the Serpent Staff (SI)</header>
+			<body>
+				<para>
+					The Serpent Staff in SI is a very important item. It doesn't seem like it but
+					it is crucial to some major plot elements that you have the staff in your
+					possession.<br/>
+					Unfortunately the game also demands that you get the staff properly. For that I
+					recommend to get it without cheating and to stand right next to it.
+				</para>
+				<para>
+					Just picking it up and not transferring it to the inventory at once, but instead
+					putting it on the ground again could break later plot. Willem coded a workaround
+					in <Exult/> so the problem might disappear.
+				</para>
+			</body>
+		</sub>
+		<sub name="pillars_fort">
+			<header>How to break the plot by double clicking some pillars (SI-SS)</header>
+			<body>
+				<para>
+					In the dining hall of the fort in the add-on Silver Seed you can double click the
+					pillars. This teleports you to the test in the gargoyle city. If you haven't done
+					this test yet this breaks that plot later on and if you already have it is still a
+					nuisance. So better don't do it.
+				</para>
+				<para>
+					Obviously a slight oversight of the add-on designers. Could be fixed by changing the
+					usecode and the map slightly.
+				</para>
+			</body>
+		</sub>
+		<sub name="altar_discipline">
+			<header>Left or right on the Altar of Discipline (SI)</header>
+			<body>
+				<para>
+					In the Temple of Discipline you need to place a quartz and obsidian symbol
+					(Y-shape) onto the altar to disable the trap and to call a bridge into being.<br/>
+					The book "The Symbol of Discipline" you find in the upper floor states:
+				</para>
+				<cite name="The Symbol of Discipline by Sharless">
+					The altar before the serpent statue doth have upon it two slots ...
+					bolts of lightning fire from the altar unless the quartz symbol is placed
+					in the slot on the left side. A bridge ... is called into being if the obsidian
+					symbol is placed in the right slot...
+				</cite>
+				<para>
+					This is highly confusing as the player looks at the screen and associates west
+					in the game with left and east with right. Whoever wrote this originally must
+					have imagined the Avatar standing to the north of the altar and facing the temple
+					entrance.<br/>
+					So you need to place the quartz symbol onto the east depression of the altar and
+					the obsidian symbol onto the west depression.
+				</para>
+			</body>
+		</sub>
+		<sub name="open_doors_requirement">
+			<header>Why some NPCs are unable to open doors if their schedule requires it (SI-SS)</header>
+			<body>
+				<para>
+					Cantra, Lydia, Frigidazzi, Frigidazzi's Messenger (Goblin Woman) and skinless Yelinda
+					are unable to open/close doors. This is apparent when their schedules change and you
+					try to observe them by following them around.
+				</para>
+				<para>
+					The original and <Exult/> determine the ability to open doors by the intelligence
+					assigned to the shape of an NPC and not the intelligence the NPCs have in the game.
+				</para>
+			</body>
+		</sub>
+	</section>
+	<section title="Questions and Answers">
+		<sub name="howto_get_answers">
+			<header>
+				How can I get answers concerning Ultima VII/<Exult/>?
+			</header>
+			<body>
+				<para>
+					The best way to get answers to questions about <Exult/> is to go to our discussion forum at:<br/>
+					<extref target="https://github.com/exult/exult/discussions"/>
+				</para>
+				<para>
+					To get answers concerning Ultima VII in general go to the Ultima Dragons group on FaceBook:<br/>
+					<extref target="https://www.facebook.com/groups/UltimaDragons"/>
+				</para>
+				<para>
+					Some <Exult/> developers like to hang out on IRC on irc.libera.chat,
+					channel <kbd>#exult</kbd>.<br/>
+				</para>
+			</body>
+		</sub>
+		<sub name="contact">
+			<header>How do I contact the author of this FAQ?</header>
+			<body>
+				<para>
+					This FAQ is maintained by Dominus Dragon of the
+					<extref target="https://www.udic.org">UDIC</extref>
+					AKA Dominik Reichardt.
+					Feel free to contact me with improvements or complaints regarding
+					the FAQ.<br/>
+					Best way to contact me is through our forum at
+					<extref target="https://github.com/exult/exult/discussions"/>.
+				</para>
+			</body>
+		</sub>
+	</section>
+	<section title="Important Links">
+		<sub name="main_links">
+			<header>Important Links</header>
+			<body>
+				<ul>
+					<li><Exult/> homepage at <extref target="https://exult.info/"/></li>
+					<li>Code snapshot at <extref target="https://exult.info/download.html"/></li>
+					<li>Our forum at <extref target="https://github.com/exult/exult/discussions"/></li>
+					<li>Bug reports to <extref target="https://github.com/exult/exult/issues"/></li>
+				</ul>
+			</body>
+		</sub>
+	</section>
+	<section title="Changes to the FAQ">
+		<sub name="25042024">
+			<header>- 25 April 2024</header>
+			<body>
+				<ul>
+					<li>A lot of small fixes.</li>
+					<li><ref1 target="skarabrae_mute"/> you need to cast Seance.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="23042024">
+			<header>- 23 April 2024</header>
+			<body>
+				<ul>
+					<li><ref1 target="exult_donation"/> SF hasn't been accepting donations for a while now.</li>
+					<li><ref1 target="what_platforms"/> Android port is now part of <Exult/>.</li>
+					<li><ref1 target="play_serpentbeta"/> mentioning the SI beta.</li>
+					<li><ref1 target="diferent_volume"/> differentiated a bit.</li>
+					<li><ref1 target="by_design"/> fire sfx are disabled by design.</li>
+					<li><ref1 target="open_doors_requirement"/> added to gameplay FAQ.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="24012022">
+			<header>- 24 January 2022</header>
+			<body>
+				<ul>
+					<li><ref1 target="whatis_snapshot"/> Snapshots are done every night if there were code changes.</li>
+					<li><ref1 target="what_platforms"/> The Android port lives again.</li>
+					<li><ref1 target="si_ext_intro"/> We did implement the extended intro.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="03102021">
+			<header>- 03 October 2021</header>
+			<body>
+				<ul>
+					<li><ref1 target="howto_get_answers"/> we are now using irc.libera.chat and exultbot went missing.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="20022021">
+			<header>- 20 February 2021</header>
+			<body>
+				<ul>
+					<li>Changed links to our homepage to exult.info, SDL to SDL2, Mac OS X to macOS.</li>
+					<li>Removed references to Windows CE/Pocket PC.</li>
+					<li>Many little changes to wordings and indentation.</li>
+					<li><ref1 target="pentagram"/> merged with ScummVM.</li>
+					<li><ref1 target="whereis_exult"/> Kirben no longer handles the snapshots and there are also
+						macOS ones, following sections changed accordingly as well.</li>
+					<li><ref1 target="improvements"/> Shortcut bar and extended SI intro added.</li>
+					<li><ref1 target="bug_report"/> bug tracker is now on Github.</li>
+				</ul>
+			</body>
+		</sub>
+		<sub name="older_changes">
+			<header>older changes</header>
+			<body>
+				<para>
+					For older changes of the documentation, please see its git history.
+				</para>
+			</body>
+		</sub>
+	</section>
+</faqs>

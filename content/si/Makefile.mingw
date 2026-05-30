@@ -1,0 +1,49 @@
+# This is an automatically generated file; please do not edit it manually.
+# Instead, run makefile_builder.sh from the parent directory.
+# It may require a little tweaking. (paths)
+
+# Where is Ultima 7 installed
+U7PATH:=C:/Ultima7
+
+# Base of the exult source
+SRC:=../..
+
+srcdir:=.
+
+UCCDIR:=$(SRC)
+UCC:=$(UCCDIR)/ucc.exe
+
+EXPACKDIR:=$(SRC)
+EXPACK:=$(EXPACKDIR)/expack.exe
+
+sidir:=$(U7PATH)/silverseed/mods
+
+USECODE_OBJECTS :=	\
+	usecode.uc
+
+CLEANFILES :=	\
+	usecode
+
+all: usecode
+
+install: all
+	mkdir -p $(sidir)
+	cp curecantra.cfg $(sidir)/curecantra.cfg
+	mkdir -p $(sidir)/curecantra/
+	cp usecode $(sidir)/curecantra/usecode
+	cp ./../../COPYING $(sidir)/curecantra/License.txt
+
+uninstall:
+	rm -f $(sidir)/curecantra.cfg
+	rm -rf $(sidir)/curecantra
+
+$(UCC):
+	+(cd $(UCCDIR);$(MAKE) -f Makefile.mingw ucc.exe)
+
+
+usecode: $(UCC) $(USECODE_OBJECTS)
+	$(UCC) -I $(srcdir)/. -o $(srcdir)/usecode $(srcdir)/./usecode.uc
+
+clean:
+	rm -f $(CLEANFILES)
+

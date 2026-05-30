@@ -1,0 +1,47 @@
+Checks: >
+  -*,
+  bugprone-*,
+  -bugprone-branch-clone,
+  -bugprone-macro-parentheses,
+  -bugprone-parent-virtual-call,
+  -bugprone-signed-char-misuse,
+  -bugprone-narrowing-conversions,
+  -bugprone-easily-swappable-parameters,
+  clang-diagnostic-*,
+  -clang-diagnostic-implicit-fallthrough,
+  -clang-diagnostic-weak-template-vtables,
+  -clang-diagnostic-implicit-int-conversion,
+  clang-analyzer-*,
+  -clang-analyzer-alpha*,
+  google-objc-avoid-nsobject-new,
+  google-objc-function-naming,
+  google-objc-global-variable-declaration,
+  objc-*,
+  misc-*,
+  -misc-non-private-member-variables-in-classes,
+  -misc-unused-parameters,
+  -misc-no-recursion,
+  modernize-*,
+  -modernize-avoid-bind,
+  -modernize-avoid-c-arrays,
+  -modernize-concat-nested-namespaces,
+  -modernize-use-trailing-return-type,
+  -modernize-use-nodiscard,
+  performance-*,
+  readability-*,
+  -readability-avoid-const-params-in-decls,
+  -readability-convert-member-functions-to-static,
+  -readability-magic-numbers,
+  -readability-make-member-function-const,
+  -readability-named-parameter,
+  -readability-uppercase-literal-suffix,
+  -readability-function-cognitive-complexity,
+  -readability-identifier-length
+CheckOptions:
+    - key: bugprone-argument-comment.StrictMode
+      value: 1
+    - key: bugprone-exception-escape.FunctionsThatShouldNotThrow
+      value: WinMain,SDL_main
+    - key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
+      value: 1
+FormatStyle: 'file'

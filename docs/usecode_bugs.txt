@@ -1,0 +1,473 @@
+Documentation for the bugs in usecode and the corrections that can be made
+Started by: Artaxerxes (artaxerxes@users.sf.net)
+
+Forewords:
+every action on usecode should be done on the _disassembled_ usecode. Please
+use "rip" and "ucxt" to disassemble usecode appropriately. Once the changes are
+made, re-assemble using "wuc" and "rip". Those tools can be found on Exult's
+download page.
+
+Unfixed bugs:
+=================
+
+(SI) Pillars in Silver Seed fort teleport to Gargoyle test
+==========================================================
+
+A slight mistake of the add-on designers. The cool looking pillars in the dining
+hall of the Silver Seed fort start the gargoyle city test and teleport the Avatar
+to it.
+This could be fixed by
+- change the usecode to only trigger in the right area
+- change the pillars (i.e., change their frame)
+- give the 'real' pillar a quality and check for that
+
+
+(SI) Resurrecting possessed party:
+===================================
+Author: Clock Nova
+Date:   04-21-03 08:36
+
+On the other hand, I would not have thought of using the Hourglass after
+releasing the Banes had I not read about it elsewhere. If you use it in the
+room where you fought Selena, your companions get "resurrected" so they can
+fight themselves later on. Oops!
+
+
+(BG) Pocketwatch AM/PM confusion:
+==================================
+Author: MagicMop
+Date:   12-14-01 10:12
+
+1. Between 12 and 1 o clock in the afternoon, the time is listed as 'am' not
+'pm'
+
+[Note: this has been fixed in SI's usecode.]
+
+
+(BG,french) Dupre accent confusion:
+====================================
+
+The French BG's usecode mixes up Dupre with and without an accent on the e.
+This way some conversation options are unreachable.
+
+[TODO: fixed by jhoeksma. Need to disassemble fix to include here.]
+
+
+(BG) liquer conversation bug:
+==============================
+
+BG has a conversation in which there are two conversation options named
+'liquer'. This prevents the second one from being chosen.
+
+[TODO: fixed by jhoeksma. Need to disassemble fix to include here.]
+
+
+(SI) disappearing pikeman:
+===========================
+
+The first part of the banquet usecode in Monitor accidently deletes the
+List Field's pikeman egg when you're too close to that egg.
+
+
+(SI) List Field vs Boydon:
+===========================
+
+Boydon has the tournament flag set so that he can die permanently in SI.
+The List Field also sets this flag in the NPC to be trained, and clears it when
+done. This causes Boydon to lose his special permanent death.
+
+
+(BG) Bad comparisons:
+======================
+
+A few comparisons in BG are broken: they just push a value onto the stack and
+branch if it is not zero, instead of actually comparing it with something.
+
+First instance is Pamela (function 044E) when asked about her job. There is a
+remark which is supposed to be said when she is in 'eat at inn' schedule, but
+she says instead whenever she is not in 'sit' or 'wander' schedule. This happens
+because 001AH is pushed to the stack followed by a 'jne'. Before the 'jne' is
+there should be a 'push [0000]' followed by 'cmpeq'.
+
+Second instance is in Xorinia (Whisp) usecode (function 0500). When you say
+"exchange", the Whisp asks if you want to know about the Guardian. But the
+result of this prompt is ignored, and 0614H is pushed into the stack followed
+by a 'jne'. Instead, the 'pop [0004]' followed by 'pushi 0614H' should both be
+removed, or the 'pushi 0614H' should be replaced by 'push [0004]'.
+
+Third instance is in spell 'Energy Field' (function 067B). Its logic to detect
+if the spell failed ends up pushing 0606H into the stack and comparing it to
+'true', which always fails. Instead of 'pushi 0606H' it should be 'push [0000]'.
+
+
+Fixed bugs:
+==================
+
+(SI) Gwenno and the Diamond Necklace:
+======================================
+
+No matter who has the diamond necklace, Iolo is going to say he's lost it
+during the adventures to find Gwenno. This is due to an error in the usecode
+function that checks whether you have the diamond or not. It is looking for
+the wrong item (the wrong shape actually).
+
+Usecode function: 0495
+
+Code to replace:
+01A5: 1F 05 00 		pushi	0005H			; 5
+01A8: 1F 99 FE 		pushi	FE99H			; -359
+01AB: 1F BB 03 		pushi	03BBH			; 955
+01AE: 1F 01 00 		pushi	0001H			; 1
+01B1: 1F 9B FE 		pushi	FE9BH			; -357
+01B4: 24 05 00 		call	[0005]			; 097DH
+
+Replace it with:
+01A5: 1F 05 00 		pushi	0005H			; 5
+01A8: 1F 99 FE 		pushi	FE99H			; -359
+01AB: 1F BB 03 		pushi	03BBH			; 955
+01AE: 1F 08 00 		pushi	0008H			; 8
+01B1: 1F 9B FE 		pushi	FE9BH			; -357
+01B4: 24 05 00 		call	[0005]			; 097DH
+
+Code to replace:
+01C3: 1F 05 00 		pushi	0005H			; 5
+01C6: 1F 99 FE 		pushi	FE99H			; -359
+01C9: 1F BB 03 		pushi	03BBH			; 955
+01CC: 1F 01 00 		pushi	0001H			; 1
+01CF: 1F 6B FF 		pushi	FF6BH			; -149
+01D2: 1F FD FF 		pushi	FFFDH			; -3
+01D5: 24 06 00 		call	[0006]			; 0996H
+
+Replace it with:
+01C3: 1F 05 00 		pushi	0005H			; 5
+01C6: 1F 99 FE 		pushi	FE99H			; -359
+01C9: 1F BB 03 		pushi	03BBH			; 955
+01CC: 1F 01 00 		pushi	0008H			; 8
+01CF: 1F 6B FF 		pushi	FF6BH			; -149
+01D2: 1F FD FF 		pushi	FFFDH			; -3
+01D5: 24 06 00 		call	[0006]			; 0996H
+
+===============================
+
+
+(SI) Shamino's exchanged-items list
+====================================
+
+In the beginning Shamino talks about preparing a list of exchanged
+objects but at a first look at that list his own objects are missing. This
+gets normally corrected in the game at the latest when Dupre or Iolo join.
+You might also change usecode function 0402 like this:
+
+Usecode Function 0402:
+
+Code to replace:
+025D: 24 0A 00          call    [000A]                  ; 092BH
+0260: 13                push    true
+0261: 43 A2 02          popf    flag:[02A2]
+0264: 1F 00 00          pushi   0000H                   ; 0
+0267: 1D 84 03          pushs   L0384                   ; @Such
+strangeness!@
+026A: 1F FE FF          pushi   FFFEH                   ; -2
+026D: 24 09 00          call    [0009]                  ; 097FH
+0270: 24 0B 00          call    [000B]                  ; 09AAH
+0273: 1F FE FF          pushi   FFFEH                   ; -2
+0276: 39 26 00 01       calli   _add_to_party@1 (0026)
+
+Replace with:
+025D: 13                push    true
+025E: 43 A2 02          popf    flag:[02A2]
+0261: 1F 00 00          pushi   0000H                   ; 0
+0264: 1D 84 03          pushs   L0384                   ; @Such
+strangeness!@
+0267: 1F FE FF          pushi   FFFEH                   ; -2
+026A: 24 09 00          call    [0009]                  ; 097FH
+026D: 24 0B 00          call    [000B]                  ; 09AAH
+0270: 1F FE FF          pushi   FFFEH                   ; -2
+0273: 39 26 00 01       calli   _add_to_party@1 (0026)
+0277: 24 0A 00          call    [000A]
+
+This checks for the exchanged items in the party _after_ Shamino joins.
+
+
+===============================
+
+
+(SI) Silk stockings missing from exchanged item list.
+=======================================================
+
+Usecode function 092B checks for silk stockings in inventory but sets
+wrong flag (not harmful, sets flag 27A which has already been set by the same
+code call for another object (pinecone)).
+
+Usecode Function 092B
+
+Code to replace:
+
+00DC: 43 7A 02          popf    flag:[027A]
+
+Replace with:
+
+00DC: 43 7B 02          popf    flag:[027B]
+
+
+
+===============================
+
+(SI) Filari in exchanged item list.
+
+On the exchanged items list there should also be the filari in your
+inventory. This is either due to a wrong handling of count_objects by
+exult or a wrong parameter in the usecode. This is the only instance of
+using count_objects like this so I think its probably a bug in usecode.
+count_objects gets called with shapenum 3B4 (filari), quality 14h and
+framenum 0. Normally quality and framenum FE99 (any) is used if
+money is counted, only not in this case. The result is that the
+parameters do not match the characteristics of the filari in your
+inventory (quality=87dec, framenum=7) and are ignored.
+
+Usecode Function 092C:
+
+replace:
+
+0057: 1F 14 00          pushi   0014H                   ; 20
+with:
+0057: 1F 99 FE          pushi   FE99H                   ; -359
+
+
+and
+
+0087: 1F 00 00          pushi   0000H                   ; 0
+with
+0087: 1F 99 FE          pushi   FE99H                   ; -359
+
+
+(SI) Resurrecting Gwenno:
+==========================
+
+Gwennos activity flag gets set to 3 (talk) by the resurrect function (She
+is even handled especially). This triggers an automatic conversation when
+the Avatar stands near her (event == 0 or 9 I assume) and skips the
+function that checks for her status: (!UI_get_item_flag(0xFF6B, 0x001E).
+When you stand far enough apart this should not happen anyway.
+
+Usecode function 08FE:
+
+replace
+0109: 1F 03 00          pushi   0003H                   ; 3
+with
+0109: 1F 0C 00          pushi   000CH                   ; 12
+
+(0C = wander) and this should not happen.
+
+
+(SI) Fawn trial barks
+==========================
+
+The infamous functions 0x939 has problems in two of its code blocks that
+cause stack underflows and nothing much to happen. The root cause of these
+problems is that the last two extern function entries are swapped.
+When they are unswapped, there are a few extra barks, such as the avatar
+greeting the imprisoned party member, and Lady Yelinda calling Zulith.
+
+Usecode function 0939 (SS): in the function header:
+
+replace
+	.externsize  0004H
+	  .extern    08ACH
+	  .extern    08C5H
+	  .extern    0954H
+	  .extern    097FH
+with
+	.externsize  0004H
+	  .extern    08ACH
+	  .extern    08C5H
+	  .extern    097FH
+	  .extern    0954H
+
+With this, the function calls make sense without any further changes.
+
+(SI BETA) Stack underflows
+==========================
+
+In the leaked beta version of SI, there are four cases of stack underflows.
+They are caused by the same reason as above: incorrect order of externs, and
+two functions are afflicted by them: 0x4BE and 0x8FC.
+
+Usecode function 04BE (SI Beta): in the function header:
+
+replace
+	.externsize  0007H
+	  .extern    07D1H
+	  .extern    0964H
+	  .extern    07D2H
+	  .extern    093AH
+	  .extern    0939H
+	  .extern    0974H
+	  .extern    0990H
+with
+	.externsize  0007H
+	  .extern    07D1H
+	  .extern    0964H
+	  .extern    07D2H
+	  .extern    093AH
+	  .extern    0974H
+	  .extern    0939H
+	  .extern    0990H
+
+Usecode function 08FC (SI Beta): in the function header:
+
+replace
+	.externsize  0002H
+	  .extern    0939H
+	  .extern    0974H
+with
+	.externsize  0002H
+	  .extern    0974H
+	  .extern    0939H
+
+With this, the function calls make sense without any further changes.
+
+(SI) Balance Serpent never solid without speech enabled.
+========================================================
+
+If you have speech disabled, then the Balance Serpent will never appear as being
+fully solid during speech. This happens because the usecode checks for the wrong
+frame of the Serpent Ring.
+
+Usecode function 0614:
+
+replace
+005B: 1F 02 00          pushi   0002H
+with
+005B: 1F 01 00          pushi   0001H
+
+Frame 2 is an invalid frame, while frame 1 is the correct Serpent Ring frame.
+
+(BG + SI) Gang planck is blocked by non-solids.
+===============================================
+
+This is more of a theoretical bug because it can never be observed in the
+original games; but if you try to lower a ship's gang planck over an object
+which is not solid, it will still count as solid.
+
+The usecode in question determines if the gang planck is going to overlap with
+objects in a certain area when lowered. Then it checks if flag 24 is set;
+tests show that this flag maps to the TFA flag for solidity. The issue is that
+the usecode checks this flag on the wrong object, checking to see if the
+gang planck is solid instead of if the overlapping object is.
+
+In BG, this is usecode function 082C; in SI, this is usecode function 0913.
+
+In either case:
+
+replace
+0089: 21 03 00          push    [0003]
+with
+0089: 21 07 00          push    [0007]
+
+This will fix the bug.
+
+
+(SI) Tracking Anti-Shamino:
+===========================
+
+The Hound of Doskar's usecode is supposed to allow you to track Anti-Shamino
+using Beatrix's LOVE SONNETS book. However, it checks the wrong quality (62
+instead of 63) and you need the Diary of an Anonymous henchman of Batlin's.
+
+Usecode function 036A:
+
+replace
+0276: 1F 3E 00          pushi   003EH
+with
+0276: 1F 3F 00          pushi   003FH
+
+This makes the Hound track Anti-Shamino through the correct book.
+
+
+(BG) Tseramed hidden dialog:
+============================
+
+After you get to know Tseramed a bit, he will ask you, during a conversation,
+if you prefer magic or weapons to dispatch foes. If you say you prefer weapons,
+he proceeds to ask if you prefer melee or ranged weapons. If you choose ranged,
+there is supposed to be a dialog exchange with any female party members.
+
+However, there is a bad branch which prevents the exchange from showing.
+
+Usecode function 08F3:
+
+replace
+00F2: 06 61 00          jmp     0156
+with
+00F2: 06 03 00          jmp     00F8
+
+This will correct the bug, and the exchange will now show.
+
+
+(BG) Selling flour:
+===================
+
+Selling flour to Wilhem is very buggy because of two things:
+
+1. he checks for the wrong frames (a flour bag and butter churner), and it is
+   clear he should be checking for both types of closed flour sacks (he does not
+   care about open sacks, which is realistic)
+2. he does not buy if you are not carrying any amount of either frames
+3. he pays before taking away the flour, so you may have to drop things to the
+   ground in order to be able to sell flour
+
+The first 2 are easily fixable by a hex edit:
+
+Usecode function 0434:
+
+Replace:
+007B: 1F 0F 00          pushi   000FH
+with
+007B: 1F 0D 00          pushi   000DH
+
+Usecode function 0948:
+
+Replace:
+0037: 1F 0F 00          pushi   000FH
+with
+0037: 1F 0D 00          pushi   000DH
+
+Replace:
+0058: 0F                or
+with
+0058: 0E                and
+
+Replace:
+00B5: 1F 0F 00          pushi   000FH
+with
+00B5: 1F 0D 00          pushi   000DH
+
+After these, he will still not sell if you are overburdered (but you can drop
+things on the ground to sell), but he will now correctly buy any amount of
+either of the closed flour bags.
+
+
+(SI) Everlasting fire fields:
+=============================
+
+In SI, function 0882 creates a fire field and sets the 'temporary' flag on it.
+Or, at least, this was the intent: but after calling UI_update_last_created, the
+usecode overwrites the variable pointing to the object, and it then tries to set
+the flag on an invalid reference, which fails. This makes the fire field last
+forever, instead of disappearing after a cache-out.
+
+To fix it is simple:
+
+Usecode function 0882: turn this:
+
+0029:   callis  update_last_created@01
+002D:   pop     [0001]
+
+Into this:
+
+0029:   callis  update_last_created@01
+002D:   pop     [0000]
+
+Variable [0000] is not used after this, and so is safe to overwrite; and the
+value of variable [0001] is preserved for the subsequent call to set the flag.

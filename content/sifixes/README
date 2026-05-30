@@ -1,0 +1,42 @@
+You can obtain a full build of the SI Fixes mod on Exult's website:
+https://exult.info/download.php
+
+To build it yourself, there are 4 different methods:
+
+1)	The Autotools way: If you have gotten the mod together with Exult's source,
+	and you will be building Exult/ES too using Autotools, just add the options
+	"--enable-compiler --enable-mods" to "./configure" and they will get built
+	when you build Exult and installed when you install Exult. They will install
+	to "$DATAROOTDIR/exult/{base-game}/mods", which may need some tweaking in
+	".exult.cfg".
+
+2)	The MinGW way: If you are using MinGW, go into the "content/bgkeyring" and
+	call "make -f Makefile.mingw". Assumes you have UCC and ExPack, or have a
+	way to compile them. You should edit the first few variables for the correct
+	paths for tools and installation.
+	
+3)	Scripts: There are two scripts in "content/bgkeyring/src": "make.bat" (for
+	Windows) and "make.sh" (for POSIX systems with bash); both scripts require
+	UCC and ExPack. Call te appropriate one and you are done.
+
+4)	The manual way: You will need UCC and ExPack to do it. You can do it in any
+	order you want, but you have to:
+	(a)	Change to the "content/sifixes/src" directory;
+	(b) run "expack -i *.in";
+	(c) run "ucc -o ../data/usecode usecode.uc".
+
+To actually use the SI Fixes in Exult, you will need to use the 'sifixes.cfg'
+found in the same directory as this file, as well as needing to know the path to
+your Silver Seed's 'mods' directory. The 'mods' directory is by default called
+'mods', and should be created in the same level as your Silver Seed's 'static'
+directory.
+
+Then, to install the SI Fixes:
+
+  1) Copy the supplied 'sifixes.cfg' to your mods folder.
+  
+  2) Create the directory 'mods/sifixes' (CASE SENSITIVE -- use the exact same
+     case you used in the 'sifixes.cfg' file name) and copy (or move) the
+	 'sifixes/data' directory to this newly-created 'mods/sifixes' directory.
+	 
+That is it! Just run Exult and enjoy!

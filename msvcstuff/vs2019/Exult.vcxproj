@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a5813648-2268-48af-8d04-36cf6f0a73af}</ProjectGuid>
+    <RootNamespace>Exult</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <VCToolsVersion>
+    </VCToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <VCToolsVersion>
+    </VCToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <VCToolsVersion>
+    </VCToolsVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    <OutDir>$(SolutionDir)..\..\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <Linkage-zlib_static>static</Linkage-zlib_static>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    <OutDir>$(SolutionDir)..\..\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>G:\Programming\munt\mt32emu\out\build\x86-Release\include;$(IncludePath)</IncludePath>
+    <LibraryPath>G:\Programming\munt\mt32emu\out\build\x86-Release;$(LibraryPath)</LibraryPath>
+    <Linkage-zlib_static>static</Linkage-zlib_static>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+    <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    <Linkage-zlib_static>static</Linkage-zlib_static>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</IntDir>
+    <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    <Linkage-zlib_static>static</Linkage-zlib_static>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+    <VcpkgXUseBuiltInApplocalDeps>true</VcpkgXUseBuiltInApplocalDeps>
+    <VcpkgManifestInstall>true</VcpkgManifestInstall>
+    <VcpkgApplocalDeps>false</VcpkgApplocalDeps>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseMD>true</VcpkgUseMD>
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+    <VcpkgHostTriplet>x64-windows</VcpkgHostTriplet>
+    <VcpkgAdditionalInstallOptions>--x-abi-tools-use-exact-versions</VcpkgAdditionalInstallOptions>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseMD>true</VcpkgUseMD>
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+    <VcpkgHostTriplet>x64-windows</VcpkgHostTriplet>
+    <VcpkgAdditionalInstallOptions>--x-abi-tools-use-exact-versions --keep-going</VcpkgAdditionalInstallOptions>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <VcpkgTriplet>x86-windows</VcpkgTriplet>
+    <VcpkgUseMD>true</VcpkgUseMD>
+    <VcpkgAdditionalInstallOptions>--x-abi-tools-use-exact-versions</VcpkgAdditionalInstallOptions>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <VcpkgTriplet>x86-windows</VcpkgTriplet>
+    <VcpkgUseMD>true</VcpkgUseMD>
+    <VcpkgAdditionalInstallOptions>--x-abi-tools-use-exact-versions</VcpkgAdditionalInstallOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;USE_CONSOLE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(SolutionDir)msvc_include.h</PrecompiledHeaderFile>
+      <DisableSpecificWarnings>4244;4805</DisableSpecificWarnings>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.dll" "$(OutDir)"
+copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.pdb" "$(OutDir)"
+exit /b 0
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy vcpkg package binaries to exult dir</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(SolutionDir)msvc_include.h</PrecompiledHeaderFile>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4244;4805</DisableSpecificWarnings>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.dll" "$(OutDir)"
+copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.pdb" "$(OutDir)"
+exit /b 0
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy vcpkg package binaries to exult dir</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;USE_CONSOLE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(SolutionDir)msvc_include.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.dll" "$(OutDir)"
+copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.pdb" "$(OutDir)"
+exit /b 0
+</Command>
+      <Message>Copy vcpkg package binaries to exult dir</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(SolutionDir)msvc_include.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.dll" "$(OutDir)"
+copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.pdb" "$(OutDir)"
+exit /b 0
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy vcpkg package binaries to exult dir</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\.git\index">
+      <ExcludedFromBuild>false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <Command>
+echo Generating gitinfo.h
+echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;..\..\gitinfo.h
+echo.  &gt;&gt;..\..\gitinfo.h
+git tag -l --points-at HEAD --format="#define GIT_TAG \"%%(refname:short)\""&gt;&gt;..\..\gitinfo.h
+echo.  &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%u in ('git branch --show-current') do git branch  --omit-empty --list "%%u" --format="%%(if)%%(upstream)%%(then)#define GIT_REMOTE_BRANCH \"%%(upstream:strip=-1)\"%%(end)" &gt;&gt; ..\..\gitinfo.h 
+echo.
+for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT_REMOTE_URL "%%u"&gt;&gt;..\..\gitinfo.h
+echo.  &gt;&gt;..\..\gitinfo.h</Command>
+      <Outputs>..\..\gitinfo.h</Outputs>
+      <LinkObjects>false</LinkObjects>
+      <OutputItemType>ClInclude</OutputItemType>
+      <BuildInParallel>true</BuildInParallel>
+      <AdditionalInputs>..\..\.git\HEAD;..\..\.git\config</AdditionalInputs>
+      <DeploymentContent>false</DeploymentContent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">echo Generating gitinfo.h
+echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
+
+for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;;..\..\gitinfo.h 
+echo static constexpr const char* GIT_TAG[] = {&gt;&gt;..\..\gitinfo.h
+git tag -l --points-at HEAD --format=" \"%%(refname:short)\","&gt;&gt;..\..\gitinfo.h
+echo ""}; &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%c in ('git branch --show-current') do git branch  --omit-empty  --list "%%c" --format="%25%25(if)%25%25(upstream)%25%25(then)#define GIT_REMOTE_BRANCH \"%25%25(upstream:strip=-1)\"%25%25(end)"&gt;&gt;..\..\gitinfo.h 
+echo. &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT_REMOTE_URL "%%u"&gt;&gt;..\..\gitinfo.h 
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">echo Generating gitinfo.h
+echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
+
+for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;;..\..\gitinfo.h 
+echo static constexpr const char* GIT_TAG[] = {&gt;&gt;..\..\gitinfo.h
+git tag -l --points-at HEAD --format=" \"%%(refname:short)\","&gt;&gt;..\..\gitinfo.h
+echo ""}; &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%c in ('git branch --show-current') do git branch  --omit-empty  --list "%%c" --format="%25%25(if)%25%25(upstream)%25%25(then)#define GIT_REMOTE_BRANCH \"%25%25(upstream:strip=-1)\"%25%25(end)"&gt;&gt;..\..\gitinfo.h 
+echo. &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT_REMOTE_URL "%%u"&gt;&gt;..\..\gitinfo.h 
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">echo Generating gitinfo.h
+echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
+
+for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;;..\..\gitinfo.h 
+echo static constexpr const char* GIT_TAG[] = {&gt;&gt;..\..\gitinfo.h
+git tag -l --points-at HEAD --format=" \"%%(refname:short)\","&gt;&gt;..\..\gitinfo.h
+echo ""}; &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%c in ('git branch --show-current') do git branch  --omit-empty  --list "%%c" --format="%25%25(if)%25%25(upstream)%25%25(then)#define GIT_REMOTE_BRANCH \"%25%25(upstream:strip=-1)\"%25%25(end)"&gt;&gt;..\..\gitinfo.h 
+echo. &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT_REMOTE_URL "%%u"&gt;&gt;..\..\gitinfo.h 
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">echo Generating gitinfo.h
+echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
+
+for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;;..\..\gitinfo.h 
+echo static constexpr const char* GIT_TAG[] = {&gt;&gt;..\..\gitinfo.h
+git tag -l --points-at HEAD --format=" \"%%(refname:short)\","&gt;&gt;..\..\gitinfo.h
+echo ""}; &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%c in ('git branch --show-current') do git branch  --omit-empty  --list "%%c" --format="%25%25(if)%25%25(upstream)%25%25(then)#define GIT_REMOTE_BRANCH \"%25%25(upstream:strip=-1)\"%25%25(end)"&gt;&gt;..\..\gitinfo.h 
+echo. &gt;&gt;..\..\gitinfo.h
+for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT_REMOTE_URL "%%u"&gt;&gt;..\..\gitinfo.h 
+</Command>
+    </CustomBuild>
+    <None Include="..\..\audio\Makefile.am" />
+    <None Include="..\..\audio\module.mk" />
+    <None Include="..\..\audio\mtest" />
+    <None Include="..\..\audio\README" />
+    <None Include="..\..\conf\Makefile.am" />
+    <None Include="..\..\conf\module.mk" />
+    <None Include="..\..\conf\README" />
+    <None Include="..\..\flic\Makefile.am" />
+    <None Include="..\..\gamemgr\Makefile.am" />
+    <None Include="..\..\gumps\Makefile.am" />
+    <None Include="..\..\imagewin\Makefile.am" />
+    <None Include="..\..\objs\Makefile.am" />
+    <None Include="..\..\pathfinder\Makefile.am" />
+    <None Include="..\..\server\Makefile.am" />
+    <None Include="..\..\shapes\Makefile.am" />
+    <None Include="..\..\shapes\shapeinf\Makefile.am" />
+    <None Include="..\..\usecode\Makefile.am" />
+    <None Include="vcpkg-configuration.json" />
+    <None Include="vcpkg.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\actions.cc" />
+    <ClCompile Include="..\..\actorio.cc" />
+    <ClCompile Include="..\..\actors.cc" />
+    <ClCompile Include="..\..\args.cc" />
+    <ClCompile Include="..\..\audio\Audio.cc" />
+    <ClCompile Include="..\..\audio\AudioChannel.cc" />
+    <ClCompile Include="..\..\audio\AudioMixer.cc" />
+    <ClCompile Include="..\..\audio\AudioSample.cc" />
+    <ClCompile Include="..\..\audio\conv.cc" />
+    <ClCompile Include="..\..\audio\Midi.cc" />
+    <ClCompile Include="..\..\audio\midi_drivers\FluidSynthMidiDriver.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\fmopl.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\FMOplMidiDriver.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\LowLevelMidiDriver.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\MidiDriver.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\MT32EmuMidiDriver.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\WindowsMidiDriver.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\XMidiEventList.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\XMidiFile.cpp" />
+    <ClCompile Include="..\..\audio\midi_drivers\XMidiSequence.cpp" />
+    <ClCompile Include="..\..\audio\OggAudioSample.cc" />
+    <ClCompile Include="..\..\audio\RawAudioSample.cc" />
+    <ClCompile Include="..\..\audio\soundtest.cc" />
+    <ClCompile Include="..\..\audio\VocAudioSample.cc" />
+    <ClCompile Include="..\..\audio\WavAudioSample.cc" />
+    <ClCompile Include="..\..\browser.cc" />
+    <ClCompile Include="..\..\cheat.cc" />
+    <ClCompile Include="..\..\cheat_screen.cc" />
+    <ClCompile Include="..\..\combat.cc" />
+    <ClCompile Include="..\..\conf\Configuration.cc" />
+    <ClCompile Include="..\..\conf\XMLEntity.cc" />
+    <ClCompile Include="..\..\dir.cc" />
+    <ClCompile Include="..\..\drag.cc" />
+    <ClCompile Include="..\..\effects.cc" />
+    <ClCompile Include="..\..\exult.cc" />
+    <ClCompile Include="..\..\exultmenu.cc" />
+    <ClCompile Include="..\..\files\crc.cc" />
+    <ClCompile Include="..\..\files\Flat.cc" />
+    <ClCompile Include="..\..\files\Flex.cc" />
+    <ClCompile Include="..\..\files\IFF.cc" />
+    <ClCompile Include="..\..\files\listfiles.cc" />
+    <ClCompile Include="..\..\files\msgfile.cc" />
+    <ClCompile Include="..\..\files\sha1\sha1.cpp" />
+    <ClCompile Include="..\..\files\Table.cc" />
+    <ClCompile Include="..\..\files\U7file.cc" />
+    <ClCompile Include="..\..\files\U7fileman.cc" />
+    <ClCompile Include="..\..\files\U7obj.cc" />
+    <ClCompile Include="..\..\files\utils.cc" />
+    <ClCompile Include="..\..\files\zip\unzip.cc" />
+    <ClCompile Include="..\..\files\zip\zip.cc" />
+    <ClCompile Include="..\..\files\sdlrwopsistream.cc" />
+    <ClCompile Include="..\..\files\sdlrwopsostream.cc" />
+    <ClCompile Include="..\..\files\sdlrwopsstreambuf.cc" />
+    <ClCompile Include="..\..\flic\playfli.cc" />
+    <ClCompile Include="..\..\game.cc" />
+    <ClCompile Include="..\..\gameclk.cc" />
+    <ClCompile Include="..\..\gamedat.cc" />
+    <ClCompile Include="..\..\gamemap.cc" />
+    <ClCompile Include="..\..\gamemgr\bggame.cc" />
+    <ClCompile Include="..\..\gamemgr\devgame.cc" />
+    <ClCompile Include="..\..\gamemgr\modmgr.cc" />
+    <ClCompile Include="..\..\gamemgr\sigame.cc" />
+    <ClCompile Include="..\..\gamerend.cc" />
+    <ClCompile Include="..\..\gamewin.cc" />
+    <ClCompile Include="..\..\gumps\Actor_gump.cc" />
+    <ClCompile Include="..\..\gumps\AudioOptions_gump.cc" />
+    <ClCompile Include="..\..\gumps\Book_gump.cc" />
+    <ClCompile Include="..\..\gumps\CombatStats_gump.cc" />
+    <ClCompile Include="..\..\gumps\Dynamic_container_gump.cc" />
+    <ClCompile Include="..\..\gumps\Dynamic_button.cc" />
+    <ClCompile Include="..\..\gumps\Dynamic_text_widget.cc" />
+    <ClCompile Include="..\..\gumps\Dynamic_shape_widget.cc" />
+    <ClCompile Include="..\..\gumps\Dynamic_slider.cc" />
+    <ClCompile Include="..\..\gumps\Enabled_button.cc" />
+    <ClCompile Include="..\..\gumps\Face_button.cc" />
+    <ClCompile Include="..\..\gumps\Face_stats.cc" />
+    <ClCompile Include="..\..\gumps\File_gump.cc" />
+    <ClCompile Include="..\..\gumps\Gamemenu_gump.cc" />
+    <ClCompile Include="..\..\gumps\GameDisplayOptions_gump.cc" />
+    <ClCompile Include="..\..\gumps\Gump.cc" />
+    <ClCompile Include="..\..\gumps\Gump_button.cc" />
+    <ClCompile Include="..\..\gumps\Gump_manager.cc" />
+    <ClCompile Include="..\..\gumps\Gump_ToggleButton.cc" />
+    <ClCompile Include="..\..\gumps\Gump_widget.cc" />
+    <ClCompile Include="..\..\gumps\InputOptions_gump.cc" />
+    <ClCompile Include="..\..\gumps\ItemMenu_gump.cc" />
+    <ClCompile Include="..\..\gumps\Jawbone_gump.cc" />
+    <ClCompile Include="..\..\gumps\GameEngineOptions_gump.cc" />
+    <ClCompile Include="..\..\gumps\misc_buttons.cc" />
+    <ClCompile Include="..\..\gumps\Mixer_gump.cc" />
+    <ClCompile Include="..\..\gumps\Modal_gump.cc" />
+    <ClCompile Include="..\..\gumps\Newfile_gump.cc" />
+    <ClCompile Include="..\..\gumps\Notebook_gump.cc" />
+    <ClCompile Include="..\..\gumps\Paperdoll_gump.cc" />
+    <ClCompile Include="..\..\gumps\Scroll_gump.cc" />
+    <ClCompile Include="..\..\gumps\ShortcutBar_gump.cc" />
+    <ClCompile Include="..\..\gumps\Sign_gump.cc" />
+    <ClCompile Include="..\..\gumps\Slider_gump.cc" />
+    <ClCompile Include="..\..\gumps\Slider_widget.cc" />
+    <ClCompile Include="..\..\gumps\Spellbook_gump.cc" />
+    <ClCompile Include="..\..\gumps\Stats_gump.cc" />
+    <ClCompile Include="..\..\gumps\StringList_widget.cc" />
+    <ClCompile Include="..\..\gumps\Text_button.cc" />
+    <ClCompile Include="..\..\gumps\Text_gump.cc" />
+    <ClCompile Include="..\..\gumps\VideoOptions_gump.cc" />
+    <ClCompile Include="..\..\gumps\Yesno_gump.cc" />
+    <ClCompile Include="..\..\imagewin\BilinearScaler.cpp" />
+    <ClCompile Include="..\..\imagewin\BilinearScalerInternal_2x.cpp" />
+    <ClCompile Include="..\..\imagewin\BilinearScalerInternal_Arb.cpp" />
+    <ClCompile Include="..\..\imagewin\BilinearScalerInternal_X1Y12.cpp" />
+    <ClCompile Include="..\..\imagewin\BilinearScalerInternal_X2Y24.cpp" />
+    <ClCompile Include="..\..\imagewin\ibuf8.cc" />
+    <ClCompile Include="..\..\imagewin\imagebuf.cc" />
+    <ClCompile Include="..\..\imagewin\imagewin.cc" />
+    <ClCompile Include="..\..\imagewin\iwin8.cc" />
+    <ClCompile Include="..\..\imagewin\PointScaler.cpp" />
+    <ClCompile Include="..\..\imagewin\save_screenshot.cc" />
+    <ClCompile Include="..\..\imagewin\scale_2x.cc" />
+    <ClCompile Include="..\..\imagewin\scale_2xSaI.cc" />
+    <ClCompile Include="..\..\imagewin\scale_bilinear.cc" />
+    <ClCompile Include="..\..\imagewin\scale_hq2x.cc" />
+    <ClCompile Include="..\..\imagewin\scale_hq3x.cc" />
+    <ClCompile Include="..\..\imagewin\scale_hq4x.cc" />
+    <ClCompile Include="..\..\imagewin\scale_interlace.cc" />
+    <ClCompile Include="..\..\imagewin\scale_point.cc" />
+    <ClCompile Include="..\..\imagewin\scale_xbr.cc" />
+    <ClCompile Include="..\..\istring.cc" />
+    <ClCompile Include="..\..\keyactions.cc" />
+    <ClCompile Include="..\..\keys.cc" />
+    <ClCompile Include="..\..\menulist.cc" />
+    <ClCompile Include="..\..\monsters.cc" />
+    <ClCompile Include="..\..\mouse.cc" />
+    <ClCompile Include="..\..\npcnear.cc" />
+    <ClCompile Include="..\..\npctime.cc" />
+    <ClCompile Include="..\..\objs\animate.cc" />
+    <ClCompile Include="..\..\objs\barge.cc" />
+    <ClCompile Include="..\..\objs\chunks.cc" />
+    <ClCompile Include="..\..\objs\chunkter.cc" />
+    <ClCompile Include="..\..\objs\contain.cc" />
+    <ClCompile Include="..\..\objs\egg.cc" />
+    <ClCompile Include="..\..\objs\iregobjs.cc" />
+    <ClCompile Include="..\..\objs\jawbone.cc" />
+    <ClCompile Include="..\..\objs\mappatch.cc" />
+    <ClCompile Include="..\..\objs\objiter.cc" />
+    <ClCompile Include="..\..\objs\objnames.cc" />
+    <ClCompile Include="..\..\objs\objs.cc" />
+    <ClCompile Include="..\..\objs\spellbook.cc" />
+    <ClCompile Include="..\..\objs\virstone.cc" />
+    <ClCompile Include="..\..\palette.cc" />
+    <ClCompile Include="..\..\party.cc" />
+    <ClCompile Include="..\..\pathfinder\Astar.cc" />
+    <ClCompile Include="..\..\pathfinder\path.cc" />
+    <ClCompile Include="..\..\pathfinder\PathFinder.cc" />
+    <ClCompile Include="..\..\pathfinder\Zombie.cc" />
+    <ClCompile Include="..\..\paths.cc" />
+    <ClCompile Include="..\..\playscene.cc" />
+    <ClCompile Include="..\..\readnpcs.cc" />
+    <ClCompile Include="..\..\schedule.cc" />
+    <ClCompile Include="..\..\server\objserial.cc" />
+    <ClCompile Include="..\..\server\servemsg.cc" />
+    <ClCompile Include="..\..\server\server.cc" />
+    <ClCompile Include="..\..\server\servewin32.cc" />
+    <ClCompile Include="..\..\shapeid.cc" />
+    <ClCompile Include="..\..\shapes\font.cc" />
+    <ClCompile Include="..\..\shapes\fontgen.cc" />
+    <ClCompile Include="..\..\shapes\fontvga.cc" />
+    <ClCompile Include="..\..\shapes\items.cc" />
+    <ClCompile Include="..\..\shapes\miscinf.cc" />
+    <ClCompile Include="..\..\shapes\pngio.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\ammoinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\aniinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\armorinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\bodyinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\continf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\effhpinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\expinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\frflags.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\frnameinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\frusefun.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\gumpinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\lightinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\monstinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\npcdollinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\objdollinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\sfxinf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\warminf.cc" />
+    <ClCompile Include="..\..\shapes\shapeinf\weaponinf.cc" />
+    <ClCompile Include="..\..\shapes\shapevga.cc" />
+    <ClCompile Include="..\..\shapes\shapewrite.cc" />
+    <ClCompile Include="..\..\shapes\u7drag.cc" />
+    <ClCompile Include="..\..\shapes\vgafile.cc" />
+    <ClCompile Include="..\..\touchui.cc" />
+    <ClCompile Include="..\..\tqueue.cc" />
+    <ClCompile Include="..\..\txtscroll.cc" />
+    <ClCompile Include="..\..\usecode\conversation.cc" />
+    <ClCompile Include="..\..\usecode\debugserver.cc" />
+    <ClCompile Include="..\..\usecode\intrinsics.cc" />
+    <ClCompile Include="..\..\usecode\keyring.cc" />
+    <ClCompile Include="..\..\usecode\stackframe.cc" />
+    <ClCompile Include="..\..\usecode\ucdebugging.cc" />
+    <ClCompile Include="..\..\usecode\ucdisasm.cc" />
+    <ClCompile Include="..\..\usecode\ucfunction.cc" />
+    <ClCompile Include="..\..\usecode\ucinternal.cc" />
+    <ClCompile Include="..\..\usecode\ucmachine.cc" />
+    <ClCompile Include="..\..\usecode\ucsched.cc" />
+    <ClCompile Include="..\..\usecode\ucserial.cc" />
+    <ClCompile Include="..\..\usecode\ucsymtbl.cc" />
+    <ClCompile Include="..\..\usecode\useval.cc" />
+    <ClCompile Include="..\..\verify.cc" />
+    <ClCompile Include="..\..\version.cc" />
+    <ClCompile Include="..\..\win32\crash.cc" />
+    <ClCompile Include="..\..\gumps\DropDown_widget.cc" />
+    <ClCompile Include="..\..\gumps\AdvancedOptions_gump.cc" />
+    <ClCompile Include="..\..\gumps\ConfigSetting_widget.cc" />
+    <ClCompile Include="..\..\gumps\Scrollable_widget.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\actions.h" />
+    <ClInclude Include="..\..\actors.h" />
+    <ClInclude Include="..\..\args.h" />
+    <ClInclude Include="..\..\audio\Audio.h" />
+    <ClInclude Include="..\..\audio\AudioChannel.h" />
+    <ClInclude Include="..\..\audio\AudioMixer.h" />
+    <ClInclude Include="..\..\audio\AudioSample.h" />
+    <ClInclude Include="..\..\audio\conv.h" />
+    <ClInclude Include="..\..\audio\convmusic.h" />
+    <ClInclude Include="..\..\audio\Midi.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\FluidSynthMidiDriver.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\fmopl.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\FMOplMidiDriver.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\LowLevelMidiDriver.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\MidiDriver.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\MT32EmuMidiDriver.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\WindowsMidiDriver.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\XMidiEvent.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\XMidiEventList.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\XMidiFile.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\XMidiNoteStack.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\XMidiRecyclable.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\XMidiSequence.h" />
+    <ClInclude Include="..\..\audio\midi_drivers\XMidiSequenceHandler.h" />
+    <ClInclude Include="..\..\audio\OggAudioSample.h" />
+    <ClInclude Include="..\..\audio\RawAudioSample.h" />
+    <ClInclude Include="..\..\audio\soundtest.h" />
+    <ClInclude Include="..\..\audio\VocAudioSample.h" />
+    <ClInclude Include="..\..\audio\WavAudioSample.h" />
+    <ClInclude Include="..\..\browser.h" />
+    <ClInclude Include="..\..\cheat.h" />
+    <ClInclude Include="..\..\cheat_screen.h" />
+    <ClInclude Include="..\..\combat.h" />
+    <ClInclude Include="..\..\combat_opts.h" />
+    <ClInclude Include="..\..\conf\Configuration.h" />
+    <ClInclude Include="..\..\conf\XMLEntity.h" />
+    <ClInclude Include="..\..\dir.h" />
+    <ClInclude Include="..\..\drag.h" />
+    <ClInclude Include="..\..\effects.h" />
+    <ClInclude Include="..\..\exult.h" />
+    <ClInclude Include="..\..\exulticon.h" />
+    <ClInclude Include="..\..\exultmenu.h" />
+    <ClInclude Include="..\..\exult_constants.h" />
+    <ClInclude Include="..\..\files\crc.h" />
+    <ClInclude Include="..\..\files\databuf.h" />
+    <ClInclude Include="..\..\files\endianio.h" />
+    <ClInclude Include="..\..\files\Flat.h" />
+    <ClInclude Include="..\..\files\Flex.h" />
+    <ClInclude Include="..\..\files\IFF.h" />
+    <ClInclude Include="..\..\files\listfiles.h" />
+    <ClInclude Include="..\..\files\msgfile.h" />
+    <ClInclude Include="..\..\files\sha1\sha1.h" />
+    <ClInclude Include="..\..\files\Table.h" />
+    <ClInclude Include="..\..\files\U7file.h" />
+    <ClInclude Include="..\..\files\U7fileman.h" />
+    <ClInclude Include="..\..\files\U7obj.h" />
+    <ClInclude Include="..\..\files\utils.h" />
+    <ClInclude Include="..\..\files\zip\unzip.h" />
+    <ClInclude Include="..\..\files\zip\zip.h" />
+    <ClInclude Include="..\..\files\sdlrwopsistream.h" />
+    <ClInclude Include="..\..\files\sdlrwopsostream.h" />
+    <ClInclude Include="..\..\files\sdlrwopsstreambuf.h" />
+    <ClInclude Include="..\..\flic\playfli.h" />
+    <ClInclude Include="..\..\fnames.h" />
+    <ClInclude Include="..\..\frameseq.h" />
+    <ClInclude Include="..\..\game.h" />
+    <ClInclude Include="..\..\gameclk.h" />
+    <ClInclude Include="..\..\gamemap.h" />
+    <ClInclude Include="..\..\gamemgr\bggame.h" />
+    <ClInclude Include="..\..\gamemgr\devgame.h" />
+    <ClInclude Include="..\..\gamemgr\modmgr.h" />
+    <ClInclude Include="..\..\gamemgr\sigame.h" />
+    <ClInclude Include="..\..\gamerend.h" />
+    <ClInclude Include="..\..\gamewin.h" />
+    <ClInclude Include="..\..\gitinfo.h" />
+    <ClInclude Include="..\..\gumps\Actor_gump.h" />
+    <ClInclude Include="..\..\gumps\AudioOptions_gump.h" />
+    <ClInclude Include="..\..\gumps\Book_gump.h" />
+    <ClInclude Include="..\..\gumps\CombatStats_gump.h" />
+    <ClInclude Include="..\..\gumps\Dynamic_container_gump.h" />
+    <ClInclude Include="..\..\gumps\Dynamic_button.h" />
+    <ClInclude Include="..\..\gumps\Dynamic_text_widget.h" />
+    <ClInclude Include="..\..\gumps\Dynamic_shape_widget.h" />
+    <ClInclude Include="..\..\gumps\Dynamic_slider.h" />
+    <ClInclude Include="..\..\gumps\Enabled_button.h" />
+    <ClInclude Include="..\..\gumps\Face_button.h" />
+    <ClInclude Include="..\..\gumps\Face_stats.h" />
+    <ClInclude Include="..\..\gumps\File_gump.h" />
+    <ClInclude Include="..\..\gumps\Gamemenu_gump.h" />
+    <ClInclude Include="..\..\gumps\GameDisplayOptions_gump.h" />
+    <ClInclude Include="..\..\gumps\Gump.h" />
+    <ClInclude Include="..\..\gumps\Gump_button.h" />
+    <ClInclude Include="..\..\gumps\Gump_manager.h" />
+    <ClInclude Include="..\..\gumps\Gump_ToggleButton.h" />
+    <ClInclude Include="..\..\gumps\gump_types.h" />
+    <ClInclude Include="..\..\gumps\gump_utils.h" />
+    <ClInclude Include="..\..\gumps\Gump_widget.h" />
+    <ClInclude Include="..\..\gumps\InputOptions_gump.h" />
+    <ClInclude Include="..\..\gumps\ItemMenu_gump.h" />
+    <ClInclude Include="..\..\gumps\IterableGump_widget.h" />
+    <ClInclude Include="..\..\gumps\Jawbone_gump.h" />
+    <ClInclude Include="..\..\gumps\GameEngineOptions_gump.h" />
+    <ClInclude Include="..\..\gumps\misc_buttons.h" />
+    <ClInclude Include="..\..\gumps\Mixer_gump.h" />
+    <ClInclude Include="..\..\gumps\Modal_gump.h" />
+    <ClInclude Include="..\..\gumps\Newfile_gump.h" />
+    <ClInclude Include="..\..\gumps\Notebook_gump.h" />
+    <ClInclude Include="..\..\gumps\Paperdoll_gump.h" />
+    <ClInclude Include="..\..\gumps\Scroll_gump.h" />
+    <ClInclude Include="..\..\gumps\ShortcutBar_gump.h" />
+    <ClInclude Include="..\..\gumps\Sign_gump.h" />
+    <ClInclude Include="..\..\gumps\Slider_gump.h" />
+    <ClInclude Include="..\..\gumps\Slider_widget.h" />
+    <ClInclude Include="..\..\gumps\Spellbook_gump.h" />
+    <ClInclude Include="..\..\gumps\Stats_gump.h" />
+    <ClInclude Include="..\..\gumps\Text_button.h" />
+    <ClInclude Include="..\..\gumps\Text_gump.h" />
+    <ClInclude Include="..\..\gumps\VideoOptions_gump.h" />
+    <ClInclude Include="..\..\gumps\Yesno_gump.h" />
+    <ClInclude Include="..\..\hash_utils.h" />
+    <ClInclude Include="..\..\headers\common_types.h" />
+    <ClInclude Include="..\..\headers\exceptions.h" />
+    <ClInclude Include="..\..\headers\gamma.h" />
+    <ClInclude Include="..\..\headers\ignore_unused_variable_warning.h" />
+    <ClInclude Include="..\..\headers\ios_state.hpp" />
+    <ClInclude Include="..\..\headers\pent_include.h" />
+    <ClInclude Include="..\..\headers\span.h" />
+    <ClInclude Include="..\..\imagewin\AffineScaler.h" />
+    <ClInclude Include="..\..\imagewin\ArbScaler.h" />
+    <ClInclude Include="..\..\imagewin\BilinearScaler.h" />
+    <ClInclude Include="..\..\imagewin\BilinearScalerInternal.h" />
+    <ClInclude Include="..\..\imagewin\ibuf8.h" />
+    <ClInclude Include="..\..\imagewin\imagebuf.h" />
+    <ClInclude Include="..\..\imagewin\imagewin.h" />
+    <ClInclude Include="..\..\imagewin\iwin8.h" />
+    <ClInclude Include="..\..\imagewin\manip.h" />
+    <ClInclude Include="..\..\imagewin\PointScaler.h" />
+    <ClInclude Include="..\..\imagewin\scale_2x.h" />
+    <ClInclude Include="..\..\imagewin\scale_2xSaI.h" />
+    <ClInclude Include="..\..\imagewin\scale_bilinear.h" />
+    <ClInclude Include="..\..\imagewin\scale_hq2x.h" />
+    <ClInclude Include="..\..\imagewin\scale_hq3x.h" />
+    <ClInclude Include="..\..\imagewin\scale_hq4x.h" />
+    <ClInclude Include="..\..\imagewin\scale_hqnx.h" />
+    <ClInclude Include="..\..\imagewin\scale_interlace.h" />
+    <ClInclude Include="..\..\imagewin\scale_point.h" />
+    <ClInclude Include="..\..\imagewin\scale_xbr.h" />
+    <ClInclude Include="..\..\istring.h" />
+    <ClInclude Include="..\..\keyactions.h" />
+    <ClInclude Include="..\..\keys.h" />
+    <ClInclude Include="..\..\menulist.h" />
+    <ClInclude Include="..\..\monsters.h" />
+    <ClInclude Include="..\..\mouse.h" />
+    <ClInclude Include="..\..\npcnear.h" />
+    <ClInclude Include="..\..\npctime.h" />
+    <ClInclude Include="..\..\objs\animate.h" />
+    <ClInclude Include="..\..\objs\barge.h" />
+    <ClInclude Include="..\..\objs\chunks.h" />
+    <ClInclude Include="..\..\objs\chunkter.h" />
+    <ClInclude Include="..\..\objs\citerate.h" />
+    <ClInclude Include="..\..\objs\contain.h" />
+    <ClInclude Include="..\..\objs\egg.h" />
+    <ClInclude Include="..\..\objs\find_nearby.h" />
+    <ClInclude Include="..\..\objs\flags.h" />
+    <ClInclude Include="..\..\objs\iregobjs.h" />
+    <ClInclude Include="..\..\objs\jawbone.h" />
+    <ClInclude Include="..\..\objs\mappatch.h" />
+    <ClInclude Include="..\..\objs\objiter.h" />
+    <ClInclude Include="..\..\objs\objlist.h" />
+    <ClInclude Include="..\..\objs\objs.h" />
+    <ClInclude Include="..\..\objs\ordinfo.h" />
+    <ClInclude Include="..\..\objs\spellbook.h" />
+    <ClInclude Include="..\..\objs\virstone.h" />
+    <ClInclude Include="..\..\palette.h" />
+    <ClInclude Include="..\..\party.h" />
+    <ClInclude Include="..\..\pathfinder\Astar.h" />
+    <ClInclude Include="..\..\pathfinder\path.h" />
+    <ClInclude Include="..\..\pathfinder\PathFinder.h" />
+    <ClInclude Include="..\..\pathfinder\Zombie.h" />
+    <ClInclude Include="..\..\paths.h" />
+    <ClInclude Include="..\..\playscene.h" />
+    <ClInclude Include="..\..\rect.h" />
+    <ClInclude Include="..\..\schedule.h" />
+    <ClInclude Include="..\..\server\objserial.h" />
+    <ClInclude Include="..\..\server\servemsg.h" />
+    <ClInclude Include="..\..\server\server.h" />
+    <ClInclude Include="..\..\server\servewin32.h" />
+    <ClInclude Include="..\..\shapeid.h" />
+    <ClInclude Include="..\..\shapes\baseinf.h" />
+    <ClInclude Include="..\..\shapes\data_utils.h" />
+    <ClInclude Include="..\..\shapes\font.h" />
+    <ClInclude Include="..\..\shapes\fontgen.h" />
+    <ClInclude Include="..\..\shapes\fontvga.h" />
+    <ClInclude Include="..\..\shapes\items.h" />
+    <ClInclude Include="..\..\shapes\miscinf.h" />
+    <ClInclude Include="..\..\shapes\pngio.h" />
+    <ClInclude Include="..\..\shapes\ready.h" />
+    <ClInclude Include="..\..\shapes\shapeinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\ammoinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\aniinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\armorinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\bodyinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\continf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\effhpinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\expinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\frflags.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\frnameinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\frusefun.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\gumpinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\lightinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\monstinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\npcdollinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\objdollinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\sfxinf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\warminf.h" />
+    <ClInclude Include="..\..\shapes\shapeinf\weaponinf.h" />
+    <ClInclude Include="..\..\shapes\shapevga.h" />
+    <ClInclude Include="..\..\shapes\u7drag.h" />
+    <ClInclude Include="..\..\shapes\vgafile.h" />
+    <ClInclude Include="..\..\singles.h" />
+    <ClInclude Include="..\..\tiles.h" />
+    <ClInclude Include="..\..\touchui.h" />
+    <ClInclude Include="..\..\tqueue.h" />
+    <ClInclude Include="..\..\txtscroll.h" />
+    <ClInclude Include="..\..\usecode\bgintrinsics.h" />
+    <ClInclude Include="..\..\usecode\conversation.h" />
+    <ClInclude Include="..\..\usecode\debugmsg.h" />
+    <ClInclude Include="..\..\usecode\debugserver.h" />
+    <ClInclude Include="..\..\usecode\keyring.h" />
+    <ClInclude Include="..\..\usecode\opcodes.h" />
+    <ClInclude Include="..\..\usecode\sibetaintrinsics.h" />
+    <ClInclude Include="..\..\usecode\siintrinsics.h" />
+    <ClInclude Include="..\..\usecode\stackframe.h" />
+    <ClInclude Include="..\..\usecode\ucdebugging.h" />
+    <ClInclude Include="..\..\usecode\ucfunction.h" />
+    <ClInclude Include="..\..\usecode\ucinternal.h" />
+    <ClInclude Include="..\..\usecode\ucmachine.h" />
+    <ClInclude Include="..\..\usecode\ucsched.h" />
+    <ClInclude Include="..\..\usecode\ucscriptop.h" />
+    <ClInclude Include="..\..\usecode\ucserial.h" />
+    <ClInclude Include="..\..\usecode\ucsymtbl.h" />
+    <ClInclude Include="..\..\usecode\usefuns.h" />
+    <ClInclude Include="..\..\usecode\useval.h" />
+    <ClInclude Include="..\..\verify.h" />
+    <ClInclude Include="..\..\version.h" />
+    <ClInclude Include="..\..\gumps\AdvancedOptions_gump.h" />
+    <ClInclude Include="..\..\gumps\DropDown_widget.h" />
+    <ClInclude Include="msvc_include.h" />
+    <ClInclude Include="..\..\gumps\ConfigSetting_widget.h" />
+    <ClInclude Include="..\..\gumps\Scrollable_widget.h" />
+    <ClInclude Include="..\..\gumps\StringList_widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\conf\config.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="..\..\win32\exult.exe.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\win32\exult.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\win32\exultico.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

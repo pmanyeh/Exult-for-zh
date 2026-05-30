@@ -1,0 +1,377 @@
+#	Gumps information for Black Gate.
+#	Sections: container_area, checkmark_pos, special, snap_zones,
+#	          dynamic_buttons, dynamic_texts, dynamic_shapes, dynamic_sliders
+#
+#	container_area: Defines the object placement area within gumps
+#	checkmark_pos: Position of the close button for each gump
+#	special: Gumps that cannot be containers or lack close buttons
+#	snap_zones: Optional guided placement zones for dynamic containers
+#	dynamic_buttons: Data-driven buttons on container gumps
+#	dynamic_texts: Data-driven text fields, set by usecode
+#	dynamic_shapes: Data-driven shape displays, set by usecode
+#	dynamic_sliders: Data-driven slider controls, set/read by usecode
+#
+
+%%section version
+:1
+%%endsection
+
+%%section container_area
+# Sets the object placement area for each gump.
+# Gump::set_object_area uses this to override the default values defined in the c++ code
+#
+# Format: :gump_shape/x/y/width/height/debug_flags
+#         (debug_flags is optional - omit the field entirely if not needed)
+#
+# gump_shape  = Shape number in gumps.vga
+# x/y         = Top-left corner of the container area (relative to gump origin)
+# width/height= Size of the container area (not bottom-right corner)
+# debug_flags = Optional bitmask for debug visualization (omit field or use 0 for disabled)
+#               0x01 (1)  = Border outline
+#               0x02 (2)  = Major grid lines
+#               0x04 (4)  = Minor grid lines
+#               0x08 (8)  = Snap zone borders
+#               0x10 (16) = Snap zone crosshairs
+#               0x20 (32) = Console logging
+#               0x3F (63) = All features enabled
+
+# box
+:0/46/28/74/32
+
+# crate
+:1/50/20/80/24
+
+# barrel
+:8/32/32/40/40
+
+# bag
+:9/48/20/66/44
+
+# backpack
+:10/36/36/85/40
+
+# basket
+:11/42/32/70/26
+
+# chest
+:22/40/18/60/37
+
+# shipshold
+:26/38/10/82/80
+
+# drawer
+:27/36/12/70/26
+
+# body
+:53/36/46/84/40
+
+%%endsection
+
+%%section checkmark_pos
+# Sets the checkmark position on each gump.
+# Gump::set_object_area uses this to override the default values defined in the c++ code
+# Format:
+# Shape in :Gumps.vga/position X/position Y/checkmark shape
+
+# box
+:0/24/44/2
+
+# crate
+:1/24/52/2
+
+# barrel
+:8/28/112/2
+
+# bag
+:9/24/54/2
+
+# backpack
+:10/24/50/2
+
+# basket
+:11/24/44/2
+
+# chest
+:22/24/34/2
+
+# shipshold
+:26/24/80/2
+
+# drawer
+:27/24/34/2
+
+# body
+:53/24/58/2
+
+# original file gump
+:3/24/138/2
+
+# slider
+:14/22/18/2
+
+# spellbook
+:38/23/42/2
+
+# stats
+:47/22/124/2
+
+# avatar m
+:57/22/124/2
+
+# avatar f
+:58/22/124/2
+
+# Iolo
+:59/22/124/2
+
+# Spark
+:60/22/124/2
+
+# Shamino
+:61/22/124/2
+
+# Dupre
+:62/22/124/2
+
+# Jaana
+:64/22/124/2
+
+# Sentri
+:65/22/124/2
+
+# Julia
+:66/22/124/2
+
+# Katrina
+:67/22/124/2
+
+# Tseramed
+:68/22/124/2
+
+%%endsection
+
+%%section special
+# These are gumps that can neither be gumps nor have checkmark to close them.
+:2
+:4
+:5
+:6
+:7
+:12
+:15
+:16
+:17
+:18
+:19
+:20
+:21
+:23
+:24
+:25
+:28
+:29
+:30
+:31
+:32
+:33
+:34
+:35
+:36
+:37
+:38
+:39
+:40
+:41
+:42
+:44
+:45
+:46
+:48
+:49
+:50
+:51
+:52
+:54
+:55
+:56
+:69
+:70
+:71
+%%endsection
+
+%%section snap_zones
+# Defines guided placement zones for ritual containers.
+# When an item is dropped in a zone, it automatically snaps to the target position.
+#
+# Format: :gump_shape/zone_id/zone_x/zone_y/zone_w/zone_h/snap_x/snap_y/priority/zone_type
+#
+# gump_shape = Shape number in gumps.vga
+# zone_id    = Unique identifier for this zone (descriptive, e.g., "north_candle")
+# zone_x/y   = Top-left corner of detection area (relative to container_area)
+# zone_w/h   = Width/height of detection area (defines the snap zone size)
+# snap_x/y   = Target position where items snap to (relative to container_area)
+# priority   = Selection priority for overlapping zones (higher = checked first)
+# zone_type  = Category label (e.g., "candle", "reagent", "focus") - informational only
+#
+# Example - Pentagram ritual container (uncomment and modify as needed):
+# :111/north_candle/20/0/20/20/30/10/3/candle
+# :111/south_candle/55/110/20/20/65/120/3/candle
+# :111/center_focus/55/55/20/20/65/65/4/focus
+#
+%%endsection
+
+%%section dynamic_buttons
+# Format: :gump_shape/button_shape/pos_x/pos_y/default_frame/clicked_frame/sound_fx/usecode_fn/action_type/visibility_flag/usecode_param
+#
+# button_shape    = Shape number in gumps.vga for the button graphic
+# pos_x/pos_y     = Button position relative to gump origin
+# default_frame   = Frame displayed when idle (normally 0)
+# clicked_frame   = Frame displayed when pushed (normally 1)
+# sound_fx        = SFX index on click (-1 = none)
+# usecode_fn      = Usecode function to call (-1 = none)
+# action_type     = 0=nothing, 1=close gump, 2=toggle pushed state
+# visibility_flag = Global flag controlling visibility (-1 = always visible)
+# usecode_param   = Event parameter passed to usecode (-1 = default double_click)
+#
+%%endsection
+
+%%section dynamic_texts
+# Format: :gump_shape/field_id/pos_x/pos_y/font_num
+#
+# field_id   = Unique integer ID for usecode to address this field
+# pos_x/pos_y = Position relative to gump origin
+# font_num   = Font number from fonts.vga (0=normal, 2=small, 5=tiny)
+#
+# Text is set at runtime via UI_set_gump_text(item, field_id, "text")
+#
+%%endsection
+
+%%section dynamic_shapes
+# Format: :gump_shape/field_id/pos_x/pos_y/shape_num/frame_num/shapefile
+#
+# field_id      = Unique integer ID for usecode to address this field
+# pos_x/pos_y   = Position relative to gump origin
+# shape_num     = Initial shape number (0 = none until set by usecode)
+# frame_num     = Initial frame number
+# shapefile     = 0 = SF_SHAPES_VGA (shapes.vga), 1 = SF_GUMPS_VGA (gumps.vga)
+#
+# Shape is set at runtime via UI_set_gump_shape(item, field_id, shape, frame)
+#
+%%endsection
+
+%%section dynamic_sliders
+# Format: :gump_shape/field_id/pos_x/pos_y/dec_shape/inc_shape/thumb_shape/min_val/max_val/step/default_val/extent/usecode_fn/orientation
+#
+# field_id      = Unique integer ID for usecode to address this slider
+# pos_x/pos_y   = Position relative to gump origin
+# dec_shape     = Shape number in gumps.vga for decrement arrow button
+# inc_shape     = Shape number in gumps.vga for increment arrow button
+# thumb_shape   = Shape number in gumps.vga for the draggable thumb
+# min_val       = Minimum slider value
+# max_val       = Maximum slider value
+# step          = Value increment per click/key
+# default_val   = Initial value when gump opens
+# extent        = Pixel length of the slider track
+# usecode_fn    = Usecode function called on value change (-1 = none)
+# orientation   = 0 = vertical, 1 = horizontal
+#
+# Value is set/read at runtime via:
+#   UI_set_slider_value(item, field_id, value)
+#   UI_get_slider_value(item, field_id)
+#
+%%endsection
+
+%%section shortcutbar_icon
+# Set the icons for the shortcut bar buttons.
+# Format: :slot/variant/select vga/shape/frame/extra frame/bool is_party_item/select fallback vga/fallback shape/fallback frame/fallback extra frame
+# slots are 0/1/.../9. 0 is the first slot
+# variant: 0 normal icon, 1 transparent icon, 2 found icon (displayed when is_party_item check succeeds)
+#          (if a slot exists but no transparent icon is set, this icon will not be transparent
+#          - if a patch gump_info.txt is used and the transparent icon is not set the default will be used)
+# select .vga: 0 shortcutbar.vga, 1 shapes.vga, 2 gumps.vga, 3 paperdol.vga, -1 disables this slot, makes it invisible without a gap)
+# frame/extra frame: frame of the shape to use. Extra frame is used if the action uses that (combat)
+# bool is_party_item: if the shape is from shapes.vga it will check if the item is in the party - if not the slot is hidden or the fallback shape will be used if given.
+# select fallback vga: same as select .vga.
+# fallback shape: same as shape.
+# fallback frame: same as shape.
+# fallback extra frame: same as extra frame.
+
+# disk
+:0/0/0/1/0
+:0/1/0/1/1
+
+# combat
+:1/0/0/0/0/2
+:1/1/0/0/1/3
+
+# map
+:2/0/1/178/0/-1/1
+:2/1/0/8/0
+
+#spellbook
+:3/0/1/761/0/-1/1
+:3/1/0/4/1
+
+# backpack
+:4/0/1/801/0
+:4/1/0/10/0
+
+# key/keyring
+:5/0/1/641/28
+:5/1/0/7/0
+
+# notebook
+:6/0/1/642/7
+:6/1/0/9/0
+
+# target
+:7/0/0/5/0
+:7/1/0/5/1
+
+# feed
+:8/0/2/28/3
+:8/1/0/6/0
+
+%%endsection
+
+%%section shortcutbar_action
+# Set the primary (single click) and secondary (double click) action for the
+# shortcut bar.
+# Format: :slot/primary/bool cheat/secondary/bool cheat
+# slot       = shortcut bar button number, beginning with 0.
+# primary    = action to be used for single click. Uses the same actions 
+#              as our keyboard mappings.
+# secondary  = action to be used for double click. Uses the same actions 
+#              as our keyboard mappings.
+# bool cheat = only use this action if cheats are enabled.
+# activate_item uses the shape of shape.vga set in section shortcutbar_icon
+# unless a specific shape is given (activate_item(shape)).
+
+# disk
+:0/CLOSE_OR_MENU/0/SAVE_RESTORE/0
+
+# combat
+:1/TOGGLE_COMBAT/0
+
+# map
+:2/activate_item/0/MAP_TELEPORT/1
+
+#spellbook
+:3/activate_item/0
+
+# backpack
+:4/INVENTORY/0
+
+# key/keyring
+:5/TRY_KEYS/0/activate_item(627)/0
+
+# notebook
+:6/NOTEBOOK/0/CHEAT_SCREEN/1
+
+# target
+:7/TARGET_MODE/0/TARGET_MODE_TELEPORT/1
+
+# feed
+:8/USEFOOD/0/USE_HEALING_ITEMS/0
+
+%%endsection

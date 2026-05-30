@@ -1,0 +1,76 @@
+// Exult Resource Script
+#include "winresrc.h"
+
+#ifndef RT_MANIFEST
+#define RT_MANIFEST                      24
+#endif
+
+#define IDI_MANIFEST                      1
+#define IDI_ICON1                       101
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENA)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_AUS
+#pragma code_page(65001) // UTF-8
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Manifest
+//
+
+// Manifest file should default to id 1.
+IDI_MANIFEST            RT_MANIFEST             "exult_studio.exe.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "exultstudio.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,13,1,0
+ PRODUCTVERSION 1,13,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            //VALUE "CompanyName", "The Exult Team\0"
+            VALUE "FileDescription", "Exult Studio\0"
+            VALUE "FileVersion", "1.13.1git\0"
+            VALUE "InternalName", "Exult Studio\0"
+            VALUE "LegalCopyright", "Copyright © 1998-2025\0"
+            VALUE "OriginalFilename", "exult_studio.exe\0"
+            VALUE "ProductName", "Exult Studio\0"
+            VALUE "ProductVersion", "1.13.1git\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // English (Australia) resources
+
