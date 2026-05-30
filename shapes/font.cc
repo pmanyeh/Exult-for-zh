@@ -21,7 +21,6 @@
 #endif
 
 #include "font.h"
-#include <fstream>
 
 #include "U7file.h"
 #include "databuf.h"
@@ -29,11 +28,14 @@
 #include "ibuf8.h"
 #include "ignore_unused_variable_warning.h"
 #include "vgafile.h"
-
 #include "ttf_font.cc"
 
+#include <fstream>
+
 inline bool Has_non_ascii(const char* text) {
-	if (!text) return false;
+	if (!text) {
+		return false;
+	}
 	while (*text) {
 		if (static_cast<unsigned char>(*text) >= 0x80) {
 			return true;
@@ -44,7 +46,9 @@ inline bool Has_non_ascii(const char* text) {
 }
 
 inline bool Has_non_ascii(const char* text, int len) {
-	if (!text) return false;
+	if (!text) {
+		return false;
+	}
 	for (int i = 0; i < len; ++i) {
 		if (static_cast<unsigned char>(text[i]) >= 0x80) {
 			return true;
@@ -92,8 +96,8 @@ static const char* Pass_word(const char* text) {
 	const char* start = text;
 	while (*text) {
 		unsigned char c = *text;
-		
-		if (c >= 0x80) { // Multi-byte UTF-8 character start
+
+		if (c >= 0x80) {    // Multi-byte UTF-8 character start
 			if (text == start) {
 				// It's the start of the word. Treat this single UTF-8 character as a "word".
 				TTF::decode_utf8(text);
@@ -135,15 +139,16 @@ int Font::paint_text_box(
 		Cursor_info*   cursor,             // We set x, y if not nullptr.
 		unsigned char* trans) {
 	const char* start    = text;    // Remember the start.
+	const bool  has_cjk  = Has_non_ascii(start);
 	auto        clipsave = win->SaveClip();
 	auto        newclip  = clipsave.Rect().intersect(TileRect(x, y, w, h));
 	win->set_clip(newclip.x, newclip.y, newclip.w, newclip.h);
 
-	const int   endx           = x + w;    // Figure where to stop.
-	int         curx           = x;
-	int         cury           = y;
-	const int   height         = get_text_height_for(text) + vert_lead + ver_lead;
-	const int   space_width    = get_text_width(" ", 1);
+	const int endx   = x + w;    // Figure where to stop.
+	int       curx   = x;
+	int       cury   = y;
+	const int height = get_rendered_line_height_for(text) + vert_lead + ver_lead;
+	const int space_width = get_text_width(" ", 1);
 	const int   max_lines      = h / height;    // # lines that can be shown.
 	auto*       lines          = new string[max_lines + 1];
 	int         cur_line       = 0;
@@ -157,7 +162,7 @@ int Font::paint_text_box(
 		coff      = cursor->offset;
 		cursor->x = -1;
 	}
-	TTF::load_font("C:\\Windows\\Fonts\\mingliu.ttc", get_text_height_for(text)); // Load default Big5 font
+	TTF::load_font("C:\\Windows\\Fonts\\mingliu.ttc", get_text_height_for(text));    // Load default Big5 font
 	while (*text) {
 		if (cursor && text - start == coff) {
 			cursor->set_found(curx, cury, cur_line);
@@ -272,7 +277,7 @@ int Font::paint_text_box(
 		if (center) {
 			center_text(win, x + w / 2, cury, str, trans);
 		} else {
-			paint_text(win, str, len, x, cury, trans);
+			paint_text(win, str, len, x, cury, trans, has_cjk);
 		}
 		cury += height;
 		if (i == last_punct_line) {
@@ -298,35 +303,9 @@ int Font::paint_text(
 		Image_buffer8* win,     // Buffer to paint in.
 		const char*    text,    // What to draw, 0-delimited.
 		int xoff, int yoff,     // Upper-left corner of where to start.
-		unsigned char* trans) {
-	ignore_unused_variable_warning(win);
-	int x = xoff;
-	int yoff_original = yoff;
-	yoff += get_text_baseline_for(text);
-	TTF::load_font("C:\\Windows\\Fonts\\mingliu.ttc", get_text_height_for(text));
-	if (font_shapes) {
-		while (*text != 0) {
-			uint32_t wch = TTF::decode_utf8(text);
-			if (wch == 0) break;
-			
-			if (wch < 0x80 && wch != 127) {
-				Shape_frame* shape = font_shapes->get_frame(wch);
-				if (shape) {
-					if (shape->is_rle()) {
-						if (trans) shape->paint_rle_remapped(win, x, yoff, trans);
-						else shape->paint_rle(win, x, yoff);
-					} else {
-						shape->paint(win, x, yoff);
-					}
-					x += shape->get_width() + hor_lead;
-				}
-			} else {
-				Shape_frame* sample_shape = font_shapes->get_frame('A');
-				x += TTF::paint_char(win, wch, x, yoff_original, sample_shape, trans);
-			}
-		}
-	}
-	return x - xoff;
+		unsigned char* trans,   // Trans. table, or 0.
+		bool           force_cjk) {
+	return paint_text(win, text, static_cast<int>(strlen(text)), xoff, yoff, trans, force_cjk);
 }
 
 /*
@@ -340,23 +319,30 @@ int Font::paint_text(
 		const char*    text,       // What to draw.
 		int            textlen,    // Length of text.
 		int xoff, int yoff,        // Upper-left corner of where to start.
-		unsigned char* trans) {
+		unsigned char* trans,      // Trans table or nullptr.
+		bool           force_cjk) {
 	ignore_unused_variable_warning(win);
-	int x = xoff;
+	int x             = xoff;
 	int yoff_original = yoff;
-	yoff += get_text_baseline_for(text, textlen);
-	TTF::load_font("C:\\Windows\\Fonts\\mingliu.ttc", get_text_height_for(text, textlen));
+	int baseline      = force_cjk ? get_chinese_font_size() : get_text_baseline_for(text, textlen);
+	yoff += baseline;
+	TTF::load_font("C:\\Windows\\Fonts\\mingliu.ttc", force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {
 		while (textlen > 0) {
 			uint32_t wch = TTF::decode_utf8(text, textlen);
-			if (wch == 0) break;
-			
+			if (wch == 0) {
+				break;
+			}
+
 			if (wch < 0x80 && wch != 127) {
 				Shape_frame* shape = font_shapes->get_frame(wch);
 				if (shape) {
 					if (shape->is_rle()) {
-						if (trans) shape->paint_rle_remapped(win, x, yoff, trans);
-						else shape->paint_rle(win, x, yoff);
+						if (trans) {
+							shape->paint_rle_remapped(win, x, yoff, trans);
+						} else {
+							shape->paint_rle(win, x, yoff);
+						}
 					} else {
 						shape->paint(win, x, yoff);
 					}
@@ -523,20 +509,25 @@ int Font::paint_text_fixedwidth(
 		int xoff, int yoff,      // Upper-left corner of where to start.
 		int            width,    // Width of each character
 		unsigned char* trans) {
-	int x = xoff;
+	int x             = xoff;
 	int yoff_original = yoff;
 	yoff += get_text_baseline_for(text);
 	TTF::load_font("C:\\Windows\\Fonts\\mingliu.ttc", get_text_height_for(text));
 	while (*text != 0) {
 		uint32_t wch = TTF::decode_utf8(text);
-		if (wch == 0) break;
+		if (wch == 0) {
+			break;
+		}
 		if (wch < 0x80 && wch != 127) {
 			Shape_frame* shape = font_shapes->get_frame(wch);
 			if (shape) {
 				int paint_x = x + (width - shape->get_width()) / 2;
 				if (shape->is_rle()) {
-					if (trans) shape->paint_rle_remapped(win, paint_x, yoff, trans);
-					else shape->paint_rle(win, paint_x, yoff);
+					if (trans) {
+						shape->paint_rle_remapped(win, paint_x, yoff, trans);
+					} else {
+						shape->paint_rle(win, paint_x, yoff);
+					}
 				} else {
 					shape->paint(win, paint_x, yoff);
 				}
@@ -544,8 +535,8 @@ int Font::paint_text_fixedwidth(
 			x += width;
 		} else {
 			Shape_frame* sample_shape = font_shapes->get_frame('A');
-			int char_width = TTF::get_char_width(wch);
-			int paint_x = x + (width - char_width) / 2;
+			int          char_width   = TTF::get_char_width(wch);
+			int          paint_x      = x + (width - char_width) / 2;
 			TTF::paint_char(win, wch, paint_x, yoff_original, sample_shape, trans);
 			x += width;
 		}
@@ -567,20 +558,25 @@ int Font::paint_text_fixedwidth(
 		int xoff, int yoff,        // Upper-left corner of where to start.
 		int            width,      // Width of each character
 		unsigned char* trans) {
-	int x = xoff;
+	int x             = xoff;
 	int yoff_original = yoff;
 	yoff += get_text_baseline_for(text, textlen);
 	TTF::load_font("C:\\Windows\\Fonts\\mingliu.ttc", get_text_height_for(text, textlen));
 	while (textlen > 0) {
 		uint32_t wch = TTF::decode_utf8(text, textlen);
-		if (wch == 0) break;
+		if (wch == 0) {
+			break;
+		}
 		if (wch < 0x80 && wch != 127) {
 			Shape_frame* shape = font_shapes->get_frame(wch);
 			if (shape) {
 				int paint_x = x + (width - shape->get_width()) / 2;
 				if (shape->is_rle()) {
-					if (trans) shape->paint_rle_remapped(win, paint_x, yoff, trans);
-					else shape->paint_rle(win, paint_x, yoff);
+					if (trans) {
+						shape->paint_rle_remapped(win, paint_x, yoff, trans);
+					} else {
+						shape->paint_rle(win, paint_x, yoff);
+					}
 				} else {
 					shape->paint(win, paint_x, yoff);
 				}
@@ -588,8 +584,8 @@ int Font::paint_text_fixedwidth(
 			x += width;
 		} else {
 			Shape_frame* sample_shape = font_shapes->get_frame('A');
-			int char_width = TTF::get_char_width(wch);
-			int paint_x = x + (width - char_width) / 2;
+			int          char_width   = TTF::get_char_width(wch);
+			int          paint_x      = x + (width - char_width) / 2;
 			TTF::paint_char(win, wch, paint_x, yoff_original, sample_shape, trans);
 			x += width;
 		}
@@ -633,7 +629,9 @@ int Font::get_text_width(
 	if (font_shapes) {
 		while (textlen > 0) {
 			uint32_t wch = TTF::decode_utf8(text, textlen);
-			if (wch == 0) break;
+			if (wch == 0) {
+				break;
+			}
 			if (wch < 0x80 && wch != 127) {
 				Shape_frame* shape = font_shapes->get_frame(wch);
 				if (shape) {
@@ -648,9 +646,9 @@ int Font::get_text_width(
 }
 
 void Font::get_text_box_dims(const char* text, int& width, int& height, int vert_lead) {
-	width         = 0;
-	height        = 0;
-	int cur_width = 0;
+	width                 = 0;
+	height                = 0;
+	int         cur_width = 0;
 	const char* orig_text = text;
 
 	int num_lines = 1;
@@ -666,13 +664,15 @@ void Font::get_text_box_dims(const char* text, int& width, int& height, int vert
 			uint32_t wch = TTF::decode_utf8(text);
 			if (wch < 0x80 && wch != 127) {
 				Shape_frame* shape = font_shapes->get_frame(wch);
-				if (shape) cur_width += shape->get_width() + hor_lead;
+				if (shape) {
+					cur_width += shape->get_width() + hor_lead;
+				}
 			} else {
 				cur_width += TTF::get_char_width(wch);
 			}
 		}
 		width  = std::max(width, cur_width);
-		height = num_lines * (get_text_height_for(orig_text) + vert_lead + ver_lead);
+		height = num_lines * (get_rendered_line_height_for(orig_text) + vert_lead + ver_lead);
 	}
 }
 
@@ -696,15 +696,27 @@ int Font::get_original_height() {
 }
 
 int Font::get_chinese_font_size() {
-	if (font_index == 0) return 15; // Dialogues
-	if (font_index == 2) return 11; // Small UI/Buttons/Options
-	if (font_index == 4) return 9;  // Tiny UI
-	
+	if (font_index == 0) {
+		return 15;    // Dialogues
+	}
+	if (font_index == 2) {
+		return 11;    // Small UI/Buttons/Options
+	}
+	if (font_index == 4) {
+		return 9;    // Tiny UI
+	}
+
 	// Fallback to height-based calculation
 	int h = get_original_height();
-	if (h <= 6) return 9;
-	if (h <= 8) return 11;
-	if (h <= 10) return 15;
+	if (h <= 6) {
+		return 9;
+	}
+	if (h <= 8) {
+		return 11;
+	}
+	if (h <= 10) {
+		return 15;
+	}
 	return h * 3 / 2;
 }
 
@@ -715,11 +727,25 @@ int Font::get_text_height_for(const char* text) {
 	return get_original_height();
 }
 
+int Font::get_rendered_line_height_for(const char* text) {
+	if (Has_non_ascii(text)) {
+		return get_chinese_font_size() + 8; // 15 + 8 = 23, minus vert_lead(-1) = 22px spacing
+	}
+	return get_rendered_line_height();
+}
+
 int Font::get_text_height_for(const char* text, int len) {
 	if (Has_non_ascii(text, len)) {
 		return get_chinese_font_size();
 	}
 	return get_original_height();
+}
+
+int Font::get_rendered_line_height_for(const char* text, int len) {
+	if (Has_non_ascii(text, len)) {
+		return get_chinese_font_size() + 8;
+	}
+	return get_rendered_line_height();
 }
 
 int Font::get_text_baseline_for(const char* text) {
@@ -767,16 +793,16 @@ int Font::find_cursor(
 	const int   endx        = x + w;    // Figure where to stop.
 	int         curx        = x;
 	int         cury        = y;
-	const int   height      = get_text_height_for(text) + vert_lead + ver_lead;
+	const int   height      = get_rendered_line_height_for(text) + vert_lead + ver_lead;
 	const int   space_width = get_text_width(" ", 1);
 	const int   max_lines   = h / height;    // # lines that can be shown.
 	int         cur_line    = 0;
 
 	while (*text != 0) {
 		const char* saved_text = text;
-		uint32_t wch = TTF::decode_utf8(text);
-		
-		if (wch > 0x7F || wch == 127) { // Multi-byte UTF-8 character (like Chinese) or custom bullet
+		uint32_t    wch        = TTF::decode_utf8(text);
+
+		if (wch > 0x7F || wch == 127) {    // Multi-byte UTF-8 character (like Chinese) or custom bullet
 			int width = TTF::get_char_width(wch);
 			if (curx + width - hor_lead > endx) {
 				// Word-wrap.
@@ -791,7 +817,7 @@ int Font::find_cursor(
 				}
 			}
 			if (cy >= cury && cy < cury + height && cx >= curx && cx < curx + width) {
-				return static_cast<int>(saved_text - start); // Approximate cursor position
+				return static_cast<int>(saved_text - start);    // Approximate cursor position
 			}
 			curx += width;
 			continue;
@@ -890,17 +916,17 @@ int Font::find_xcursor(
 	int         curx  = 0;
 	while (textlen > 0) {
 		const char* saved_text = text;
-		uint32_t wch = TTF::decode_utf8(text, textlen);
-		
-		if (wch > 0x7F || wch == 127) { // Multi-byte character or custom bullet
+		uint32_t    wch        = TTF::decode_utf8(text, textlen);
+
+		if (wch > 0x7F || wch == 127) {    // Multi-byte character or custom bullet
 			int w = TTF::get_char_width(wch) + hor_lead;
 			if (cx >= curx && cx < curx + w) {
-				return static_cast<int>(saved_text - start); // Adjust based on string parsing logic
+				return static_cast<int>(saved_text - start);    // Adjust based on string parsing logic
 			}
 			curx += w;
 			continue;
 		}
-		int chr = wch;
+		int          chr   = wch;
 		Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(chr));
 		if (shape && shape->is_rle()) {
 			const int w = shape->get_width() + hor_lead;

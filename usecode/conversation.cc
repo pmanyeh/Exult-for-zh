@@ -150,7 +150,8 @@ void Conversation::init_faces() {
 }
 
 void Conversation::set_face_rect(Npc_face_info* info, Npc_face_info* prev, int screenw, int screenh) {
-	const int text_height = sman->get_text_line_height(0);
+	const int base_text_height = sman->get_text_line_height(0);
+	const int max_text_height = std::max(base_text_height, 22);
 	// Figure starting y-coord.
 	// Get character's portrait.
 	Shape_frame* face   = info->shape.get_shapenum() >= 0 ? info->shape.get_shape() : nullptr;
@@ -180,7 +181,7 @@ void Conversation::set_face_rect(Npc_face_info* info, Npc_face_info* prev, int s
 		if (starty < prev->face_rect.y + prev->face_rect.h) {
 			starty = prev->face_rect.y + prev->face_rect.h;
 		}
-		starty += 2 * text_height;
+		starty += 2 * base_text_height;
 		if (starty + face_h > screenh - 1) {
 			starty = screenh - face_h - 1;
 		}
@@ -191,14 +192,11 @@ void Conversation::set_face_rect(Npc_face_info* info, Npc_face_info* prev, int s
 	}
 	info->face_rect      = gwin->clip_to_win(TileRect(startx, starty, face_w + extraw, face_h + extrah));
 	const TileRect& fbox = info->face_rect;
-	// This is where NPC text will go.
-	info->text_rect = gwin->clip_to_win(TileRect(fbox.x + fbox.w + 3, fbox.y + 3, screenw - fbox.x - fbox.w - 6, 4 * text_height));
-	// No room?  (Serpent?)
 	if (info->large_face) {
-		// Show in lower center.
-		const int x     = screenw / 5;
-		const int y     = 3 * (screenh / 4);
-		info->text_rect = TileRect(x, y, screenw - (2 * x), screenh - y - 4);
+		info->text_rect = gwin->clip_to_win(TileRect(fbox.x + 8, fbox.y + fbox.h + 8, fbox.w - 16, 4 * max_text_height));
+	} else {
+		info->text_rect = gwin->clip_to_win(
+				TileRect(fbox.x + fbox.w + 8, fbox.y + 4, screenw - fbox.x - fbox.w - 16, 4 * max_text_height));
 	}
 	info->last_text_height = info->text_rect.h;
 }
@@ -400,8 +398,25 @@ void Conversation::show_npc_message(const char* msg) {
 	//	paint_faces();
 	gwin->paint();
 	int height;    // Break at punctuation.
+	
+	bool has_chinese = false;
+	for (const char* p = msg; p && *p; p++) {
+		if (static_cast<unsigned char>(*p) >= 0x80) {
+			has_chinese = true;
+			break;
+		}
+	}
+	int line_height = sman->get_text_line_height(0);
+	if (has_chinese) {
+		line_height = std::max(line_height, 22);
+	}
+	int render_box_h = 4 * line_height;
+	if (render_box_h > box.h) {
+		render_box_h = box.h;
+	}
+
 	/* NOTE:  The original centers text for Guardian, snake.    */
-	while ((height = sman->paint_text_box(font, msg, box.x, box.y, box.w, box.h, -1, true, info->large_face, gwin->get_text_bg()))
+	while ((height = sman->paint_text_box(font, msg, box.x, box.y, box.w, render_box_h, -1, true, info->large_face, gwin->get_text_bg()))
 		   < 0) {
 		// More to do?
 		info->cur_text = string(msg, -height);
@@ -454,9 +469,9 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 	const bool  SI         = Game::get_game_type() == SERPENT_ISLE;
 	Main_actor* main_actor = gwin->get_main_actor();
 	// Get screen rectangle.
-	const TileRect sbox        = gwin->get_game_rect();
-	int            x           = 0;
-	int            y           = 0;    // Keep track of coords. in box.
+	const TileRect sbox = gwin->get_game_rect();
+	int            x    = 0;
+	int            y    = 0;    // Keep track of coords. in box.
 
 	bool has_chinese = false;
 	for (int i = 0; i < num_choices; i++) {
@@ -468,18 +483,28 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 				}
 			}
 		}
-		if (has_chinese) break;
-	}
-	int line_height = sman->get_text_line_height(0);
-	if (has_chinese) {
-		std::shared_ptr<Font> dialogue_font = sman->get_font(0);
-		if (dialogue_font) {
-			line_height = 15 + dialogue_font->get_ver_lead();
-		} else {
-			line_height = 14;
+		if (has_chinese) {
+			break;
 		}
 	}
-	const int      space_width = sman->get_text_width(0, " ");
+	// paint_text shifts each glyph down by 'highest', so a row occupies
+	// [y, y + highest + lowest] – not just get_text_height().
+	// Use the actual rendered span as the base for row spacing in all cases.
+	std::shared_ptr<Font> font0       = sman->get_font(0);
+	int                   line_height = sman->get_text_line_height(0);    // default fallback
+	if (font0) {
+		const int rendered_h = font0->get_rendered_line_height();
+		// +2: 1px gap + 1px for descender shadow pixel
+		line_height = rendered_h + font0->get_ver_lead() + 2;
+	}
+	if (has_chinese) {
+		// CJK glyphs (15pt FreeType) need at least 22px per row.
+		const int cjk_min = 22 + (font0 ? font0->get_ver_lead() : 0);
+		if (line_height < cjk_min) {
+			line_height = cjk_min;
+		}
+	}
+	const int space_width = sman->get_text_width(0, " ");
 
 	// Get main actor's portrait, checking for Petra flag.
 	int shape = Shapeinfo_lookup::GetFaceReplacement(0);
@@ -534,9 +559,10 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 	// Draw portrait.
 	sman->paint_shape(mbox.x + face->get_xleft(), mbox.y + face->get_yabove(), face);
 	delete[] conv_choices;    // Set up new list of choices.
-	conv_choices        = new TileRect[num_choices + 1];
-	const int text_bg   = gwin->get_text_bg();
-	const int bg_offset = (sman->get_text_height(0) - line_height) / 2;
+	conv_choices      = new TileRect[num_choices + 1];
+	const int text_bg = gwin->get_text_bg();
+	// For CJK text the pixel-font formula gives a negative offset; just align to row top.
+	const int bg_offset = has_chinese ? 0 : (sman->get_text_height(0) - line_height) / 2;
 	// First pass: determine positions and draw all backgrounds.
 	for (int i = 0; i < num_choices; i++) {
 		char text[256];
@@ -546,7 +572,7 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 		if (x > 0 && x + width >= tbox.w) {
 			// Start a new line.
 			x = 0;
-			y += line_height - 1;
+			y += has_chinese ? line_height : line_height - 1;
 		}
 		// Store info.
 		conv_choices[i] = TileRect(tbox.x + x, tbox.y + y, width, line_height);
