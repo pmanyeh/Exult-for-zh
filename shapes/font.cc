@@ -350,7 +350,8 @@ int Font::paint_text(
 				}
 			} else {
 				Shape_frame* sample_shape = font_shapes->get_frame('A');
-				x += TTF::paint_char(win, wch, x, yoff_original, sample_shape, trans);
+				bool is_book = (font_index >= 2);
+				x += TTF::paint_char(win, wch, x, yoff_original, sample_shape, trans, is_book);
 			}
 		}
 	}
@@ -537,7 +538,8 @@ int Font::paint_text_fixedwidth(
 			Shape_frame* sample_shape = font_shapes->get_frame('A');
 			int          char_width   = TTF::get_char_width(wch);
 			int          paint_x      = x + (width - char_width) / 2;
-			TTF::paint_char(win, wch, paint_x, yoff_original, sample_shape, trans);
+			bool         is_book      = (font_index >= 2);
+			TTF::paint_char(win, wch, paint_x, yoff_original, sample_shape, trans, is_book);
 			x += width;
 		}
 	}
@@ -586,7 +588,8 @@ int Font::paint_text_fixedwidth(
 			Shape_frame* sample_shape = font_shapes->get_frame('A');
 			int          char_width   = TTF::get_char_width(wch);
 			int          paint_x      = x + (width - char_width) / 2;
-			TTF::paint_char(win, wch, paint_x, yoff_original, sample_shape, trans);
+			bool         is_book      = (font_index >= 2);
+			TTF::paint_char(win, wch, paint_x, yoff_original, sample_shape, trans, is_book);
 			x += width;
 		}
 	}
@@ -699,23 +702,14 @@ int Font::get_chinese_font_size() {
 	if (font_index == 0) {
 		return 15;    // Dialogues
 	}
-	if (font_index == 2) {
-		return 11;    // Small UI/Buttons/Options
-	}
-	if (font_index == 4) {
-		return 9;    // Tiny UI
+	if (font_index >= 2) {
+		return 11;    // Books and UI (per user request)
 	}
 
 	// Fallback to height-based calculation
 	int h = get_original_height();
-	if (h <= 6) {
-		return 9;
-	}
-	if (h <= 8) {
-		return 11;
-	}
 	if (h <= 10) {
-		return 15;
+		return 15; // Enforce a minimum of 15px for readability and correct wrapping
 	}
 	return h * 3 / 2;
 }
@@ -729,7 +723,8 @@ int Font::get_text_height_for(const char* text) {
 
 int Font::get_rendered_line_height_for(const char* text) {
 	if (Has_non_ascii(text)) {
-		return get_chinese_font_size() + 8; // 15 + 8 = 23, minus vert_lead(-1) = 22px spacing
+		int font_size = get_chinese_font_size();
+		return font_size + (font_size >= 15 ? 8 : 6); // Adjust spacing based on font size
 	}
 	return get_rendered_line_height();
 }
@@ -743,7 +738,8 @@ int Font::get_text_height_for(const char* text, int len) {
 
 int Font::get_rendered_line_height_for(const char* text, int len) {
 	if (Has_non_ascii(text, len)) {
-		return get_chinese_font_size() + 8;
+		int font_size = get_chinese_font_size();
+		return font_size + (font_size >= 15 ? 8 : 6);
 	}
 	return get_rendered_line_height();
 }

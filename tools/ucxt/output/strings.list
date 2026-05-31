@@ -1,0 +1,1507 @@
+# Written by Exult Textpack tool
+0:carpet
+1:sidewalk
+3:lightning
+4:grass
+5:cavefloor
+6:arrow
+7:spring
+8:water
+9:fireball
+10:sand
+11:ether
+12:void
+13:spring
+14:ford
+15:ford
+16:rut
+17:planking
+18:tile
+21:stone floor
+22:swamp
+23:dirt
+24:cobblestone
+25:rut
+27:carpet
+28:sandy grass
+29:muddy bank
+31:grass
+32:grass
+33:grass
+34:grass
+35:grass
+36:grass
+37:grass
+38:grass
+39:grass
+40:grass
+41:grass
+42:grass
+43:grass
+44:grass
+45:grass
+46:rocky grass
+47:carpet
+48:ethereal void
+49:cavefloor
+50:cavefloor
+51:cavefloor
+52:cavefloor
+53:cavefloor
+54:cavefloor
+55:cavefloor
+56:cavefloor
+57:cavefloor
+58:cavefloor
+59:cavefloor
+60:cavefloor
+61:cavefloor
+62:cavefloor
+63:cavefloor
+66:grass
+67:muck
+68:enchant missiles
+69:heal
+70:light
+71:destroy trap
+72:sleep
+73:unlock magic
+74:light
+75:dispel field
+76:heal
+77:seance
+78:explosion
+79:reveal
+80:charm
+81:flamestrike
+82:delayed explosion
+84:ford
+85:muddy bank
+86:muddy bank
+87:muddy bank
+88:muddy bank
+89:muddy bank
+90:muddy bank
+91:muddy bank
+92:muddy bank
+93:muddy bank
+94:muddy bank
+95:muddy bank
+96:muddy bank
+97:muddy bank
+98:muddy bank
+99:muddy bank
+100:muddy bank
+101:muddy bank
+102:muddy bank
+103:muddy bank
+104:muddy bank
+105:muddy bank
+106:muddy bank
+107:muddy bank
+108:muddy bank
+109:muddy bank
+111:sandy ground
+112:ford
+113:swamp
+114:swamp
+115:swamp
+116:swamp
+117:swamp
+118:sandy grass
+119:sandy grass
+120:sandy grass
+121:sandy grass
+122:sandy grass
+123:sandy grass
+124:sandy grass
+125:sandy grass
+126:sandy grass
+127:sandy grass
+128:sandy grass
+129:sandy grass
+130:sandy grass
+131:sandy grass
+132:sandy grass
+133:sandy grass
+134:grassy mud
+135:grassy mud
+136:grassy mud
+137:grassy mud
+138:grassy mud
+139:grassy mud
+140:grassy mud
+141:grassy mud
+142:grassy mud
+143:grassy mud
+144:grassy mud
+145:grassy mud
+146:grass
+147:grass
+148:grass
+149:mud
+150:gangplank
+151:wall
+152:wall
+153:oppressor
+154:mage
+155:The Ferryman
+156:tile roof
+157:Moongate
+158:stand
+159:pocketwatch
+160:greer plant
+163:rock outcropping
+164:slate roof
+165:slate roof
+166:slate roof
+167:slate roof
+168:beam of light
+169:slate roof
+170:wood roof
+171:wood roof
+172:wood roof
+173:wood roof
+174:wood roof
+175:wood roof
+176:wood roof
+177:alchemist device
+178:cloth map
+179:lightning
+180:mountain
+181:tree
+182:mountain
+183:mountain
+184:Caddelite meteor
+185:dead tree
+186:carpet
+187:carpet
+188:rug
+189:floor
+190:carpet
+191:fortress
+192:fortress
+193:floor
+194:Knight's Bridge piece
+195:mountain
+196:mountain
+197:mountain
+198:light
+199:mast
+200:trap
+201:debris
+202:debris
+203:small rock
+204:scorch mark
+205:wall
+206:wall
+207:scorch mark
+208:broken door
+209:dust
+210:chicken coop
+211:broken door
+212:bridge
+213:bridge
+214:bridge
+215:bridge
+216:broken wall
+217:broken wall
+218:wall
+219:wall
+220:wall
+221:wall
+222:blue flag
+223:broken roof
+224:dust
+225:Abbey door
+226:flying Gargoyle
+227:Alagner
+228:Papa
+229:Mama
+230:ethereal monster
+231:blinker
+232:red flag
+233:platform
+234:Sphere Generator
+235:Sphere Generator
+236:Sphere Generator
+237:Sphere Generator
+238:Cube Generator
+239:Cube Generator
+240:Cube Generator
+241:Cube Generator
+242:Tetrahedron Generator
+243:Tetrahedron Generator
+244:Tetrahedron Generator
+245:Tetrahedron Generator
+246:Abbey door
+247:paladin
+248:green flag
+249:top
+250:Abbey door
+251:sails
+252:grandfather clock
+253:wall
+254:wall
+255:broken wall
+256:delta
+257:fortress gateway
+258:keg
+259:fighter
+260:fortress
+261:loom
+262:Go away!
+263:fortress
+264:iron bars
+265:townsman
+266:wall
+267:mysterious craft
+268:mirror
+269:carpet
+270:door
+271:portcullis
+272:portcullis
+273:wall
+274:Gargoyle warrior
+275:Egg
+276:crossbeam
+277:crossbeam
+278:musket
+279:cavern
+280:ignite
+281:curse
+282:painting
+283:desk
+284:sundial
+285:cloak
+286:banner
+287:swordstrike
+288:slime attack
+289:The Passion Play Theatre
+290:closed shutters
+291:closed shutters
+292:seat
+293:tapestry
+294:carpet
+295:wedding ring
+296:ring of invisibility
+297:ring of protection
+298:ring of regeneration
+299:ghost
+300:cooking utensils
+301:cart
+302:pumpkin
+303:metal wall
+304:blacksmith
+305:The Black Gate
+306:evergreen
+307:laboratory burner
+308:wall
+309:fallen tree
+310:tree
+311:trophy
+312:gargoyle futon
+313:stump
+314:weeds
+315:fallen tree
+316:large rock
+317:ghost
+318:sage
+319:peasant
+320:brambles
+321:reeds
+322:open shutters
+323:cattails
+324:mountain
+325:dead tree
+326:tropical plant
+327:cypress tree
+328:baobab tree
+329:kite
+330:Virtue Stone
+331:rock
+332:tree
+333:table
+334:bubbles
+335:bubbles
+336:light source
+337:ghost
+338:lit light source
+339:dispel magic
+340:/potion//s
+341:rock
+342:boulder
+343:boulder
+344:wall
+345:wall
+346:wall
+347:broken wall
+348:wall
+349:wall
+350:wall
+351:wall
+352:fortress
+353:greaves
+354:liche
+355:wall
+356:broken wall
+357:wall
+358:wall
+359:wall
+360:sign
+361:sign
+362:wall
+363:gargoyle futon
+364:platform
+365:wall
+366:wall
+367:floor
+368:floor
+369:floor
+370:floor
+371:wall
+372:open shutters
+373:glass wall
+374:wall
+375:Unicorn
+376:door
+377:/food item//s
+378:fence
+379:sign
+380:cyclops
+381:three headed hydra
+382:Kissme
+383:magic helm
+384:waves
+385:stairs
+386:stairs
+387:stairs
+388:eating utensils
+389:cavern
+390:cavern
+391:cavern
+392:Abbey door
+393:wall
+394:guard
+395:mountain
+396:mountain
+399:energy mist
+400:body
+401:pirate
+402:ferry
+403:Batlin
+404:honeycomb
+405:ship's hold
+406:nightstand
+407:desk
+408:paralyze
+409:trophy
+410:mining machine
+411:conveyer belt
+412:The Black Gate Dais
+413:carpet
+414:body
+415:garbage
+416:drawers
+417:/magic bolt//s
+418:giant bones
+419:delta
+420:fence
+421:fence
+422:fence
+423:crops
+424:poison
+425:wall
+426:stairs
+427:stairs
+428:stairs
+429:stairs
+430:stairs
+431:bellows
+432:door
+433:door
+434:cask
+435:lit sconce
+436:wagon floor
+437:wagon wheel
+438:window
+439:chimney
+440:light
+441:floor
+442:fireplace
+443:telekinesis
+444:hood
+445:mage
+446:mage
+447:wounded man
+448:sage
+449:beggar
+450:beggar
+451:noble
+452:peasant
+453:tree
+454:shopkeeper
+455:shopkeeper
+456:noble
+457:gypsy
+458:pirate
+459:wench
+460:ranger
+461:ranger
+462:fighter
+463:fighter
+464:paladin
+465:Iolo
+466:Lord British
+467:jester
+468:entertainer
+469:entertainer
+470:well
+471:child
+472:child
+473:Gargoyle noble
+474:sling
+475:Gargoyle worker
+476:Smith the Horse
+477:Frank the Fox
+478:Sherry the Mouse
+479:emp
+480:Draxinusom
+481:sconce
+482:Batlin
+483:rug
+484:bars
+485:highwayman
+486:statue
+487:Shamino
+488:Dupre
+489:Spark
+490:Jaana
+491:acid slug
+492:alligator
+493:bat
+494:bee
+495:cat
+496:dog
+497:wall
+498:chicken
+499:corpser
+500:cow
+501:cyclops
+502:deer
+503:puppet show
+504:dragon
+505:drake
+506:Hook
+507:corpse
+508:stained glass window
+509:fish
+510:fox
+511:gazer
+512:stained glass window
+513:gremlin
+514:headless
+515:closed drawbridge
+516:delta
+517:insects
+518:glass counter tops
+519:liche
+520:Virtue Roulette Table
+521:mouse
+522:locked chest
+523:rat
+524:reaper
+525:sea serpent
+526:lit lamp
+527:death bolt
+528:skeleton
+529:slime
+530:snake
+531:cavern
+532:harpie
+533:troll
+534:wisp
+535:spent sconce
+536:tentacles
+537:wolf
+538:fence
+539:chain coif
+540:douse
+541:great helm
+542:crested helm
+543:buckler
+544:broken columns
+545:curved heater
+546:broken dish
+547:magic sword
+548:Hoe of Destruction
+549:lightning whip
+550:magic boomerang
+551:fire sword
+552:magic axe
+553:firedoom staff
+554:/burst arrow//s
+555:hawk
+556:/magic arrow//s
+557:juggernaut hammer
+558:/lucky arrow//s
+559:Magebane
+560:/love arrow//s
+561:great dagger
+562:The Death Scythe
+563:blowgun
+564:poison dagger
+565:/starburst//s
+566:glimmer
+567:sword of defense
+568:/Tseramed Arrow//s
+569:leather armour
+570:scale armour
+571:chain armour
+572:wooden shield
+573:plate armour
+574:leather leggings
+575:chain leggings
+576:plate leggings
+577:pedestal
+578:spiked shield
+579:leather gloves
+580:gauntlets
+581:ammunition
+582:leather collar
+583:bed roll
+584:kidney belt
+585:shoes
+586:gorget
+587:boots
+588:swamp boots
+589:pitchfork
+590:club
+591:main gauche
+592:/spear//s
+593:/throwing axe//s
+594:/dagger//s
+595:torch
+596:morning star
+597:bow
+598:crossbow
+599:sword
+600:two-handed hammer
+601:two handed axe 
+602:two-handed sword
+603:halberd
+604:Glass Sword
+605:boomerang
+606:magic bow
+607:path
+608:decorative sword
+609:kite shield
+610:delta
+611:lily pads
+612:surf
+613:surf
+614:cleaver
+615:/kni/fe/ves
+616:bottle
+617:The Time Lord
+618:scythe
+619:fern
+620:rake
+621:delayed explosion
+622:whip
+623:/hammer//s
+624:pick
+625:shovel
+626:hoe
+627:/lockpick//s
+628:cup
+629:lightning wand
+630:fire wand
+631:tree
+632:surf
+633:table
+634:standing stone
+635:custom sword
+636:/serpentine dagger//s
+637:serpentine sword
+638:Caddellite Helmet
+639:death vortex
+640:ring
+641:/key//s
+642:book
+643:tree
+644:/gold coin//s
+645:/gold nugget//s
+646:/gold bar//s
+647:triple crossbow
+648:sleeping powder
+649:venom
+650:sextant
+651:spinning wheel
+652:cart
+653:bale of wool
+654:spindle of thread
+655:topiary
+656:wine press
+657:curtain
+658:dough
+659:mace
+660:cart
+661:mongbat
+662:fishing rod
+663:magic shield
+664:stove
+665:prow
+666:magic armor
+667:cobwebs
+668:sword blank
+669:cactus
+670:maple tree
+671:mushrooms
+672:shrubbery
+673:plant
+674:silverleaf tree
+675:desk item
+677:sack of wheat
+678:curtain
+679:drawers
+680:deck
+681:jar
+682:glass item
+683:tree
+684:trellis
+685:mechanism
+686:magic leggings
+687:pillar
+688:blank type
+689:harpsichord
+690:xylophone
+691:lyre
+692:lute
+693:whistle
+694:cave door
+695:grandfather clock
+696:bed 
+697:podium
+698:shears
+699:surf
+700:deck
+701:lit torch
+702:cannon
+703:cannon ball
+704:powder keg
+705:rope ladder
+706:scorpion
+707:The Black Sword
+708:Stocks
+709:guillotine
+710:log saw
+711:mill stone
+712:stove
+713:post
+714:rope ladder
+715:tombstone
+716:bird
+717:plate
+718:pedestal
+719:water trough
+720:guard
+721:Avatar
+722:/arrow//s
+723:/bolt//s
+724:Fellowship Icon
+725:Virtue Roulette Wheel
+726:lens
+727:horse
+728:Caddellite chunks
+729:crystal ball
+730:baby
+732:window
+733:carpet
+734:guillotine
+735:archery target
+736:surf
+737:surf
+738:pants
+739:firepit
+740:well
+741:water trough
+742:stuffed toy
+743:strength tester
+744:telescope
+745:harp
+746:The Orrery Crystal
+747:Soul Cage
+748:Well of Souls
+749:alchemist aparatus
+750:carpet
+751:surf
+752:music box
+753:stone harpie
+754:vial
+755:orrery paths
+756:caltrops
+757:cart
+758:carpet
+759:ethereal ring
+760:gem
+761:spellbook
+762:body
+763:The Rat Race Game
+764:The Rat Race Game
+765:The Planet Britannia
+766:The Moon Trammel
+767:small orrery
+768:energy field
+769:/smokebomb//s
+770:orrery viewer
+771:Rudyom's Wand
+772:honey
+773:cart
+774:cart
+775:ship rails
+776:moongate
+777:moongate
+778:body
+779:Moongate
+780:bubbles
+781:gang plank
+782:flaming oil
+783:tree
+784:emp
+785:Orb of the Moons
+786:The Vortex Cube
+787:lever
+788:switch
+789:sword in a stone
+790:invisibility dust
+791:ship
+792:Magician's Wand
+794:water
+795:mantle
+796:draft horse
+797:scroll
+798:sealed box
+799:unsealed box
+800:chest
+801:backpack
+802:bag
+803:basket
+804:crate
+805:Forskis
+806:guard
+807:lightning
+808:surf
+809:The Triples Game
+810:bucket
+811:rabbit
+812:Iron Maiden
+813:The Rack
+814:The Triples Game
+815:stone chips
+816:nest
+817:cactus
+818:The Triples Game
+819:barrel
+820:plaque
+821:painting
+822:diaper
+823:artist's equipment
+824:pitcher
+825:campfire
+826:tree top
+827:/bandage//s
+828:wall
+829:floor
+830:gear
+831:baking hearth
+832:glass wall
+833:glass wall
+834:surf
+835:magic gauntlets
+836:antique armor
+837:easel
+838:Avatar Costume
+839:hourglass
+840:flying carpet
+841:glass wall
+842:/reagent//s
+843:magic gorget
+844:sea serpent
+845:wall
+846:mantle
+847:table 
+848:mirror
+849:tapestry
+850:carpet
+851:cloth
+852:crenellations
+853:greenhouse roof
+854:statue
+855:Rats Face Cage
+856:fire bolt
+857:dragon breath
+858:bookshelf
+859:casting frames
+860:fencing dummy
+861:troll
+862:shaft
+863:kitchen items
+864:toddler
+865:spider
+866:Thumbscrews
+867:victim
+868:wall mount
+869:wall
+870:drawbridge
+871:wall
+872:stove
+873:chair
+875:surf
+876:metal wall
+877:Rune
+878:crenellations
+879:wall
+880:shaft
+881:Elizabeth
+882:Abraham
+883:wingless Gargoyle
+884:Fellowship member
+885:Fellowship Staff
+886:anchor
+887:test tubes
+888:horn
+889:lamp post
+890:table
+891:wood roof
+892:body
+893:pool of water
+894:monolith
+895:fire field
+896:crenellations
+897:seat
+898:altar
+899:wall
+900:poison field
+901:crenellations
+902:sleep field
+903:crenellations
+904:wall
+905:cavern
+906:Statue
+907:surf
+908:tile roof
+909:wall
+910:wall
+911:surf
+912:blood
+913:pillar
+914:blackrock
+915:chunks of lead
+916:chunks of iron ore
+917:shaft
+918:surf
+919:bookshelf
+920:pillar
+921:betting marker
+922:small bush
+923:piece of wood
+924:cavern
+925:cavern
+926:delta
+927:delta
+928:cavern
+929:Fellowship member
+930:delta
+931:mountain
+932:tree
+933:millsaw
+934:water wheel
+935:portcullis door
+936:portcullis door
+937:Gargoyle jewelry
+938:delta
+939:wall
+940:wall
+941:water wheel
+942:water wheel
+943:wall
+944:pot
+945:Guardian Statue
+946:guard
+947:/bee stinger//s
+948:/bolt//s
+949:winch
+950:winch
+951:water wheel
+952:The Ferryman
+953:wall
+954:greenhouse roof
+955:amulet
+956:wood roof
+957:barkeep
+958:The Moon Felucca
+959:mountain
+960:mushroom
+961:barge
+962:slate roof
+963:slate roof
+964:table
+965:child
+966:tile roof
+967:broken wall
+968:Enclosed Prism
+969:mountain
+970:sheep
+971:table
+972:wall
+973:stairs
+974:stairs
+975:wagon door
+976:wagon
+977:wagon
+978:wagon
+979:wagon roof
+980:wall
+981:Prism
+982:chimney
+983:mountain
+984:piece of wood
+985:waves
+986:stove top
+987:baby in a cradle
+988:planet
+989:Avatar
+990:The Dark Core
+991:anvil
+992:cradle
+993:mushroom
+994:tongs
+995:cauldron
+996:glass wall
+997:spent light source
+998:horseshoe
+999:plant
+1000:table
+1001:table
+1002:table
+1003:table
+1004:leather helm
+1005:glass wall
+1006:broken wall
+1007:glass wall
+1008:waves
+1009:waves
+1010:prism
+1011:bed 
+1012:surf
+1013:rocking horse
+1014:floor
+1015:Golem
+1016:floor
+1017:ship
+1018:table
+1019:glass wall
+1020:surf
+1021:time barrier
+1022:surf
+1023:haystack
+1024:"Step aside!"
+1025:"Stand away!"
+1026:"Move on!"
+1027:"Strive for unity!"
+1028:"Trust thy brother!"
+1029:"Worthiness precedes reward!"
+1030:"Heed thine inner voice!"
+1031:"You are all individuals!"
+1032:"Say it with me, brother!"
+1033:"Art thou with us, brother?"
+1034:"Let me shake thine hand!"
+1035:"Thou must believe!"
+1036:"I am worthy!"
+1037:"I believe!"
+1038:"Yes!"
+1039:"Yea, verily!"
+1040:"Nice weather today."
+1041:"Good day."
+1042:"How art thou doing?"
+1043:"Greetings."
+1044:"Stop!"
+1045:"I would have words with thee."
+1046:"I wish to speak to thee."
+1047:"Come here!"
+1048:"Surrender!"
+1049:"Resist not!"
+1050:"Stop!"
+1051:"Can I help thee?"
+1052:"What wilt thou have?"
+1053:"The vegetables are good."
+1054:"Hast thou decided yet?"
+1055:"Try the ale."
+1056:"More food!"
+1057:"Service!"
+1058:"Barkeeper!"
+1059:"Ale!"
+1060:"Yo ho, yo ho..."
+1061:"Mmmm, tasty!"
+1062:"Burp!"
+1063:"Mmmm..."
+1064:"Who made this slop?"
+1065:"Ouch!"
+1066:"Ooof!"
+1067:"Argh!"
+1068:"Eeow!"
+1069:"Thou wilt pay for that!"
+1070:"Thou wilt regret that!"
+1071:"Unnhhh!"
+1072:"To my side!"
+1073:"Cover me!"
+1074:"Defend me!"
+1075:"Protect me!"
+1076:"I shall protect thee!"
+1077:"On my way!"
+1078:"Hold on!"
+1079:"Aiiieeee!"
+1080:"Boom!"
+1081:"To Battle!"
+1082:"To Arms!"
+1083:"To the Death!"
+1084:"Stop, thief!"
+1085:"Thieving scoundrel!"
+1086:"Guards!  Guards!"
+1087:"Blast!"
+1088:"Ouch - cut myself!"
+1089:"These crops are tough!"
+1090:"Still no gold!"
+1091:"Whew!"
+1092:"Am I not worthy?"
+1093:"Eureka!"
+1094:"I am rich!"
+1095:"I must be worthy!"
+1096:"Mercy!"
+1097:"Pity me!"
+1098:"Spare me!"
+1099:"Let me be!"
+1100:"I surrender!"
+1101:"I give up!"
+1102:"Please, no more!"
+1103:"I will have my revenge!"
+1104:"Thou wilt regret this day!"
+1105:"Thou wilt pay for this!"
+1106:"We shall meet again!"
+1107:"Curse thine offspring!"
+1108:"Damn thee!"
+1109:"Take this!"
+1110:"Vultures will pick thy bones!"
+1111:"I shall have thine head!"
+1112:"Die, fool!"
+1113:"Thy blood will soil the land!"
+1114:"Watch out!"
+1115:"Move!"
+1116:"Stand aside, I am practicing!"
+1117:"Step aside so that I can practice!"
+1118:"Thou art in my way!"
+1119:"Kindly step aside!"
+1120:"Whew!  'Tis hot!";
+1121:"Work...work...work..."
+1122:"We need rain..."
+1123:"Ah, 'tis better."
+1124:"Much better!"
+1125:"'Tis better."
+1126:"I can see again!"
+1127:"This need not be on."
+1128:"This needs replacing."
+1129:"Guards!  Guards!"
+1130:"Help!"
+1131:"Save me!"
+1132:"Call the guards!"
+1133:"Alert the town guard!"
+1134:"Do not touch that!"
+1135:"Stop that, or else!"
+1136:"Leave that be!"
+1137:"These should be closed."
+1138:"Too cold for these to be open!"
+1139:"Who left these open?"
+1140:"Ah, 'tis better!"
+1141:"That will let some light in!"
+1142:"Too nice a day for these to be shut!"
+1143:"I could use a little food."
+1144:"I am a bit hungry."
+1145:"When do we eat?"
+1146:"I am very hungry."
+1147:"I must eat now."
+1148:"I must have food."
+1149:"I'm famished!"
+1150:"I'm starving!"
+1151:"I need food!"
+1152:"Catch me if thou canst!"
+1153:"Tag!  Thou art it!"
+1154:"Thou cannot catch me!"
+1155:"Nyah nyah!  Thou art it!"
+1156:"Gargoyle boy!"
+1157:"Ghosts!"
+1158:"Shades!"
+1159:"Spectres!"
+1160:"I hear something to the north!"
+1161:"I hear something to the east!"
+1162:"I hear something to the south!"
+1163:"I hear something to the west!"
+1164:"Die!"
+1165:"Bastard!"
+1166:"Murderer!"
+1167:"Suffer my wrath!"
+1168:"I will kill thee!"
+1169:"For that thou shalt perish!"
+1170:"Mmmmm..."
+1171:"Burp!"
+1172:"I hate leftovers..."
+1173:"What was that noise?"
+1174:"Who goes there?"
+1175:"What art thou doing here?"
+1176:"Away with thee!"
+1177:"I am trying to sleep!"
+1178:"Begone, fool!"
+1280:a/black pearl//s
+1281:bloodmoss
+1282:a/nightshade//s
+1283:a/mandrake root//s
+1284:a/garlic//s
+1285:ginseng
+1286:spider silk
+1287:sulfurous ash
+1288:Ankh
+1289:Fellowship Medallion
+1290:locket
+1291:bread
+1292:bread
+1293:rolls
+1294:fruitcake
+1295:cake
+1296:pie
+1297:pastry
+1298:sausage
+1299:mutton
+1300:beef
+1301:fowl
+1302:ham
+1303:trout
+1304:flounder
+1305:meat
+1306:dried meat
+1307:apple
+1308:bananas
+1309:carrots
+1310:grapes
+1311:pumpkin
+1312:pumpkin
+1313:leeks
+1314:ribs
+1315:egg
+1316:butter
+1317:cheese
+1318:cheese
+1319:green cheese
+1320:potatoes
+1321:fish and chips
+1322:silverleaf meal
+1323:gold sextant
+1324:sextant
+1325:gavel
+1326:quill
+1327:inkwell
+1328:quill holder
+1329:book mark
+1330:letter opener
+1331:document
+1332:sealing wax
+1333:seal
+1334:blotter
+1335:parrot
+1336:abacus
+1337:sealing wax
+1338:document
+1339:quill
+1340:quill
+1341:mirror
+1342:clacker
+1343:clacker
+1344:clacker
+1345:bell
+1346:yourself
+1347:Boom!
+1348:"I have a bad feeling..."
+1349:Circle
+1350:First
+1351:Second
+1352:Third
+1353:Fourth
+1354:Fifth
+1355:Sixth
+1356:Seventh
+1357:Eighth
+1536:Combat
+1537:Hor. Pace
+1538:Ver. Pace
+1539:Talk
+1540:Dance
+1541:Eat
+1542:Farm
+1543:Tend Shop
+1544:Miner
+1545:Hound
+1546:Stand
+1547:Loiter
+1548:Wander
+1549:Blacksmith
+1550:Sleep
+1551:Wait
+1552:Major Sit
+1553:Graze
+1554:Bake
+1555:Sew
+1556:Shy
+1557:Lab
+1558:Thief
+1559:Waiter
+1560:Special
+1561:Kid Games
+1562:Eat at Inn
+1563:Duel
+1564:Preach
+1565:Patrol
+1566:Desk Work
+1567:Follow Avt
+1568:Goto Item
+1569:Grab Item
+1570:Drop Item
+1571:Sit
+1572:Fill Buckt
+1573:Read
+1574:Pay Rspcts
+1575:Fil Wtr Tr
+1576:Archery
+1577:Fencing
+1578:Ready Hand
+1579:Pause
+1580:Move Item
+1581:Chek Light
+1582:Tag
+1583:Hack Sit
+1584:Arrest
+1585:Goto Sch D
+1586:Goto Rem L
+1587:Chek Shtrs
+1588:Check Area
+1792:None
+1793:Wrap to 0
+1794:Pause
+1795:Sit
+1796:Kneel at Tombstone
+1797:Kneel
+1798:Loiter
+1799:Left About Face
+1800:Right About Face
+1801:Horizontal Pace
+1802:Vertical Pace
+1803:50% Reverse
+1804:50% Skip Next
+1805:Hammer
+1806:Check Area
+1807:Call Usecode
+1808:Bow to Ground
+1809:Bow From Ground
+1810:Wait for Semaphore
+1811:Release Semaphore
+1812:Ready Weapon
+1813:Unready Weapon
+1814:One Handed Swing
+1815:Two Handed Swing
+1816:Read
+1817:50% Wrap To 0
+1818:Combat Near...
+1819:Repeat Forever
+1820:Exc. Reserved.
+2048:[A]ttack Mode       [T]arget
+2049:[B]usiness Activity [E]xperience
+2050:[P]op Weapon        [R]eserve Dex
+2051:[W]ant Primary Tgle [S]tats
+2052:[F]ollowing/Align
+2053:[N]pc Status
+2054:[~]raining Points
+2055:[K]ill Npc:
+2056:[X]it
+2057:Enter command.
+2058:Enter no. of reserve dex points.
+2059:Enter no. of experience pts..
+2060:Enter no. of training pts..
+2061:Sword2H readied.
+2062:Sword2H unreadied.
+2063:[1]  Neutral
+2064:[2]  Good
+2065:[3]  Evil
+2066:[4]  Chaotic
+2067:[X]  Abort
+2068:Enter no. of alignment.
+2069:Enter activity number.
+2070:----------------
+2071:[D]exterity....
+2072:[F]ood Level...
+2073:[I]ntelligence.
+2074:[S]trength.....
+2075:[C]ombat Skill.
+2076:[M]agic Points.
+2077:[H]it Points...
+2078:[X]it
+2079:Enter no. of food points (0-31.)
+2080:Enter no. of base combat skill pts..
+2081:Enter no. of base intelligence pts..
+2082:Enter no. of base strength pts..
+2083:Enter no. of base dex. points.
+2084:Enter no. of magic points.
+2085:Enter no. of hit points.
+2086:----------------
+2087:[P]rimary...
+2088:[S]econdary.
+2089:[O]ppressor.
+2090:[X]it
+2091:Enter command.
+2092:Enter npc-to-target-to.
+2093:Invalid npc.
+2094:----------------
+2095:Nearest
+2096:Weakest
+2097:Strongest
+2098:Berserk
+2099:Protect
+2100:Defend
+2101:Flank
+2102:Fleeing
+2103:Random
+2104:Manual
+2105:----------------
+2106:Neutral
+2107:Good
+2108:Evil
+2109:Chaotic
+2110:----------------
+2111:[C]urrent Attack Mode...
+2112:[D]efault Attack Mode...
+2113:----------------
+2114:Teleport Menu
+2115:[D]ecimal Coordinates
+2116:[H]exadecimal Coordinates
+2117:[N]pc Number
+2118:[R]eferent
+2119:[X]it
+2120:Enter command.
+2121:Enter x coord.
+2122:Enter y coord.
+2123:Enter z coord.
+2124:Enter npc number.
+2125:Invalid npc.
+2126:Enter referent (-1 to exit.)
+2127:Invalid referent.
+2128:Invalid command.
+2129:----------------
+2130:Npc #
+2131:[A] Asleep.
+2132:[B] Charmd.
+2133:[C] Cursed.
+2134:[D] Prlyzd.
+2135:[E] Poisnd.
+2136:[F] Prtctd.
+2137:[G] Dead...
+2138:[H] In Act.
+2139:[I] Party..
+2140:[J] Invsbl.
+2141:[K] Fly....
+2142:[L] Walk...
+2143:[M] Swim...
+2144:[N] Ethrel.
+2145:[O] Prtcee.
+2146:[P] Conjrd.
+2147:[Q] Summnd.
+2148:[R] Bleedn.
+2149:[S] Sex....
+2150:[X]it
+2151:Enter command.
+2152:----------------
+2153:Activity Dump of Npc #
+2154:[X]it
+2155:Enter command.
+2156:----------------
+2157:Sign/Tomb/Plaque/Book/sCroll
+2158:Beginning Quality
+2159:Ending Quality
+2160:Qual=
+2161:----------------
+2162:[B]usiness Schedule [H]ack Mover...:
+2163:All
+2164:[D]o Schedule.:
+2165: [L]ocation.....:
+2166:[G]ame Flags        [I]nspect
+2167:[N]umber ID...:
+2168: [M]odify Npc
+2169:[T]eleport          [U]nk BugChkin :
+2170:[P]ower Avatar:
+2171: [Q]ueue Toggle.:
+2172:[S]et Time          [C]reate Item
+2173:[+-] Time Rate:
+2174: [A]ctivity Dump
+2175:[F]ollowers...:
+2176:	[X]it
+2177:Current time:
+2178:Enter command.
+2179:Which npc?
+2180:Invalid npc.
+2181:Enter type (-1 to exit.)
+2182:Creation aborted.
+2183:Creation failed.
+2184:Cannot drop item.
+2185:Enter frame (-1 to exit.)
+2186:Creation aborted.
+2187:Enter quantity.
+2188:Enter quality.
+2189:Item created.
+2190:Current time:
+2191:Enter hour (-1 to cancel.)
+2192:Enter day (-1 to cancel.)
+2193:Game time not changed.
+2194:Which npc?
+2195:Npc=
+2196:Invalid npc.
+2197:[I]nspect Flag
+2198:[S]et Flag
+2199:[X]  Abort
+2200:Enter option.
+2201:Invalid option.
+2202:Which npc?
+2203:0-255 only.
+2204:Current Activity:
+2205:Invalid npc.
+2206:Which npc?  (-1 for all.)
+2207:Which npc?
+2208:Invalid npc.
+2304:CHEAT KEYS
+2305:F2    Super Cheat System
+2306:F3    Goto Map Location
+2307:F4    Single Step Toggle
+2308:F5    Cast Spell
+2309:F6    Barge Hack Cheat
+2310:F7    Toggle Traces
+2311:F8    Read Sign, Book, Etc.
+2312:F9    Target Report
+2313:F10   Pathfind Test
+2314:Alt-1 Sound Effect
+2315:Alt-2 Frame Counter
+2316:Alt-3 Sprite Effects
+2317:Alt-4 Dump Item Contents
+2318:NORMAL KEYS
+2319:C  Combat
+2320:S  Load Save
+2321:A  Audio Toggle
+2322:X  Exit
+2323:Z  Ztats
+2324:<ESC> Exit
+2325:<SPACE> Toggle Keyboard Simulate Mouse
+2326:Press return or space to continue.

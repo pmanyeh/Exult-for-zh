@@ -141,9 +141,9 @@ namespace TTF {
     static unsigned char cached_bg = 255;
     static Shape_frame* last_sample = nullptr;
 
-    static void update_colors(Shape_frame* sample_shape) {
+    static void update_colors(Shape_frame* sample_shape, bool is_book) {
         if (!sample_shape) return;
-        if (sample_shape == last_sample) return;
+        if (sample_shape == last_sample) return; // Note: if is_book changes, we might miss an update, but usually a font is either book or not
         
         int w = sample_shape->get_width();
         int h = sample_shape->get_height();
@@ -169,17 +169,34 @@ namespace TTF {
             }
         }
         
+        int core_color = -1;
+        for (int r = h / 4; r < (h * 3) / 4; ++r) {
+            for (int c = w / 4; c < (w * 3) / 4; ++c) {
+                unsigned char p = bits[r * w + c];
+                if (p != 0 && p != 255) {
+                    core_color = p;
+                    break;
+                }
+            }
+            if (core_color != -1) break;
+        }
+        
         if (best_count > 0) {
-            cached_fg = best_color;
-            cached_bg = 255; // Always use 255 (black) for shadow
+            if (!is_book) {
+                cached_fg = best_color;
+                cached_bg = 255;
+            } else {
+                cached_fg = 255; // Force black for book text
+                cached_bg = (color_counts[255] > 0) ? 255 : 0;
+            }
             last_sample = sample_shape;
         }
     }
 
-    int paint_char(Image_buffer8* win, uint32_t wch, int x, int yoff_original, Shape_frame* sample_shape, unsigned char* trans) {
+    int paint_char(Image_buffer8* win, uint32_t wch, int x, int yoff_original, Shape_frame* sample_shape, unsigned char* trans, bool is_book = false) {
         if (!win) return 16;
         if (wch == 127) {
-            update_colors(sample_shape);
+            update_colors(sample_shape, is_book);
             unsigned char fg_color = cached_fg;
             unsigned char bg_color = cached_bg;
             if (trans) {
@@ -198,11 +215,13 @@ namespace TTF {
             win->put_pixel8(fg_color, dot_x + 1, dot_y + 1);
             
             // Draw bottom-right shadow (1px offset)
-            win->put_pixel8(bg_color, dot_x + 2, dot_y);
-            win->put_pixel8(bg_color, dot_x + 2, dot_y + 1);
-            win->put_pixel8(bg_color, dot_x + 2, dot_y + 2);
-            win->put_pixel8(bg_color, dot_x, dot_y + 2);
-            win->put_pixel8(bg_color, dot_x + 1, dot_y + 2);
+            if (bg_color != 0) {
+                win->put_pixel8(bg_color, dot_x + 2, dot_y);
+                win->put_pixel8(bg_color, dot_x + 2, dot_y + 1);
+                win->put_pixel8(bg_color, dot_x + 2, dot_y + 2);
+                win->put_pixel8(bg_color, dot_x, dot_y + 2);
+                win->put_pixel8(bg_color, dot_x + 1, dot_y + 2);
+            }
             return 8;
         }
         if (!face) return 16;
@@ -211,7 +230,7 @@ namespace TTF {
             return 16;
         }
 
-        update_colors(sample_shape);
+        update_colors(sample_shape, is_book);
 
         FT_Bitmap& bitmap = face->glyph->bitmap;
         int base_advance = face->glyph->advance.x >> 6;
@@ -230,23 +249,25 @@ namespace TTF {
         }
 
         // Draw outline/shadow first
-        for (unsigned int row = 0; row < bitmap.rows; ++row) {
-            for (unsigned int col = 0; col < bitmap.width; ++col) {
-                int byte_idx = row * bitmap.pitch + (col >> 3);
-                int bit_idx = 7 - (col & 7);
-                if (bitmap.buffer[byte_idx] & (1 << bit_idx)) {
-                    int draw_x = left_x + col;
-                    int draw_y = top_y + row;
-                    
-                    if (base_advance < 16) {
-                        // Full outline for English/ASCII
-                        win->put_pixel8(bg_color, draw_x - 1, draw_y);
-                        win->put_pixel8(bg_color, draw_x, draw_y - 1);
+        if (bg_color != 0) {
+            for (unsigned int row = 0; row < bitmap.rows; ++row) {
+                for (unsigned int col = 0; col < bitmap.width; ++col) {
+                    int byte_idx = row * bitmap.pitch + (col >> 3);
+                    int bit_idx = 7 - (col & 7);
+                    if (bitmap.buffer[byte_idx] & (1 << bit_idx)) {
+                        int draw_x = left_x + col;
+                        int draw_y = top_y + row;
+                        
+                        if (base_advance < 16) {
+                            // Full outline for English/ASCII
+                            win->put_pixel8(bg_color, draw_x - 1, draw_y);
+                            win->put_pixel8(bg_color, draw_x, draw_y - 1);
+                        }
+                        // Bottom and right shadow for all characters
+                        win->put_pixel8(bg_color, draw_x + 1, draw_y);
+                        win->put_pixel8(bg_color, draw_x, draw_y + 1);
+                        win->put_pixel8(bg_color, draw_x + 1, draw_y + 1);
                     }
-                    // Bottom and right shadow for all characters
-                    win->put_pixel8(bg_color, draw_x + 1, draw_y);
-                    win->put_pixel8(bg_color, draw_x, draw_y + 1);
-                    win->put_pixel8(bg_color, draw_x + 1, draw_y + 1);
                 }
             }
         }
@@ -263,6 +284,7 @@ namespace TTF {
                 }
             }
         }
+        
         return advance;
     }
 }
