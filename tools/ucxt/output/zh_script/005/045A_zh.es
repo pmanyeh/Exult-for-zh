@@ -294,7 +294,7 @@ labelFunc045A_0448:
 	UI_remove_answer("那裡有人死亡");
 	UI_add_answer("致敬");
 labelFunc045A_0466:
-	case "Fellowship" attend labelFunc045A_0498:
+	case "友誼會" attend labelFunc045A_0498:
 	if (!(!gflags[0x00F7])) goto labelFunc045A_0486;
 	Func0919();
 	message("「它在我的私生活中所帶來的改變，對我有極大的幫助。」");
@@ -306,11 +306,11 @@ labelFunc045A_0486:
 	say();
 	UI_add_answer("私生活");
 labelFunc045A_0491:
-	UI_remove_answer("Fellowship");
+	UI_remove_answer("友誼會");
 labelFunc045A_0498:
-	case "philosophy" attend labelFunc045A_04AA:
+	case "哲學" attend labelFunc045A_04AA:
 	Func091A();
-	UI_remove_answer("philosophy");
+	UI_remove_answer("哲學");
 labelFunc045A_04AA:
 	case "私生活" attend labelFunc045A_04CB:
 	if (!(!gflags[0x00F7])) goto labelFunc045A_04C4;

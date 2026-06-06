@@ -112,8 +112,8 @@ public:
 	int paint_text_fixedwidth(
 			Image_buffer8* win, const char* text, int textlen, int xoff, int yoff, int width, unsigned char* trans = nullptr);
 	// Get text width.
-	int get_text_width(const char* text);
-	int get_text_width(const char* text, int textlen);
+	int get_text_width(const char* text, bool force_cjk = false);
+	int get_text_width(const char* text, int textlen, bool force_cjk = false);
 	// Get dimensions of text box for multiline string
 	void get_text_box_dims(const char* text, int& width, int& height, int vert_lead = 0);
 	// Get text height, baseline, and vertical lead.

@@ -112,9 +112,9 @@ labelFunc045D_016A:
 	UI_remove_answer("友誼會");
 	UI_add_answer("紀念碑");
 labelFunc045D_0178:
-	case "philosophy" attend labelFunc045D_018A:
+	case "哲學" attend labelFunc045D_018A:
 	Func091A();
-	UI_remove_answer("philosophy");
+	UI_remove_answer("哲學");
 labelFunc045D_018A:
 	case "紀念碑" attend labelFunc045D_019D:
 	message("「你知道的！造船匠 Owen 站在高大船首上的紀念碑。鎮上每個人都知道！」");

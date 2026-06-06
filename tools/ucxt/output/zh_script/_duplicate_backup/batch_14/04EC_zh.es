@@ -67,9 +67,9 @@ labelFunc04EC_00DF:
 	say();
 	UI_remove_answer("Klog");
 labelFunc04EC_00F2:
-	case "philosophy" attend labelFunc04EC_0104:
+	case 哲學 attend labelFunc04EC_0104:
 	Func091A();
-	UI_remove_answer("philosophy");
+	UI_remove_answer("哲學");
 labelFunc04EC_0104:
 	case "告辭" attend labelFunc04EC_010F:
 	goto labelFunc04EC_0112;

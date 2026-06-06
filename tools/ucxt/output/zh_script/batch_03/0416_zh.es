@@ -63,16 +63,16 @@ labelFunc0416_00C0:
 	case "友誼會" attend labelFunc0416_00DF:
 	Func0919();
 	UI_remove_answer("友誼會");
-	UI_add_answer(["協會", "理念"]);
+	UI_add_answer(["協會", "哲學"]);
 labelFunc0416_00DF:
 	case "協會" attend labelFunc0416_00F2:
 	message("「每天晚上九點我們在友誼會大廳都有集會。你可以當作自己受邀參加了。」");
 	say();
 	UI_remove_answer("協會");
 labelFunc0416_00F2:
-	case "理念" attend labelFunc0416_0104:
+	case "哲學" attend labelFunc0416_0104:
 	Func091A();
-	UI_remove_answer("理念");
+	UI_remove_answer("哲學");
 labelFunc0416_0104:
 	case "告辭" attend labelFunc0416_010F:
 	goto labelFunc0416_0112;

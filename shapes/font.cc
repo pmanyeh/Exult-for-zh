@@ -149,7 +149,7 @@ int Font::paint_text_box(
 	int       curx   = x;
 	int       cury   = y;
 	const int height = get_rendered_line_height_for(text) + vert_lead + ver_lead;
-	const int space_width = get_text_width(" ", 1);
+	const int space_width = get_text_width(" ", 1, has_cjk);
 	const int   max_lines      = h / height;    // # lines that can be shown.
 	auto*       lines          = new string[max_lines + 1];
 	int         cur_line       = 0;
@@ -186,7 +186,7 @@ int Font::paint_text_box(
 			// Pass space.
 			const char* wrd = Pass_space(text);
 			if (wrd != text) {
-				int w = get_text_width(text, static_cast<uint32>(wrd - text));
+				int w = get_text_width(text, static_cast<int>(wrd - text), has_cjk);
 				if (w <= 0) {
 					w = space_width;
 				}
@@ -220,9 +220,9 @@ int Font::paint_text_box(
 		int         width;
 		if (ucase_next) {
 			const char c = static_cast<char>(toupper(static_cast<unsigned char>(*text)));
-			width        = get_text_width(&c, 1u) + get_text_width(text + 1, static_cast<uint32>(ewrd - text - 1));
+			width        = get_text_width(&c, 1, has_cjk) + get_text_width(text + 1, static_cast<int>(ewrd - text - 1), has_cjk);
 		} else {
-			width = get_text_width(text, static_cast<uint32>(ewrd - text));
+			width = get_text_width(text, static_cast<int>(ewrd - text), has_cjk);
 		}
 		if (curx + width - hor_lead > endx) {
 			// Word-wrap.
@@ -237,7 +237,7 @@ int Font::paint_text_box(
 			}
 		}
 		if (cursor && coff >= text - start && coff < ewrd - start) {
-			cursor->set_found(curx + get_text_width(text, static_cast<uint32>(coff - (text - start))), cury, cur_line);
+			cursor->set_found(curx + get_text_width(text, static_cast<int>(coff - (text - start)), has_cjk), cury, cur_line);
 		}
 		// Store word.
 		if (ucase_next) {
@@ -329,13 +329,14 @@ int Font::paint_text(
 	yoff += baseline;
 	TTF::load_font(get_system_path("<PATCH>/chinese.ttf").c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {
+		bool is_book = (font_index >= 2);
 		while (textlen > 0) {
 			uint32_t wch = TTF::decode_utf8(text, textlen);
 			if (wch == 0) {
 				break;
 			}
 
-			if (wch < 0x80 && wch != 127) {
+			if (wch < 0x80 && wch != 127 && !(is_book && force_cjk)) {
 				Shape_frame* shape = font_shapes->get_frame(wch);
 				if (shape) {
 					if (shape->is_rle()) {
@@ -601,13 +602,14 @@ int Font::paint_text_fixedwidth(
  *  Get the width in pixels of a 0-delimited string.
  */
 
-int Font::get_text_width(const char* text) {
+int Font::get_text_width(const char* text, bool force_cjk) {
 	int width = 0;
 	TTF::load_font(get_system_path("<PATCH>/chinese.ttf").c_str(), get_text_height_for(text));
 	if (font_shapes) {
+		bool is_book = (font_index >= 2);
 		while (*text != 0) {
 			uint32_t wch = TTF::decode_utf8(text);
-			if (wch < 0x80 && wch != 127) {
+			if (wch < 0x80 && wch != 127 && !(is_book && force_cjk)) {
 				Shape_frame* shape = font_shapes->get_frame(wch);
 				if (shape) {
 					width += shape->get_width() + hor_lead;
@@ -626,17 +628,19 @@ int Font::get_text_width(const char* text) {
 
 int Font::get_text_width(
 		const char* text,
-		int         textlen    // Length of text.
+		int         textlen,    // Length of text.
+		bool        force_cjk
 ) {
 	int width = 0;
 	TTF::load_font(get_system_path("<PATCH>/chinese.ttf").c_str(), get_text_height_for(text, textlen));
 	if (font_shapes) {
+		bool is_book = (font_index >= 2);
 		while (textlen > 0) {
 			uint32_t wch = TTF::decode_utf8(text, textlen);
 			if (wch == 0) {
 				break;
 			}
-			if (wch < 0x80 && wch != 127) {
+			if (wch < 0x80 && wch != 127 && !(is_book && force_cjk)) {
 				Shape_frame* shape = font_shapes->get_frame(wch);
 				if (shape) {
 					width += shape->get_width() + hor_lead;
@@ -654,6 +658,8 @@ void Font::get_text_box_dims(const char* text, int& width, int& height, int vert
 	height                = 0;
 	int         cur_width = 0;
 	const char* orig_text = text;
+	bool        has_cjk   = Has_non_ascii(orig_text);
+	bool        is_book   = (font_index >= 2);
 
 	int num_lines = 1;
 	if (font_shapes) {
@@ -666,7 +672,7 @@ void Font::get_text_box_dims(const char* text, int& width, int& height, int vert
 				continue;
 			}
 			uint32_t wch = TTF::decode_utf8(text);
-			if (wch < 0x80 && wch != 127) {
+			if (wch < 0x80 && wch != 127 && !(is_book && has_cjk)) {
 				Shape_frame* shape = font_shapes->get_frame(wch);
 				if (shape) {
 					cur_width += shape->get_width() + hor_lead;
@@ -791,7 +797,8 @@ int Font::find_cursor(
 	int         curx        = x;
 	int         cury        = y;
 	const int   height      = get_rendered_line_height_for(text) + vert_lead + ver_lead;
-	const int   space_width = get_text_width(" ", 1);
+	const bool  has_cjk     = Has_non_ascii(start);
+	const int   space_width = get_text_width(" ", 1, has_cjk);
 	const int   max_lines   = h / height;    // # lines that can be shown.
 	int         cur_line    = 0;
 
@@ -865,9 +872,9 @@ int Font::find_cursor(
 		int         width;
 		if (ucase_next) {
 			const char c = static_cast<char>(toupper(static_cast<unsigned char>(*text)));
-			width        = get_text_width(&c, 1u) + get_text_width(text + 1, static_cast<uint32>(ewrd - text - 1));
+			width        = get_text_width(&c, 1, has_cjk) + get_text_width(text + 1, static_cast<int>(ewrd - text - 1), has_cjk);
 		} else {
-			width = get_text_width(text, static_cast<uint32>(ewrd - text));
+			width = get_text_width(text, static_cast<int>(ewrd - text), has_cjk);
 		}
 		if (curx + width - hor_lead > endx) {
 			// Word-wrap.
@@ -993,7 +1000,8 @@ int Font::load(const File_spec& fname0, const File_spec& fname1, int index, int 
 }
 
 int Font::center_text(Image_buffer8* win, int x, int y, const char* s, unsigned char* trans) {
-	return draw_text(win, x - get_text_width(s) / 2, y, s, trans);
+	bool has_cjk = Has_non_ascii(s);
+	return paint_text(win, s, x - get_text_width(s, has_cjk) / 2, y, trans, has_cjk);
 }
 
 void Font::calc_highlow() {

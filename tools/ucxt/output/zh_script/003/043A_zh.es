@@ -140,9 +140,9 @@ labelFunc043A_01CA:
 labelFunc043A_01CD:
 	UI_remove_answer("友誼會");
 labelFunc043A_01D4:
-	case "philosophy" attend labelFunc043A_01E6:
+	case "哲學" attend labelFunc043A_01E6:
 	Func091A();
-	UI_remove_answer("philosophy");
+	UI_remove_answer("哲學");
 labelFunc043A_01E6:
 	case "海盜穴" attend labelFunc043A_0206:
 	message("「我希望能去海盜穴贏點錢。那是個海盜勝地，他們那裡有間超棒的遊戲屋 (House of Games)。」");

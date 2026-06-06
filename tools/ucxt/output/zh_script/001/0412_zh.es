@@ -101,9 +101,9 @@ labelFunc0412_013F:
 	Func0919();
 	UI_remove_answer("友誼會");
 labelFunc0412_0151:
-	case "理念" attend labelFunc0412_0163:
+	case "哲學" attend labelFunc0412_0163:
 	Func091A();
-	UI_remove_answer("理念");
+	UI_remove_answer("哲學");
 labelFunc0412_0163:
 	case "購買" attend labelFunc0412_019D:
 	if (!(var0003 == 0x0007)) goto labelFunc0412_0199;

@@ -139,9 +139,9 @@ labelFunc042D_01DC:
 labelFunc042D_01E3:
 	UI_remove_answer("觀察者");
 labelFunc042D_01EA:
-	case "philosophy" attend labelFunc042D_01FC:
+	case "哲學" attend labelFunc042D_01FC:
 	Func091A();
-	UI_remove_answer("philosophy");
+	UI_remove_answer("哲學");
 labelFunc042D_01FC:
 	case "友誼會" attend labelFunc042D_024C:
 	message("「我是友誼會的成員，沒錯。但我若把皇家果園的蘋果給友誼會將是一種犯罪，也是對我神聖職責的侵犯。雖然賣蘋果也是違規的，我只是想幫這個名叫 Weston 的人一個忙。而我想這些指控就是我得到的回報？哼！」");
