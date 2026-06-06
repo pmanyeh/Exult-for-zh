@@ -1,0 +1,150 @@
+--- 041C.es ---
+UI_add_answer(["name", "job", "bye"]);
+message("This is a tall, skinny actor with knobby knees.");
+message("He wears a woman's wig and is dressed in drag.");
+message("Jesse clears his throat. \"Hello again!\"");
+message("");
+message("The actor speaks in falsetto.");
+message("\"I am Jesse and I am a star.\"");
+message("He slaps his own face and speaks in a normal register, \"Oops, sorry! I am so entrenched in the role that I sometimes forget that I am not a woman!\"");
+message("\"I work at the Royal Theatre as an actor. I have played -all- the great roles in my career. I now have the chance to play the part of a lifetime -- the Avatar!\"");
+UI_add_answer(["Royal Theatre", "Avatar"]);
+message("\"Because it must cater to the masses, we never have the opportunity to do experimental works -- only the traditional gruel of mediocrity. But 'tis a wonderful space and it has marvelous acoustics.\"");
+UI_add_answer(["masses", "experimental works"]);
+message("\"People like to see tales of heroic adventures, knights in armour, beautiful princesses, wise kings, wizards, evil monsters. All that rot.\"");
+message("\"The role is very challenging. I have a plethora of lines and I had to work with a trainer for weeks to prepare for the enormous amount of activity required. This role will make 'Jesse' a household name!\"");
+UI_add_answer(["challenging", "lines"]);
+message("\"It is easily the most ambitious theatrical production ever conceived. There is over a hundred hours of play time. That is a long time for an audience.\"");
+message("\"My biggest lines are:~~\"Name!\"~~\"Job!\"~~\"Bye!\"");
+message("\"My favorite piece is something Raymundo wrote for me entitled 'Three on a Codpiece'. I stand on stage and invite the audience to join me in tearing an undergarment into tiny pieces, after which they are placed in funeral urns and mixed with wheat paste. The pieces of cloth, not the audience members. Then the audience may glue the pieces anywhere on my body that they wish.\"");
+message("\"Goodbye. Be sure to come to the show when it opens!\"*");
+
+--- 041D.es ---
+UI_add_answer(["name", "job", "bye"]);
+message("This actor has much stage presence and a booming voice.");
+message("Stuart looks down his nose at you. \"Yes?\"");
+message("\"My real name is Stuart. My stage name is Laurence.\"");
+UI_add_answer("Laurence");
+message("\"I am the greatest actor who ever lived,\" he proclaims with absolutely no modesty. \"I am playing the character 'Iolo' in the new play.\"");
+UI_add_answer("Iolo");
+message("\"'Tis the name of a particular hero of mine.\"");
+message("Stuart's feathers are obviously ruffled. \"Yes. I have been cast as second banana yet again! I am much more suited to play the Avatar, but did Raymundo cast me? Noooo!\"");
+message("\"But thou art nothing like me!\"*");
+message("\"And who art thou, pray tell?\"*");
+message("\"Why, I am the -real- Iolo!\"*");
+message("\"Of course thou art. And I am really Lord British. Thou must take me for an ass to think I would believe that.\"*");
+message("Your friend whispers to you. \"These actor types. A touchy bunch, eh?\"*");
+UI_add_answer(["Raymundo", "Avatar"]);
+message("\"I suppose he's a good director. He never casts me in the right roles, though. And to think I went to school with him! We were on our first stage crew together!\"");
+message("Stuart whispers to you, \"Jesse is all wrong! Why, -thou- wouldst make a better Avatar than he! And -thou- probably couldst not act thy way out of a reagent bag! That is not a reflection on thee, but on Jesse.\"");
+UI_add_answer("act");
+message("\"Acting is the highest form of art. It allows one to step outside oneself and become another person. 'Tis like a game!\"");
+message("\"Goodbye. Be sure to come to the show when it opens!\"*");
+
+--- 041E.es ---
+UI_add_answer(["name", "job", "bye"]);
+UI_add_answer("Shamino");
+message("This lovely actress is dressed in a mouse costume.");
+message("\"Hello, there!\" Amber says.");
+message("\"I am Amber.\"");
+message("\"I am an actress at the Royal Theatre. I am playing the role of Sherry the Mouse in the new play.\"");
+UI_add_answer(["Royal Theatre", "Sherry", "play"]);
+message("\"'Tis a lovely space in which to perform. I have dedicated my life to acting, thou knowest.\"");
+UI_add_answer(["space", "dedicated"]);
+message("\"Raymundo himself had a hand in the design of the theatre.\"");
+message("\"Actually, this will be my debut theatrical performance. I have been working as a barmaid waiting for my first chance to be in the theatre.\"");
+message("\"Between thee and me, methinks the play stinks.\" She winks at you.");
+message("\"Canst thou imagine such drivel? I do not believe there ever was a Sherry the Mouse. Who ever heard of a mouse that could talk! Especially these lines! I would rather play a queen. Much more fitting for me, I would say.\"");
+UI_add_answer(["lines", "queen"]);
+message("\"I have to memorize this preposterous children's story called 'Hubert's Hair-Raising Adventure'.");
+message("\"I asked Raymundo about this and he threw a tantrum. He said that it would not be historically accurate. Ha! As if that were something of any significance!\"");
+message("\"Poo Poo Head!\" she cries. She then rushes to him and kisses him full on the mouth. Shamino turns red and shuffles his feet.*");
+message("\"Not in front of the Avatar, Poo!\"*");
+message("\"To blazes with the Avatar!\" She kisses him again. \"The Avatar is the last one who will convince thee to settle down.\"");
+message("\"Dost thou know my beau? He is probably drowning his sorrows at the Blue Boar. The lazy knave! I will not let him go about adventuring. It is time for him to settle down. Thou canst tell him I said so!\"");
+message("\"Adieu!\"*");
+
+--- 041F.es ---
+UI_add_answer(["name", "job", "bye"]);
+message("This is a cute toddler holding a baby doll.");
+message("\"Hi!\" Kristy exclaims.");
+message("\"Kwisty.\"");
+message("\"Kristy, like Nicholas, is one of our orphans. She was found in an abandoned home in Paws by one of the Great Council members.\"");
+message("\"Tag! Playing tag!\"");
+message("The toddler runs off in search of a nursery-mate.*");
+message("Kristy looks confused. \"Sing. Horsey. Rosa. Winner.\"");
+UI_add_answer(["sing", "horsey", "Rosa", "winner"]);
+message("Kristy is more than happy to do so. \"A-B-C-D-E-F-G! H-I-K-M-M-M-O-P! Q-T-W-Y-X-Z!\" She is proud of her song, although she didn't get it quite right.");
+message("\"I love horsey!\" She rocks hard on the rocking horse.");
+message("Kristy hugs her baby doll tight. \"Rosa!\"");
+message("\"I am winner!\" she proclaims loudly.");
+message("\"She keeps saying that. I am not sure what it means. Something to do with a competition.\"");
+message("\"Bye bye!\"*");
+
+--- 0420.es ---
+UI_add_answer(["name", "job", "bye"]);
+message("This toddler is full of energy and is playing hard when he sees you. He stops what he is doing.");
+message("\"Hi!\" Max grins at you.");
+message("\"Makth.\"");
+message("\"He says his name is Max.\"");
+message("\"Playing tag!\"");
+message("The boy runs away from you to catch another child.*");
+message("\"I'm a funny boy!\" Max laughs hysterically. \"Makth sing too!\"");
+UI_add_answer(["funny boy", "sing"]);
+message("\"Thou funny boy, -too-!\" Max laughs madly as he throws his pacifier at you. He points at it and says, \"Binky!\"");
+UI_add_answer("Binky");
+message("Max nods furiously. \"Binky! Get Binky! Get Binky!\" ~~You realize that the boy wants you to pick it up. Apparently it is some kind of game that only toddlers understand. You pick it up and hand it to him. He immediately plugs it into his mouth.");
+message("Max stands upright and bellows, \"Old Lord British had a farm, -e-i-e-i-o-! On this farm he had a drake, -e-i-e-i-o-! With a -roar- -roar- here, a -roar- -roar- there, here a -roar-, there a -roar-, everywhere a -roar- -roar-!    Old Lord British had a farm, -e-i-e-i-o-!\"");
+message("\"Bye bye!\"*");
+
+--- 0421.es ---
+UI_add_answer(["name", "job", "bye"]);
+message("You see a child that has recently grown into toddlerhood.");
+message("\"Whee! Yoooo!\" intones Nicholas.");
+message("\"His name is Nicholas.\"");
+message("\"Nick-las\".");
+message("The toddler is obviously deeply engaged in a game of tag and will not stop to speak.*");
+message("\"Why, his job is to wet his diaper! Is that not right, Nicholas?\" Nanna says in baby-talk.");
+message("\"Whee! Dia-per!\"");
+message("\"Nicholas is one of our orphans. He was left in front of the castle one morning. 'Tis a sad state of affairs when this kind of thing happens.\"");
+message("\"Whee! Dia-per!\"");
+UI_add_answer(["wet", "diaper"]);
+message("You notice that Nicholas' diaper is wet.");
+message("\"Oh, my. He's wet, is he not? Couldst thou be a dear and change him for me? I would appreciate it!\"");
+message("\"Yeeee! Dia-per! Geeee!\" Nicholas says happily.");
+message("\"The diapers are there on that table. If thou wouldst just use one\ton Nicholas....\"");
+message("Nicholas points to the diapers on the table.");
+message("\"Bye bye!\"*");
+
+--- 0422.es ---
+message("Nanna gives you a stern look for bothering her during The Fellowship meeting, much like the look of an elementary school teacher you once had.*");
+message("\"I cannot imagine where Batlin may be. He has never missed a Fellowship meeting!\"");
+message("\"Oh! Hello! I must not stop to speak now. I am on my way to The Fellowship meeting!\"*");
+UI_add_answer(["name", "job", "bye"]);
+message("You see a working-class elderly woman who exudes sweetness.");
+message("\"Yes, may I help thee?\" Nanna asks.");
+message("\"Oh, everyone simply calls me 'Nanna'.\"");
+message("\"I watch over the Royal Nursery. I am the nanny of these wonderful children.\"");
+UI_add_answer(["Royal Nursery", "nanny", "children"]);
+message("\"There have been a great number of babies born in Britannia in recent years, so Lord British established this nursery. It is nice that the noblemen and noblewomen have this luxury so that they may attend to their daily duties.\"");
+UI_add_answer("luxury");
+message("\"Whew! Dost thou smell what I smell, Avatar?\"*");
+message("\"I believe that is the smell of diapers, boy. When thou art a father one day, thou wilt come to know that smell quite well.\"*");
+message("\"Well, I feed them and change their diapers and read aloud all the books thou dost see lying around. Luckily, I have Sherry to help me.\"");
+UI_add_answer(["books", "Sherry"]);
+message("\"Lord British brought them from his homeland. They are very foreign to us here in Britannia, but the children enjoy them just the same.\"");
+message("\"Sherry is a special mouse who has lived here in the castle for many, many years. She recites stories for the children.\"");
+message("\"They are lovely, are they not? Every day they seem to learn more and more. Most of the time they are a joy.\" Nanna whispers to you conspiratorially, \"And other times I could happily throw them out with the bathwater!\"");
+message("\"The children must be outside playing with Sherry now.\"");
+UI_add_answer("Sherry");
+message("\"Yes, I suppose it really is a luxury. The poorer people in Britannia certainly do not have such a service for caring for their children. The rich do have an advantage.\" You detect a hint of bitterness in her voice.");
+UI_add_answer("advantage");
+message("\"I do not mean to complain by any means. I adore my work. But contrary to the thinking of many of the noblemen and women, a class structure exists in Britannia more than ever before. Taxes are unbearable. The rich get richer, and the poor get poorer, as the saying goes.\"");
+UI_add_answer(["class structure", "taxes"]);
+message("\"The Britannian Tax Council drains us all dry. Especially the lower and middle classes.\"");
+message("\"Well, look around! There are rich men who live in opulent castles. And right outside are poor people who live in hovels. Thou dost know how there are winged gargoyles and wingless gargoyles? Well, it seems the human race is getting to be just as divided. There is no unity in the land anymore. It is why I have joined The Fellowship.\"");
+UI_add_answer(["Fellowship", "philosophy"]);
+message("She notices your medallion. \"But thou dost know all that already!");
+message("\"Thou shouldst really come to a meeting. Thou wouldst learn a lot!\"");
+message("\"Good day! Do come back and visit again soon!\"*");
+

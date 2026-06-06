@@ -1,0 +1,121 @@
+1: @Damn candles!@
+2: @An Ailem!
+3: @I'm famished!@
+4: @My door, at last.@
+5: @Ah, a wall.@
+6: @I'll follow it.@
+7: @Where am I?@
+8: \
+9:  He ignores you.*
+10: At your approach, the old man straightens and looking directly at you he says, \
+11: . I am called Erethian. Although thou dost not know me, I know thee well.
+12: I have seen thee destroy Mondain's power and so defeat that misguided mage, I have seen thee vanquish the enchantress Minax, I have also seen, in a very unique way, how thou brought low the hellspawn Exodus.\
+13: He falls silent here and you notice that the old man's eyes are milky white.
+14: name
+15: job
+16: Mondain
+17: Minax
+18: Exodus
+19: bye
+20: . How may I assist thee?\
+21:  Erethian seems a little pevish at this point.
+22: black sword
+23: powerful artifact
+24: daemon mirror
+25: daemon gem
+26: daemon blade
+27: the Psyche returns
+28: great evil
+29: Talisman of Infinity
+30:  Erethian's blind eyes light up with unabashed glee. \
+32: He once again notices your presence. \
+33: The elderly mage frowns. \
+34:  You feel as if you've just been patted on the head and asked to go play elsewhere.
+35:  A thought hits the mage like lightning strikes a tree. \
+36:  Erethian falls silent, and it would appear that he'll speak no more.
+37: Arcadion's voice whispers to you like ripple in still pond, \
+38: *
+39:  Erethian frowns in concentration then says, \
+40: Erethian nods his head when you tell him of your dilemma with the black sword. \
+41: The little gem sparks up at this turn of the conversation. \
+42:  The daemon sounds excited at this prospect, perhaps a little too excited.
+43: Erethian's voice is quiet as he says, \
+44: problems
+45: You wonder if perhaps Arcadion might be able to shed some light on this issue, and as if reading your thoughts, Erethian says, \
+46: The mage gives you a half smile, \
+47: . As I have said, my name is Erethian.\
+48: It is this curiosity which has brought me to this island from which Exodus, the spawn of Mondain and Minax, sought to rule the world.
+49: The books and scrolls here have taught me much of Britannia's\thistory and other... interesting subjects.\
+50: His clouded eyes sparkle with intelligence. But you can't help wondering how books and scrolls are of any use to a man afflicted with blindness.
+51: subjects
+52: blindness
+53:  As if regretting his gracious gesture, he adds, \
+54:  He stops, on the verge of saying more.
+55:  He ignores your presence.*
+56: Erethian scowls, \
+57: 'Tis even said his skull alone had the power to destroy enemies... he must have locked a magical matrix upon it, I'll have to research that.\
+58: Gem of Immortality
+59: skull
+60: A sad sweet smile comes to the wizard's face, \
+61:  His expression darkens, \
+62: She became a power unto herself, in time. I do not think she quite rivaled her former mentor, Mondain, but she was a force to be reckoned with, nevertheless.
+63: And that thou didst, with the Quicksword, Enilno. That\tact will most likely have tales sung about it for the next eon.\
+64: Even if Iolo's the only one who sings it.\
+65: With a look of indignation Iolo says, \
+66:  The corners of the mage's mouth come up in a delicate smile.
+67: An angry retort dies on Iolo's lips as the elderly mage lifts his hands in a gesture of peace.
+68: I have nothing but the highest regard for the Destroyer of the Age of Darkness and Harbinger of the Age of Enlightenment.
+69: Enilno
+70:  He almost glows with excitement. \
+71: Upon further research, I found that the entity known as Exodus was not truly destroyed. The interface between its two parts and the world was merely severed.\
+72: two parts
+73: interface
+74:  You begin to wonder just how long this old man has\tbeen out of circulation.
+75: He continues, \
+76:  His face appears to youthen, and you feel as if you're speaking to a child describing his new toy... or perhaps, pet.
+77: gargoyles
+78: psyche
+79: Dark Core
+80: His expression is unreadable, \
+81: When it was destroyed, his psyche could no longer retain its hold on the Dark Core.
+82: I have often wondered if another interface was implemented, would the psyche return, or possibly be regenerated...\
+83: As his\tidle musings begin to run toward possibly dangerous conclusions, his mouth audibly snaps shut.
+84: The larger, winged ones are intelligent and magical by nature,\twhile the smaller, wingless ones appear to be the work force for the species.\
+85: He turns his head in your direction with a puzzled expression in his eyes, \
+86:  Erethian falls silent.
+87:  He motions in the direction of the Dark Core.
+88: Much of the information is trivial, such as the detailed description\tof the color of the\tsky on a particular day eons ago,
+89: while other bits give instructions for the manipulation of the\tworld.
+90: Within it I even found the knowledge to raise and sustain this island\twe stand upon. It is truly a remarkable artifact.\
+91: He thinks for a moment, then looks nervously in your direction, \
+92: It was reputedly a great item of magic. Didst thou find it so?\
+93:  He winks mischieviously in your general direction.
+94: Milky eyes glitter up at you like twin marbles, \
+95: After all, it was thee who smashed it into the shards which caused thee so much trouble during the regency of Lord Blackthorn.
+96: So much power that even in a shattered state, its magic still flowed. 'Tis sad to lose such an artifact.\
+97: Much better than having Mondain running about mucking with things, I suppose.\
+98:  he pauses dramatically, \
+99:  His wry smile belies his careless tone.
+100: whining
+101: free
+102:  Erethian's lined face shows his chagrin.
+103: jail
+104: Ether Gem
+105:  The mage's milky eyes twinkle with suppressed mirth.
+106: golems
+107: Shrine of Principle
+108: Test of Courage
+109: Test of Love
+110:  Conspiratorially he adds, \
+111:  He smiles like a grandfather giving a present to a child.
+112: heroine's
+113: hero's
+114:  He gestures in your direction, \
+115:  fighting ability and courage. The statues in the back of this castle can tell thee more about the tests, though.\
+116:  You're not sure, but his words might be construed as a curse.
+117: The gem glows brighter, \
+118:  The daemon lets out a chilling little laugh.
+119: Erethian looks a little shaken at hearing the daemon's voice, but quickly recovers his composure. \
+120:  The elderly mage's expression is unreadable.*
+121:  The old mage snickers under his breath as if enjoying a personal joke, quite possibly at your expense.*
+122:  Erethian sounds truly sympathetic.

@@ -1,0 +1,106 @@
+import json
+
+translation_map = {
+    "@The sails must be furled before the planks are raised.@": "@在收起跳板之前，必須先降下船帆。@",
+    "@I think the gangplank is blocked.@": "@我想跳板被擋住了。@",
+    "@The deed for this vessel must first be purchased.@": "@必須先購買這艘船的契約。@",
+    "@We must purchase the deed for this vessel before we sail her.@": "@在我們開船之前，必須先購買這艘船的契約。@",
+    " ": " ",
+    ":": "：",
+    "@It is about time!@": "@是時候了！@",
+    "@I believe that one threads a loom before using it.@": "@我相信在使用織布機之前，得先穿線。@",
+    "@Try it outside!@": "@到外面試試！@",
+    "@What is this!@": "@這是什麼！@",
+    "@Those are expensive, <Gender>! ": "@這些很貴的，<Gender>！",
+    "Plese waste them not!@": "請別浪費！@",
+    "@There is no room for thy bedroll there.@": "@那裡沒有空間放你的睡袋。@",
+    "@The sword is not heated.@": "@劍還沒加熱。@",
+    "@The sword is too cool.@": "@劍太冷了。@",
+    "@Thou must hold that in thine hand.@": "@你必須把它拿在手上。@",
+    "It seems the tree will yield nothing of value.": "這棵樹似乎不會產出任何有價值的東西。",
+    "It seems that a pick is not needed for that.": "看來那不需要用到十字鎬。",
+    "@I believe that the current exchange rate is ": "@我相信目前的匯率是",
+    "ten crowns per nugget at the mint in Britian.@": "在不列顛尼亞造幣廠，一塊金塊可換十枚克朗。@",
+    "@I believe the current exchange rate is ": "@我相信目前的匯率是",
+    "one hundred crowns per bar at the Britannian mint.@": "在不列顛尼亞造幣廠，一根金條可換一百枚克朗。@",
+    "@Do not waste that!@": "@別浪費那個！@",
+    "@I suspect spinning the wool will be more fruitful ": "@我懷疑紡羊毛會比",
+    "than spinning an empty wheel.@": "空轉紡車來得有收穫。@",
+    "@Do not over cook it!@": "@別烤焦了！@",
+    "@I believe the bread is ready.@": "@我想麵包烤好了。@",
+    "@Mmm... Smells good.@": "@嗯……聞起來好香。@",
+    "@Might not those come in handy for cutting cloth into bandages?@": "@把它們用來把布料剪成繃帶不是挺方便的嗎？@",
+    "@It needs powder!@": "@它需要火藥！@",
+    "@It needs cannon balls!@": "@它需要砲彈！@",
+    "@Place your bets.@": "@請下注。@",
+    "@Round she goes!@": "@轉起來了！@",
+    "@Praise All! The child is still alive. He must": "@感謝上天！這孩子還活著。他必須",
+    " be returned to Lady Tory immediately!@": "立刻被送回 Tory 夫人那裡！@",
+    "@Pardon me my friend, dost thou not think that would be a little crowded?@": "@抱歉了我的朋友，你不覺得那樣會有點擠嗎？@",
+    "@I believe those are for the trainers to use.*": "@我相信那是給訓練師用的。*",
+    "If thou art in need of practice, why not ": "如果你需要練習，為何不",
+    "seek out a trainer?@": "去找個訓練師呢？@",
+    "@Avatar wins a Dragon!@": "@聖者贏得了巨龍！@",
+    "@Those are beautiful. I am sure that they would fetch ": "@那些真漂亮。我確定它們在不列顛尼亞的珠寶商那裡",
+    "a high price at the jewelers' in Britain.@": "能賣個好價錢。@",
+    "@I believe the gem must be held in the weapon hand to break the mirror.@": "@我相信必須把寶石拿在武器手上才能打破鏡子。@",
+    "@The sails must be furled before the planks can be lowered.@": "@在放下跳板之前，必須先降下船帆。@",
+    "@Perhaps thou shouldst attack with it.@": "@或許你該用它來攻擊。@",
+    "@How odd!@": "@真奇怪！@",
+    "@It work before.@": "@它之前還能用的。@",
+    "@No, Avatar.@": "@不，聖者。@",
+    "@Let thyself enter.@": "@讓你自己進來吧。@",
+    "@Spin baby!@": "@轉吧，寶貝！@",
+    "@Those are for babies.@": "@那是給嬰兒用的。@",
+    "@That is for dirty diapers.@": "@那是用來裝髒尿布的。@",
+    "@Thou shouldst use the brush and pigments, ": "@你應該使用畫筆和顏料，",
+    ".@": "。@",
+    "@I do not believe that we can land here safely.@": "@我不認為我們能在這裡安全登陸。@",
+    "@That appears to be fine cloth, no doubt it would fetch ": "@那看起來是上好的布料，無疑地在米諾克（Minoc）",
+    "a fair price in Minoc. Or, perhapse, thou couldst cut ": "能賣個好價錢。或者，也許你可以用大剪刀",
+    "it into bandages with shears.@": "把它剪成繃帶。@",
+    "@Why not put the flour on the table first?@": "@為何不先將麵粉放在桌上呢？@",
+    "@Hey! That really hurt!@": "@嘿！那真的很痛！@",
+    "@Whaaahh!!@": "@哇啊啊！！@",
+    "@Thou dost not look well.@": "@你看起來氣色不太好。@",
+    "@A winnah in lane ": "@車道的獲勝者是",
+    "!@": "！@",
+    "@Turn it off!@": "@把它關掉！@",
+    "@Thou art wasting it!@": "@你在浪費它！@",
+    "@Must we do this?@": "@我們必須這麼做嗎？@",
+    "@Is that virtuous?@": "@這合乎美德嗎？@",
+    "@Avatar?!@": "@聖者？！@",
+    "@Squeak!@": "@吱吱！@",
+    "@MOO?!@": "@哞？！@",
+    "@NO!, No. No...@": "@不！，不。不……@",
+    "@Fellowship scum!@": "@兄弟會的渣滓！@",
+    "@I summon thee!@": "@我召喚你！@",
+    "@Whoa!@": "@哇！@",
+    "@Giddy-up!@": "@駕！@",
+    "@The title for this cart must first be purchased.@": "@必須先購買這輛馬車的產權。@",
+    "@We must first purchase the title for this cart.@": "@我們必須先購買這輛馬車的產權。@",
+    "I believe the bridge is blocked.": "我相信橋被擋住了。",
+    "@Excuse me, the door is already open. ": "@打擾一下，門已經開了。",
+    "Is it not rather futile to lock it now?@": "現在上鎖不覺得有點白費力氣嗎？@",
+    "@Excuse me, the door appears magically locked. ": "@打擾一下，門似乎被魔法鎖上了。",
+    "Is it not rather difficult to unlock it with a key?@": "用鑰匙解鎖是不是有點困難？@",
+    "@The door appears blocked.@": "@門似乎被擋住了。@",
+    "Magically Locked": "魔法鎖定",
+    "@One of the gangplanks seems to be blocked. It must be lowered to sail.@": "@其中一個跳板似乎被擋住了。必須降下來才能開船。@",
+    "\\": "\\"
+}
+
+with open(r'd:\git\exult-master\tools\ucxt\output\short_strings.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+
+for k in data.keys():
+    if k in translation_map:
+        data[k] = translation_map[k]
+    else:
+        # Keep spells exactly as they are
+        data[k] = k
+
+with open(r'd:\git\exult-master\tools\ucxt\output\short_strings.json', 'w', encoding='utf-8') as f:
+    json.dump(data, f, indent=4, ensure_ascii=False)
+
+print("Translations applied to short_strings.json")

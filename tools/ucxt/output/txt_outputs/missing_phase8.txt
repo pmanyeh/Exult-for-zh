@@ -1,0 +1,17 @@
+--- 044A_zh.es ---
+message("\"Funny. It was here a while ago. Oh! I remember now. Some adventurers borrowed my flying carpet a few weeks ago. When they returned they said they had lost it near Serpent's Spine. Somewhere in the vicinity of the Lost River. I suppose\tif thou didst want to go and find it, thou couldst keep it. It did not work very well. Perhaps thou canst make it work. I did not like the color, anyway!\"");
+
+--- 044B_zh.es ---
+message(".\"*");
+message(".\"*");
+
+--- 044C_zh.es ---
+
+--- 044D_zh.es ---
+
+--- 044E_zh.es ---
+
+--- 044F_zh.es ---
+
+--- 0450_zh.es ---
+

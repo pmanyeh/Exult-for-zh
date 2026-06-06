@@ -1,0 +1,20 @@
+04D2_zh.es:
+  message("這位女士停下手邊的工作，轉過頭來看你，回答道：「我的名字是 Liana 。」");
+04D3_zh.es:
+  message("「被你稱為 Lap-Lem 。」");
+04D4_zh.es:
+  message("「我是 Yvella ，");
+04D5_zh.es:
+  message("「我的名字是 Catherine ，");
+04D6_zh.es:
+  message("「回答叫 For-Lem 。」");
+04D7_zh.es:
+  message("「被稱作 Ansikart 。」");
+04D8_zh.es:
+  message("「名叫 Wis-Sur ，意思是『智慧的太陽』。」");
+04D9_zh.es:
+  message("「沒有意願告訴你。要求知道你是誰！」");
+04DA_zh.es:
+  message("「沒有意願告訴你。要求知道你是誰！」");
+04DB_zh.es:
+  message("「被稱作 Aurvidlem 。認出你是聖者 (Avatar) 。」");

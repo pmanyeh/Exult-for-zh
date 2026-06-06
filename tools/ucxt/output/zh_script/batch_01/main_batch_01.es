@@ -1,0 +1,7 @@
+#include "zh_script/batch_01/009B_zh.es"
+#include "zh_script/batch_01/01DF_zh.es"
+#include "zh_script/batch_01/01F8_zh.es"
+#include "zh_script/batch_01/0269_zh.es"
+#include "zh_script/batch_01/032A_zh.es"
+#include "zh_script/batch_01/0356_zh.es"
+#include "zh_script/batch_01/03F7_zh.es"

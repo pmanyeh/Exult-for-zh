@@ -1,0 +1,20 @@
+04C8_zh.es:
+  message("「我是 Tory 女士，");
+04C9_zh.es:
+  message("她紅著臉說。「我是 Leigh 女士。」");
+04CA_zh.es:
+  message("「我是 Ian 。」");
+04CB_zh.es:
+  message("男人和你握手。「我是 Cador 。」");
+04CC_zh.es:
+  message("女人抓住你的手用力搖晃。「哈囉。我的名字是 Mara 。」");
+04CD_zh.es:
+  message("「我是 Zaksam ，」他驕傲地說。");
+04CE_zh.es:
+  message("他對你微笑。「啊，太好了。你不害怕問問題。記住，沒有愚蠢的問題，只有笨問題。我的名字是 Eldroth ，");
+04CF_zh.es:
+  message("「我的名字是 Yongi ，");
+04D0_zh.es:
+  message("「Blorn ，如果你非得知道的話。」");
+04D1_zh.es:
+  message("「請叫我 Auston 。」");

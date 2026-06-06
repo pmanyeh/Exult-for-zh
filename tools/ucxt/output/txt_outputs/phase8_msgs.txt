@@ -1,0 +1,227 @@
+--- 044A.es ---
+message("This elderly mage looks older and more senile than when you last saw him.");
+message("\"Who art thou?\" Rudyom asks. \"Oh -- I remember.\"");
+message("\"Hello again, Avatar!\" Rudyom says, beaming.");
+message("\"That I know. My name is Rudyom.\"");
+message("\"I am not sure anymore. I was a powerful mage at one time! Now nothing works. Magic is afoul! I suppose I could sell thee some reagents and spells if thou dost want. And mind the carpet -- it does not work!\"");
+message("\"I am a powerful mage! Magic is my milieu! I can sell thee spells or reagents.\"");
+message("\"I do not understand what is wrong. My magic does not work so well anymore.\"");
+message("\"The ether is flowing freely! Magic is with us once again!\"");
+message("\"The big blue carpet. 'Tis a flying carpet. It does not work like it should.\"");
+message("Rudyom looks around and scratches his head.");
+message("\"Funny. It was here a while ago. Oh! I remember now. Some adventurers borrowed my flying carpet a few weeks ago. When they returned they said they had lost it near Serpent's Spine. Somewhere in the vicinity of the Lost River. I suppose\tif thou didst want to go and find it, thou couldst keep it. It did not work very well. Perhaps thou canst make it work. I did not like the color, anyway!\"");
+message("\"Dost thou wish to buy some spells?\"");
+message("\"Oh. Never mind, then.\"");
+message("\"Dost thou wish to buy some reagents?\"");
+message("\"Oh. Never mind, then.\"");
+message("\"Do not mention that foul mineral's name to me! It hast caused me much frustration! Before my mind lost me I was conducting experiments with the infernal material. But now I cannot for the life of me remember what it was I was trying to do.\"");
+message("\"They are a nuisance, are they not? I do believe that blackrock is the solution to the problem. I wish my mind had not lost me, or I could continue my work...\"");
+message("\"I understand they are gone for good. Do not blame thyself, Avatar. The disaster will only pave the way for a new era in experimentation and discovery. I hope.\"");
+message("\"I wrote them all down in my notebook, which is somewhere around here. Thou art welcome to look at it. But stay away from that damned transmuter -- 'tis dangerous!\"");
+message("\"I used it to record mine experiments with blackrock and the blackrock transmuter.\"");
+message("\"'Tis that wand-like thing. It was supposed to magnetize and magically transmute blackrock, but it doth not work correctly. Try pointing it at a piece of blackrock and thou wilt see what I mean. But do not stand too close! Thou art welcome to take it if thou dost want a piece of garbage!\"");
+message("\"Leaving so soon? Deary me. I hope I remember thee if thou dost come back.\"*");
+message("\"Goodbye, Avatar.\"*");
+CASE: name
+CASE: job
+CASE: magic
+CASE: carpet
+CASE: spells
+CASE: reagents
+CASE: blackrock
+CASE: Moongates
+CASE: experiments
+CASE: notebook
+CASE: transmuter
+CASE: bye
+
+--- 044B.es ---
+message("This is an attractive young woman who seems sad.");
+message("Emotion immediately grips your heart to see such a beautiful young woman seem so sad.");
+message("She looks up as you introduce yourself.");
+message("\"Hello again, ");
+message("!\" Nastassia says.");
+message("\"I am Nastassia.\"");
+message("She thinks a moment. \"I suppose my job is to keep the Shrine of Compassion pristine, though it is not an official position.\"");
+message("\"The Shrine of Compassion has been here for many generations, as have all the shrines in Britannia. My great-great-grandmother Ariana made a request in her will that her family line take care of this particular shrine.\"");
+message("\"Many of the shrines have fallen into disuse or have been overgrown to the point of being lost. It is sad.\"");
+message("\"I am afraid that thou mightest find the other shrines in poor condition. I keep this one... well, nice. And I do it not only to keep alive my great-great-grandmother's tradition, but... for other reasons, too.\"");
+message("\"Some people may think it odd that a young person would cling to the old ways so. But it is something that gives me great comfort. It gives me the feeling that there is something in this world that I belong to.\"");
+message("\"I... I'd rather not say. Please do not ask.\"");
+message("\"Thou dost know the reasons.\"");
+message("\"Yes, she was my great-great-grandmother. I understand that she actually met the Avatar and ");
+message(" made a profound impact on her life.~~\"It is odd, but thou dost resemble the portraits I have seen of the Avatar.\"");
+message("\"Thou dost know of my father? I suppose the townsfolk have been talking again. I wish I had known him. There is something within me that yearns for some news of him. Anything at all.\"");
+message("\"My mother. She died horribly, and by her own hand. That is the true reason I pay homage to this Shrine. I hope someday to provide her with the means to rest in peace.\"");
+message("\"My father died in the Great Forest there. Some wild animal or something killed him. Art thou perhaps travelling to Yew?\"");
+message("\"Oh, ");
+message(", I do wish thou wouldst try to find out something about my father. How did he die? What happened? Please! Wilt thou search for the truth and come back and tell me?\"");
+message("\"Bless thee! I shall be waiting here for thee.\"");
+message("\"I know we have a strong kinship now. We shall be like sisters.\"");
+message("Unexpectedly, Nastassia pulls your head down to hers and kisses you on the mouth.");
+message("Nastassia turns away and looks as if she might cry. \"Very well. Please leave me alone.\"*");
+message("\"No? Well, let me know if thou art in the future. Perhaps thou couldst help me.\"");
+message("You kiss Nastassia and she moans.");
+message("The two of you rush into each other's arms and your mouths meet. You had forgotten how good her lips felt against yours.");
+message("You kiss Nastassia's lovely mouth again. She responds.~~\"No man hath done that as well as thee.\"~~ She looks at you with wide eyes.~~\"Do it again, milord.\"");
+message("You kiss Nastassia yet again. This time your bodies press together tightly, and you know this promises to be more than a fleeting fling with some tavern wench.");
+message("You kiss Nastassia and she moans.");
+message("Nastassia studies your features.~~\"Somehow I knew it. It hath been said that thou wouldst return.\"");
+message("You tell Nastassia what you learned from Trellek. She closes her eyes and it seems a great weight has lifted from her shoulders.~~The woman raises her arms to the sky and cries out, \"Didst thou hear that, mother? Thine husband was only trying to provide for his family! And he died... a hero! He was not a vagabond! Dost thou hear? Thou canst rest thy tortured soul now. Please, mother, forgive him. Do so, so that I can now forgive thee.\"~~She wipes the tears from her face and looks at you.");
+message("\"I thank thee, ");
+message(". Thou hast made me very happy. I shall always remember thee.\"");
+message("She kisses you once lightly. \"Thank thee, ");
+message(". Thou hast made me very happy. Shouldst thou become weary of adventuring, I shall be waiting here for thee. Thou art welcome to live and share thy life with me. Go now. Finish the job thou must needs do. But keep me in thy thoughts.\"");
+message("\"Goodbye.\" She kisses you again, and then turns so that she will not see you leave.*");
+message("\"Goodbye, ");
+message(".\"*");
+message("\"Goodbye, ");
+message(".\"*");
+CASE: name
+CASE: job
+CASE: Shrine
+CASE: all shrines
+CASE: take care
+CASE: tradition
+CASE: reasons
+CASE: Ariana
+CASE: Julius
+CASE: Nadia
+CASE: Yew
+CASE: kiss
+CASE: kiss again
+CASE: I am the Avatar
+CASE: News of your father
+CASE: bye
+
+--- 044C.es ---
+message("You startle a fighter who seems lost in thought.");
+message("His dog seemed to be meditating as well.");
+message("\"Hello again,\" Rayburt says.");
+message("\"I am Rayburt.\"");
+message("He turns to the dog. \"And this is Regal.\"");
+message("\"I am a trainer. I specialize in a style of combat that relies on concentration and meditation. It shall boost thy dexterity and intelligence, as well as thy combat skill.\"");
+message("\"He is an exceptionally smart animal. He understands the meditative way of life.\"~~Rayburt throws the dog a cookie, which is snarfed up in the blink of an eye. \"He is cute, too,\" Rayburt says with complete seriousness.");
+message("You see a hint of a smile on Rayburt's face. \"She and I are one person.\"");
+message("\"Most of all combat occurs in the mind before the first blow is ever struck. The key to victory is to first win the inner battle in the mind. Winning that inner battle is what I help my students to learn.\"");
+message("\"I charge 60 gold for a session, but thou wilt benefit greatly. Is this agreeable?\"");
+message("\"It is not the first time I have been accused of being too expensive.\"");
+message("\"Please come to my studio during business hours if thou wishest to train.\"");
+message("Rayburt bows.*");
+CASE: name
+CASE: job
+CASE: Regal
+CASE: Pamela
+CASE: meditation
+CASE: train
+CASE: bye
+
+--- 044D.es ---
+message("This regal gentleman epitomizes a well-liked politician.");
+message("\"Hello! Lord British sent word that thou might come to visit us. Welcome to Cove, Avatar!\"");
+message("\"Hello again, Avatar!\" Lord Heather proclaims.");
+message("\"I am Lord Heather. And I recognize thee, Avatar!\"");
+message("\"I am the Town Mayor of Cove, home of the Shrine of Compassion.\"");
+message("\"It's a small place, I know. Many of our residents have moved away to the larger towns, especially Britain. But we have maintained a small core of loyal Covites.\"");
+message("\"We are proud of our Shrine. One of our residents takes good care of it. Thou must try and visit the Shrine if thou hast not already. It is a monument to all the lovers in town.\"");
+message("\"Britain may be the city of Compassion, but Cove has become the city of Passion. Everyone here seems to fall in love rather easily. Thou wilt find that everyone loves someone. Almost everyone, that is.\"");
+message("\"Well, let's see... I am in love with Jaana, our healer.\tAnd she is in love with me, of course. Then there is Zinaida, who runs the Emerald. She has an interest in De Maria, our local bard. And vice versa. Rayburt, our trainer, is courting Pamela, the innkeeper.\"");
+message("\"Sounds like bad theatre to me!\"");
+message("\"Any wenches mine own age around here?\"*");
+message("\"I see that thou art leaving Cove for a while, my dear?\"*");
+message("\"Yes, milord. But I shall return. I promise thee.\"*");
+message("\"I shall try not to worry about thee, but it will be difficult.\"*");
+message("\"Do not worry. I shall be safe with the Avatar.\"*");
+message("\"I do hope so.\" The Mayor embraces Jaana.*");
+message("\"Except for Nastassia.\"");
+message("\"She is a lovely young woman who is always melancholy. De Maria can tell thee more about her. I suggest thou seekest him at the Emerald. 'Tis a sad but compelling tale.\"");
+message("\"I do hope thou canst help her. She needs ");
+message(" to bring her out of her depression.\"");
+message("\"'Tis about time that the government did something about the awful stench coming from that lake! I shall be happy to sign thy bill of law! Take it back to the Great Council post haste!\" Lord Heather signs the bill and hands it back to you.");
+message("\"But thou dost not have a bill of law!\"");
+message("\"I thought I already signed that bill!\"");
+message("\"It has gotten so putrid that on hot summer days the stink is suffocating. I believe that the Britannian Mining Company in Minoc is the source of the problem. Mining waste is being deposited in the Lake. Thou shouldst be glad it is nearly winter!\"");
+message("\"Do come and visit again, Avatar!\"*");
+CASE: name
+CASE: job
+CASE: Cove
+CASE: Shrine
+CASE: lovers
+CASE: everyone
+CASE: almost everyone
+CASE: Nastassia
+CASE: bill
+CASE: Lock Lake
+CASE: bye
+
+--- 044E.es ---
+message("You see a friendly woman in her thirties.");
+message("\"Greetings, again!\" Pamela says.");
+message("\"I am Pamela!\"");
+message("\"I am the Innkeeper at the Out'n'Inn.\"");
+message("\"If thou wouldst like a room, just say so!\"");
+message("\"Please come by if thou wouldst like to rest thy weary feet for the night!\"");
+message("\"The room is quite inexpensive. Only 8 gold per person. Want one?\"");
+message("\"Thou art carrying too much to take the room key!\"");
+message("\"Here is thy room key. It is good only until thou leavest.\"");
+message("\"Thou dost not have enough gold, eh? Too bad.\"");
+message("\"Another night, then.\"");
+message("\"Well... Cove is the city of Love and Passion, didst thou not know? Thou must be careful. If thou dost stay too long in Cove, thou wilt fall in love with someone! Mark my words!\"");
+message("\"Oooh, he is such a wonderful man, dost thou not think? He is so intense and serious. Handsome, too! Oh, and\tI like Regal as well.\"");
+message("\"As far as dogs go, he is handsome, too!\"");
+message("\"See thee soon!\"*");
+CASE: name
+CASE: job
+CASE: room
+CASE: Out'n Inn
+CASE: Rayburt
+CASE: Regal
+CASE: bye
+
+--- 044F.es ---
+message("This beautiful, earthy woman in her forties gives you a friendly smile.");
+message("\"Hello,\" Zinaida says.");
+message("\"I am Zinaida,\" she says with a curtsey.");
+message("\"I am the owner and manager of The Emerald.\"");
+message("\"If I can help thee with food or drink, please say so. I have never had a dissatisfied customer.\"");
+message("\"Please come to the pub when it is open and I shall be happy to serve thee!\"");
+message("\"The Emerald is pleased to serve thee the finest cuisine this side of Britain. Thou mightest wish to try the special -- Silverleaf.\"");
+message("She winks at you. \"Some say it is a powerful aphrodisiac... It is delicious, regardless. It comes from the root of an exotic tree growing somewhere in Britannia.\"");
+message("\"The Emerald serves only the best wine and ale. I cannot recommend the water, however. Thanks to Lock Lake.\"");
+message("\"He is the light of my life. A finer man does not exist.\" She beams.");
+message("\"The stench has made our water taste terrible. That mining company must cease pouring their sewage into what was once a fine lake!\"");
+message("\"Come again soon!\"*");
+CASE: name
+CASE: job
+CASE: food
+CASE: Silverleaf
+CASE: drink
+CASE: buy
+CASE: De Maria
+CASE: Lock Lake
+CASE: bye
+
+--- 0450.es ---
+message("This flamboyant bard exudes a festive aura.");
+message("\"I have sung about thee in many a song! And here thou art in the flesh! I recognized thee immediately.\" The man bows. \"Welcome, Avatar!\"");
+message("\"Greetings again, Avatar!\" De Maria bows.");
+message("\"I am De Maria, the Bard.\"");
+message("\"I spin tales and sing songs!\"");
+message("\"I also know a good deal about the folks in Cove.\"");
+message("\"What if I combine all three? Shall I sing a song which is a tale about the people of Cove?\"");
+message("\"Very well, then!\"");
+message("\"'Tis thy choice... and thy mistake!\"");
+message("\"Ah, dear Nastassia. Wouldst thou like to hear her tale?\"");
+message("\"Very well, then!\"");
+message("\"Oh. I thought thou wert curious. Never mind then.\"");
+message("\"My love! My flower! Mine angel! The provider of the sweetest nectar my mouth has ever known! She is the light of my day! The notes of my songs! The flesh of my...\"~~");
+message("\"Enough, my love. I think the Avatar dost know thy meaning!\"*");
+message("De Maria stops his reverie, sighs, and smiles at you. \"Thou dost apprehend my meaning...\"");
+message("\"Do take care of thyself!\"*");
+CASE: name
+CASE: job
+CASE: tale
+CASE: Nastassia
+CASE: Zinaida
+CASE: bye
+

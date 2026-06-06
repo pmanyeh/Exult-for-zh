@@ -1,0 +1,14 @@
+0: It is most fortunate that thou fell so near our shelter. Thou must have a protector watching over thee.@
+1: It was Elizabeth and Abraham who found thee and delivered thee to us.
+2: \"Thank goodness thou art with us again! We were all very worried over thy condition.~~\"Thou hast been unconscious for so long that we thought thou hadst lost thy life!~~
+3: \"They brought thee here along their way to Britain.\"
+4: \"They brought thee here along their way to Minoc.\"
+5: \"They brought thee to us as they were on their way here to Paws, but they have since left for Jhelom.\"
+6: \"They brought thee here along their way to Jhelom.\"
+7: \"They brought thee here along their way to Vesper.\"
+8: \"They brought thee here along their way to Moonglow.\"
+9: \"They brought thee here along their way to Terfin.\"
+10: \"They brought thee here along their way to the Fellowship meditation retreat near Serpent's Hold.\"
+11: \"They brought thee here along their way to Buccaneer's Den.\"
+12: \"They brought thee here and then returned to Buccaneer's Den.\"
+13: \"It is truly mysterious how this continues to happen to thee!\"

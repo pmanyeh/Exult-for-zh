@@ -1,0 +1,335 @@
+import re
+import shutil
+
+# Copy original file to reset
+shutil.copyfile(r'd:\git\exult-master\tools\ucxt\output\es_scripts\0417.es', r'd:\git\exult-master\tools\ucxt\output\zh_script\003\0417.es')
+
+with open(r'd:\git\exult-master\tools\ucxt\output\zh_script\003\0417.es', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+replacements = {
+    # UI Answers
+    '"name"': '"姓名"',
+    '"job"': '"職業"',
+    '"bye"': '"告辭"',
+    '"Fellowship"': '"兄弟會"',
+    '"Orb of the Moons"': '"月之寶珠"',
+    '"Weston"': '"Weston"',
+    '"heal"': '"治療"',
+    '"The Guardian"': '"守護者"',
+    '"red Moongate"': '"紅色月之門"',
+    '"Britannia"': '"Britannia"',
+    '"homeland"': '"家鄉"',
+    '"aid"': '"協助"',
+    '"equipment"': '"裝備"',
+    '"spellbook"': '"法術書"',
+    '"friends"': '"朋友們"',
+    '"castle"': '"城堡"',
+    '"almost never"': '"幾乎沒有"',
+    '"nursery"': '"育嬰室"',
+    '"Trinsic"': '"Trinsic"',
+    '"a murder"': '"一樁謀殺案"',
+    '"nothing much"': '"沒什麼"',
+    '"ritualistic"': '"儀式性的"',
+    '"killer"': '"殺手"',
+    '"Batlin"': '"Batlin"',
+    '"Headquarters"': '"總部"',
+    '"Hook"': '"Hook"',
+    '"Crown Jewel"': '"Crown Jewel號"',
+    '"Iolo"': '"Iolo"',
+    '"Shamino"': '"Shamino"',
+    '"Dupre"': '"Dupre"',
+    '"Jhelom"': '"Jhelom"',
+    '"magic"': '"魔法"',
+    '"Nystul"': '"Nystul"',
+    '"Moongates"': '"月之門"',
+    '"mad mage"': '"瘋狂法師"',
+    '"Cove"': '"Cove"',
+    '"Rudyom"': '"Rudyom"',
+    '"storeroom"': '"儲藏室"',
+    '"study"': '"書房"',
+    '"rumble"': '"隆隆聲"',
+    '"island"': '"島嶼"',
+    '"Isle of Fire"': '"火之島"',
+    '"Exodus"': '"Exodus"',
+
+    # Dialogues
+    # Armageddon text (fixed quotes)
+    '"\\"Fool!! What possessed thee to cast that damned Armageddon Spell? I knew it was dangerous! Thou didst know it was dangerous!! Now look at us! We are all alone on the entire planet! Britannia is ruined! What kind of Avatar art thou!?! Now, with no Moongates working, we are both forced to spend eternity in this blasted wasteland!~~\\"Of course, it could be viewed as a clever solution to all of our problems. After all, not even this so-called Guardian would want Britannia now!\\"*\\")':
+    '"「愚蠢！！到底是什麼驅使你施展那個該死的末日咒語（Armageddon Spell）？我就知道那很危險！你也知道那很危險！！現在看看我們！我們是整個星球上唯二孤伶伶的人！ Britannia 全毀了！你算哪門子的聖者！？現在，沒有了月之門的運作，我們兩人都被迫要在這片被毀滅的荒原中度過永恆！~~」「當然，這也許可以看作是解決我們所有問題的聰明辦法。畢竟，現在就連那個所謂的守護者也不會想要 Britannia 了！」*\\")',
+    
+    '"\\"Fool!! What possessed thee to cast that damned Armageddon Spell? I knew it was dangerous! Thou didst know it was dangerous!! Now look at us! We are all alone on the entire planet! Britannia is ruined! What kind of Avatar art thou!?! Now, with no Moongates working, we are both forced to spend eternity in this blasted wasteland!~~\\"Of course, it could be viewed as a clever solution to all of our problems. After all, not even this so-called Guardian would want Britannia now!\\"*”':
+    '"「愚蠢！！到底是什麼驅使你施展那個該死的末日咒語（Armageddon Spell）？我就知道那很危險！你也知道那很危險！！現在看看我們！我們是整個星球上唯二孤伶伶的人！ Britannia 全毀了！你算哪門子的聖者！？現在，沒有了月之門的運作，我們兩人都被迫要在這片被毀滅的荒原中度過永恆！~~」「當然，這也許可以看作是解決我們所有問題的聰明辦法。畢竟，現在就連那個所謂的守護者也不會想要 Britannia 了！」*"',
+
+    '"\\"Fool!! What possessed thee to cast that damned Armageddon Spell? I knew it was dangerous! Thou didst know it was dangerous!! Now look at us! We are all alone on the entire planet! Britannia is ruined! What kind of Avatar art thou!?! Now, with no Moongates working, we are both forced to spend eternity in this blasted wasteland!~~\\"Of course, it could be viewed as a clever solution to all of our problems. After all, not even this so-called Guardian would want Britannia now!\\"*”':
+    '「愚蠢！！到底是什麼驅使你施展那個該死的末日咒語（Armageddon Spell）？我就知道那很危險！你也知道那很危險！！現在看看我們！我們是整個星球上唯二孤伶伶的人！ Britannia 全毀了！你算哪門子的聖者！？現在，沒有了月之門的運作，我們兩人都被迫要在這片被毀滅的荒原中度過永恆！~~」「當然，這也許可以看作是解決我們所有問題的聰明辦法。畢竟，現在就連那個所謂的守護者也不會想要 Britannia 了！」*',
+
+    '"I felt the passing of the remains of Exodus from this realm. It has lifted a great weight from my shoulders. And so Avatar, I cannot let this accomplishment go unrewarded. Please kneel, my friend." Lord British holds out his hands as you obey his command.':
+    '"「我感覺到 Exodus 的殘骸已經從這個領域中消逝。這讓我肩上卸下了一塊大石。因此，聖者，我不能讓這項成就得不到獎賞。請跪下，我的朋友。」當你遵從指示時， Lord British 伸出了他的雙手。"',
+    
+    '"\\"I felt the passing of the remains of Exodus from this realm. It has lifted a great weight from my shoulders. And so Avatar, I cannot let this accomplishment go unrewarded. Please kneel, my friend.\\" Lord British holds out his hands as you obey his command."':
+    '"「我感覺到 Exodus 的殘骸已經從這個領域中消逝。這讓我肩上卸下了一塊大石。因此，聖者，我不能讓這項成就得不到獎賞。請跪下，我的朋友。」當你遵從指示時， Lord British 伸出了他的雙手。"',
+
+    '"You see your old friend Lord British, looking a bit older than when you last saw him. His eyes gleam at the sight of you.~~\\"Welcome, my friend,\\" he says, embracing you. \\"Please. Tell me what brings thee to Britannia! Or, more importantly, what \'brought\' thee here?\\""':
+    '"你看到你的老朋友 Lord British ，看起來比你上次見到他時老了一些。他看到你時眼睛閃爍著光芒。~~「歡迎，我的朋友，」他擁抱著你說道。「請告訴我，是什麼風把你吹來 Britannia 的！或者，更重要的是，是什麼『帶』你來的？」"',
+
+    '"Yes, "': '"「是的，"',
+    '?\\" Lord British asks."': '？」 Lord British 問道。"',
+
+    'Lord British laughs. \\"What, art thou joking, Avatar? Dost thou not recognize thine old friend?\\"':
+    'Lord British 大笑。「什麼，你在開玩笑嗎，聖者？難道你認不出你的老朋友了？」',
+
+    'Lord British rolls his eyes. \\"Must we go through this formality?\\" He laughs, shaking his head.':
+    'Lord British 翻了個白眼。「我們一定要走這個過場嗎？」他搖著頭笑道。',
+
+    '"\\"Very well. As thou well knowest, I am sovereign of Britannia and have been for some time now. Even though I come from thine homeland, I have chosen to live my life here.\\""':
+    '"「很好。如你所知，我是 Britannia 的統治者，而且已經統治一段時間了。儘管我來自你的家鄉，但我選擇在這裡生活。」"',
+
+    '"\\"I know that it has been many a year since I visited our Earth, but surely thou dost remember that the two of us hail from the same time and place? And, as brothers in origin, thou shouldst also remember that thou canst ask me for aid at any time thou mightest require it.\\""':
+    '"「我知道距離我造訪我們的地球已經有很多年了，但你肯定還記得我們兩人都來自同一個時間和地點吧？而且，身為同鄉兄弟，你也應該記得，你可以在需要時隨時向我尋求協助。」"',
+
+    '"\\"Do not forget, Avatar, that I have the power to heal thee. That is one bit of magic that still seems to work for me. And I could probably provide thee with some equipment and a spellbook.\\""':
+    '"「別忘了，聖者，我有能力治癒你。那是我似乎仍然有效的一點魔法。而且我也許能為你提供一些裝備和一本法術書。」"',
+
+    '"\\"The state of the land could not be more prosperous. Dost thou realize that thou hast been away for 200 Britannian years?\\" Lord British wags a finger at you.~~ \\"I am certain that thy friends have rued thine absence. \'Tis a shame thou didst stay away so long! But... I am so very happy to see thee. Britannia is prosperous and abundant. Look around thee. Explore the newly refurbished castle. Travel the land. Peace is prominent in all quarters.~~\\"Yes, Britannia has never been better. Well, almost never.\\""':
+    '"「這個國家的狀況繁榮無比。你意識到你已經離開 200 個 Britannia 年了嗎？」 Lord British 對你搖了搖手指。~~「我敢肯定你的朋友們都為你的缺席感到惋惜。你離開這麼久真是太可惜了！但是... 我真的很高興見到你。 Britannia 繁榮而豐饒。看看你周圍。探索這座新翻修的城堡。在各地旅行。四處都充滿了和平。~~」「是的， Britannia 從未如此美好。嗯，幾乎從未。」"',
+
+    '"\\"Well, \'things\' are indeed fine. It is the \'people\' I am concerned about.~~\\"There is something wrong in Britannia, but I do not know what it is. Something is hanging over the heads of the Britannian people. They are unhappy. One can see it in their eyes. There is nothing that is unifying the population, since there has been peace for so long.~~\\"Perhaps thou couldst determine what is happening. I implore thee to go out amongst the people. Watch them in their daily tasks. Speak with them. Work with them. Break bread with them. Perhaps they need someone like the Avatar to take an interest in their lives.\\""':
+    '"「嗯，『事情』確實很好。我擔心的是『人』。~~」「 Britannia 發生了一些不對勁的事情，但我不知道是什麼。有一種東西籠罩在 Britannia 人民的頭上。他們很不快樂。從他們的眼睛裡就能看出來。既然和平了這麼久，已經沒有什麼能將人民團結在一起了。~~」「也許你能查明發生了什麼事。我懇求你走到人群中去。觀察他們的日常工作。與他們交談。與他們一起工作。與他們共進一餐。也許他們需要像聖者這樣的人來關心他們的生活。」"',
+
+    '"You relate the story of how a red Moongate appeared behind your house and mysteriously took you to Trinsic.~~Lord British\'s brow creases as you speak. Finally he says, \\"I did not send the red Moongate to fetch thee. Someone or something must have activated that Moongate. And that is strange indeed, because we have been having a bit of trouble with Moongates as of late. In fact, we have been having trouble with magic in general!\\""':
+    '"你講述了一個紅色的月之門如何出現在你家後方，並神秘地將你帶到 Trinsic 的故事。~~ Lord British 的眉頭隨著你的講述而皺起。最後他說：「我並沒有派紅色的月之門去接你。一定是有某人或某物啟動了那個月之門。這確實很奇怪，因為我們最近在月之門上遇到了一些麻煩。事實上，我們在魔法方面也普遍遇到了麻煩！」"',
+
+    '"\\"Mine has not worked since the troubles with magic began. In fact, none of the Moongates have been working reliably for quite a while!"':
+    '"「自從魔法出現問題以來，我的就一直無法運作。事實上，沒有任何一個月之門能夠可靠地運作已經有一段時間了！」',
+
+    '"\\"Didst thou bring thine Orb of the Moons?\\""':
+    '"「你有帶來你的月之寶珠（Orb of the Moons）嗎？」"',
+
+    '"\\"Really? Where is it? Thou dost not have it on thee! "':
+    '"「真的嗎？它在哪裡？你身上並沒有帶著它！」',
+
+    '"\\"I see. "':
+    '"「我懂了。」',
+
+    '"\\"Hmmm. Thou might be stranded in Britannia. Here. Why not try mine? I shall let thee borrow it. Perhaps it will work for thee. Be careful, though. The Moongates have become dangerous.\\""':
+    '"「嗯。你可能會被困在 Britannia 。來，不如試試我的吧？我把它借給你。也許它對你有用。不過要小心。月之門已經變得危險了。」"',
+
+    '"Lord British hands you his Orb of the Moons."':
+    '"Lord British 將他的月之寶珠交給了你。"',
+
+    '"\\"Thine hands are too full to take the Orb!\\""':
+    '"「你的雙手太滿了，無法拿取寶珠！」"',
+
+    '"\\"Yes, it has been redecorated since thy last visit. The architects and workers did a splendid job.\\"~~The ruler leans toward you with a sour look on his face.~~ \\"The only mar in the entire complex is that damn nursery!\\""':
+    '"「是的，自從你上次造訪以來，它已經重新裝潢過了。建築師和工人們做得很出色。」~~這位統治者向你傾身，臉上帶著不悅的表情。~~「整個建築群唯一的污點就是那個該死的育嬰室！」"',
+
+    '"\\"I will not go near the place! Kings and dirty diapers do not mix. The Great Council talked me into implementing the nursery after several of my staff started having families. Although it was probably a necessity, I shall pretend it does not exist!\\""':
+    '"「我才不會靠近那個地方！國王和髒尿布是格格不入的。在我的幾名員工成家後，大議會說服我設立了育嬰室。雖然這可能是一個必要的設施，但我會假裝它不存在！」"',
+
+    '"\\"I have not been down there in many years. Has something happened there?\\""':
+    '"「我已經很多年沒去過那裡了。那裡發生了什麼事嗎？」"',
+
+    '"\\"Indeed. Then it seems that Trinsic has not changed much since I saw it last.\\" His eyes twinkle."':
+    '"「確實如此。那麼看來 Trinsic 自從我上次見到它以來並沒有太大的改變。」他的眼睛閃爍著光芒。"',
+
+    '"\\"Murder? In Trinsic?\\" The ruler looks concerned.~~\\"I have heard nothing about it. Art thou investigating it?\\""':
+    '"「謀殺？在 Trinsic ？」這位統治者看起來很擔憂。~~「我沒有聽說過這件事。你正在調查它嗎？」"',
+
+    '"\\"Very good. It pleases me that thou art concerned about my people.\\""':
+    '"「很好。我很高興你能關心我的人民。」"',
+
+    '"\\"Ah, but perhaps thou shouldst!\\""':
+    '"「啊，你也許應該調查一下！」"',
+
+    '"The king pauses a moment. \\"Now that thou dost mention it, I have had reports of other similar murders in the past few months. In fact, there was one here in Britain three or four years ago. The body was mutilated in a ritualistic fashion. Apparently there is a maddened killer on the loose. But I have no doubt that someone such as thee, Avatar, can find him!\\""':
+    '"國王停頓了一會兒。「既然你提到了這點，我在過去幾個月裡也收到過其他類似謀殺案的報告。事實上，三四年前在 Britain 就發生過一起。屍體以儀式性的方式被肢解。顯然有一個瘋狂的殺手在逃。但我毫不懷疑，像你這樣的聖者，一定能找到他！」"',
+
+    '"\\"I do not recall many details. Thou shouldst ask Patterson, the town mayor, about it. He may remember more.\\""':
+    '"「我不記得太多細節了。你應該去問問鎮長 Patterson 關於這件事的情況。他也許記得更多。」"',
+
+    '"\\"That is, of course, only an assumption on my part. But that is all we have had to work with. Unless thou hast already uncovered some useful information?\\""':
+    '"「這當然只是我的假設。但這就是我們所能掌握的全部線索了。除非你已經發現了一些有用的資訊？」"',
+
+    '"\\"They are an extremely useful and productive group of citizens. Thou shouldst most certainly visit the Fellowship Headquarters here in Britain and speak with Batlin. The Fellowship has done many good deeds throughout Britannia, including feeding the poor, educating and helping those in need, and promoting general good will and peace.\\""':
+    '"「他們是一群非常有用和有生產力的公民。你絕對應該去參觀一下位於 Britain 的兄弟會總部，並與 Batlin 交談。兄弟會在 Britannia 各地做了許多善事，包括提供食物給窮人、教育和幫助有需要的人，以及促進普遍的善意與和平。」"',
+
+    '"\\"Yes, it is not far from the castle, to the southwest. It is just south of the theatre.\\""':
+    '"「是的，它離城堡不遠，在西南方。就在劇院的南邊。」"',
+
+    '"\\"He is a druid who began The Fellowship about twenty years ago. He is highly intelligent, and is a warm and gentle human being.\\""':
+    '"「他是一名德魯伊，大約二十年前創立了兄弟會。他非常聰明，而且是一個溫暖而溫和的人。」"',
+
+    '"\\"A man with a hook?\\" The king rubs his chin.~~\\"No, I do not recall ever meeting a man with a hook.\\""':
+    '"「一個帶著鐵鉤的男人？」國王摸了摸下巴。~~「不，我不記得曾經見過一個帶著鐵鉤的男人。」"',
+
+    '"\\"I am afraid I cannot possibly know of every ship that comes through our ports. Thou shouldst check with Clint the Shipwright if thou hast not done so.\\""':
+    '"「恐怕我不可能知道每一艘經過我們港口的船隻。如果你還沒有去確認的話，你應該去問問造船匠 Clint 。」"',
+
+    '"\\"Thou must mean Iolo, Shamino, and Dupre, of course.\\""':
+    '"「你當然是指 Iolo 、 Shamino 和 Dupre 。」"',
+
+    '"\\"I have seen our friend rarely over the years. I understand he has been spending most of his time in Trinsic.\\""':
+    '"「這些年來我很少見到我們的朋友。據我所知，他大部分時間都在 Trinsic 。」"',
+
+    '"\\"Hello, Iolo! How art thou?\\"*”':
+    '"「哈囉， Iolo ！你好嗎？」*"',
+    
+    '"\\"Hello, Iolo! How art thou?\\"*':
+    '「哈囉， Iolo ！你好嗎？」*',
+
+    '"\\"I am well, my liege! \'Tis good to see thee!\\"*”':
+    '"「我很好，陛下！很高興見到你！」*"',
+    
+    '"\\"I am well, my liege! \'Tis good to see thee!\\"*':
+    '「我很好，陛下！很高興見到你！」*',
+
+    '"\\"That rascal does not come around very often, though I understand he spends most of his time in Britain these days!\\""':
+    '"「那個無賴不常來，雖然我知道他最近大部分時間都在 Britain ！」"',
+
+    '"\\"What dost thou have to say for thyself, Shamino?\\"*”':
+    '"「你對自己有什麼要說的嗎， Shamino ？」*"',
+    
+    '"\\"What dost thou have to say for thyself, Shamino?\\"*':
+    '「你對自己有什麼要說的嗎， Shamino ？」*',
+
+    '"\\"Mine apologies, milord,\\" Shamino says.*”':
+    '"「我的歉意，大人，」 Shamino 說道。*"',
+    
+    '"\\"Mine apologies, milord,\\" Shamino says.*':
+    '「我的歉意，大人，」 Shamino 說道。*',
+
+    '"\\"What\'s this I hear of a woman? An actress? Hmmmm?\\"*”':
+    '"「我聽說的關於一個女人的事是怎麼回事？一位女演員？嗯？」*"',
+    
+    '"\\"What\'s this I hear of a woman? An actress? Hmmmm?\\"*':
+    '「我聽說的關於一個女人的事是怎麼回事？一位女演員？嗯？」*',
+
+    '"Shamino blushes and shuffles his feet.*”':
+    '"Shamino 臉紅了，不安地挪動著雙腳。*"',
+    
+    '"Shamino blushes and shuffles his feet.*':
+    'Shamino 臉紅了，不安地挪動著雙腳。*',
+
+    '"\\"I suspected as much!\\" the ruler says, laughing."':
+    '"「我就猜到是這樣！」統治者笑著說。"',
+
+    '"\\"I have not seen that one since I knighted him. Typical -- I do the man a favor and he disappears! I heard he might be in Jhelom.\\""':
+    '"「自從我封他為騎士後就沒見過他了。很典型的作風——我幫了這個人一個忙，然後他就消失了！我聽說他也許在 Jhelom 。」"',
+
+    '"\\"Where hast thou been, Sir Dupre?\\"*”':
+    '"「你都去了哪裡， Dupre 爵士？」*"',
+    
+    '"\\"Where hast thou been, Sir Dupre?\\"*':
+    '「你都去了哪裡， Dupre 爵士？」*',
+
+    '"\\"Oh, here and there, milord,\\" the fighter replies.*”':
+    '"「哦，到處跑，大人，」戰士回答道。*"',
+    
+    '"\\"Oh, here and there, milord,\\" the fighter replies.*':
+    '「哦，到處跑，大人，」戰士回答道。*',
+
+    '"\\"I have very few friends from our homeland here in Britannia. Thou must make a point to visit more often! Especially since thou art a knight!\\"*”':
+    '"「我在 Britannia 這裡很少有來自我們家鄉的朋友。你必須特地多來拜訪！尤其既然你是一位騎士！」*"',
+    
+    '"\\"I have very few friends from our homeland here in Britannia. Thou must make a point to visit more often! Especially since thou art a knight!\\"*':
+    '「我在 Britannia 這裡很少有來自我們家鄉的朋友。你必須特地多來拜訪！尤其既然你是一位騎士！」*',
+
+    '"\\"If thou dost wish it, milord,\\" Dupre says, bowing.*”':
+    '"「如您所願，大人，」 Dupre 鞠躬說道。*"',
+    
+    '"\\"If thou dost wish it, milord,\\" Dupre says, bowing.*':
+    '「如您所願，大人，」 Dupre 鞠躬說道。*',
+
+    '"\\"A rather violent place, by all accounts. I have not had the pleasure of a visit in quite a while.\\""':
+    '"「據說那是個相當暴力的地方。我已經有很長一段時間沒有榮幸去拜訪了。」"',
+
+    '"\\"Something is awry. Magic has not been working for the longest time. I even have trouble creating food with magic! It must be something to do with the magical ether.~~\\"There are those who say that magic is dying, what with the trouble with the Moongates and the situation with Nystul. I am beginning to suspect that they might be right!\\""':
+    '"「有些不對勁。魔法已經很長一段時間無法運作了。我甚至連用魔法變出食物都有困難！這一定與魔法乙太有關。~~」「有些人說魔法正在消亡，因為月之門的麻煩和 Nystul 的情況。我開始懷疑他們可能是對的！」"',
+
+    '"Lord British studies you a moment."':
+    '"Lord British 端詳了你一會兒。"',
+
+    '"\\"Perhaps magic will work much better for thee. Thou hast not been in Britannia long. It is possible that whatever has affected magic has not made its mark upon thee yet. Please try it. A spellbook is stored with the rest of thine equipment.\\""':
+    '"「也許魔法對你來說會更有用。你來 Britannia 還沒多久。有可能無論是什麼影響了魔法，都還沒有在你身上留下印記。請試試看。一本法術書和你的其他裝備存放在一起。」"',
+
+    '"\\"Er... try talking to him.\\""':
+    '"「呃...試著和他談談吧。」"',
+
+    '"The king lowers his voice.~~\\"He is acting oddly, isn\'t he? Something has happened to his mind. He doesn\'t seem to be able to concentrate on magic anymore.\\""':
+    '"國王壓低了聲音。~~「他表現得很古怪，不是嗎？他的心智發生了一些變化。他似乎再也無法專注於魔法了。」"',
+
+    '"\\"He is beginning to act much more normally.\\""':
+    '"「他開始表現得正常多了。」"',
+
+    '"\\"The Moongates are not functioning! We cannot use them as we have in the past. Not only are they dysfunctional, they are, in fact, dangerous! One of my trusted sages used mine own Orb of the Moons to travel to the Shrine of Humility, and his body did shatter upon entering the gate! If only that mage in Cove hadn\'t gone mad!\\""':
+    '"「月之門無法運作！我們不能像過去那樣使用它們。它們不僅功能失常，事實上，它們還很危險！我的一位值得信賴的賢者使用了我自己的月之寶珠前往謙卑神殿（Shrine of Humility），他的身體在進入傳送門時竟然粉碎了！要是 Cove 的那個法師沒有發瘋就好了！」"',
+
+    '"The ruler leans forward and speaks quietly.~~\\"There is a mad mage in Cove by the name of Rudyom. Dost thou remember him? Rudyom was working with a magical substance called \'blackrock\'. Before he went mad, he claimed that this mineral could solve the problems of the Moongates. I suggest that thou shouldst go to Cove and find him. Try to learn what it was he was doing with this blackrock material. It could be our only hope.\\""':
+    '"統治者向前傾身，平靜地說道。~~「 Cove 有一個名叫 Rudyom 的瘋狂法師。你記得他嗎？ Rudyom 當時正在研究一種名為『黑石（blackrock）』的魔法物質。在他發瘋之前，他聲稱這種礦物可以解決月之門的問題。我建議你應該去 Cove 找到他。試著了解他用這種黑石物質在做什麼。這可能是我們唯一的希望。」"',
+
+    '"\\"He was a brilliant and respected mage. But something happened to him in recent years. He seemed to go completely senile.\\""':
+    '"「他是一位才華洋溢且受人尊敬的法師。但近年來他發生了一些事。他似乎完全變得老態龍鍾了。」"',
+
+    '"Suddenly, something jars Lord British\'s memory. \\"I wonder if there is a connection with what happened to Rudyom and what has befallen Nystul!\\""':
+    '"突然間，某件事喚醒了 Lord British 的記憶。「我想知道 Rudyom 身上發生的事和 Nystul 遭遇的事之間是否有所關聯！」"',
+
+    '"\\"Surely thou dost remember Cove. It is a very pleasant town to the east of Britain. Quite relaxing.\\""':
+    '"「你肯定還記得 Cove 。那是 Britain 東邊一個非常宜人的小鎮。相當令人放鬆。」"',
+
+    '"\\"I do not know of a \'Guardian\'. Art thou sure he really exists? Thou shouldst investigate further.\\""':
+    '"「我不知道有什麼『守護者』。你確定他真的存在嗎？你應該進一步調查。」"',
+
+    '"\\"Yes, I have a spellbook stored away with the rest of the equipment.\\""':
+    '"「是的，我有一本法術書和其餘的裝備一起收著。」"',
+
+    '"\\"Thou art welcome to any of mine equipment. I keep it in a locked storeroom here in the castle. Thou wilt find the key in my study.\\""':
+    '"「歡迎你使用我的任何裝備。我把它們保存在這座城堡裡一間上了鎖的儲藏室中。你可以在我的書房裡找到鑰匙。」"',
+
+    '"\\"I am sure thou canst find it.\\"~~The ruler smiles slyly. \\"Consider it something of a game!\\""':
+    '"「我相信你能找到它的。」~~統治者狡黠地笑了笑。「把它當作是一場遊戲吧！」"',
+
+    '"\\""\'Tis in the western end of the castle.\\""':
+    '"「它在城堡的西端。」"',
+
+    '"Lord British listens to your story about Weston. He looks concerned.~~\\"I do not recall this case. Let me check... Hmmm...\\" He quickly scans a large scroll.~~\\"Imprisoned for the theft of one apple from the Royal Orchards... Ludicrous! Someone must have usurped mine authority. Thou mayest consider this man pardoned. An investigation will commence immediately into the circumstances surrounding his arrest, and into this fellow, Figg. My thanks to thee, Avatar.\\""':
+    '"Lord British 聽了你關於 Weston 的故事。他看起來很擔憂。~~「我不記得這個案子。讓我查一下...嗯...」他快速掃視了一大卷卷軸。~~「因為從皇家果園偷了一顆蘋果而被監禁... 太荒謬了！一定是有人篡奪了我的權力。你可以認為這個人已經被赦免了。我們將立即針對他被捕的情況以及這個叫 Figg 的傢伙展開調查。感謝你，聖者。」"',
+
+    '"Lord British looks at you gravely, \\"The foundation of Britannia was shaken with the rising of an island. This event was no random disaster, it was one of sorcerous intent.\\""':
+    '"Lord British 神情凝重地看著你，「一座島嶼的升起動搖了 Britannia 的根基。這起事件並非隨機的災難，而是出於某種巫術意圖。」"',
+
+    '". I felt a great disturbance in the ether when this island arose from the sea. The island is none other than the Isle of Fire where thou defeated the Hellspawn Exodus.\\""':
+    '。當這座島嶼從海中升起時，我感覺到了乙太中巨大的擾動。這座島嶼正是你擊敗地獄之子 Exodus 的火之島（Isle of Fire）。」"',
+
+    '"\\""': '"「',
+
+    '", thou shouldst know that when I created the shrines of the Virtues, I also set upon this island three great shrines, dedicated to the Priciples of Truth, Love, and Courage."':
+    '，你應該知道，當我創造美德神殿時，我也在這座島上設立了三座偉大的神殿，分別獻給真理（Truth）、愛（Love）與勇氣（Courage）的原則。」',
+
+    '"They reside within the walls of the Castle of Fire. I never revealed this to thee before as I thought them forever lost when the Isle of Fire mysteriously sank beneath the waves."':
+    '"「它們位於火之城堡（Castle of Fire）的城牆內。我以前從未向你透露過這點，因為當火之島神秘地沉入波濤之下時，我以為它們永遠消失了。」"',
+
+    '"The shrines are meant for the use of an Avatar only, and therefore a talisman will be necessary to use one."':
+    '"「這些神殿僅供聖者使用，因此必須有護身符（talisman）才能使用它們。」"',
+
+    '"The talismans are guarded by tests that thou shouldst have no problem passing if thou wishest to seek thier counsel.\\""':
+    '"「護身符由測試守護著，如果你希望尋求它們的指引，你通過這些測試應該沒有問題。」"',
+
+    '"\\"Thy battle with that strange mixture of machine and spirit is now legendary. Do be careful if thou art going to the isle, for the remains of that being now reside in one of the chambers of the Castle of Fire.\\""':
+    '"「你與那種由機器和靈魂組成的奇怪混合體的戰鬥現在已成為傳奇。如果你要去那座島，請務必小心，因為那個存在的殘骸現在就存放在火之城堡的其中一個房間裡。」"',
+
+    '"\\"Goodbye, "': '"「告辭，"',
+
+    '". Do come back soon.\\"*”': '。請務必盡快回來。」*"',
+    
+    '". Do come back soon.\\"*': '。請務必盡快回來。」*',
+
+    '"\\"I congratulate and thank thee, "': '"「我祝賀並感謝你，"',
+    '". Thy deeds continue to speak well of thee.\\""': '。你的事蹟繼續為你贏得好名聲。」"',
+}
+
+for eng, chi in replacements.items():
+    content = content.replace(eng, chi)
+
+with open(r'd:\git\exult-master\tools\ucxt\output\zh_script\003\0417.es', 'w', encoding='utf-8') as f:
+    f.write(content)

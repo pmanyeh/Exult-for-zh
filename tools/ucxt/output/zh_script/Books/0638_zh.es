@@ -1,0 +1,573 @@
+#game "blackgate"
+// externs
+extern void Func08FF 0x8FF (var var0000);
+
+void Func0638 object#(0x638) ()
+{
+	var var0000;
+	var var0001;
+	var var0002;
+	var var0003;
+	var var0004;
+	var var0005;
+	var var0006;
+
+	var0000 = UI_get_item_quality(item);
+	if (!((event != 0x0001) && (event != 0x0002))) goto labelFunc0638_0017;
+	return;
+labelFunc0638_0017:
+	if (!(event == 0x0002)) goto labelFunc0638_0077;
+	if (!((var0000 == 0x0090) && (UI_get_item_shape(item) == 0x0282))) goto labelFunc0638_0055;
+	Func08FF("@Odd. The page is smudged with dirt here. I cannot make out this text.@");
+	var0001 = UI_set_item_quality(item, 0x0091);
+	var0001 = UI_execute_usecode_array(item, [(byte)0x55, 0x0638]);
+	return;
+labelFunc0638_0055:
+	if (!(item == UI_get_npc_object(0xFE9C))) goto labelFunc0638_0077;
+	if (!(!gflags[0x0325])) goto labelFunc0638_0076;
+	gflags[0x0325] = true;
+	Func08FF("@Why, a page has fallen out of the book!@");
+	return;
+	goto labelFunc0638_0077;
+labelFunc0638_0076:
+	return;
+labelFunc0638_0077:
+	UI_play_sound_effect2(0x000E, item);
+	UI_book_mode(item);
+	if (!(var0000 > 0x0094)) goto labelFunc0638_0092;
+	message("這@不是@一本有效的書");
+	say();
+labelFunc0638_0092:
+	if (!(var0000 == 0x0064)) goto labelFunc0638_00AC;
+	message("~~ ~~龍類圖鑑~~ ~~Perrin 著*");
+	say();
+	message("     幾乎只在 Destard 地城中被發現，龍是一種古老的大型爬蟲類種族。牠們擁有極高的智商，其中少數還會使用魔法，有時會召喚其他生物與牠們一同戰鬥——或是為牠們戰鬥。~");
+	say();
+	message("     然而，在戰鬥中，即使沒有任何援助，牠們也相當難以對付。因為除了鋒利的爪子和滿口如剃刀般的牙齒外，牠們還能噴吐出大片致命的火焰。這點，再加上牠們隱形的能力，讓牠們足以應付任何愚蠢到敢於招惹牠們的人。~");
+	say();
+	message("     如果你能找到一隻願意與你談判的龍，我強烈建議你這麼做，因為很少有人能在與這些可怕蜥蜴的戰鬥中倖存下來，更不用說取得勝利了。");
+	say();
+labelFunc0638_00AC:
+	if (!(var0000 == 0x0065)) goto labelFunc0638_00EE;
+	message("~~ ~~Garret Moore 日記*");
+	say();
+	message("第 1 天：我抵達了這座被遺棄的島嶼。~~");
+	say();
+	message("第 3 天：發現了一座建築的廢墟。是座塔？~~");
+	say();
+	message("第 4 天：需要庇護所。開始重建這座塔。~~");
+	say();
+	message("第 7 天：塔。~~");
+	say();
+	message("第 12 天：塔。~~");
+	say();
+	message("第 21 天：基礎支撐幾乎完成。明天從臨時庇護所搬離。~~");
+	say();
+	message("第 29 天：擴建塔樓。開始研究與實驗，以繁殖作為食物的家畜品種。~~");
+	say();
+	message("第 45 天：塔樓完工。實驗差點就成功了。很快就會有生命誕生，我確信！~~");
+	say();
+	message("第 73 天：我成功了！一種不需我協助就能繁殖的細胞組合！自給自足的生命不遠了！~~");
+	say();
+	message("第 97 天：我接近答案了，毫無疑問。但還有其他人想看我失敗！他們把天空變成紫色，並向我投擲閃電。~~");
+	say();
+	message("第 111 天：其他人仍在試圖阻撓我！我聽到他們的聲音命令我停止。在我完成之前，我絕不休息！~~");
+	say();
+	message("Day 101: Again they come. They have sent a succubus to tempt me. \"Kiss me, kiss me,\" is all she would say. \"Nay\" was my reply. I will be strong!~~");
+	say();
+	message("第 40232 天：哈！那些聲音現在在乞求，但在他離開之前我不會結束。夜晚是我的避風港，狗兒會吠叫！~~");
+	say();
+labelFunc0638_00EE:
+	if (!(var0000 == 0x0066)) goto labelFunc0638_0100;
+	message("~~ ~~變形吸血鬼，Karen Elizabeth Gordon 著*");
+	say();
+	message("     This richly-detailed tome is a \"handbook of grammar for the Innocent, the Eager, and the Doomed.\"");
+	say();
+labelFunc0638_0100:
+	if (!(var0000 == 0x0067)) goto labelFunc0638_0116;
+	message("~~ ~~亡者之書~~ ~~Suvol Shadowface 著*");
+	say();
+	message("     這本書皺巴巴的書頁似乎是由一種奇特的皮革製成的。它包含了各種關於如何處理死者，特別是遺體的文章。");
+	say();
+	message("     其中一章名為《人類心臟的 101 種用途》。另一段落描述了如何將人皮揉製並壓實，作為書寫材料的方法……");
+	say();
+labelFunc0638_0116:
+	if (!(var0000 == 0x0068)) goto labelFunc0638_0130;
+	message("~~ ~~黑暗神器~~ ~~Mordra Morgaelin 著*");
+	say();
+	message("     在這本手抄書的書頁中，有許多關於具有毀滅性力量裝置的參考。其中包括了 Mondain 的頭骨與不朽寶石、Minax 的水晶戒指，以及 Exodus 記憶的黑暗核心。");
+	say();
+	message("     較近期的條目描述了巫妖王之冠、靈魂之井，以及一把神秘的黑岩劍，顯然這把劍擁有能夠殺死像 Lord British 這樣強大人物的力量。");
+	say();
+	message("     一篇簡短的文章提到一塊掛在門上方的金屬板，解釋了一種似乎更簡單的方法來解決這位高貴的君主。");
+	say();
+labelFunc0638_0130:
+	if (!(var0000 == 0x0069)) goto labelFunc0638_0142;
+	message("~~ ~~黎明之光~~ ~~Drennal 著*");
+	say();
+	message("     這是一本簡短的書，詳細探討了不列顛尼亞的兩顆月亮：Trammel 和 Felucca，解釋了它們的軌道、大致大小及預期的成分。此外，還有一篇短文討論了這些月球上是否可能有人居住，以及如何聯繫他們。這部作品還包含了一個關於一位女巫發現改變 Felucca 顏色方法的短篇故事。在測試了她的觀察後，她很快就了解到這些改變對任何人或事物都沒有什麼影響。");
+	say();
+labelFunc0638_0142:
+	if (!(var0000 == 0x006A)) goto labelFunc0638_0154;
+	message("~~ ~~Codavar~~ ~~Nexa 著*");
+	say();
+	message("     這本小說的書頁中包含了一個關於篡位領主的故事，似乎是受到兩百多年前 Lord British 失蹤期間 Blackthorn 暴虐統治的啟發。");
+	say();
+labelFunc0638_0154:
+	if (!(var0000 == 0x006B)) goto labelFunc0638_016A;
+	message("~~ ~~儀式魔法~~ ~~Nicodemus 著*");
+	say();
+	message("     將自身力量與另一位法師力量結合的能力，是施展結界的基礎。站在五芒星外圍的三角形中，最多五名巫師可以增強他們法術的效果。必須從山羊、綿羊或貓中放血——每位法師一隻——此外還要消耗第三型酸性蛞蝓的分泌物。~");
+	say();
+	message("     一旦所有材料收集齊全，每位法師必須站在由龍腿骨粉末畫成的五芒星的五個角落之一……");
+	say();
+labelFunc0638_016A:
+	if (!(var0000 == 0x006C)) goto labelFunc0638_0180;
+	message("~~ ~~位面旅行途徑~~ ~~Nicodemus 著*");
+	say();
+	message("     這裡有許多在眾多不同存在位面之間旅行和穿越所需的複雜公式。每個位面都由月門進入，甚至我們自己的 Lord British 也是通過月門從這些位面之一來到不列顛尼亞的。~");
+	say();
+	message("     然而，這也引發了一些擔憂。到目前為止，每一個從其他位面進入不列顛尼亞的人都是仁慈的（最著名的是 Lord British 和聖者）。但如果他們有能力使用這些傳送門，難道就沒有其他邪惡的生物也可能隨意闖入我們這片美好土地的機會嗎？這是一個未來必須考慮的問題。");
+	say();
+labelFunc0638_0180:
+	if (!(var0000 == 0x006D)) goto labelFunc0638_0196;
+	message("~~ ~~家用物品附魔~~ ~~Nicodemus 著*");
+	say();
+	message("     Found upon the pages of this tome are many a recipe for the creation of \"mundane\" magic utensils and apparatuses, including such items as the SELF-PROPELLED BROOM, the GHOST WRITING QUILL, and the ALARM GEM.");
+	say();
+	message("在書本未完成的結尾部分，內容變得不穩定且幾乎難以辨認，彷彿是匆忙寫下的。後面的許多物品似乎有些瘋狂：巨大的黑曜石蒼蠅拍、會爆炸的玉米棒架，以及多刃梳子。看來這位法師在施法時可能並沒有準備好他所有的施法材料。");
+	say();
+labelFunc0638_0196:
+	if (!(var0000 == 0x006E)) goto labelFunc0638_01A8;
+	message("~~ ~~雜項小戲法~~ ~~佚名*");
+	say();
+	message("     如標題所示，這本書描述了屬於江湖騙子和魔術師職責範圍內的小法術。");
+	say();
+labelFunc0638_01A8:
+	if (!(var0000 == 0x006F)) goto labelFunc0638_01BA;
+	message("~~ ~~現代死靈法術~~ ~~Horance 著*");
+	say();
+	message("     這本充滿詩意的論文作者試圖展示死靈法術多年來是如何被污名化的，並解釋了透過研究魔法對無生命屍體的影響可以獲得的有益知識，其中包括最近一種將生命歸還給已死同伴的技藝，也就是所謂的復活。");
+	say();
+labelFunc0638_01BA:
+	if (!(var0000 == 0x0070)) goto labelFunc0638_01CC;
+	message("~~ ~~符文符號學~~ ~~Smidgeon the Green 著*");
+	say();
+	message("     裡面可以找到用於理解和翻譯符文的完整術語詞典。此外，這部作品深入探討了符文與魔法之間的關係。從裡面強烈的文字來看，作者要麼是個徹頭徹尾的笨蛋，要麼就是個單純的天才。");
+	say();
+labelFunc0638_01CC:
+	if (!(var0000 == 0x0071)) goto labelFunc0638_01E2;
+	message("~~ ~~THE BUNK AND STOOL");
+	say();
+	message("~~ ~~登記簿*");
+	say();
+	message("~ ~來自 Vesper 的 Dosklin~~Shamino 領主~~來自 Moonglow 的 Erstran~~來自 Britain 的 Aaron~~來自 Buccaneer's Den 的 Karman~~聖者……");
+	say();
+labelFunc0638_01E2:
+	if (!(var0000 == 0x0072)) goto labelFunc0638_01F8;
+	message("~~ ~~THE MODEST DAMSEL");
+	say();
+	message("~~ ~~登記簿*");
+	say();
+	message("~ ~Dupre 爵士~~Iolo 領主~~來自 Britain 的 Rasmereng~~來自 Paws 的 Hetteth~~來自 New Magincia 的 Dukat~~來自 Britain 的 Newon……");
+	say();
+labelFunc0638_01F8:
+	if (!(var0000 == 0x0073)) goto labelFunc0638_020E;
+	message("~~ ~~THE CHECQUERED CORK");
+	say();
+	message("~~ ~~登記簿*");
+	say();
+	message("~ ~來自 Yew 的 Sars~~Shamino 領主~~Dupre 爵士~~來自 Moonglow 的 Keth~~Darek~~來自 Jhelom 的 Vinder……");
+	say();
+labelFunc0638_020E:
+	if (!(var0000 == 0x0074)) goto labelFunc0638_0224;
+	message("~~ ~~THE HONORABLE HOUND");
+	say();
+	message("~~ ~~登記簿*");
+	say();
+	message("~ ~來自 Britain 的 Walter~~來自 Yew 的 Jaffe~~Jaana~~來自 Serpent's Hold 的 Atans……");
+	say();
+labelFunc0638_0224:
+	if (!(var0000 == 0x0075)) goto labelFunc0638_023A;
+	message("~~ ~~THE OUT'N'INN");
+	say();
+	message("~~ ~~登記簿*");
+	say();
+	message("~ ~來自 Britain 的 Tyors~~來自 Buccaneer's Den 的 Kellin~~Dupre 爵士~~來自 Trinsic 的 Wentok~~來自 Minoc 的 Uberak……");
+	say();
+labelFunc0638_023A:
+	if (!(var0000 == 0x0076)) goto labelFunc0638_0250;
+	message("~~ ~~THE WAYFARERER'S INN");
+	say();
+	message("~~ ~~登記簿*");
+	say();
+	message("~ ~來自 Serpent's Hold 的 John-Paul~~來自 Serpent's Hold 的 Horffe~~來自 Moonglow 的 Featherbank~~來自 Buccaneer's Den 的 Tervis~~Shamino 領主……");
+	say();
+labelFunc0638_0250:
+	if (!(var0000 == 0x0077)) goto labelFunc0638_0266;
+	message("~~ ~~THE FALLEN VIRGIN");
+	say();
+	message("~~ ~~登記簿*");
+	say();
+	message("~ ~來自 Minoc 的 Carson~~Iolo 領主~~Gwenno 女士~~來自 Britain 的 Yethrod~~來自 Yew 的 Addom……");
+	say();
+labelFunc0638_0266:
+	if (!(var0000 == 0x0078)) goto labelFunc0638_0278;
+	message("不列顛尼亞礦業公司 ~~ ~~日誌。");
+	say();
+	message("……鐵礦——30 噸~~鉛礦——24 噸~~鐵礦——27 噸~~黑岩——2 噸~~鉛礦——14 噸~~鉛礦——37 噸~~鐵礦——26 噸~~黑岩——3 噸~~鐵礦——31 噸……");
+	say();
+labelFunc0638_0278:
+	if (!(var0000 == 0x0079)) goto labelFunc0638_028E;
+	message("~~ ~~THE SALTY DOG");
+	say();
+	message("~~ ~~登記簿*");
+	say();
+	message("~ ~來自 Yew 的 Addom~~聖者~~來自 Britain 的 Jalal~~來自 Yew 的 Tim~~來自 Vesper 的 Blorn~~Dupre 爵士~~來自 Cove 的 Penelope……");
+	say();
+labelFunc0638_028E:
+	if (!(var0000 == 0x007A)) goto labelFunc0638_02A4;
+	message("~~ ~~富豪名流育兒指南~~ ~~Lady M 著~~ ~~獻給 Samantha Meng Ling 的愛*");
+	say();
+	message("     裡面是為保姆準備的詳盡指南，描述了現代技巧以及處理各年齡層兒童疑難雜症的最新方法。~");
+	say();
+	message("     有一個特別章節詳細介紹了換尿布的藝術，並透過描述（為那些可能正在閱讀的較具軍人氣質的人）向敵人投擲髒尿布的效果，增添了一絲幽默感。");
+	say();
+labelFunc0638_02A4:
+	if (!(var0000 == 0x007B)) goto labelFunc0638_032E;
+	message("~~ ~~ ~~Alagner 的驚奇事物之書");
+	say();
+	message("~~魔法與世俗有趣物品彙編~~Alagner 著*");
+	say();
+	message("     為了方便參考，我在本卷中彙編了我在研究期間發現的許多迷人構造中的一部分。這些物品從世俗物品的有趣用途，到引人入勝的魔法意外產物都有。請閱讀並享受「我的不列顛尼亞」這多變的領域。*");
+	say();
+	message("藥水：過去幾百年來的一個歷史趣味點。~");
+	say();
+	message("     大約在 0207 年，發生了一起相當臭名昭著的足智多謀偷窺狂案件。有人可能會問這跟藥水有什麼關係，但這場關於透視魔法藥水使用與濫用的審判所產生的知名度，促使所有正直的法師和鍊金術士停止製作這種驚人的藥水。隨著這些藥水被廢棄不用，將它們稱為「白色藥水」的習慣也慢慢停止了，而一種較不知名的混合物（諷刺的是，它比我所見過的原始透視藥水明顯更白（詳見《Alagner 寶物索引》第 15 條），即提供普通照明的藥水，成為了它的替代品。*");
+	say();
+	message("飛毯：反覆出現的魔法。~");
+	say();
+	message("     毫無疑問地，你們許多人都知道飛毯在聖者從三位暗影領主手中拯救 Lord British 的傳奇任務中是不可或缺的。然而，很少人意識到這件迷人的傳說物品已經被重新發現，而且根據我的消息來源，它就藏在 Destard 地城裡，（還是 Despise，我總是把這兩個搞混（注意：出版前要查證一下））。這張驚人的地毯可以毫無不良影響地飛過水面和沼澤，是普通冒險者的神奇工具，更是聖者的必備品。（一個有趣的花絮：根據一本古老的書冊，這張地毯實際上被它的創造者認為是一件失敗的作品，因為它無法升起超過地面幾英寸的高度）*");
+	say();
+	message("魔杖：可怕的武器三重奏。~");
+	say();
+	message("     這三種已知的魔法魔杖，似乎都是為了將戰鬥力薄弱的施法者變成殺人機器而特別製造的。對於那些有能力防止它們耗損的人來說（請注意，這可不是簡單的魔法，但對於一開始就有能力製作魔杖的人來說卻很簡單），它們也許是同等尺寸中最可怕的武器。~~");
+	say();
+	message("Fire Wand: This wand fires a bolt of flaming death. According to all known texts on the subject, the carnage was called \"amazing.\"~");
+	say();
+	message("Lightning Wand: The effects of a bolt of lightning as it bursts forth from the wand is as devastating, as its counterpart, the fire wand. However, according to one of its proponents, \"the corpses look and smell much less offensive.\"~");
+	say();
+	message("法師魔杖：雖然它的致命性只比一般的弓略高，但這根魔杖因為兩個有趣的特點而變得相當有效：它的傷害最具魔法性質，對付可能找法師麻煩的怪物非常強大，而且，它「永遠」不會耗盡充能。如果你對力量和持久性感興趣，這就是適合你的魔杖。*");
+	say();
+	message("Silver Serpent venom: mage's dream, youth's bane.~Once upon a time, the ability to gather this reagent was heralded as the beginning of a new era of magicry. It was the epitome of High Wizardry, but alas, as frequently happens, the promise paid but little.\tWhile direct doses of this reagent give a boost to strength, the permanent damage done to the body far outweighs any temporary advantage. Unfortunately, these adverse effects tend to carry over to the spells cast using this reagent.~ Before his illness, Garok Al-Mat, a mage of the high mountains, was experimenting with the vemom in conjunction with spider silk and giant bee pollen. His hope was to bind the qualities into an effective casting reagent for divination. But his work is now lost forever.*");
+	say();
+	message("毀滅之鋤：意外的榮耀。這是最近創造的魔法物品之一，這把曾經普通的鋤頭可以追溯到幾年前，當時第一批屈服於現在困擾所有法師的疾病的法師之一（一個沒有真正功績的鄉野法師），被要求為當地農夫修理一把破鋤頭，並為一名戰士附魔一把劍。不幸的是，他這可能是空前絕後的附魔，讓這把鋤頭成為今天最好的近戰武器之一。這把鋤頭的特徵是它獨特的紅色發光頭部。如果你遇到它，請務必小心。*");
+	say();
+	message("(在此之後的項目需要在出版前進行更多研究。)~~");
+	say();
+	message("末日烈焰法杖：致命的化身。~");
+	say();
+	message("這把法杖能投擲出會自動尋找目標的爆炸火球，這也許是在人類與石像鬼合作時代創造的所有魔法武器中最致命的。但是，如同大多數更強大的魔法武器一樣，它有限的使用壽命意味著它可能會在最糟糕的時候讓你失望。*");
+	say();
+	message("大匕首：一個好主意，但稱不上奇蹟。~");
+	say();
+	message("這把匕首也許是有史以來生產的最巧妙經濟的物品之一。除了劍柄上有一塊紅色大石頭外，它看起來不過是一把普通的匕首。然而，當人們用它攻擊時，它會奇蹟般地變成一把雙手劍。它很容易隱藏，掛在腰帶上也很輕，但並不比普通的雙手劍更危險（當然，雙手劍也絕不孱弱）。~~");
+	say();
+	message("玻璃劍：死亡的歷史遺產。~");
+	say();
+	message("這些一次性使用的劍幾乎總能在第一擊中殺死任何生物，但它們很少對第二個對手有用。*");
+	say();
+	message("其他各式魔法武器。~");
+	say();
+	message("一般來說，任何有一點魔法天賦的人都能透過魔法武器、盔甲和其他儀器脈動的光芒來辨識它們。然而，顏色通常能說明更多關於物品的資訊，而不僅僅是附魔的存在。例如，綠色的光芒通常代表這是一把帶毒的武器。~~");
+	say();
+	message("星爆鏢：飛翔的死亡之雲。~");
+	say();
+	message("這種經魔法強化的飛鏢最初是設計成一種小巧便攜的武器，在接觸目標時會爆裂成一團類似的飛鏢雲。雖然破壞力不是很強，但它小巧的體積使其成為一種有效的防禦工具。其小巧的體積也使其成為一種有價值的備用投射武器，因為可以同時攜帶許多。~~");
+	say();
+	message("爆裂箭：一種範圍效果的箭矢。~");
+	say();
+	message("這支箭的功能與普通箭矢一樣，但在撞擊時，會爆炸成成千上萬的致命碎片。~~");
+	say();
+	message("魔法迴旋鏢：去而復返。~");
+	say();
+	message("這些魔法迴旋鏢對石像鬼種族來說，就像魔法劍對人類戰士一樣。作為他們最常見的武器，迴旋鏢具有穿透牆壁和其他固體物體並返回投擲者手中的神奇能力。非常適合在山區狩獵~~");
+	say();
+	message("毒匕首：刺客的工具。~");
+	say();
+	message("這把閃爍著綠光的匕首實際上是一顆被附魔的毒海蛇牙，連接在普通匕首的刀柄上。它帶毒的刀刃會將慢性毒藥注入受害者體內，但它經常會斷裂。它是完美的暗殺武器（參見《Alagner 的歷史》，約翰四世男爵暗殺事件（第 54 頁））。*");
+	say();
+	message("石像哈比：石像哈比是魔法師兼偏執的 Spectran 領主扭曲心智的創造物。據說當任何生物靠近時，它會被魔法觸發。");
+	say();
+labelFunc0638_032E:
+	if (!(var0000 == 0x007C)) goto labelFunc0638_033C;
+	message("澡堂 - 利潤~~...0360年四月 - 9000~0360年五月 - 8700~0360年六月 - 8300~0360年七月 - 8000~0630年八月 - 6300~0630年九月 - 7600~ 0360年十月 - 10,000...~...0361年一月 - 9600");
+	say();
+labelFunc0638_033C:
+	if (!(var0000 == 0x007D)) goto labelFunc0638_035A;
+	message("~~ ~~Stonegate 歷史~~ ~~Shazle 著*");
+	say();
+	message("     Stonegate 城堡的故事確實很有趣。在 Lord British 失蹤以及 Blackthorn 邪惡統治期間，這座堡壘曾一度被暗影領主佔據。然而，一旦聖者將我們高貴的君主送回王位，並將暗影領主從不列顛尼亞消滅後，一個獨眼巨人家族就把這座城堡當成了他們的家。~");
+	say();
+	message("     大約不到三十年後，城牆被廢棄了。然而，這只持續了很短的時間，因為一小群無翼石像鬼在堡壘內找到了庇護所。三年後，他們被 Jhelom 的 Vemelon 領主趕了出去，他決定為了自己的目的保留這座城堡~");
+	say();
+	message("     幾代以來，所有權一直在 Vemelon 家族中傳遞，直到有一天，附近的群山裂開，沼澤吞噬了城堡。~");
+	say();
+	message("     Now, rumors purport that a colony of trolls have taken up residence amongst the ruins, along with an ancient wizard, but no one has ever confirmed\ttheir existence.");
+	say();
+labelFunc0638_035A:
+	if (!(var0000 == 0x007E)) goto labelFunc0638_036C;
+	message("~~ ~~燕子之道~~ ~~Foiles 著*");
+	say();
+	message("     這本書的書頁中講述了一位母親深愛著她的家人，也同樣被她的家人深愛著的故事。雖然作品以母親的死作為悲傷的結局，但她的家人知道她內心的靈魂已經找到了一個更好的安息之地，從而獲得了安慰。");
+	say();
+labelFunc0638_036C:
+	if (!(var0000 == 0x007F)) goto labelFunc0638_0392;
+	message("~~ ~~Vetron 武器與護甲指南~~ ~~它們的效用與價值*");
+	say();
+	message("為了方便比較，這裡列出了各種武器及其對對手的影響：~~雙手斧：10~~吹箭筒：1，可配合毒藥或安眠藥使用~~弓：8~~大砲：90~~棍棒：2~~十字弓：10~~匕首：1~~長戟：10~~鐵鎚：4~~雙手鐵鎚：9~~小刀：2~~狼牙棒：5~~左手短劍：2~~晨星鎚：5~~火藥桶：16~~投石索：3~~劍：6~~雙手劍：11~~飛斧：4~~火把：3~~三重十字弓：28~~鞭子：4*");
+	say();
+	message("此處描述了盔甲和盾牌及其保護效果，讓知情的士兵有機會選擇最適合他或她戰鬥風格的盔甲：~~小圓盾：1~~鎖子甲：2~~鎖子頭巾：2~~鎖子護腿：2~~羽飾頭盔：3~~曲面護盾：3~~護手：2~~護頸：3~~大頭盔：4~~護脛：2~~護腰帶：1~~皮甲：1~~皮靴：1~~皮領圈：1~~皮手套：1~~皮頭盔：1~~皮護腿：1~~鎧甲：4~~鎧甲護腿：3~~鱗甲：2~~尖刺盾：2~~木盾：2*");
+	say();
+	message("以下是一些著名的附魔武器清單：~~魔法箭：+4~~魔法斧：8，可投擲~~魔法弓：12~~魔法劍：7，非常精準~~玻璃劍：127，會斷裂*");
+	say();
+	message("附魔盔甲：~~魔法盔甲：5，~~魔法護手：3，~~魔法護頸：4，~~魔法頭盔：5，~~魔法護腿：4，~~魔法盾牌：4*");
+	say();
+	message("不列顛尼亞的稀奇古怪之物。~~友誼會法杖：6~~火劍：8~~火槍：9~~黑岩劍：未知~~");
+	say();
+	message("     最後一類列出的所有物品要麼是獨特的物品，要麼是傳說中的物品。它們在戰鬥中的實用性尚未被完全探索。");
+	say();
+labelFunc0638_0392:
+	if (!(var0000 == 0x0080)) goto labelFunc0638_03A8;
+	message("~~ ~~Vargaz 傳奇故事~~為何絕不該建造朝北或朝西門的理由。*");
+	say();
+	message("     好幾個世紀以前，先知 Antos 神父預言了一場將從北方大陸襲來的蝗災。他預測牠們的來源方向非常重要，這將決定誰能在襲擊中倖存，誰會死去。他預言任何住在門朝北的房子裡的人都會在猛攻下喪命。兩天後，蝗蟲來了，而在災後，人們發現只有北牆有門的房子被摧毀了。~~");
+	say();
+	message("     ……博物學家 Ergan 結合了 Algarth 關於太陽從東方升起的發現，推論出許多在黑暗中生活的怪物的夜間路徑是可以追蹤的。Ergan 主張，隨著太陽慢慢向西移動，東方的陰影會增加，迫使怪物向那個方向移動以躲避陽光。因此，當這些黑暗居民從西方行進時，他們更有可能入侵那些門正好橫跨在他們路徑上的家庭…… ");
+	say();
+labelFunc0638_03A8:
+	if (!(var0000 == 0x0081)) goto labelFunc0638_03BA;
+	message("~~ ~~Nim 遊戲的一百零一種作弊方法~~ ~~Dr. Cat 著*");
+	say();
+	message("     Within the pages of this tome are all the many ways to earn supplementary gold by gambling at Nim. Written by the originator of the game, himself, this book covers in depth such strategies as, \"claw first, question later\" and \"there are no ways to skin a cat.\"");
+	say();
+labelFunc0638_03BA:
+	if (!(var0000 == 0x0082)) goto labelFunc0638_03CC;
+	message("~~ ~~戲劇導演：分析、溝通與風格~~ ~~Francis Hodge 著*");
+	say();
+	message("     在這本備受推崇的教科書的書頁中，你可以找到備受吹捧、有時也備受爭議的舞台劇製作方法。由一位來自遙遠土地大學的著名榮譽教授所寫，這本書被大多數戲劇演員認為是關於導演的權威參考書。");
+	say();
+labelFunc0638_03CC:
+	if (!(var0000 == 0x0083)) goto labelFunc0638_03DE;
+	message("~~ ~~論表演~~ ~~Laurence Olivier 著*");
+	say();
+	message("     這本書的書頁中包含了表演的理論與哲學，以及一位來自遙遠土地的著名戲劇演員所寫的個人軼事。顯然，這本書是 Lord British 帶到不列顛尼亞的眾多書籍之一。");
+	say();
+labelFunc0638_03DE:
+	if (!(var0000 == 0x0084)) goto labelFunc0638_03F8;
+	message("~~ ~~人如其食~~ ~~Fordras 著*");
+	say();
+	message("     Within these pages thou wilt find the comparitive analysis of many of things we, humans, place in our bodies in the name of food. I will attempt to provide for thee information on what constitutes \"good\" food and what constitutes \"bad,\" and will display the information by mentioning each type from best to worst, first in terms of nutritional value and second by taste.*");
+	say();
+	message("     A large chop of fine meat, including mutton, fowl, ham, or ribs, is by far the most nourishing.  This does not include other forms of beef, however, for they are usually served in smaller portions. Pork and sausage are also lower on the proverbial \"scale,\" for they are not quite as filling. In place of meat, I would recommend flounder, cheese, or potatoes, for they are also quite good for thee.~     In some instances, trout, fish and chips, and some breads will pass for a meal. An egg and most any other fruit and vegetable, including: an apple, a banana, a carrot, a pumpkin, a bunch of grapes, and various cakes, will suffice in a pinch. However, despite its delectible taste and extravagant price, Silverleaf meals have absolutely no value on this chart at all. The moral is, my friend, never pass up meats when thou hast the chance to dine upon them!*");
+	say();
+	message("     顯然，並非所有好吃的東西都有營養。在這個清單的頂端，我必須寫下銀葉草。那味道絕對是精緻絕倫！除此之外，我推薦烤羊肉配上美味的 Minoc 釉醬。加上一顆馬鈴薯作為配菜，並以一些生蔬菜作為整頓飯的開胃菜，你就能真正享受一頓美妙的盛宴了！~     至於第二道菜，我建議……");
+	say();
+labelFunc0638_03F8:
+	if (!(var0000 == 0x0085)) goto labelFunc0638_041A;
+	message("~~ ~~人與魚：終極衝突~~ ~~Aquastyr 著*");
+	say();
+	message("     你可能認為釣魚只是一項為了養家餬口而設計的活動。你每天帶著釣竿，踏步前往湖邊，希望能釣到你的晚餐。然而，我說，釣魚遠不止於此！~");
+	say();
+	message("     漁夫很像一位準備去征服可怕巨龍的騎士。當然，地形是熟悉的，就像騎士的家鄉對他一樣，但真正的比較在於這場較量。騎士帶著一把強大無比的劍，而漁夫則必須用堅固的釣竿來武裝自己。~");
+	say();
+	message("     當然，漁夫另一個重要的武器是他的頭腦。他需要敏銳的觀察力來幫助他與滑溜溜的對手搏鬥。他要做的第一件事就是尋找一片水域，那裡的魚多到牠們不得不跳出水面，才能為其他魚騰出空間。充滿魚的湖泊或池塘將為明智的漁夫提供更好的相遇機會。~");
+	say();
+	message("     那麼，漁夫是如何捕捉獵物的呢。絕對不是坐在那裡無所事事，等著牠們跳進桶子裡！因為一旦這生物咬住誘餌，漁夫就必須奮力掙扎，彷彿在攻擊一頭猛獸本身。幾分鐘彷彿變成幾個小時，這位戰士與他的魚搏鬥著，直到最後，雙方都筋疲力盡，這條魚才心不甘情不願地被拖進了等待著的桶子裡。~");
+	say();
+	message("     然後，這個過程必須重新開始……");
+	say();
+labelFunc0638_041A:
+	if (!(var0000 == 0x0086)) goto labelFunc0638_0440;
+	message("~~ ~~騎士橋遊戲簡介~~ ~~Nicodemus 著*");
+	say();
+	message("     這是一款雙人棋盤遊戲。每位玩家以三個棋子開始。目標是協同移動你的三個棋子，迫使寶藏從棋盤中心移動到你的一方。在此同時，你的對手也會試圖做同樣的事。~~");
+	say();
+	message("Each turn consists of a player either \"moving\" or \"pushing\" a piece followed by a similar action by the opposing player.~~");
+	say();
+	message("A legal \"move\" consists of placing one's piece in any adjacent, unoccupied black or white square. A legal \"push\" is performed when a player forces a piece, either an opponent's or the treasure, one space directly away from his piece.~~");
+	say();
+	message("The exception to the latter rule, making a \"push\" illegal, occurs when a player wishes to \"push\" a piece into the space from which it just left in the preceding turn.~~");
+	say();
+	message("If any piece, excluding the treasure, is \"pushed\" onto a blue square or off the board, that piece is considered lost, and is removed from play. The treasure may not be \"pushed\" off the board.~~");
+	say();
+	message("To win the game, a player must \"push\" the treasure to the back row of squares on his side of the board.");
+	say();
+labelFunc0638_0440:
+	if (!(var0000 == 0x0087)) goto labelFunc0638_0452;
+	message("~~ ~~Mempto 射線~~超形上哲學輻射的定性研究~~ ~~Mempto 著*");
+	say();
+	message("     儘管有 Felcrodan 0335 年的理論，但確實有一股能量射線持續不斷地轟炸不列顛尼亞。事實上，正是這些射線瀰漫在不列顛尼亞與星辰之間所有已知空間中。最近的實驗證明了我的理論：這些在此被稱為『Mempto 射線』的射線，對所有非生命物質都是致命的。事實上，Mempto 射線已經無數次展示了它們的能力，曾經在短短幾個小時內殺死了一整塊大圓石。我的建議是……");
+	say();
+labelFunc0638_0452:
+	if (!(var0000 == 0x0088)) goto labelFunc0638_047C;
+	message("~~ ~~圓之書~~ ~~Jillian 從石像鬼語翻譯成不列顛語*");
+	say();
+	message("     一切始於三項原則：控制（Control）、熱情（Passion）與勤勉（Diligence）。~");
+	say();
+	message("     從控制產生方向（Direction）。從熱情產生感覺（Feeling）。從勤勉產生堅持（Persistence）。~");
+	say();
+	message("     但這三種美德並不比其他五種更重要：控制結合熱情帶來平衡（Balance）。熱情結合勤勉產生非凡成就（Achievement）。而勤勉結合控制提供精準（Precision）。~");
+	say();
+	message("     缺乏控制、熱情與勤勉就是混沌（Chaos）。因此，原則的缺乏指向第七種美德，秩序（Order）。~");
+	say();
+	message("     這三項原則統一起來形成奇異點（Singularity）。這是第八種美德，但它也是第一種，因為在奇異點中可以找到所有原則，因此也包含了所有美德。~");
+	say();
+	message("     A circle has no end. It continues forever, with all parts equally\timportant to the success of the whole.~");
+	say();
+	message("     我們的社會也是如此。它也永遠持續下去，所有成員（以及所有美德）都是這統一整體中平等的部分。");
+	say();
+labelFunc0638_047C:
+	if (!(var0000 == 0x0089)) goto labelFunc0638_0492;
+	message("~~ ~~養雞之道~~ ~~Daheness Gon 著*");
+	say();
+	message("     雖然處理雞隻相對來說是一項簡單的任務，收集雞蛋也是，但有幾條資訊對新手主人會有很大用處。例如，相當多的母雞腹部有柔軟細緻的絨毛，那是牠們小時候長出來的，但從未褪去。因此，巢裡粗糙的稻草往往會刺激牠們的皮膚。結果是，許多母雞會將她們的蛋埋在薄薄的一層稻草下。這提供了蛋所缺乏的溫暖，因為母親不會完全將自己坐在蛋上。~");
+	say();
+	message("     此外，大多數母雞下蛋的時間與她們的姐妹母雞不同。母雞必須至少休息整整三個小時，才能再產下一顆蛋。如果你的母雞需要更多時間來創造更多後代，請不要擔心。");
+	say();
+labelFunc0638_0492:
+	if (!(var0000 == 0x008A)) goto labelFunc0638_04AC;
+	message("~~ ~~野戰包紮的藝術~~ ~~Creston 著~Lady Leigh 撰寫前言*");
+	say();
+	message("     雖然我個人提倡使用治療草藥和更無菌的包紮環境，但直到能獲得更好的治療護理之前，這篇論文中講述的步驟就足夠了。仔細遵循 Creston 的步驟，你就能毫不費力地形成一種可靠（即使不完美）的方法來防止嚴重失血。然而，請記住，沒有任何護理能比得上乾淨的床單、堅固的床鋪以及適當的照料！~~");
+	say();
+	message("——來自 Serpent's Hold 的 Lady Leigh*");
+	say();
+	message("     只要有剪刀、布料和清醒的頭腦，你就不太需要害怕在屍橫遍野的戰場上失血過多而死。只需將布料剪成條狀和繃帶。迅速將繃帶的中心覆蓋在傷口上，然後將布條一圈又一圈地纏繞在出血區域。當布料開始吸收血液時，它會與身體自然的癒合功能結合，止住血流並加速癒合過程。用不了多久，你就能再次準備旅行了（雖然我建議這趟旅行是去尋找一位合格的治療師！）。");
+	say();
+labelFunc0638_04AC:
+	if (!(var0000 == 0x008B)) goto labelFunc0638_04C2;
+	message("~~ ~~給貓澆水~~ ~~Mowze 著*");
+	say();
+	message("     （本文是一篇幽默的諷刺文章，不應被過度解讀。以下任何活動都只應在水資源充足且有剩餘的情況下進行。乾旱是嚴肅的問題，本作品絕不意圖表達其他意思。~     ——編輯）~");
+	say();
+	message("     用水桶從井裡打水只需要常識，然而要把水用在「什麼」身上，通常是一個更難回答的問題。貓，當然是我個人最喜歡這種折磨的對象。但是，你的朋友們通常也是不錯的選擇，前提是他們沒有報復的方式，也不容易發脾氣。~     孩子們稍微不是那麼好的選擇，雖然他們相當值得被這麼對待，因為當他們的後代受到威脅時，他們的父母「確實」常常很快就會發脾氣。");
+	say();
+labelFunc0638_04C2:
+	if (!(var0000 == 0x008C)) goto labelFunc0638_04E4;
+	message("~~ ~~不列顛尼亞社會簡論~~ ~~Clayton 著*");
+	say();
+	message("     不列顛尼亞人民的階級制度遵循著傳統的秩序。雖然這裡的內容很少是法律規定的，但全部內容都是根據在全國各地所做的觀察彙編而成的。~");
+	say();
+	message("     顯然，不列顛尼亞的所有公民都必須向公正高貴的 Lord British 效忠。接下來值得我們尊敬的是大議會的成員，該議會由來自不列顛尼亞每個城鎮或城市的一名公民組成。~");
+	say();
+	message("     緊隨大議會成員之後的是有翼石像鬼，因為他們受過高等教育，對生活的各個方面都非常精通。許多有翼的朋友都曾向在 Terfin 冒險的旅行者提供智慧之語。~");
+	say();
+	message("     在有翼石像鬼之下的，是令人驚嘆的廣大民眾，沒有他們，經濟和政府方面就會崩潰。當然，緊隨這些人之後的，是較不世故，但非常、非常強壯的無翼石像鬼。~");
+	say();
+	message("     對我們經濟體系的許多影響來自……");
+	say();
+labelFunc0638_04E4:
+	if (!(var0000 == 0x008D)) goto labelFunc0638_0502;
+	message("~~ ~~麵包師手冊~~ ~~Settlar 著*");
+	say();
+	message("     所有烘焙的基礎都來自於了解如何執行一項簡單的任務：烤麵包。如果你能做到這一點，你就能烤任何東西，從肉餡餅到招待客人的果餡餅。~");
+	say();
+	message("     首先把麵粉倒在桌上是很重要的。許多麵包師喜歡直接在爐床上揉麵團，但我更喜歡預熱爐床（這能讓烘焙更徹底），所以這是不可能的。~");
+	say();
+	message("     在麵粉中加水並攪拌，直到兩者充分混合。麵團應該要夠濕潤以便於揉捏，但不應該流動。現在是時候把麵團放在爐床上烘烤了。只需幾分鐘，你就能吃到非常美味的麵包。~");
+	say();
+	message("     現在，下一道點心將證明是對你所愛之人的真正款待……");
+	say();
+labelFunc0638_0502:
+	if (!(var0000 == 0x008E)) goto labelFunc0638_0524;
+	message("~~ 日誌~~ Astelleron*");
+	say();
+	message("……我在島上變得越來越孤獨。儘管有我的魔像，但我沒有任何人可以交談，沒有任何有個性的人。甚至連動物在這裡停留的時間都比在主島上少。~每天我都會望著地平線尋找人的蹤影。我不害怕陌生人，因為要嘛我會遇到聖者，要嘛我為了保護神殿而創造的魔像會擊退充滿敵意的訪客……~");
+	say();
+	message("……我太興奮了！今天在主島上，我偶然經過一棵樹。雖然這本身並不奇怪，但我注意到這棵樹似乎不是從地裡長出來的，而是從一塊大岩石上長出來的。同樣不尋常的是圍繞著它的五塊石頭，它們彼此之間以及與中心石頭的距離都相等。它們看起來很像能代表一顆五角星的頂點。~然後我意識到我目擊了什麼：傳說中的 Castambre 之石。即使我沒有注意到從巨石中冒出的生命之樹，岩石的五芒星也說明了一切……");
+	say();
+	message("……第一次測試成功了。我用鎬鑿下了一小塊石頭。一開始我被流血嚇了一跳，但因為我沒有聽到任何一點表示疼痛的聲音，所以我繼續了。我準備查閱書籍來決定我下一步的行動……");
+	say();
+	message("……恐怕我暫時沒有什麼時間繼續寫這本日誌了。我明白一個真正的科學家會每天以極高的準確度記錄他所做和所見的一切，但每天所需的工作量已經讓我筋疲力盡很久了……");
+	say();
+	message("... I have done it! My newest two golems can actually speak! And they offer original comments, not mere echoes of my own thought. The instructions in the book are correct. Bollux, my first attempt, succeeded, but my inexperience left him a little less intelligent than I would have preferred. However, his \"brother,\" Adjhar, benefited from my mistake with the other, and has full speech capabilities. As I sit now, writing this, I can hear them discussing weather! I must go now and talk with them. Oddly enough, the sky no longer seems overcast...");
+	say();
+labelFunc0638_0524:
+	if (!(var0000 == 0x008F)) goto labelFunc0638_054A;
+	message("~~ ~~魔像：從泥土到石頭~~ ~~Castadon 著*");
+	say();
+	message("... Stone golems can be created from any hard rock. However, it is important to note that the enchantments require they be anthropomorphic\tin shape. Any other construct, or an incomplete one, will not be able to hold the creature together or permit locomotion.~");
+	say();
+	message("     Once the sufficient amount of stone has been gathered and placed roughly in the shape of a man, thou must cast the Vas Rel Ailem\tspell (see appendix QQ for spell description) to form the rock into a person. Needless to record, perhaps, the creature will barely resemble anything human, but will be able to function similarly.~");
+	say();
+	message("     The next enchantment is Kal Mani (appendix QQ). This will \"breathe life\" into the newly created golems, or rather, breathe animation into them. Once created, each golem will have enough rudimentary intelligence to obey and respond to three single-word commands, or one extensive request of any length.*");
+	say();
+	message("*");
+	say();
+	message("     附錄 K~     Castambre 之石");
+	say();
+	message("~~     This mythological rock has legendary powers that permits one to shape and enchant stone -- and only stone -- to create golems by following only a single, short ritual instead of the lengthy and time-consuming process described in previous chapters. Though the Stone's existence has never been confirmed, there are also other purported powers that could make a risky investigation quite worth while. For additional information, see \"The Stone of Castambre,\" by MacCuth.");
+	say();
+labelFunc0638_054A:
+	if (!(var0000 == 0x0090)) goto labelFunc0638_057C;
+	message("~~ ~~Castambre 之石~~ ~~MacCuth 著*");
+	say();
+	message("     傳奇岩石？也許。強大聖物？絕對。~Castambre 之石——以據說附魔並放置它的法師命名——據說位於火焰島，也就是三大原則神殿的所在地。當然，由於關於這座島嶼的知識早已消失，關於這塊臭名昭著的石頭的知識也同樣神秘。然而，透過研究 Castambre 的日記，我發現了一些關於石頭下落的線索。*");
+	say();
+	message("     這塊石頭力量的主要目的是讓無生命的物體具有生命力：雕像、魔像、工具等。此外，如果想要的物體已經被賦予了對話能力，石頭會增強這些能力，賦予該物體（或者更確切地說是生物）獨立思考的能力。歷史學家聲稱，正是藉助這塊石頭，Castambre 創造出了具有如此深刻個性的生物，以至於在簾子後面，根本無法區分是一個人還是他創造的生物之一。*");
+	say();
+	message("     But how do I capture this ability, I hear thee ask.  First, assuming thou hast already discovered the Isle of Fire (no mean feat, I assure thee), thou must then search for the \"pentacle of rocks\" -- five boulders arranged as though they were vertices in a pentagram. In the center thou shouldst notice a sixth rock, from which grows a large, healthy tree -- the Tree of Life. This sixth rock is Castambre's Stone.");
+	say();
+	message("     然而，找到石頭只是一半的戰鬥，因為現在你必須施展超越常人能力的魔法。用一個……你必須……");
+	say();
+	UI_close_gumps();
+	var0001 = UI_execute_usecode_array(item, [(byte)0x55, 0x0638]);
+labelFunc0638_057C:
+	if (!(var0000 == 0x0091)) goto labelFunc0638_05DD;
+	message("... Once the the \"heart\" has been placed within the \"chest\" of the creature, the ritual may begin. First, using perhaps the same pick, thou must strike the Tree hard enough to draw blood. Blood from a Tree, questions thee? Aye, I say, for this Tree is one of life and energy -- collected from the nutrients of the Stone, and bleed it does. Some say thou wilt be able to hear the shrieks of pain from Castambre's Stone, but that rumor is waning. Thou wilt need enough of the Tree's life force to fill a bucket.");
+	say();
+	message("     將血妥善裝好後，必須將其灑在石像生物身體周圍的五個地方，就好像這生物是 Castambre 之石，而血泊是五芒星的五塊岩石。事實上，有必要放下五塊這樣的小石頭，來標記必須灑血的位置。然後你必須施展 Vas Flam Uus（見書末可撕下的附頁），點燃每一灘血泊。接著必須吟唱從 Castambre 日記中收集來的神聖詞彙（同樣在可撕下的附頁上）。");
+	say();
+	message("     現在生物已經被附魔，當然，就有必要指導它，就像教育孩子一樣。然而，石魔像的學習速度會快得多……");
+	say();
+	var0002 = UI_set_item_quality(item, 0x0090);
+	if (!(!gflags[0x0325])) goto labelFunc0638_05C9;
+	var0003 = UI_create_new_object(0x031D);
+	var0004 = UI_set_item_quality(var0003, 0x002D);
+	var0005 = UI_update_last_created(UI_get_object_position(0xFE9C));
+labelFunc0638_05C9:
+	var0006 = UI_execute_usecode_array(0xFE9C, [(byte)0x23, (byte)0x55, 0x0638]);
+labelFunc0638_05DD:
+	if (!(var0000 == 0x0092)) goto labelFunc0638_05FB;
+	message("~~ ~~EXODUS 的黑暗核心~~ ~~Erethian 著*");
+	say();
+	message("    Exodus 是一種空靈生物與魔法機制的混合體。它有生命的部分，或是心靈，是由它的野心、慾望、好奇心所組成，總的來說，就是它的個性。然而，這本書的主題，在於它更物理表現的一部分。");
+	say();
+	message("    核心是 Exodus 記憶和精神力量的容器。心靈幾乎就像寄生蟲，以周圍的世界為食，並將其獲得的東西存放在核心中。Exodus 的目的是什麼？它為誰或為什麼服務？這就是我所寫的內容。");
+	say();
+	message("    Exodus 服務的對象不是別人，正是……");
+	say();
+	message("~~（文字依然未完。）");
+	say();
+labelFunc0638_05FB:
+	if (!(var0000 == 0x0093)) goto labelFunc0638_060D;
+	message("~~ ~~倫理享樂主義~~ ~~R. Allen G. 著*");
+	say();
+	message("    這本手冊詳細介紹了一種非宗教的宗教，在這種宗教中，人們為了生活的樂趣而生活，並將保持整個世界免於失修視為自己的責任。");
+	say();
+labelFunc0638_060D:
+	if (!(var0000 == 0x0094)) goto labelFunc0638_0627;
+	message("~~ ~~轉換月門供己使用~~ ~~Erethian 著*");
+	say();
+	message("    月門有四種已知變體：藍色，橫跨大陸的門；紅色，連接世界的門；黑色，穿越維度的門；以及理論上的銀色，時間之門。");
+	say();
+	message("    這些傳送門，在不同程度上，其力量歸功於大質量物體在我們周圍空間移動時所施加的力。因此，我假設如果能知道正在施加什麼力，就可以透過改變這些力來操縱任何特定月門的目的地。");
+	say();
+	message("    這本書接著描述了某些操縱方法，除卻即使要影響最弱的月門也需要極其龐大的力量這點外，邏輯似乎是合理的……");
+	say();
+labelFunc0638_0627:
+	return;
+}
+
+

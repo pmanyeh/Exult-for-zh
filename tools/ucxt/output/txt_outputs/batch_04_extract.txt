@@ -1,0 +1,375 @@
+--- 0466 (48 unique strings) ---
+name
+job
+bye
+hourglass
+Time Lord
+enchant
+Your old friend Nicodemus has a far away look in his eyes.
+\"Who art thou?\" Nicodemus asks. \"Oh, I remember. Remember demember! Ha ha ha!\"
+\"Hello again, 
+,\" says Nicodemus.
+\"That is a very good question. Some days I can actually remember. Let's see... today... Yes! I am Nicodemus! Nicodomus! Nicodimus! Nico-nico-kukodamus! Ha ha ha!\"
+\"Thou art addressing Nicodemus.\"
+\"To go absolutely mad! For that is indeed what is happening! My magic no longer works! Every time I attempt to change something into a drake, it only becomes a newt! Oh, newty-wewty scooty-booty!\" He speaks to an imaginary creature beside him. \"Who asked thee? Away with thee!\" He turns to you. \"Sorry. That bloody newt keeps trying to undermine my conversation. Anyway... I suppose I can sell thee some reagents, potions, or spells. I must make a living somecow. I mean somehow! That was Some Cow! Ha ha ha!\"
+magic
+potions
+\"Why, to perform magic! It seems that the disturbance in the ether has been repaired! I can also sell thee some reagents or spells.\"
+spells
+reagents
+\"Magic? What magic!? All the magic in the world has gone completely topsy-turvy! Oh, blurpsy-flurpsy! Ha ha ha! Those are silly words, are they not? 'Tis a pity they are not magical! Ha ha ha!\"
+\"The ether is repaired. The mages of the world are indebted to thee.\"
+\"Dost thou wish to buy some spells?\"
+\"Never mind, then!\"
+\"Dost thou wish to buy some reagents?\"
+\"Potions? What makes thee think I have potions? Art thou sure thou dost not want Lotions? I certainly have lotions! Otions, slotions, motions, votions! Ha ha ha! Wait! Oh, yes! I do have potions! I told thee so, didn't I! Let us see... I have this black potion here. I am not sure what it does exactly, but I am quite sure it turns one invisible.
+\"Yes, I have potions. Well, I have this black one. It is an invisibility potion.
+\"Dost thou want it for, say, 75 gold?\"
+\"Here is the potion.\"
+\"Thou dost not have enough room to carry the potion!\"
+\"Art thou trying to cheat me? Thou dost not have enough gold!\"
+\"Then why didst thou mention it? Leave me alone!\"
+\"Timey Limey Lord? Hmmm. I don't know him. Wait! Yes I do. Does he have a big black mustache and three pairs of pants? No! I know who he is. He's the fellow who came to fix my sundial the other day, right?\"
+\"I thought so! Tell him that bloody thing still doesn't work! It gives me three shadows! Dadows badows whoopeee! Ha ha ha!\"
+\"He's not? Hmmm. Then he must be the man I am not thinking of!\"
+\"Wait! I remember! He is my Knight's Bridge opponent! We play on my Knight's Bridge court just north of mine house.\"
+\"I have not spoken to the Time Lord in months! How is the old codger? Give him my regards. Tell him I miss our Knight's Bridge games!\"
+Knight's Bridge
+\"'Tis a life-size board game. I have a book around here somewhere which contains the rules.\"
+\"Yes, I just enchanted it.\"
+\"This Time Lord told thee what? An hourglass! I have no blinking hourglass! Glassy wassy hoursplassy! Ha ha ha! Wait! An enchanted hourglass? That does ring a bell. Clang Clang Clang! Ha ha ha! Wait! I remember. I had an hourglass. I sold it. To a gypsy. Or was it an antique dealer? I think I might have sold it to a gypsy antique dealer in Britain. Or Paws. Somewhere on that side of the land. But if my memory serves me correctly, that hourglass used up its enchantment, which is why I sold it. I suppose if the ether is repaired, I could possibly re-enchant it. Bring it to me and we'll see what we can do. I know! We can play a rousing game of chess! But only if I can deal at all times. I do not trust thee.\"
+\"Mine old hourglass! Of course I remember it! I believe I sold it to an antique dealer in Paws. I might be able to re-enchant it if thou wouldst bring it to me.\"
+\"What's this? An hourglass of some kind? Wait! It looks vaguely familiar! Thief!! This is mine hourglass! I have been looking for it for years! Where didst thou get it, scoundrel? I shall turn thee into a duck!\"~~Nicodemus intones some spell and points at you, but nothing happens.~~\"Zounds! Thou art no more a quacker than I am. Nothing works anymore. Quacker slacker wacker flacker! Ha ha ha!\"
+\"Mine old hourglass! I suppose I could revitalize the enchantment upon it.\"
+\"Enchant? Thou dost want me to enchant this wretched thing? Thou must have the brain of a toad! Toady woady bloady coady! Ha ha ha!~~\"Do me a favor, Mister Avatar. Repair the blinking ether, wilt thou? Do that and I can enchant thy glourblass. I mean floursass. I mean hourglass. Tell that to thy 'Time Lord'. Thou canst also tell him he needs a bath.\"
+\"I would be most happy to enchant the hourglass. After freeing the ether, I am most indebted to thee. Let me see it...\"
+Nicodemus takes the hourglass and studies it a moment. He sets it on a table and closes his eyes, concentrating. He intones a few words, throws some reagents into the air, and passes his hand over the artifact.~~\"That should do it.\" He hands the hourglass back to you.
+\"Where is it? Thou dost not have the hourglass!\"
+\"Bye bye booby booby bye bye! Ha ha ha!\"*
+\"Goodbye, 
+
+--- 0467 (24 unique strings) ---
+The man scowls at you. \"Thou wearest the symbol of that most foul of groups, The Fellowship. Prepare to die!\"*
+Eyeing you carefully, the man before you takes an aggressive stance.
+\"Good day, 
+,\" Thad says coolly.
+name
+job
+bye
+He stares at you for a moment. \"Thad is my name, 
+\"Job? I have not the time for a job. I am on a quest to rid this land of that which plagues it!\"
+quest
+plague
+\"I have devoted mine entire life to this, nothing will get in my way, not even Batlin.\"
+Batlin
+\"He is the leader of the cursed organization, The Fellowship!\"
+The Fellowship
+\"Surely thou hast heard of The Fellowship, a most foul and evil organization. It has even infested the lovely forest of Yew!\"
+Yew
+\"I know little about their practices, but I do know they live outside the bounds of moral decency. They have kidnapped my beloved sister, Millie, and have cast a spell of enchantment. Now she lives as they do. I have vowed to remove this wicked spell and will slay the entire organization should that prove necessary!~~ \"Thou, also, hast taken up a similar cause, I expect. Yes?\"
+\"Excellent.\" He shakes your hand. \"Thou art indeed a worthy warrior, 
+\"No?\" He seems genuinely surprised. \"Then perhaps thou wilt consider taking up my quest in thine own manner.\"
+\"I expected as much. Thou art truly an honorable warrior.\"
+\"What manner of scoundrel art thou? Remove thyself from my presence before I decide to smite thee from thy wretched life!\"*
+\"I know the land, but not the people. There is nothing useful I have to tell thee.\" He appears thoughtful for a moment. \"Perhaps I can aid thee a bit. I do know that there are two hunters who sometimes frequent this area. One, a woman, carries a spear. The other is an archer. That is all I can tell thee.\"
+\"May thine endeavors reach fruition, 
+
+--- 0468 (26 unique strings) ---
+name
+job
+bye
+You see a man leaning on a longbow.
+Bradman greets you. \"Hail, 
+\"I am Bradman.\"
+\"Why, 'tis my job to train the many who visit Yew to become more agile.\"
+Yew
+train
+many
+Penni
+\"The forest attracts a lot of people who want to spend some time away from the larger towns like Minoc and Britain. So they come to Yew.~~\"And, something about the woods makes most people want to explore.\" He pats his bow.~~\"That is where this comes in. The bow is the tool of survival in the forest. And I,\" he jerks his thumb to his chest, \"teach proficiency with the bow.\"
+explore
+bow
+\"There are many exciting things to see in the forest. Not a day goes by when I do not see something interesting: a new type of bird, a beautiful butterfly, or, best of all -- a deer.\"
+\"'Tis my weapon of choice. It takes a keen eye and a steady arm to shoot accurately. I think it has more finesse than a sword or a spear, for example.\"
+\"I love the forest. It is very beautiful. Also,\" he raises his bow, \"I moved out here to be near the two great archers, Iolo and Tseramed.\"*
+Iolo blushes. \"I am honored, my friend. I was not aware I had an admirer in this part of the land.\" He bows to Bradman, who returns the gesture.*
+\"Thank you for thy kind words, good sir. Perhaps we may practice sometime in the future.\"*
+\"I would be greatly honored, milord!\"
+Tseramed
+\"He is a great archer who resides in the forest. He moved here to get away from the far-too-quickly growing towns.\"
+\"If thou wantest to train, my charge is 30 gold. Art thou still interested?\"
+\"I understand, 
+\"Thou hast met Penni? I hope thou hast not trained with her,\" he winks. \"She is a valuable friend, but she hunts as well as a weed and she is as clumsy as an ox. I am afraid she knows nothing about fighting.\"
+\"May the trees part around thee, 
+
+--- 0469 (22 unique strings) ---
+name
+job
+bye
+The man greets you with stern, suspicious eyes.
+\"What is thy business, 
+\"I am Sir Jeff, 
+\"I am the High Court official at the prison here in the Abbey.\"
+official
+Abbey
+\"I am the judiciary part of Britannia's government. It is my job to see that criminals are brought to justice.\"
+criminals
+\"We have two prisoners already, but there are many scoundrels who still roam free.\"
+prisoners
+scoundrels
+\"Thou, of course, hast never met them,\" he says, his brow narrowing, \"but we have a pirate, and,\" he pauses, \"a troll. If thou dost wish to see them, speak with Goth, the jailer.\"
+Goth
+\"See for thyself, the posted bills for known villains are in the log book in the courtroom.\"
+\"He has only been working here for a few weeks, but I already know he is not trustworthy. There is something obviously unscrupulous about him. He is not a friend of thine, is he?\"
+\"I suspected as much.\" He turns away from you.*
+\"No,\" he says, watching you closely, \"of course he is not.\"
+\"The monks live and study there, but they do little more than winemaking. Well, I know one of them tends the garden.\"
+\"Keep thine heart and mind on the straight path, 
+
+--- 046A (32 unique strings) ---
+name
+job
+bye
+You see an unkempt, yet dapper man talking to himself.
+\"Eh, wot's that? Oh, it's you, 
+\"M'name's Tiery, 
+\"Eh, 'ow's that? Oh, m'job. Why, Oi take good care o' me buddies in the graveyard 'ere in Empath Abbey, Oi do.\"
+Empath Abbey
+buddies
+\"What do ye mean did Oi 'umpeth Abby. 'Course Oi didn't. Oi never went anywhere near Abby. 'Oo told ye that?\"
+'Umpeth Abby
+\"Empath Abbey? Why, this 'ere's Empath Abbey, 
+. Oi don't mean to pry, but if ye knowest not where ye be, why 'ave ye come 'ere?\" He shakes his head. \"It's just as Oi was tellin' Darek the other day, `If ye never want to be lost,' Oi said, `don't ever go nowheres.'\"
+\"What wrong with the bodies? Oi don' do nothing more than bury 'em! A fellow could get in lots o' trouble spreading rumors like that.\"
+bury
+bodies
+\"Barry? Oh, 'im. Oi don't know what ye's talkin' about. Oi never met Barry's woife! 'Twas just a lie they's spreadin' about me.\"
+Barry
+\"Oi already told ye that's m'job.\"
+\"That's right. M'buddies! Oi bury 'em. It's m'job.\" He squints at you. \"Unless, 
+, yer askin' about the people 'ere?\"
+people
+\"No! Of course Oi don't use peep holes. What sort o' question is that to ask a fellow, 
+peep hole
+\"Well, Oi only know a few people 'ere, but Oi'll try an' 'elp as best as Oi am able. 'Oo do ye want to know about? My two best friends are Garth an' Darek, but Oi often talk to Nina an' Bart when Oi get the chance.~~
+\"Recently, that Perrin fellow from across the way 'as been spendin' some toime with me. 'E's a real nice chap. A l'ttle brainy, perhaps, 
+, but Oi like 'im just the same. Anyone else ye'd like to know about?\"
+\"Well, that Perrin fellow'd be a better one to ask than Oi'd be, 
+. 'E knows a lot, that one does.\"
+\"All right then, glad Oi could introduce ye to a few o' my friends.\"
+\"G'day, 
+. 'Ave a pleasant journey. Oi'll tell Malc 'allo for ye.\"*
+
+--- 046B (52 unique strings) ---
+Avatar
+You see a large cyclops. It looks at you and blinks its eye in irritation.
+\"What dost thou want?\" says Iskander.
+name
+job
+bye
+Eiko and Amanda
+\"I am of the clan Ironheart, the eleventh son of Valador. They call me Iskander.\"
+\"My cyclopean people say I am a hero. Many of you humans say I am a monster. No doubt, the truth is somewhere in between.\"
+hero
+monster
+\"One hundred and eighty-nine years ago I slew the seven Gazer Princes when they used their magic to steal the eye from the leader of our tribe, but such things are now ancient history and are no longer of any consequence.\"
+tribe
+eye
+ancient history
+\"On numerous occasions I have caused the unpleasant end of human interlopers who mistakenly believed our race was fit for nothing save to be plundered. But I have no quarrel with thee.\" He pauses to scrutinize you. \"For the moment.\"
+thee
+\"Thou dost know my name, but I still do not know the name of thee. I like to know to whom I am speaking. What is thy name?\"
+\"I have heard of thee, Avatar. Thou hast come into conflict against our kind before, I know. But I have also heard the tales of thine heroic and spiritual quests and I believe thee to be a just and noble man. Thou mayest call me friend.\"
+\"A pleasure to meet thee, 
+\"Those of my tribe are a quiet people. They farm the rocky soil, but are also very good tool makers. I was sent to find them a new homeland.\"
+homeland
+\"The eye of a cyclops is considered quite a delicacy to some of the less genteel races of Britannia. Twice have foul creatures tried to take mine, and twice have I dined on their hearts.\"
+\"Then they called me 'Wonder Boy'. For nearly a hundred years that was the nickname by which I was known. I was most grateful when they stopped doing that!\"
+Wonder Boy
+Iskander squints his eye at you. \"Do not start that again!\"
+\"My village lies a great many days' journey away. The people there desire a place where they can live in peace with their surroundings. I have not found such a place yet, but I will search everywhere until I do.\"
+peace
+everywhere
+\"While I am two hundred and six, not long in years for one of my race, I already have the heart of an old man. A hero's adventures have no more attraction for me. I long to settle down with my people and spend my days tending the fields or in my workshop building things.\"
+\"My searches have brought me to this dreadful place. I incorrectly surmised that since magic does not work it would be relatively safe. It is here that I have been perplexed by a terrible riddle.\"
+magic
+riddle
+\"Standing at the doorway of one room in this place, I saw an enormous image of a tetrahedron. As I tried to near it a wave of amnesia passed over me. Once more I was standing in the doorway. I could remember nothing more.\"
+tetrahedron
+amnesia
+\"I believe that is word you humans use to describe a polyhedron with four faces.\"
+\"This same wave of amnesia struck me every time I tried to approach the tetrahedron. I do not know what sort of foul magic this is.\"
+foul magic
+\"Now that thou hast destroyed the mysterious tetrahedron I will complete mine exploration of this place. I have a feeling that the homeland I seek is very far away but one never knows where the next clue will be that shall lead me to it.\"
+\"Perhaps thou shalt be able to solve this mystery. I have been unable to as of yet. But I shall remain here until its secret is revealed.\"
+\"I warn thee that this place is not safe. It holds unknown perils. Perhaps thou wouldst do better to leave this place.\"
+\"Surely, thou dost know that magic no longer functions as it once did. There are those who say that the age of magic is over. If that is so, then I fear that there may be no place left in this world for my people.\"
+\"Of course, now that thou hast destroyed the tetrahedron all magic has been restored. I congratulate thee for thine heroic deed!\"
+\"Yes, I have heard those names before. Those are the names of two warriors who have been after me for revenge. They say I killed their father and I must admit to thee that it is true. I did kill their father.\"
+revenge
+killed their father
+\"I know that Eiko and Amanda have been after me for some time looking for vengeance. I say let them come. I will not stand still for them nor shall I run from them. When they find me they are welcome to try and take their justice from me. If they win then it was meant to be. If they do not I will have no regrets.\"
+\"Their father's name was Kalideth. He suffered from the mage madness. His attack on me was unprovoked. For some reason he blamed the failure of magic upon my people. His own magics were still quite potent and I barely survived the encounter. I killed Kalideth in self-defense, but I did not want to kill him. I wish there to still be some magic left in this world and I mourned his passing as much as anyone.\"
+\"Farewell, Avatar.\"*
+\"Farewell, 
+\"Farewell.\"*
+
+--- 046C (47 unique strings) ---
+name
+job
+bye
+The woman greets you with shining eyes.
+\"Hello, 
+,\" says Reyna.
+cemetery
+brought flowers
+heal
+\"I am Reyna,\" she says, brushing the hair out of her face.
+\"I am a healer. I have chosen to set up shop here near the forest.\"
+forest
+animals
+\"I wanted to live and work here because the land is very beautiful. I have found many things to do and see. Unfortunately, the forest is so spread out that I have yet to meet many of the others who live in this area. I do know that the Abbey is just across the way from mine house.~~\"And somewhere nearby is a scholar.\" She appears thoughtful for a moment. \"Also, I believe there is a prison just east of the Abbey.
+Abbey
+scholar
+prison
+\"I've never actually seen it,\" she laughs, \"but rumor has it that the cells are located right next to the court, for quick, easy imprisonment after the trial.\"
+\"From Aimi I have heard that he is brilliant, and... also a bit overzealous to instruct those interested in increasing their knowledge.\"
+Aimi
+\"She is the monk who tends the garden at the Abbey.\"
+\"She is one of the monks who lives at the Abbey. At this time, she is the only other person I have actually met here in the forest.\"
+\"That is how this area -- Empath Abbey -- got its name, from the monks who live at the abbey of the Brotherhood of the Rose. They are said to make delicious wine. One of the monks cares for a beautiful garden in her spare time. In fact, I often buy flowers from her.~~ But,\" she grins, \"as for the other monks, all that I\tever see them do is make wine and wander the countryside.\"
+flowers
+others
+\"Aimi is the only one I have met, but I know there are one or two others who make wine there.\"
+\"Yes, I get them for my mother.\"
+mother
+I realize there are already \r\n\t\t\t\t\t\tvery beautiful flowers here, \r\n\t\t\t\t\t\tbut there can never be enough \r\n\t\t\t\t\t\tto demonstrate how much she is \r\n\t\t\t\t\t\tmissed. 
+She looks down at her feet, and then back up at you. It is obvious she is fighting an urge to cry.~~ \"Several months ago, my mother passed away in her home town. She was born here in the forests, and had asked to be buried here, near me. Every morning I come out here to visit her and set flowers by her grave.~~ \"But,\" a lone tear escapes and trickles down her cheek, \"I am the only member of our family who lives nearby. No one else is able to visit or leave flowers very often.~~\"Her grave looks so bare sometimes.\" She looks off into the horizon and sighs. \"
+It would be nice\tif there were some way to have more flowers brought to her.\"~~She quickly turns and looks at you.~~\"I am terribly sorry for rambling on like that. Please excuse me, 
+have flowers
+Her eyes light up as she sees the bouquet of flowers.~~ \"They are lovely! Thou art too kind, 
+, to bring flowers for my mother! I cannot wait to set them by her grave.\"
+\"For thy kindly gift of flowers, I will aid thee for half price.\" She smiles at you.
+\"I am sorry, 
+, but, unless this is an emergency, I would prefer to wait until my shop is open.\"
+emergency
+ and your companions
+She quickly examines you
+\"Thou art correct, 
+. This is a true emergency!\"
+\"I am sorry, but thy wounds are not mortal. Perhaps thou canst visit me when my shop is open.\"
+She smiles shyly.~~\"I very much love animals. When I was very young, I found an ailing dove that I was unable to nurse back to health. Since that time, I began to study the healing arts, so that I would be able to help other animals who might need healing.~~ \"Of course,\" she laughs, \"now that I have the skills, I use them to help people, too.\"
+\"Goodbye, 
+\"I thank thee for the bouquet!
+\"May health always follow thee!\"*
+
+--- 046D (39 unique strings) ---
+name
+job
+bye
+You see a monk wandering around apparently without direction.
+\"Greetings, 
+. May I help thee?\" asks Wayne.
+\"Thou mayest call me Brother Wayne, 
+\"My job? Well, I, er, do not truly have one at the moment.\" He looks down at his feet.
+at the moment
+\"Yes, I am... Well, I am lost, 
+. I am from the Abbey to the south of here... or to the north.... Mayhaps the northwest.\" He cradles his chin and looks up.~~\"Southeast?\"
+lost
+Abbey
+\"Well... I am sure it is not permanent.\" He blushes. \"I just need to get my bearings, that's all,\" he says unconvincingly.
+\"I am a monk of the Brotherhood of the Rose. I study geography and nature with a brother named Taylor.\"
+geography
+nature
+Taylor
+\"Well,\" he shrugs, \"I suppose I should have studied a little bit better.\" He smiles sheepishly.
+\"There are so many beautiful things to see in Britannia. Both animals and plants alike offer excitement to the observer.\"
+animals
+plants
+\"Well, I haven't actually seen him for some time. I assume he is still continuing his studies.\"
+\"Ah, yes, 
+, they are quite wondrous to see. I highly recommend to thee to always observe thy surroundings. Otherwise, 
+, thou wilt miss much in life: flowers, trees, birds... landmarks!\"
+flowers
+trees
+birds
+\"Ah, my least favorite subject. I find the trees much less interesting than the birds.\"
+\"My favorite type of animal! The birds are so free, able to fly vast distances. How I wish I could roam about the open skies... most especially considering my current situation. Thou canst see so much more from the air, I am certain of it!\"
+\"Very, very lovely plants. All the colors of the rainbow, and then some. One of the monks at the Abbey had a lovely flower garden. She may still tend it for all that I know, 
+She still does.
+\"Excellent, 
+. I am glad to hear it. 'Twould be a shame were Aimi to give that up for her other... pastime.\"
+other pastime
+\"Aimi also paints. Or rather, makes a bold attempt. I must, of course, commend her for her efforts.\"
+\"My favorite ones are the birds, especially the Golden-Cheeked Warbler. I love to follow and watch them. They do not seem to have a very good sense of direction, however.\" He sighs. \"But there is a great variety of species in this land.\"
+\"May thy good fortune guide thee down the trail of life.\"*
+
+--- 046E (42 unique strings) ---
+name
+job
+bye
+Brother Wayne
+You see a mage with a wild look in his eyes.
+You see a mage with a peaceful look in his eyes.
+\"Thou art talking to me?\" Garok asks, suspiciously.
+The mage stares at you a moment. \"Art thou from the Britannian Tax Council?\"
+\"Then I am nobody!\"*
+\"Good for thee. I would have had to kill thee. I am Garok Al-Mat. At least, the last time I looked in the mirror, that was who I was!\"
+\"I like thee already! I am Garok Al-Mat.\"
+Tax Council
+Garok looks as if he might suddenly tear out his hair, but he restrains himself.~~\"I am... -was-... a mage. Until it all went wrong. I am attempting to correct things.\"
+mage
+correct
+\"I am, and always have been, a mage. I was down here trying to locate what was amiss with the ethereal waves, but they seem to be all right now.\"
+ethereal waves
+Garok suddenly hits himself on the side of the head.~~ \"Get out! Damn thee! Out of there! No one invited thee into mine head! Away with thee!\"~~Garok hits himself again, shakes his head like a wet dog and makes a blubbering sound with his lips.~~Garok looks at you and smiles. \"That's better. Now, what was it... oh yes, I remember. Thou dost not believe I am a mage? Well, I am. I live in the mountains. But now I am lost in this wretched dungeon.\"
+thine head
+lost
+\"I usually live in the mountains, but I am lost in this dungeon.\"
+\"My magic is not working!
+\"My magic was not working!
+\"I attributed it to a disturbance in the ethereal waves! I had to find out what was happening. So here I am!\"
+\"There is a voice in mine head. Some demon of some sort. It is always congratulating me on things. And then other times it scolds me for things. I -know- it is not my conscience. I -know- what -he- sounds like! This is... someone else.\"
+voice
+\"I started hearing it around the time my magic began to fail. I do not find it amusing.\"
+\"My crystal ball told me that the source of my problems was in a dungeon, but it did not say which one. This was the first dungeon I had ever explored. I have not found anything that might help me, and I cannot find my way out!\"
+\"I came down here to find the source of my problems. My crystal ball told me that it was in a dungeon, but did not say which one. This is my first dungeon expedition, and now I am lost.\"
+wrong dungeon
+way out
+You explain to Garok that the Tetrahedron Generator is located in Dungeon Deceit.~~\"Hmmmm. Correct idea. Wrong dungeon.\"
+\"Dost thou know the way out?\"
+You tell Garok how to get out of the dungeon.~~\"Why, it sounds so simple! My marbles must be losing me!~~ \"I thank thee! Now I must be on my way. In fact, now that I know the way, I can use what little magic I have going for me to teleport. One must know the direction thou art travelling if one wishes to teleport!~~\"Say, for helping me, wouldst thou like to have some useless reagents? By useless, I mean they are useless to me. They are probably perfectly good reagents. Thou art welcome to have them. Dost thou want them?\"
+\"Good. One less thing I have to carry.\"
+\"Oh. Thou dost not have the room. Too bad.\"
+Garok shrugs. \"Suit thyself. Thanks anyway.\"
+You watch as Garok turns, intones a spell, and vanishes.*
+\"Oh. Thou art as lost as I, eh? Then we shall surely die in here.\"
+\"Grrrr! They are a thorn in my side! They have been seeking me for the past three years! I neglected to report a certain amount of income for reagent distribution, and somehow they found me out. By the way, if thou shouldst ever care to visit me in the mountains, I can sell thee reagents at reduced prices!\"
+\"Yes, I remember him! He is lost, too! Dost thou know if he found his way out? Give him my best when thou dost speak to him.\"
+\"Goodbye.\"*
+
+--- 046F (23 unique strings) ---
+name
+job
+bye
+You see a troll, sulking in his cell. As he breathes, you can see his ribs protrude out from under his hide.
+\"What you want?\" growls Gharl.
+\"I Gharl.\"
+He shakes his head. \"No job. Hunt. Eat. Sleep. Now,\" he gestures around the cell, \"no hunt, no eat, just sleep.\"
+hunt
+eat
+sleep
+\"I good hunter. Catch many things.\"
+\"I still do that,\" he says, shrugging. \"But not as good as when home.\"
+home
+He stares at you oddly and says, \"With other trolls, fleshface! Under bridges.\"
+\"No eat.\" He shakes his head. \"Not feed. Hate jailer!\" he growls.
+offer food
+\"You give me food?\" His face displays a mixture of surprise and hope. \"You give me food, I tell you secret. Yes?\"
+He quickly devours the food.~~\"I thank. You want secret?\"
+secret
+\"You taunt me. I not like you.\"*
+\"Go away.\"*
+\"Trolls have powerful ally. He warn us in head when trouble around corner.\"
+He grunts and turns away.*
+

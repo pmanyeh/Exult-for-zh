@@ -1,0 +1,188 @@
+import os
+
+folder = r'd:\git\exult-master\tools\ucxt\output\es_scripts'
+out_folder = r'd:\git\exult-master\tools\ucxt\output\zh_script\001'
+
+trans_0469 = {
+    '"name"': '"姓名"',
+    '"job"': '"職業"',
+    '"bye"': '"告辭"',
+    '"The man greets you with stern, suspicious eyes."': '"這名男子用嚴厲、懷疑的眼光跟你打招呼。"',
+    '"\\"What is thy business, "': '"「你有何貴幹， "',
+    '"\\"I am Sir Jeff, "': '"「我是 Jeff 爵士， "',
+    '"\\"I am the High Court official at the prison here in the Abbey.\\""': '"「我是這修道院裡監獄的高等法院官員。」"',
+    '"official"': '"官員"',
+    '"Abbey"': '"修道院"',
+    '"\\"I am the judiciary part of Britannia\'s government. It is my job to see that criminals are brought to justice.\\""': '"「我是 Britannia 政府司法部門的人。我的工作就是確保罪犯受到法律制裁。」"',
+    '"criminals"': '"罪犯"',
+    '"\\"We have two prisoners already, but there are many scoundrels who still roam free.\\""': '"「我們已經有兩名囚犯了，但還有很多無賴逍遙法外。」"',
+    '"prisoners"': '"囚犯"',
+    '"scoundrels"': '"無賴"',
+    '"\\"Thou, of course, hast never met them,\\" he says, his brow narrowing, \\"but we have a pirate, and,\\" he pauses, \\"a troll. If thou dost wish to see them, speak with Goth, the jailer.\\""': '"「你當然沒見過他們，」他眉頭深鎖，「但我們有一個海盜，還有，」他停頓了一下，「一個巨魔 (troll) 。如果你想見他們，去跟獄卒 Goth 談談。」"',
+    '"Goth"': '"Goth"',
+    '"\\"See for thyself, the posted bills for known villains are in the log book in the courtroom.\\""': '"「自己去看吧，關於已知惡棍的公告都在法庭的日誌本裡。」"',
+    '"\\"He has only been working here for a few weeks, but I already know he is not trustworthy. There is something obviously unscrupulous about him. He is not a friend of thine, is he?\\""': '"「他才在這裡工作了幾個星期，但我已經知道他不可靠。他身上明顯有一種肆無忌憚的氣質。他不是你的朋友，對吧？」"',
+    '"\\"I suspected as much.\\" He turns away from you.*"': '"「我就知道。」他轉身不看你。*"',
+    '"\\"No,\\" he says, watching you closely, \\"of course he is not.\\""': '"「不是，」他緊緊盯著你說，「他當然不是。」"',
+    '"\\"The monks live and study there, but they do little more than winemaking. Well, I know one of them tends the garden.\\""': '"「僧侶們在那裡生活和學習，但他們除了釀酒幾乎什麼都不做。嗯，我知道他們其中有一個人在打理花園。」"',
+    '"\\"Keep thine heart and mind on the straight path, "': '"「讓你的身心保持在正道上， "'
+}
+
+trans_046A = {
+    '"name"': '"姓名"',
+    '"job"': '"職業"',
+    '"bye"': '"告辭"',
+    '"You see an unkempt, yet dapper man talking to himself."': '"你看到一個不修邊幅卻又有些衣冠楚楚的男人在自言自語。"',
+    '"\\"Eh, wot\'s that? Oh, it\'s you, "': '"「呃，那是啥？喔，是你啊， "',
+    '"\\"M\'name\'s Tiery, "': '"「我叫 Tiery ， "',
+    '"\\"Eh, \'ow\'s that? Oh, m\'job. Why, Oi take good care o\' me buddies in the graveyard \'ere in Empath Abbey, Oi do.\\""': '"「呃，那又怎樣？喔，我的工作。哎呀，我好好照顧著這 Empath 修道院墓園裡的朋友們，真的。」"',
+    '"Empath Abbey"': '"Empath 修道院"',
+    '"buddies"': '"朋友們"',
+    '"\\"What do ye mean did Oi \'umpeth Abby. \'Course Oi didn\'t. Oi never went anywhere near Abby. \'Oo told ye that?\\""': '"「你說我『上了 Abby 』是什麼意思。我當然沒有。我從來沒靠近過 Abby 。誰告訴你的？」"',
+    '"\'Umpeth Abby"': '"上了 Abby"',
+    '"\\"Empath Abbey? Why, this \'ere\'s Empath Abbey, "': '"「Empath 修道院？哎呀，這裡就是 Empath 修道院啊， "',
+    '". Oi don\'t mean to pry, but if ye knowest not where ye be, why \'ave ye come \'ere?\\" He shakes his head. \\"It\'s just as Oi was tellin\' Darek the other day, `If ye never want to be lost,\' Oi said, `don\'t ever go nowheres.\'\\""': '。我無意打聽，但如果你不知道自己在哪裡，你幹嘛來這？」他搖搖頭。「就像我前幾天跟 Darek 說的，我說『如果你永遠不想迷路，就永遠哪裡都別去。』」',
+    '"\\"What wrong with the bodies? Oi don\' do nothing more than bury \'em! A fellow could get in lots o\' trouble spreading rumors like that.\\""': '"「屍體怎麼了？我只不過是把他們埋了而已！像那樣散播謠言會惹上大麻煩的。」"',
+    '"bury"': '"埋葬"',
+    '"bodies"': '"屍體"',
+    '"\\"Barry? Oh, \'im. Oi don\'t know what ye\'s talkin\' about. Oi never met Barry\'s woife! \'Twas just a lie they\'s spreadin\' about me.\\""': '"「Barry ？喔，他。我不知道你在說什麼。我從來沒見過 Barry 的老婆！那只是他們散播的關於我的謊言。」"',
+    '"Barry"': '"Barry"',
+    '"\\"Oi already told ye that\'s m\'job.\\""': '"「我已經告訴過你那是我的工作了。」"',
+    '"\\"That\'s right. M\'buddies! Oi bury \'em. It\'s m\'job.\\" He squints at you. \\"Unless, "': '"「沒錯。我的朋友們！我埋了他們。這是我的工作。」他瞇著眼看你。「除非， "',
+    '", yer askin\' about the people \'ere?\\""': '，你是在問這裡的人？」"',
+    '"people"': '"人"',
+    '"\\"No! Of course Oi don\'t use peep holes. What sort o\' question is that to ask a fellow, "': '"「沒有！我當然沒用偷窺孔。你怎麼會問這種問題， "',
+    '"peep hole"': '"偷窺孔"',
+    '"\\"Well, Oi only know a few people \'ere, but Oi\'ll try an\' \'elp as best as Oi am able. \'Oo do ye want to know about? My two best friends are Garth an\' Darek, but Oi often talk to Nina an\' Bart when Oi get the chance.~~"': '"「嗯，我只認識這裡的幾個人，但我會盡量幫忙。你想知道誰的事？我最好的兩個朋友是 Garth 和 Darek ，但我一有機會也常跟 Nina 和 Bart 聊天。~~',
+    '"\\"Recently, that Perrin fellow from across the way \'as been spendin\' some toime with me. \'E\'s a real nice chap. A l\'ttle brainy, perhaps, "': '"「最近，對面的那個叫 Perrin 的傢伙花了一些時間跟我在一起。他是個很好的人。或許有點聰明， "',
+    '", but Oi like \'im just the same. Anyone else ye\'d like to know about?\\""': '，但我還是很喜歡他。你還想知道其他誰的事嗎？」"',
+    '"\\"Well, that Perrin fellow\'d be a better one to ask than Oi\'d be, "': '"「嗯，問那個叫 Perrin 的傢伙會比問我好， "',
+    '". \'E knows a lot, that one does.\\""': '。他知道很多事，他真的懂。」"',
+    '"\\"All right then, glad Oi could introduce ye to a few o\' my friends.\\""': '"「好吧，很高興能介紹幾個朋友給你認識。」"',
+    '"\\"G\'day, "': '"「日安， "',
+    '". \'Ave a pleasant journey. Oi\'ll tell Malc \'allo for ye.\\"*"': '。祝你旅途愉快。我會替你向 Malc 問好的。」*"'
+}
+
+trans_046B = {
+    '"Avatar"': '"聖者"',
+    '"You see a large cyclops. It looks at you and blinks its eye in irritation."': '"你看到一個巨大的獨眼巨人。牠看著你，惱怒地眨著眼睛。"',
+    '"\\"What dost thou want?\\" says Iskander."': '"「你要做什麼？」 Iskander 說。"',
+    '"name"': '"姓名"',
+    '"job"': '"職業"',
+    '"bye"': '"告辭"',
+    '"Eiko and Amanda"': '"Eiko 和 Amanda"',
+    '"\\"I am of the clan Ironheart, the eleventh son of Valador. They call me Iskander.\\""': '"「我是鐵心氏族 (Ironheart) 的人，是 Valador 的第十一個兒子。他們叫我 Iskander 。」"',
+    '"\\"My cyclopean people say I am a hero. Many of you humans say I am a monster. No doubt, the truth is somewhere in between.\\""': '"「我的獨眼巨人族人說我是個英雄。你們許多人類說我是個怪物。毫無疑問，真相介於兩者之間。」"',
+    '"hero"': '"英雄"',
+    '"monster"': '"怪物"',
+    '"\\"One hundred and eighty-nine years ago I slew the seven Gazer Princes when they used their magic to steal the eye from the leader of our tribe, but such things are now ancient history and are no longer of any consequence.\\""': '"「一百八十九年前，當那七位凝視者 (Gazer) 王子用魔法偷走我們部落首領的眼睛時，我殺了他們，但這些事現在已經是古老的歷史，不再重要了。」"',
+    '"tribe"': '"部落"',
+    '"eye"': '"眼睛"',
+    '"ancient history"': '"古老的歷史"',
+    '"\\"On numerous occasions I have caused the unpleasant end of human interlopers who mistakenly believed our race was fit for nothing save to be plundered. But I have no quarrel with thee.\\" He pauses to scrutinize you. \\"For the moment.\\""': '"「在無數次的情況下，我讓那些誤以為我們種族只配被掠奪的人類入侵者落得悲慘的下場。但我跟你無冤無仇。」他停下來仔細端詳你。「目前是這樣。」"',
+    '"thee"': '"你"',
+    '"\\"Thou dost know my name, but I still do not know the name of thee. I like to know to whom I am speaking. What is thy name?\\""': '"「你知道我的名字，但我還不知道你的名字。我喜歡知道我在跟誰說話。你的名字是什麼？」"',
+    '"\\"I have heard of thee, Avatar. Thou hast come into conflict against our kind before, I know. But I have also heard the tales of thine heroic and spiritual quests and I believe thee to be a just and noble man. Thou mayest call me friend.\\""': '"「我聽過你的事，聖者。我知道你以前曾與我們同類發生過衝突。但我也聽過關於你的英雄事蹟和精神探索的故事，我相信你是一個公正高尚的人。你可以稱我為朋友。」"',
+    '"\\"A pleasure to meet thee, "': '"「很高興認識你， "',
+    '"\\"Those of my tribe are a quiet people. They farm the rocky soil, but are also very good tool makers. I was sent to find them a new homeland.\\""': '"「我部落的人是安靜的人民。他們在岩石土壤上耕作，同時也是非常好的工具製造者。我被派去為他們尋找新的家園。」"',
+    '"homeland"': '"家園"',
+    '"\\"The eye of a cyclops is considered quite a delicacy to some of the less genteel races of Britannia. Twice have foul creatures tried to take mine, and twice have I dined on their hearts.\\""': '"「獨眼巨人的眼睛對 Britannia 一些不那麼文明的種族來說，被視為一種珍饈。曾經有兩次邪惡的生物試圖奪取我的眼睛，而我也兩次吃了他們的心臟。」"',
+    '"\\"Then they called me \'Wonder Boy\'. For nearly a hundred years that was the nickname by which I was known. I was most grateful when they stopped doing that!\\""': '"「然後他們叫我『神奇男孩 (Wonder Boy) 』。近一百年來，那都是我的綽號。當他們不再那麼叫我時，我非常感激！」"',
+    '"Wonder Boy"': '"神奇男孩"',
+    '"Iskander squints his eye at you. \\"Do not start that again!\\""': '"Iskander 瞇著眼睛看你。「別再提那個了！」"',
+    '"\\"My village lies a great many days\' journey away. The people there desire a place where they can live in peace with their surroundings. I have not found such a place yet, but I will search everywhere until I do.\\""': '"「我的村莊在很多天的路程之外。那裡的人們渴望一個能與周遭環境和平共處的地方。我還沒找到這樣的地方，但我會到處尋找，直到我找到為止。」"',
+    '"peace"': '"和平"',
+    '"everywhere"': '"到處"',
+    '"\\"While I am two hundred and six, not long in years for one of my race, I already have the heart of an old man. A hero\'s adventures have no more attraction for me. I long to settle down with my people and spend my days tending the fields or in my workshop building things.\\""': '"「雖然我兩百零六歲了，這對我們種族來說並不算老，但我已經有一顆老人的心。英雄的冒險對我已經沒有吸引力了。我渴望和我的族人安定下來，在田裡耕種，或在我的工坊裡製作東西度日。」"',
+    '"\\"My searches have brought me to this dreadful place. I incorrectly surmised that since magic does not work it would be relatively safe. It is here that I have been perplexed by a terrible riddle.\\""': '"「我的尋找把我帶到了這個可怕的地方。我錯誤地以為既然魔法失效了，這裡會相對安全。但在這裡，我被一個可怕的謎團困惑住了。」"',
+    '"magic"': '"魔法"',
+    '"riddle"': '"謎團"',
+    '"\\"Standing at the doorway of one room in this place, I saw an enormous image of a tetrahedron. As I tried to near it a wave of amnesia passed over me. Once more I was standing in the doorway. I could remember nothing more.\\""': '"「站在這個地方其中一個房間的門口，我看到了一個巨大的四面體影像。當我試圖靠近它時，一陣失憶的感覺襲來。我又回到了門口。我什麼都不記得了。」"',
+    '"tetrahedron"': '"四面體"',
+    '"amnesia"': '"失憶"',
+    '"\\"I believe that is word you humans use to describe a polyhedron with four faces.\\""': '"「我相信那是你們人類用來描述有四個面的多面體的詞。」"',
+    '"\\"This same wave of amnesia struck me every time I tried to approach the tetrahedron. I do not know what sort of foul magic this is.\\""': '"「每次我試圖靠近四面體時，這種失憶的感覺都會襲來。我不知道這是什麼邪惡的魔法。」"',
+    '"foul magic"': '"邪惡的魔法"',
+    '"\\"Now that thou hast destroyed the mysterious tetrahedron I will complete mine exploration of this place. I have a feeling that the homeland I seek is very far away but one never knows where the next clue will be that shall lead me to it.\\""': '"「既然你已經摧毀了神秘的四面體，我將完成我對這個地方的探索。我有一種感覺，我尋找的家園非常遙遠，但誰知道下一個能指引我找到它的線索會在哪裡呢。」"',
+    '"\\"Perhaps thou shalt be able to solve this mystery. I have been unable to as of yet. But I shall remain here until its secret is revealed.\\""': '"「或許你能解開這個謎團。我到目前為止都無法解開。但我會留在這裡，直到它的秘密被揭開。」"',
+    '"\\"I warn thee that this place is not safe. It holds unknown perils. Perhaps thou wouldst do better to leave this place.\\""': '"「我警告你這個地方不安全。它潛藏著未知的危險。或許你離開這裡會比較好。」"',
+    '"\\"Surely, thou dost know that magic no longer functions as it once did. There are those who say that the age of magic is over. If that is so, then I fear that there may be no place left in this world for my people.\\""': '"「你肯定知道魔法不再像以前那樣有效了。有人說魔法的時代已經結束了。如果是這樣，我擔心這個世界上可能沒有我族人的容身之處了。」"',
+    '"\\"Of course, now that thou hast destroyed the tetrahedron all magic has been restored. I congratulate thee for thine heroic deed!\\""': '"「當然，既然你已經摧毀了四面體，所有的魔法都已經恢復了。我祝賀你的英雄事蹟！」"',
+    '"\\"Yes, I have heard those names before. Those are the names of two warriors who have been after me for revenge. They say I killed their father and I must admit to thee that it is true. I did kill their father.\\""': '"「是的，我以前聽過這些名字。那是兩名一直追著我尋仇的戰士的名字。她們說我殺了她們的父親，我必須向你承認這是真的。我確實殺了她們的父親。」"',
+    '"revenge"': '"復仇"',
+    '"killed their father"': '"殺了她們的父親"',
+    '"\\"I know that Eiko and Amanda have been after me for some time looking for vengeance. I say let them come. I will not stand still for them nor shall I run from them. When they find me they are welcome to try and take their justice from me. If they win then it was meant to be. If they do not I will have no regrets.\\""': '"「我知道 Eiko 和 Amanda 一直在追捕我尋求復仇。我說讓她們來吧。我不會站在原地等她們，也不會逃避她們。當她們找到我時，歡迎她們試著從我這裡討回她們的正義。如果她們贏了，那也是命中注定。如果她們輸了，我也沒有遺憾。」"',
+    '"\\"Their father\'s name was Kalideth. He suffered from the mage madness. His attack on me was unprovoked. For some reason he blamed the failure of magic upon my people. His own magics were still quite potent and I barely survived the encounter. I killed Kalideth in self-defense, but I did not want to kill him. I wish there to still be some magic left in this world and I mourned his passing as much as anyone.\\""': '"「她們父親的名字是 Kalideth 。他患有法師的瘋狂症。他對我的攻擊是毫無理由的。出於某種原因，他把我族人歸咎於魔法失效的原因。他自己的魔法依然相當強大，我勉強在戰鬥中活了下來。我出於自衛殺了 Kalideth ，但我並不想殺他。我希望這個世界上還留存一些魔法，我和其他人一樣哀悼他的離世。」"',
+    '"\\"Farewell, Avatar.\\"*"': '"「再見，聖者。」*"',
+    '"\\"Farewell, "': '"「再見， "',
+    '"\\"Farewell.\\"*"': '"「再見。」*"'
+}
+
+trans_046C = {
+    '"name"': '"姓名"',
+    '"job"': '"職業"',
+    '"bye"': '"告辭"',
+    '"The woman greets you with shining eyes."': '"這個女人閃著明亮的眼睛跟你打招呼。"',
+    '"\\"Hello, "': '"「哈囉， "',
+    '",\\" says Reyna."': '"，」 Reyna 說。"',
+    '"cemetery"': '"墓園"',
+    '"brought flowers"': '"帶來了花"',
+    '"heal"': '"治療"',
+    '"\\"I am Reyna,\\" she says, brushing the hair out of her face."': '"「我是 Reyna ，」她說著，把頭髮從臉上撥開。"',
+    '"\\"I am a healer. I have chosen to set up shop here near the forest.\\""': '"「我是一名治療師。我選擇在靠近森林的這裡開店。」"',
+    '"forest"': '"森林"',
+    '"animals"': '"動物"',
+    '"\\"I wanted to live and work here because the land is very beautiful. I have found many things to do and see. Unfortunately, the forest is so spread out that I have yet to meet many of the others who live in this area. I do know that the Abbey is just across the way from mine house.~~\\"And somewhere nearby is a scholar.\\" She appears thoughtful for a moment. \\"Also, I believe there is a prison just east of the Abbey."': '"「我想在這裡生活和工作，因為這片土地非常美麗。我發現了很多可以做和可以看的事物。不幸的是，森林太廣闊了，我還沒有遇見許多住在這裡的其他人。我確實知道修道院就在我家對面。~~而且附近某處有一位學者。」她若有所思了一會兒。「另外，我相信在修道院東邊有一座監獄。」"',
+    '"Abbey"': '"修道院"',
+    '"scholar"': '"學者"',
+    '"prison"': '"監獄"',
+    '"\\"I\'ve never actually seen it,\\" she laughs, \\"but rumor has it that the cells are located right next to the court, for quick, easy imprisonment after the trial.\\""': '"「我從來沒真的看過它，」她笑著說，「但傳聞說牢房就在法庭旁邊，為了在審判後能快速、輕易地監禁。」"',
+    '"\\"From Aimi I have heard that he is brilliant, and... also a bit overzealous to instruct those interested in increasing their knowledge.\\""': '"「我從 Aimi 那裡聽說他很聰明，而且……對於教導那些有興趣增加知識的人也有一點過於熱心。」"',
+    '"Aimi"': '"Aimi"',
+    '"\\"She is the monk who tends the garden at the Abbey.\\""': '"「她是在修道院打理花園的僧侶。」"',
+    '"\\"She is one of the monks who lives at the Abbey. At this time, she is the only other person I have actually met here in the forest.\\""': '"「她是住在修道院的僧侶之一。目前，她是我在這片森林裡唯一真正見過的其他人。」"',
+    '"\\"That is how this area -- Empath Abbey -- got its name, from the monks who live at the abbey of the Brotherhood of the Rose. They are said to make delicious wine. One of the monks cares for a beautiful garden in her spare time. In fact, I often buy flowers from her.~~ But,\\" she grins, \\"as for the other monks, all that I\\tever see them do is make wine and wander the countryside.\\""': '"「這就是這個區域——Empath 修道院——名字的由來，得名於住在玫瑰兄弟會修道院裡的僧侶。據說他們釀的酒很美味。其中一位僧侶在閒暇時照料著一個美麗的花園。事實上，我經常向她買花。~~但是，」她咧嘴一笑，「至於其他的僧侶，我只看過他們釀酒和在鄉間閒晃。」"',
+    '"flowers"': '"花"',
+    '"others"': '"其他人"',
+    '"\\"Aimi is the only one I have met, but I know there are one or two others who make wine there.\\""': '"「Aimi 是我唯一見過的，但我知道那裡還有一兩個人在釀酒。」"',
+    '"\\"Yes, I get them for my mother.\\""': '"「是的，我買來給我的母親。」"',
+    '"mother"': '"母親"',
+    '"I realize there are already \\r\\n\\t\\t\\t\\t\\t\\tvery beautiful flowers here, \\r\\n\\t\\t\\t\\t\\t\\tbut there can never be enough \\r\\n\\t\\t\\t\\t\\t\\tto demonstrate how much she is \\r\\n\\t\\t\\t\\t\\t\\tmissed. "': '"我知道這裡已經有 \\r\\n\\t\\t\\t\\t\\t\\t非常美麗的花了， \\r\\n\\t\\t\\t\\t\\t\\t但再多的花也不足以 \\r\\n\\t\\t\\t\\t\\t\\t表達我有多麼 \\r\\n\\t\\t\\t\\t\\t\\t想念她。 "',
+    '"She looks down at her feet, and then back up at you. It is obvious she is fighting an urge to cry.~~ \\"Several months ago, my mother passed away in her home town. She was born here in the forests, and had asked to be buried here, near me. Every morning I come out here to visit her and set flowers by her grave.~~ \\"But,\\" a lone tear escapes and trickles down her cheek, \\"I am the only member of our family who lives nearby. No one else is able to visit or leave flowers very often.~~\\"Her grave looks so bare sometimes.\\" She looks off into the horizon and sighs. \\""': '"她看著自己的腳，然後抬頭看你。很明顯她正在強忍著淚水。~~「幾個月前，我母親在她的家鄉過世了。她出生在這片森林裡，並要求被埋葬在這裡，靠近我的地方。每天早上我都會來這裡看她，並在她的墓前放上花。~~但，」一滴眼淚從她的臉頰滑落，「我是我們家唯一住在附近的人。沒有其他人能經常來探望或留下花朵。~~有時她的墓看起來好空蕩。」她望向地平線，嘆了口氣。「"',
+    '"It would be nice\\tif there were some way to have more flowers brought to her.\\"~~She quickly turns and looks at you.~~\\"I am terribly sorry for rambling on like that. Please excuse me, "': '"如果有辦法能給她帶來更多的花就好了。」~~她很快轉過身看著你。~~「非常抱歉我像這樣胡言亂語。請原諒我， "',
+    '"have flowers"': '"有花"',
+    '"Her eyes light up as she sees the bouquet of flowers.~~ \\"They are lovely! Thou art too kind, "': '"當她看到那束花時，眼睛亮了起來。~~「它們好漂亮！你太好心了， "',
+    '", to bring flowers for my mother! I cannot wait to set them by her grave.\\""': '，為我母親帶來了花！我等不及把它們放在她的墓前了。」"',
+    '"\\"For thy kindly gift of flowers, I will aid thee for half price.\\" She smiles at you."': '"「為了你贈花的好意，我會以半價為你提供治療。」她對你微笑。"',
+    '"\\"I am sorry, "': '"「抱歉， "',
+    '", but, unless this is an emergency, I would prefer to wait until my shop is open.\\""': '，但除非這是緊急情況，否則我比較希望等到我的店開門。」"',
+    '"emergency"': '"緊急情況"',
+    '" and your companions"': '" 和你的同伴"',
+    '"She quickly examines you"': '"她快速檢查了你"',
+    '"\\"Thou art correct, "': '"「你說得對， "',
+    '". This is a true emergency!\\""': '。這的確是緊急情況！」"',
+    '"\\"I am sorry, but thy wounds are not mortal. Perhaps thou canst visit me when my shop is open.\\""': '"「我很抱歉，但你的傷並不致命。或許你可以在我的店開門時來拜訪我。」"',
+    '"She smiles shyly.~~\\"I very much love animals. When I was very young, I found an ailing dove that I was unable to nurse back to health. Since that time, I began to study the healing arts, so that I would be able to help other animals who might need healing.~~ \\"Of course,\\" she laughs, \\"now that I have the skills, I use them to help people, too.\\""': '"她害羞地笑了。~~「我非常喜歡動物。當我還很小的時候，我發現了一隻生病的鴿子，卻無法把它治好。從那時起，我開始學習治療的藝術，這樣我就能幫助其他可能需要治療的動物了。~~當然，」她笑了，「既然我有了這些技能，我也用它們來幫助人。」"',
+    '"\\"Goodbye, "': '"「再見， "',
+    '"\\"I thank thee for the bouquet!"': '"「我感謝你送的花！"',
+    '"\\"May health always follow thee!\\"*"': '"「願健康永遠伴隨著你！」*"'
+}
+
+all_trans = {
+    '0469': trans_0469,
+    '046A': trans_046A,
+    '046B': trans_046B,
+    '046C': trans_046C
+}
+
+for fid, rep in all_trans.items():
+    src_path = os.path.join(folder, fid + '.es')
+    dest_path = os.path.join(out_folder, fid + '_zh.es')
+    if os.path.exists(src_path):
+        with open(src_path, 'r', encoding='latin-1') as f:
+            content = f.read()
+        for k, v in rep.items():
+            content = content.replace(k, v)
+        with open(dest_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f'Translated {fid}')

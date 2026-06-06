@@ -1,0 +1,20 @@
+04DC_zh.es:
+  message("「我是 Sullivan ，");
+04DD_zh.es:
+  message("「你可以叫我…… Wench (侍女) 。」");
+04DE_zh.es:
+  message("「 Glenno 為您服務！」");
+04DF_zh.es:
+  message("「我在這裡使用的名字是 Martine 。你懂的……」她對你眨眼。");
+04E0_zh.es:
+  message("「在這一帶，人們叫我 Roberto 。」");
+04E1_zh.es:
+  message("「Sintag ，」男人咕噥著。");
+04E2_zh.es:
+  message("「我是 Blacktooth (黑牙) 。看？」海盜笑了，露出他的牙齒。");
+04E3_zh.es:
+  message("「我的名字是 Mole ，正是！別問我是怎麼得到這個名字的。說來話長。」");
+04E4_zh.es:
+  message("「我是 Lucky (幸運) ……在所有事情上。」");
+04E5_zh.es:
+  message("「為您服務的是第四代 Budo ！今天天氣真好，不是嗎？」");

@@ -1,0 +1,97 @@
+import os
+
+filepath = r'd:\git\exult-master\tools\ucxt\output\zh_script\005\045A_zh.es'
+
+with open(filepath, 'r', encoding='utf-8') as f:
+    content = f.read()
+
+replacements = {
+    '"Owen will not interrupt his participation in The Fellowship meeting to talk with you.*"': '"Owen 不會中斷他參與兄弟會的集會來和你說話。*"',
+    '"\\"I am late for The Fellowship Meeting! I cannot speak with thee now!\\"*"': '"「我參加兄弟會集會遲到了！我現在不能和你說話！」*"',
+    '"ship"': '"船"',
+    '"statue is cancelled"': '"雕像被取消了"',
+    '"You see a young man dressed in an expensive tunic. He is very serious."': '"你看到一位穿著昂貴外衣的年輕男子。他非常嚴肅。"',
+    '"Owen looks at you and sniffs. \\"It would appear thou dost wish to speak with me again.\\""': '"Owen 看著你並哼了一聲。「看來你又想和我說話了。」"',
+    '"\\"My name, "': '"「我的名字是，"',
+    '", is Owen. It is a name I suspect thou shalt be hearing more of in the future.\\""': '", Owen。我猜你未來會更常聽到這個名字。」"',
+    '"He looks you in the eye and speaks without the slightest trace of modesty. \\"I am,\\" he says, \\"the greatest shipwright in the history of Minoc. I am the greatest shipwright who has ever lived!\\""': '"他直視你的眼睛，毫無謙虛地說。「我是，」他說，「Minoc 歷史上最偉大的造船匠。我是有史以來最偉大的造船匠！」"',
+    '["greatest", "Minoc", "buy"]': '["最偉大", "Minoc", "購買"]',
+    '"greatest"': '"最偉大"',
+    '"buy"': '"購買"',
+    '"\\"After years of breaking my back trying to make something of this ungrateful little town, I\'m giving up. I swear I will never build another ship as long as I live. That will teach them! No matter how they may beg or plead, I will not do it.\\""': '"「在辛勞多年試圖為這個忘恩負義的小鎮做點什麼之後，我放棄了。我發誓我這輩子再也不會造船了。這會給他們一個教訓！不管他們怎麼乞求或懇求，我都不會做的。」"',
+    '"ungrateful"': '"忘恩負義"',
+    '"\\"Well, I shall certainly forgive thy poor manners for I know how privileged thou must feel for meeting me, but thou must know that two people have just been discovered in the sawmill, having been murdered!\\""': '"「好吧，我當然會原諒你粗劣的舉止，因為我知道能見到我你一定覺得很榮幸。但你必須知道，剛才在鋸木廠發現了兩個人，他們被謀殺了！」"',
+    '"murders"': '"謀殺"',
+    '"\\"And dost thou know how I became that way? I shall tell thee! I started to hear a voice in mine head! Oh, I know that thou shalt think me mad...\\""': '"「你知道我是怎麼變成這樣的嗎？我告訴你！我開始聽到腦海裡有一個聲音！喔，我知道你會覺得我瘋了……」"',
+    '["mad", "voices"]': '["瘋了", "聲音"]',
+    '"mad"': '"瘋了"',
+    '"voices"': '"聲音"',
+    '"\\"These were not the voices of anyone I have ever known. But still these voices had a profound effect on me...\\""': '"「這些聲音不是我認識的任何人的。但這些聲音仍然對我有深遠的影響……」"',
+    '"\\"After searching for a meaning to this voice - which proved difficult, for how dost thou tell someone, especially a stranger, that thou art hearing a voice in thine head - I came across The Fellowship. They taught me what the voice was.\\""': '"「在尋找這聲音的意義時——這很困難，因為你怎麼能告訴別人，尤其是一個陌生人，你腦海裡聽到聲音呢——我遇見了兄弟會。他們教導我那聲音是什麼。」"',
+    '["voice", "Fellowship"]': '["單一聲音", "兄弟會"]',
+    '"voice"': '"單一聲音"',
+    '"\\"This was the voice of reason within mine own mind which sought to guide my life in its proper direction. The Fellowship taught me how to trust this voice and heed what it says. And thou canst see the results in mine own life! I have mastered my craft and advanced the techniques of ship-building through the methods I have devised.\\""': '"「這是我腦海中的理智之聲，試圖引導我的人生走向正確的方向。兄弟會教我如何信任這個聲音並傾聽它所說的。你可以在我的生活中看到結果！我掌握了我的技藝，並透過我設計的方法推進了造船技術。」"',
+    '"methods"': '"方法"',
+    '"Owen looks at you and suddenly seems flustered. \\"Uh, I have no ships for sale presently. I have been working on a few improvements. But if thou wouldst, thou couldst commission me to build one for thee. A deed to one of the ships I build costs 1000 gold coins. Dost thou wish to buy one?\\""': '"Owen 看著你，突然顯得有些慌亂。「呃，我目前沒有船可以賣。我正在進行一些改進。但如果你願意，你可以委託我為你建造一艘。我建造的一艘船的船契要價 1000 枚金幣。你想買一艘嗎？」"',
+    '"\\""\'Tis money well spent, thou shalt see! I shall begin work immediately. I will be building based upon some of my more recent designs. I shall give thee thy ship\'s deed in advance\\""': '"「你會發現這筆錢花得很值得的！我會立刻開始工作。我將根據我最近的一些設計來建造。我會提前把船契給你」"',
+    '"\\"It will be called the Excellencia.\\""': '"「它將被命名為 Excellencia。」"',
+    '"\\"I would give thee thy deed but thou art carrying too much.\\""': '"「我很想把船契給你，但你帶了太多東西了。」"',
+    '"\\"Take thy gold back! I cannot in good conscious keep it!\\""': '"「把你的金幣拿回去吧！我不能昧著良心留下它！」"',
+    '"\\"I would give thee thy gold back but I seem to have misplaced it.\\""': '"「我很想把金幣還給你，但我似乎忘記放哪了。」"',
+    '"\\"I am dreadfully sorry,\\" he sniffs, \\"but thou dost not have enough gold.\\""': '"「我非常抱歉，」他哼了一聲說，「但你沒有足夠的金幣。」"',
+    '"\\"Art thou certain? Thou shalt find no better ships in all of Britannia! Very well, then!\\""': '"「你確定嗎？在整個不列顛尼亞你絕對找不到更好的船了！那好吧！」"',
+    '"\\"Wouldst thou perhaps be interested in purchasing a fine sextant? I have one which I would be willing to part with for a fine bargain. The price is 150 gold. Art thou interested?\\""': '"「你也許有興趣購買一個精良的六分儀？我有一個願意以好價格割愛。價格是 150 枚金幣。你有興趣嗎？」"',
+    '"\\"Excellent! I knew that thou wouldst appreciate owning the sextant of Owen the shipwright. Thou art a fine person, able to discern those quality items which are worth a bit of extra coin.\\""': '"「太好了！我就知道你會欣賞擁有造船匠 Owen 的六分儀。你是個了不起的人，能夠辨別那些值得多花一點錢的優質物品。」"',
+    '"\\"Thou knave! To get mine hopes up so, only to cruelly dash them. Thou dost not possess enough gold to buy my treasure. If thou dost return with more coinage, PERHAPS I will allow thee to bid on it again.\\""': '"「你這無賴！讓我滿懷希望，卻又殘忍地打破它們。你沒有足夠的金幣來買我的寶物。如果你帶著更多錢回來，『也許』我會讓你再次出價。」"',
+    '"\\"Thou dost not have enough strength to add my treasure to thy pack. Thou must dispose of some of thy worthless dross to make room for this beauty. I will await thy return to purchase the sextant at this fine, low price.\\""': '"「你沒有足夠的力氣把我的寶物放進背包。你必須丟掉一些毫無價值的垃圾，騰出空間來裝這個美麗的東西。我會等你回來以這個實惠的低價購買六分儀。」"',
+    '"\\"Hmph. Well, let it be known that thou didst pass up the chance to buy the sextant of the famous Owen the shipwright, and thou shalt be known for the knave and simpleton that thou art.\\""': '"「哼。好吧，你要知道你錯過了購買著名造船匠 Owen 六分儀的機會，你將會以你的無賴和愚蠢而聞名。」"',
+    '"\\"Mine establishment is presently closed. I do not wish to discuss business at this time.\\""': '"「我的店鋪目前已經打烊了。我現在不想談生意。」"',
+    '"\\"I have even written a book describing the advances I have made in the methods of ship-building. It is very advanced but I have tried to write it so that it is accessible to the layman. Wouldst thou be interested in purchasing a copy?\\""': '"「我甚至寫了一本書，描述我在造船方法上取得的進展。這非常高深，但我試圖寫得讓外行人也能看懂。你有興趣買一本嗎？」"',
+    '"\\"Yes, of course thou wouldst.\\""': '"「是的，你當然有。」"',
+    '"\\"Here it is.\\""': '"「拿去吧。」"',
+    '"\\"Thou art carrying too much to take thy book.\\""': '"「你帶太多東西了，拿不動你的書。」"',
+    '"\\"I shall return thy money.\\""': '"「我會把錢退給你。」"',
+    '"\\"I wouldst give thee back thy gold but thou cannot take it.\\""': '"「我很想把金幣退給你，但你拿不了。」"',
+    '"\\"Thou dost not have enough money!\\""': '"「你沒有足夠的錢！」"',
+    '"\\"Hmph! I suppose that it would be beyond thy comprehension, anyway.\\""': '"「哼！我想這反正也超出了你的理解範圍。」"',
+    '"\\"I can well understand thine impatience but I have just begun work on it. It shall be ready when I am finished with it. Now, until such time, I would appreciate it if thou wouldst not waste my valuable time.\\"*"': '"「我很能理解你的不耐煩，但我才剛開始工作。等我完成它時，它自然就準備好了。現在，在此之前，如果你能不浪費我寶貴的時間，我會很感激的。」*"',
+    '"\\"I cannot build thee a ship as I suspect we both know.\\""': '"「我無法為你造一艘船，我想我們都知道這點。」"',
+    '"\\"Nor can I take thy money for one. Here, I shall return it to thee.\\""': '"「我也不能收你買船的錢。來，我還給你。」"',
+    '"\\"Oh, my, thou art too encumbered to take back thy 1000 gold coins! Come back when thine hands are less full!\\""': '"「哦，天啊，你負擔太重了，拿不回你的 1000 枚金幣！等你手比較空的時候再來吧！」"',
+    '"\\"I cannot help thee with that.\\""': '"「我幫不了你。」"',
+    '"\\"Despite all this business with murders, I must confess that I love it here. This is the place where I was born. They love me. They are going to be building a monument here in mine honor. I suppose I have been worthy of it, but still I can\'t help but be flattered.\\""': '"「儘管發生了這些謀殺案，我必須承認我很喜歡這裡。這是我出生的地方。他們愛我。他們將要為我建立一座紀念碑。我想我是受之無愧的，但我還是忍不住感到受寵若驚。」"',
+    '["murders", "monument"]': '["謀殺", "紀念碑"]',
+    '"monument"': '"紀念碑"',
+    '"\\"Apparently, building the greatest ships to ever set sail in history and all that that has done for Minoc are no longer enough! No! Thanks to that pompous idiot of a mayor I am denied the rightful tribute of which I have proven myself more than worthy. Design flaws, bah! How many ships has Mayor Burnside built in his miserable little life?!\\""': '"「顯然，建造史上最偉大的航行船隻以及為 Minoc 所做的一切已經不夠了！不！多虧了那個自大白痴的鎮長，我被剝奪了理應屬於我的致敬，我早就證明我完全受之無愧。設計缺陷，呸！Burnside 鎮長在他那悲慘的一生中到底造過幾艘船？！」"',
+    '"there were deaths"': '"那裡有人死亡"',
+    '"\\"That is right. The sawmill is located southeast of town. Almost everyone in town is down there. Thou shouldst probably go down there if thou dost want to find out more. I abhor violence.\\""': '"「沒錯。鋸木廠位於鎮的東南方。鎮上幾乎每個人都在那裡。如果你想查明更多，你也許應該去那裡。我痛恨暴力。」"',
+    '"He shakes his head slowly. \\"They are going to be unveiling my monument sometime in the near future. Dost thou think that talk of these events will keep people away from the ceremony? That would be a tragedy!\\""': '"他緩緩搖頭。「他們不久後就要為我的紀念碑揭幕了。你認為談論這些事件會讓人們不參加典禮嗎？那會是個悲劇！」"',
+    '"You tell him about the many innocent civilians who lost their lives on the ship he built. Owen shakes his head slowly. \\"I do not know. I have no idea how it could have happened. It is difficult to conceive of the pain such great loss of life brings into this world. But I did my best when I built those ships. I did not want those men to die. Thou must believe me.\\""': '"你告訴他許多無辜平民在他建造的船上喪生。Owen 緩緩搖頭。「我不知道。我完全不知道這怎麼會發生。很難想像如此巨大的生命損失給這個世界帶來的痛苦。但在建造那些船時，我已經盡力了。我不想那些人死。你必須相信我。」"',
+    '"Owen appears distressed. \\"The tribute to me is now no more than a tombstone.\\""': '"Owen 顯得非常痛苦。「給我的致敬現在不過是一塊墓碑。」"',
+    '"tribute"': '"致敬"',
+    '"\\"The changes it has made in my personal life have helped me tremendously.\\""': '"「它在我的私生活中所帶來的改變，對我有極大的幫助。」"',
+    '"personal life"': '"私生活"',
+    '"\\"Thou canst ask Elynor all about it unless she is not speaking to thee either. Perhaps the details of thy personal life will amuse her more than do mine.\\""': '"「除非她也不跟你說話，否則你可以去問 Elynor。也許你的私生活細節會比我的更能娛樂她。」"',
+    '"\\"My friend, there was a time when I thought that my life was at its end. I felt as though I had been swallowed into a cold, deep hole of darkness.\\""': '"「我的朋友，曾幾何時我以為我的生命已經到了盡頭。我覺得自己彷彿被吞噬進一個冰冷、深邃的黑暗洞穴中。」"',
+    '"darkness"': '"黑暗"',
+    '"\\"My very soul felt as though it had sunk into a place into which no light could enter... Soon after I discovered The Fellowship. The difference that it made in my life was miraculous.\\""': '"「我的靈魂彷彿沉入了一個光芒無法進入的地方……不久之後我發現了兄弟會。它在我生命中造成的改變是奇蹟般的。」"',
+    '"\\"I have been having a difficult time lately trying to speak to Elynor. It seems that she has no time for me. Back when I was making preparations for the monument she was always stopping by and willing to have words with me.\\""': '"「最近我很難和 Elynor 說上話。她似乎沒時間理我。以前當我為紀念碑做準備時，她總是順道拜訪，並且願意跟我聊聊。」"',
+    '"\\"Oh, thou canst ask anyone in town about it. They all know.\\""': '"「喔，你可以去問鎮上的任何人。他們全都知道。」"',
+    '"\\"I know! My work will stand as my monument! My name will endure long after any statue has worn away to dust! People will remember -me-, I promise thee that!\\""': '"「我知道！我的作品將成為我的紀念碑！我的名字將在任何雕像化為塵土之後長久留存！人們會記住 -我-，我向你保證！」"',
+    '"And, with a dramatic flourish, Owen produces a dagger. Before you can stop him, he plunges it into his chest. He coughs loudly as blood spurts from his mouth, soaking his fine linen tunic in wine-red guilt. After a moment, it is all over. Owen, the greatest shipwright who ever lived, is dead.*"': '"接著，帶著戲劇性的浮誇，Owen 拿出一把匕首。在你來不及阻止他之前，他將匕首刺入了自己的胸膛。他大聲咳嗽，鮮血從他嘴裡噴出，將他精緻的亞麻外衣染成了酒紅色的罪惡。片刻之後，一切都結束了。Owen，有史以來最偉大的造船匠，死了。*"',
+    '"\\"The Crown Jewel was in town and left early this morning. It was scheduled to sail for Paws.\\""': '"「Crown Jewel 曾在鎮上，並於今天清晨離開了。它預定航向 Paws。」"',
+    '"\\"I have heard nothing more of the Crown Jewel since we last spoke of it, "': '"「自從我們上次談到 Crown Jewel 以來，我再也沒聽過它的消息，"',
+    '".\\""': '"。\\""',
+    '"\\"I saw a man with a hook for a hand wandering around town last night.\\""': '"「我昨晚看到一個手是鐵鉤的男人在鎮上徘徊。」"',
+    '"\\"I have heard nothing more of this man Hook since we last spoke of him, "': '"「自從我們上次談到那個叫 Hook 的男人以來，我再也沒聽過他的消息，"',
+    '"\\"Tired of benefitting from my presence? Very well. I shall see thee again, I hope!\\"*"': '"「受惠於我的存在感到厭倦了嗎？很好。我希望還能再見到你！」*"',
+    '"\\"Be on thy way, then. Time is fleeting, as is fame.\\"*"': '"「那就上路吧。時光飛逝，名聲亦然。」*"'
+}
+
+for eng, chi in replacements.items():
+    content = content.replace(eng, chi)
+
+with open(filepath, 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print("Translation applied.")
