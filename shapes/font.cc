@@ -224,7 +224,8 @@ int Font::paint_text_box(
 		} else {
 			width = get_text_width(text, static_cast<int>(ewrd - text), has_cjk);
 		}
-		if (curx + width - hor_lead > endx) {
+		int wrap_width = width + (has_cjk ? 2 : -hor_lead);
+		if (curx + wrap_width > endx) {
 			// Word-wrap.
 			if (ucase_next) {
 				text--;    // Put the '^' back.
@@ -329,7 +330,7 @@ int Font::paint_text(
 	yoff += baseline;
 	TTF::load_font(get_system_path("<PATCH>/chinese.ttf").c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {
-		bool is_book = (font_index >= 2);
+		bool is_book = (font_index != 0 && font_index != 7);
 		while (textlen > 0) {
 			uint32_t wch = TTF::decode_utf8(text, textlen);
 			if (wch == 0) {
@@ -352,7 +353,7 @@ int Font::paint_text(
 				}
 			} else {
 				Shape_frame* sample_shape = font_shapes->get_frame('A');
-				bool is_book = (font_index >= 2);
+				bool is_book = (font_index != 0 && font_index != 7);
 				x += TTF::paint_char(win, wch, x, yoff_original, sample_shape, trans, is_book);
 			}
 		}
@@ -540,7 +541,7 @@ int Font::paint_text_fixedwidth(
 			Shape_frame* sample_shape = font_shapes->get_frame('A');
 			int          char_width   = TTF::get_char_width(wch);
 			int          paint_x      = x + (width - char_width) / 2;
-			bool         is_book      = (font_index >= 2);
+			bool         is_book      = (font_index != 0 && font_index != 7);
 			TTF::paint_char(win, wch, paint_x, yoff_original, sample_shape, trans, is_book);
 			x += width;
 		}
@@ -590,7 +591,7 @@ int Font::paint_text_fixedwidth(
 			Shape_frame* sample_shape = font_shapes->get_frame('A');
 			int          char_width   = TTF::get_char_width(wch);
 			int          paint_x      = x + (width - char_width) / 2;
-			bool         is_book      = (font_index >= 2);
+			bool         is_book      = (font_index != 0 && font_index != 7);
 			TTF::paint_char(win, wch, paint_x, yoff_original, sample_shape, trans, is_book);
 			x += width;
 		}
@@ -604,9 +605,9 @@ int Font::paint_text_fixedwidth(
 
 int Font::get_text_width(const char* text, bool force_cjk) {
 	int width = 0;
-	TTF::load_font(get_system_path("<PATCH>/chinese.ttf").c_str(), get_text_height_for(text));
+	TTF::load_font(get_system_path("<PATCH>/chinese.ttf").c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text));
 	if (font_shapes) {
-		bool is_book = (font_index >= 2);
+		bool is_book = (font_index != 0 && font_index != 7);
 		while (*text != 0) {
 			uint32_t wch = TTF::decode_utf8(text);
 			if (wch < 0x80 && wch != 127 && !(is_book && force_cjk)) {
@@ -632,9 +633,9 @@ int Font::get_text_width(
 		bool        force_cjk
 ) {
 	int width = 0;
-	TTF::load_font(get_system_path("<PATCH>/chinese.ttf").c_str(), get_text_height_for(text, textlen));
+	TTF::load_font(get_system_path("<PATCH>/chinese.ttf").c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {
-		bool is_book = (font_index >= 2);
+		bool is_book = (font_index != 0 && font_index != 7);
 		while (textlen > 0) {
 			uint32_t wch = TTF::decode_utf8(text, textlen);
 			if (wch == 0) {
@@ -659,7 +660,7 @@ void Font::get_text_box_dims(const char* text, int& width, int& height, int vert
 	int         cur_width = 0;
 	const char* orig_text = text;
 	bool        has_cjk   = Has_non_ascii(orig_text);
-	bool        is_book   = (font_index >= 2);
+	bool        is_book   = (font_index != 0 && font_index != 7);
 
 	int num_lines = 1;
 	if (font_shapes) {
@@ -709,7 +710,7 @@ int Font::get_chinese_font_size() {
 	if (font_index == 0) {
 		return 15;    // Dialogues
 	}
-	if (font_index >= 2) {
+	if (font_index != 0 && font_index != 7) {
 		return 11;    // Books and UI (per user request)
 	}
 
