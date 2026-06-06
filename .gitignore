@@ -271,6 +271,7 @@ m4/lt~obsolete.m4
 shared.*
 log.*
 autogen.sh.1
+# Note: autogen.sh is intentionally tracked for Mac/Linux builds
 *.tgz
 
 # Gnome builder
