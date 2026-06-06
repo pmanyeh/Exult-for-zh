@@ -15,6 +15,7 @@ void Func0640 object#(0x640) ()
 	var0000 = UI_click_on_item();
 	var0001 = Func092D(var0000);
 	UI_item_say(item, "@An Zu@");
+	UI_play_sound_effect(152);
 	if (!(Func0906() && (var0000[0x0001] != 0x0000))) goto labelFunc0640_0069;
 	var0002 = UI_execute_usecode_array(item, [(byte)0x59, var0001, (byte)0x58, 0x0040, (byte)0x65, (byte)0x67]);
 	var0002 = UI_delayed_execute_usecode_array(var0000, [(byte)0x23, (byte)0x55, 0x0640], 0x0005);

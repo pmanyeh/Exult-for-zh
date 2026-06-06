@@ -24,7 +24,7 @@ labelFunc094C_0020:
 	if (!var0000) goto labelFunc094C_0257;
 	message("「對哪一環的法術感興趣？」");
 	say();
-	var0002 = Func090C(["無", "First (第一環)", "Second (第二環)", "Third (第三環)", "Fourth (第四環)", "Fifth (第五環)", "Sixth (第六環)"]);
+	var0002 = Func090C(["再看看", "First (第一環)", "Second (第二環)", "Third (第三環)", "Fourth (第四環)", "Fifth (第五環)", "Sixth (第六環)"]);
 	var0002 = (var0002 - 0x0001);
 	if (!(var0002 == 0x0000)) goto labelFunc094C_0070;
 	if (!gflags[0x0003]) goto labelFunc094C_0069;
@@ -38,31 +38,31 @@ labelFunc094C_006D:
 	goto labelFunc094C_0257;
 labelFunc094C_0070:
 	if (!(var0002 == 0x0001)) goto labelFunc094C_00A7;
-	var0003 = ["無", "大點火術(Great Ignite)", "大熄滅術(Great Douse)", "定位術(Locate)", "造光術(Light)"];
+	var0003 = ["無", "大點火術 (Great Ignite)", "大熄滅術 (Great Douse)", "定位術 (Locate)", "造光術 (Light)"];
 	var0004 = [0x0000, 0x000C, 0x000B, 0x000E, 0x000D];
 	goto labelFunc094C_01AD;
 labelFunc094C_00A7:
 	if (!(var0002 == 0x0002)) goto labelFunc094C_00DE;
-	var0003 = ["無", "爆炎術(Fire Blast)", "附魔術(Enchant)", "破壞陷阱(Destroy Trap)", "大造光術(Great Light)"];
+	var0003 = ["無", "爆炎術 (Fire Blast)", "附魔術 (Enchant)", "破壞陷阱 (Destroy Trap)", "大造光術 (Great Light)"];
 	var0004 = [0x0000, 0x0012, 0x0011, 0x0010, 0x0013];
 	goto labelFunc094C_01AD;
 labelFunc094C_00DE:
 	if (!(var0002 == 0x0003)) goto labelFunc094C_0115;
-	var0003 = ["無", "麻痺術(Paralyze)", "施毒術(Poison)", "詛咒術(Curse)", "蟲群術(Swarm)"];
+	var0003 = ["無", "麻痺術 (Paralyze)", "施毒術 (Poison)", "詛咒術 (Curse)", "蟲群術 (Swarm)"];
 	var0004 = [0x0000, 0x001C, 0x001E, 0x0018, 0x001A];
 	goto labelFunc094C_01AD;
 labelFunc094C_0115:
 	if (!(var0002 == 0x0004)) goto labelFunc094C_014C;
-	var0003 = ["無", "落雷術(Lightning)", "群體詛咒(Mass Curse)", "洞察術(Reveal)", "物資幻化(Conjure)"];
+	var0003 = ["無", "落雷術 (Lightning)", "群體詛咒 (Mass Curse)", "洞察術 (Reveal)", "物資幻化 (Conjure)"];
 	var0004 = [0x0000, 0x0021, 0x0023, 0x0025, 0x0020];
 	goto labelFunc094C_01AD;
 labelFunc094C_014C:
 	if (!(var0002 == 0x0005)) goto labelFunc094C_0183;
-	var0003 = ["無", "群體催眠(Mass Sleep)", "爆炸術(Explosion)", "解除力場(Dispel Field)", "火炎力場(Fire Field)"];
+	var0003 = ["無", "群體催眠 (Mass Sleep)", "爆炸術 (Explosion)", "解除力場 (Dispel Field)", "火炎力場 (Fire Field)"];
 	var0004 = [0x0000, 0x002F, 0x002B, 0x002A, 0x002E];
 	goto labelFunc094C_01AD;
 labelFunc094C_0183:
-	var0003 = ["無", "火輪術(Fire Ring)", "幻影術(Clone)", "烈焰連擊(Flame Strike)", "地震術(Tremor)"];
+	var0003 = ["無", "火輪術 (Fire Ring)", "幻影術 (Clone)", "烈焰連擊 (Flame Strike)", "地震術 (Tremor)"];
 	var0004 = [0x0000, 0x0032, 0x0031, 0x0033, 0x0037];
 labelFunc094C_01AD:
 	message("「想要買哪種法術？」");

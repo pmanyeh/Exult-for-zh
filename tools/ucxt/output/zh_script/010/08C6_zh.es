@@ -23,7 +23,7 @@ void Func08C6 0x8C6 ()
 
 	UI_push_answers();
 	var0000 = true;
-	var0001 = ["再看看", "Ginseng(人參)", "Blood Moss(血苔)", "Sulfurous Ash(硫磺灰)", "Mandrake Root(曼陀羅根)", "Black Pearl(黑珍珠)"];
+	var0001 = ["再看看", "Ginseng (人參)", "Blood Moss (血苔)", "Sulfurous Ash (硫磺灰)", "Mandrake Root (曼陀羅根)", "Black Pearl (黑珍珠)"];
 	var0002 = [0x0000, 0x034A, 0x034A, 0x034A, 0x034A, 0x034A];
 	var0003 = [0xFE99, 0x0005, 0x0001, 0x0007, 0x0003, 0x0000];
 	var0004 = [0x0000, 0x0004, 0x0006, 0x0008, 0x000A, 0x000A];

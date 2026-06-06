@@ -24,47 +24,47 @@ labelFunc08DB_0026:
 	if (!var0000) goto labelFunc08DB_02C0;
 	message("「你想研究哪一環的法術？」");
 	say();
-	var0002 = Func090C(["無", "First (第一環)", "Second (第二環)", "Third (第三環)", "Fourth (第四環)", "Fifth (第五環)", "Sixth (第六環)", "Seventh (第七環)", "Eighth (第八環)"]);
+	var0002 = Func090C(["再看看", "First (第一環)", "Second (第二環)", "Third (第三環)", "Fourth (第四環)", "Fifth (第五環)", "Sixth (第六環)", "Seventh (第七環)", "Eighth (第八環)"]);
 	var0002 = (var0002 - 0x0001);
 	if (!(var0002 == 0x0000)) goto labelFunc08DB_006B;
 	goto labelFunc08DB_02C0;
 labelFunc08DB_006B:
 	if (!(var0002 == 0x0001)) goto labelFunc08DB_00A2;
-	var0003 = ["再看看", "Cure(醫療)", "Detect Trap(偵測陷阱)", "Light(亮光術)", "Awaken(喚醒眾人)"];
+	var0003 = ["再看看", "Cure (醫療)", "Detect Trap (偵測陷阱)", "Light (亮光術)", "Awaken (喚醒眾人)"];
 	var0004 = [0x0000, 0x0009, 0x000A, 0x000D, 0x000F];
 	goto labelFunc08DB_0216;
 labelFunc08DB_00A2:
 	if (!(var0002 == 0x0002)) goto labelFunc08DB_00D9;
-	var0003 = ["再看看", "Destroy Trap(摧毀陷阱)", "Fire Blast(火焰術)", "Great Light(大光亮術)", "Telekinesis(遙控術)"];
+	var0003 = ["再看看", "Destroy Trap (摧毀陷阱)", "Fire Blast (火焰術)", "Great Light (大光亮術)", "Telekinesis (遙控術)"];
 	var0004 = [0x0000, 0x0010, 0x0012, 0x0013, 0x0016];
 	goto labelFunc08DB_0216;
 labelFunc08DB_00D9:
 	if (!(var0002 == 0x0003)) goto labelFunc08DB_0110;
-	var0003 = ["再看看", "Curse(詛咒術)", "Heal(醫療術)", "Paralyze(麻痺術)", "Poison(撒毒術)"];
+	var0003 = ["再看看", "Curse (詛咒術)", "Heal (醫療術)", "Paralyze (麻痺術)", "Poison (撒毒術)"];
 	var0004 = [0x0000, 0x0018, 0x0019, 0x001C, 0x001E];
 	goto labelFunc08DB_0216;
 labelFunc08DB_0110:
 	if (!(var0002 == 0x0004)) goto labelFunc08DB_0147;
-	var0003 = ["再看看", "Lightning(霹靂閃電)", "Mark(標記術)", "Recall(喚回術)", "Seance(降神術)"];
+	var0003 = ["再看看", "Lightning (霹靂閃電)", "Mark (標記術)", "Recall (喚回術)", "Seance (降神術)"];
 	var0004 = [0x0000, 0x0021, 0x0022, 0x0024, 0x0026];
 	goto labelFunc08DB_0216;
 labelFunc08DB_0147:
 	if (!(var0002 == 0x0005)) goto labelFunc08DB_017E;
-	var0003 = ["再看看", "Charm(迷惑術)", "Dance(狂舞術)", "Explosion(爆炸術)", "Great Heal(大治療術)"];
+	var0003 = ["再看看", "Charm (迷惑術)", "Dance (狂舞術)", "Explosion (爆炸術)", "Great Heal (大治療術)"];
 	var0004 = [0x0000, 0x0028, 0x0029, 0x002B, 0x002C];
 	goto labelFunc08DB_0216;
 labelFunc08DB_017E:
 	if (!(var0002 == 0x0006)) goto labelFunc08DB_01B5;
-	var0003 = ["再看看", "Clone(複製隊員)", "Magic Storm(魔法風暴)", "Poison Field(毒性力場)", "Sleep Field(催眠力場)"];
+	var0003 = ["再看看", "Clone (複製隊員)", "Magic Storm (魔法風暴)", "Poison Field (毒性力場)", "Sleep Field (催眠力場)"];
 	var0004 = [0x0000, 0x0031, 0x0034, 0x0035, 0x0036];
 	goto labelFunc08DB_0216;
 labelFunc08DB_01B5:
 	if (!(var0002 == 0x0007)) goto labelFunc08DB_01EC;
-	var0003 = ["再看看", "Create Gold(製金術)", "Delayed Blast(延遲爆炸術)", "Mass Charm(大迷惑術)", "Restoration(回複術)"];
+	var0003 = ["再看看", "Create Gold (製金術)", "Delayed Blast (延遲爆炸術)", "Mass Charm (大迷惑術)", "Restoration (回複術)"];
 	var0004 = [0x0000, 0x0038, 0x003A, 0x003D, 0x003F];
 	goto labelFunc08DB_0216;
 labelFunc08DB_01EC:
-	var0003 = ["再看看", "Armageddon(末日決戰)", "Resurrect(復活術)", "Summon(招喚術)", "Swordstrike(劍擊術)"];
+	var0003 = ["再看看", "Armageddon (末日決戰)", "Resurrect (復活術)", "Summon (招喚術)", "Swordstrike (劍擊術)"];
 	var0004 = [0x0000, 0x0040, 0x0044, 0x0045, 0x0046];
 labelFunc08DB_0216:
 	message("「你想買什麼法術？」");

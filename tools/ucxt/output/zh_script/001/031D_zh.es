@@ -148,42 +148,42 @@ labelFunc031D_0199:
 	if (!(var0000 == 0x000E)) goto labelFunc031D_01AE;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：The Scaly Eel~~完工日期：7-21-0355~~ 檢查日期：8-2-0355~~造船匠：Trinsic 的 Gargan");
+	message("     船契~~船名：The Scaly Eel~~完工日期：7-21-0355~~ 檢查日期：8-2-0355~~造船匠：Trinsic 的 Gargan");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_01AE:
 	if (!(var0000 == 0x000F)) goto labelFunc031D_01C3;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：The Beast~~完工日期：3-12-0358~~ 檢查日期：3-19-0358~~造船匠：Britain 的 Clint");
+	message("     船契~~船名：The Beast~~完工日期：3-12-0358~~ 檢查日期：3-19-0358~~造船匠：Britain 的 Clint");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_01C3:
 	if (!(var0000 == 0x0010)) goto labelFunc031D_01D8;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：The Excellencia~~完工日期：~~ 檢查日期：~~造船匠：Minoc 的 Owen");
+	message("     船契~~船名：The Excellencia~~完工日期：~~ 檢查日期：~~造船匠：Minoc 的 Owen");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_01D8:
 	if (!(var0000 == 0x0011)) goto labelFunc031D_01ED;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：The Nymphet~~完工日期：12-22-0357~~ 檢查日期：1-3-0358~~造船匠：New Magincia 的 Russell");
+	message("     船契~~船名：The Nymphet~~完工日期：12-22-0357~~ 檢查日期：1-3-0358~~造船匠：New Magincia 的 Russell");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_01ED:
 	if (!(var0000 == 0x0012)) goto labelFunc031D_0202;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：The Lusty Wench~~完工日期：6-14-0327~~ 檢查日期：6-24-0359~~造船匠：Moonglow 的 Kethron");
+	message("     船契~~船名：The Lusty Wench~~完工日期：6-14-0327~~ 檢查日期：6-24-0359~~造船匠：Moonglow 的 Kethron");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0202:
 	if (!(var0000 == 0x0013)) goto labelFunc031D_0217;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：The Dragon's Breath~~完工日期：5-18-0342~~ 檢查日期：5-23-0342~~造船匠：Britain 的 Rohden");
+	message("     船契~~船名：The Dragon's Breath~~完工日期：5-18-0342~~ 檢查日期：5-23-0342~~造船匠：Britain 的 Rohden");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0217:
@@ -210,7 +210,7 @@ labelFunc031D_025B:
 	if (!(var0000 == 0x0018)) goto labelFunc031D_0270;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：~~完工日期：~~檢查日期：~~ 造船匠：");
+	message("     船契~~船名：~~完工日期：~~檢查日期：~~ 造船匠：");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0270:
@@ -263,21 +263,21 @@ labelFunc031D_0304:
 	if (!(var0000 == 0x0021)) goto labelFunc031D_0319;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：Anne's Revenge~~完工日期：11-23-0198 ~~檢查日期：1-17-0199~~造船匠：New Magincia 的 Alluria");
+	message("     船契~~船名：Anne's Revenge~~完工日期：11-23-0198 ~~檢查日期：1-17-0199~~造船匠：New Magincia 的 Alluria");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0319:
 	if (!(var0000 == 0x0022)) goto labelFunc031D_032E;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：Golden Hinde~~完工日期：7-08-0105 ~~檢查日期：7-12-0105~~造船匠：Trinsic 的 Gendra");
+	message("     船契~~船名：Golden Hinde~~完工日期：7-08-0105 ~~檢查日期：7-12-0105~~造船匠：Trinsic 的 Gendra");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_032E:
 	if (!(var0000 == 0x0023)) goto labelFunc031D_0343;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：Bounty~~完工日期：5-27-0185 ~~檢查日期：6-04-0185~~造船匠：Minoc 的 Gibson");
+	message("     船契~~船名：Bounty~~完工日期：5-27-0185 ~~檢查日期：6-04-0185~~造船匠：Minoc 的 Gibson");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0343:
@@ -338,7 +338,7 @@ labelFunc031D_03EC:
 	if (!(var0000 == 0x002C)) goto labelFunc031D_0401;
 	message("奉 Lord British 詔令，此為官方文件，表明對上述帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     地契~~船名：Golden Ankh~~完工日期：3-8-0338~~ 檢查日期：3-18-0338~~造船匠：Britain 的 Clint");
+	message("     船契~~船名：Golden Ankh~~完工日期：3-8-0338~~ 檢查日期：3-18-0338~~造船匠：Britain 的 Clint");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0401:

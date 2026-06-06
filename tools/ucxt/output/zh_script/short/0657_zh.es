@@ -9,6 +9,7 @@ void Func0657 object#(0x657) ()
 
 	if (!(event == 0x0001)) goto labelFunc0657_004E;
 	UI_item_say(item, "@Por Ort Wis@");
+	UI_play_sound_effect(150);
 	if (!Func0906()) goto labelFunc0657_0036;
 	var0000 = UI_execute_usecode_array(item, [(byte)0x6F, (byte)0x58, 0x0043, (byte)0x70, (byte)0x6F, (byte)0x6A, (byte)0x55, 0x0657]);
 	goto labelFunc0657_004E;

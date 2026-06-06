@@ -30,41 +30,41 @@ labelFunc08BB_0026:
 	goto labelFunc08BB_02C0;
 labelFunc08BB_006B:
 	if (!(var0003 == 0x0001)) goto labelFunc08BB_00A2;
-	var0004 = ["再看看", "Light(亮光術)", "Create Food(製造食物)", "Cure(醫療)", "Detect Trap(偵測陷阱)"];
+	var0004 = ["再看看", "Light (亮光術)", "Create Food (製造食物)", "Cure (醫療)", "Detect Trap (偵測陷阱)"];
 	var0005 = [0x0000, 0x000D, 0x0008, 0x0009, 0x000A];
 	goto labelFunc08BB_0216;
 labelFunc08BB_00A2:
 	if (!(var0003 == 0x0002)) goto labelFunc08BB_00D9;
-	var0004 = ["再看看", "Wizard Eye(巫師眼)", "Telekinesis(遙控術)", "Protection(保護術)", "Destroy Trap(摧毀陷阱)"];
+	var0004 = ["再看看", "Wizard Eye (巫師眼)", "Telekinesis (遙控術)", "Protection (保護術)", "Destroy Trap (摧毀陷阱)"];
 	var0005 = [0x0000, 0x0017, 0x0016, 0x0015, 0x0010];
 	goto labelFunc08BB_0216;
 labelFunc08BB_00D9:
 	if (!(var0003 == 0x0003)) goto labelFunc08BB_0110;
-	var0004 = ["再看看", "Heal(醫療術)", "Peer(靈視術)", "Sleep(催眠術)", "Protect All(保護全體隊員)"];
+	var0004 = ["再看看", "Heal (醫療術)", "Peer (靈視術)", "Sleep (催眠術)", "Protect All (保護全體隊員)"];
 	var0005 = [0x0000, 0x0019, 0x001D, 0x001F, 0x001B];
 	goto labelFunc08BB_0216;
 labelFunc08BB_0110:
 	if (!(var0003 == 0x0004)) goto labelFunc08BB_0147;
-	var0004 = ["再看看", "Mark(標記術)", "Recall(喚回術)", "Seance(降神術)", "Unlock Magic(開鎖術)"];
+	var0004 = ["再看看", "Mark (標記術)", "Recall (喚回術)", "Seance (降神術)", "Unlock Magic (開鎖術)"];
 	var0005 = [0x0000, 0x0022, 0x0024, 0x0026, 0x0027];
 	goto labelFunc08BB_0216;
 labelFunc08BB_0147:
 	if (!(var0003 == 0x0005)) goto labelFunc08BB_017E;
-	var0004 = ["再看看", "Invisibility(隱身術)", "Charm(迷惑術)", "Fire Field(火焰力場)", "Dance(狂舞術)"];
+	var0004 = ["再看看", "Invisibility (隱身術)", "Charm (迷惑術)", "Fire Field (火焰力場)", "Dance (狂舞術)"];
 	var0005 = [0x0000, 0x002D, 0x0028, 0x002E, 0x0029];
 	goto labelFunc08BB_0216;
 labelFunc08BB_017E:
 	if (!(var0003 == 0x0006)) goto labelFunc08BB_01B5;
-	var0004 = ["再看看", "Clone(複製隊員)", "Sleep Field(催眠力場)", "Cause Fear(恐懼術)", "Magic Storm(魔法風暴)"];
+	var0004 = ["再看看", "Clone (複製隊員)", "Sleep Field (催眠力場)", "Cause Fear (恐懼術)", "Magic Storm (魔法風暴)"];
 	var0005 = [0x0000, 0x0031, 0x0036, 0x0030, 0x0034];
 	goto labelFunc08BB_0216;
 labelFunc08BB_01B5:
 	if (!(var0003 == 0x0007)) goto labelFunc08BB_01EC;
-	var0004 = ["再看看", "Mass Might(大力術)", "Energy Mist(能量之矢)", "Restoration(回複術)", "Energy Field(能量力場)"];
+	var0004 = ["再看看", "Mass Might (大力術)", "Energy Mist (能量之矢)", "Restoration (回複術)", "Energy Field (能量力場)"];
 	var0005 = [0x0000, 0x003E, 0x003C, 0x003F, 0x003B];
 	goto labelFunc08BB_0216;
 labelFunc08BB_01EC:
-	var0004 = ["再看看", "Resurrect(復活術)", "Time Stop(時間暫停)", "Sword Strike(劍擊術)", "Invisible All(全體隱形)"];
+	var0004 = ["再看看", "Resurrect (復活術)", "Time Stop (時間暫停)", "Sword Strike (劍擊術)", "Invisible All (全體隱形)"];
 	var0005 = [0x0000, 0x0044, 0x0047, 0x0046, 0x0043];
 labelFunc08BB_0216:
 	message("「你想購買什麼法術？」");
