@@ -532,6 +532,10 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 	// Get last one shown.
 	Npc_face_info* prev = empty ? face_info[empty - 1] : nullptr;
 	int            fx   = prev ? prev->face_rect.x + prev->face_rect.w + 4 : 16;
+	if (has_chinese) {
+		// Move Avatar face to the left edge to maximize horizontal text space
+		fx = 16;
+	}
 	int            fy;
 	if (SI) {
 		if (static_cast<unsigned>(num_faces) == face_info.size()) {
@@ -549,6 +553,31 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 		}
 		fy += line_height;
 	}
+
+	// Pre-calculate the total height of the choices to prevent them from going off-screen
+	int test_tbox_w = sbox.w - fx - face->get_width() - 16;
+	int temp_x = 0;
+	int temp_y = 0;
+	int temp_line_step = has_chinese ? line_height : line_height - 1;
+	for (int i = 0; i < num_choices; i++) {
+		char text[256];
+		text[0] = 127;    // A circle.
+		strcpy(&text[1], choices[i]);
+		const int width = sman->get_text_width(0, text);
+		if (temp_x > 0 && temp_x + width >= test_tbox_w) {
+			temp_x = 0;
+			temp_y += temp_line_step;
+		}
+		temp_x += width + space_width;
+	}
+	int total_choices_height = temp_y + line_height;
+	
+	// If the choices exceed the bottom of the screen, push the avatar face up
+	if (fy + 4 + total_choices_height > sbox.h) {
+		fy = sbox.h - (4 + total_choices_height);
+		if (fy < 0) fy = 0;
+	}
+
 	TileRect mbox(fx, fy, face->get_width(), face->get_height());
 	mbox        = mbox.intersect(sbox);
 	avatar_face = mbox;    // Repaint entire width.
