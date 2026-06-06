@@ -4,7 +4,7 @@
 
 ## 專有名詞與稱謂
 - **Avatar** ➔ **聖者**
-- **Fellowship** ➔ **兄弟會**
+- **Fellowship** ➔ **友誼會**
 - **milord** ➔ **大人**
 - **milady** ➔ **女士**
 - **Moongate** ➔ **月之門**

@@ -120,11 +120,11 @@ labelFunc040C_011F:
 	message("，聖者！");
 	say();
 	if (!var0003) goto labelFunc040C_0175;
-	message("「我簡直不敢相信她會在這裡！」");
+	message("「我真的沒料到他會出現！」");
 	say();
 	goto labelFunc040C_0179;
 labelFunc040C_0175:
-	message("「我簡直不敢相信他會在這裡！」");
+	message("「我真的沒料到他會出現！」");
 	say();
 labelFunc040C_0179:
 	UI_show_npc_face(0xFFF4, 0x0000);
