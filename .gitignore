@@ -334,3 +334,7 @@ android/lib/build/
 docs/xml/web_tmp/docs.html
 docs/xml/web_tmp/faq.html
 docs/xml/web_tmp/studio.html
+
+# Local environment and backup files
+.env
+tools/ucxt/output/usecode.2026*
