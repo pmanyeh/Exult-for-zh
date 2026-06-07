@@ -145,7 +145,7 @@ labelFunc041A_01EB:
 	UI_add_answer("medallion");
 labelFunc041A_01FF:
 	if (!gflags[0x0094]) goto labelFunc041A_020C;
-	UI_add_answer("apples");
+	UI_add_answer("蘋果");
 labelFunc041A_020C:
 	if (!(gflags[0x008A] || (gflags[0x008C] || gflags[0x000A]))) goto labelFunc041A_0221;
 	UI_add_answer("voice");
@@ -402,10 +402,10 @@ labelFunc041A_05FE:
 	say();
 	goto labelFunc041A_0690;
 labelFunc041A_0605:
-	case "apples" attend labelFunc041A_0618:
+	case "蘋果" attend labelFunc041A_0618:
 	message("「當你在這裡的時候，請隨意享用蘋果。我敢肯定你會發現這是全 Britannia 最好的蘋果。它們是由皇家果園提供給友誼會的。」");
 	say();
-	UI_remove_answer("apples");
+	UI_remove_answer("蘋果");
 labelFunc041A_0618:
 	case "voice" attend labelFunc041A_0645:
 	if (!gflags[0x0096]) goto labelFunc041A_0633;

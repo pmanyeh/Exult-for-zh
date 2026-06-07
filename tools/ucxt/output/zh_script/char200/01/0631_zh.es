@@ -38,7 +38,7 @@ labelFunc0631_00AD:
 	if (!gflags[0x003D]) goto labelFunc0631_024E;
 	if (!(Func08F7(0xFFF2) && (!gflags[0x0057]))) goto labelFunc0631_0135;
 	if (!(Func0937(0xFFF2) && Func0937(0xFE9C))) goto labelFunc0631_011F;
-	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFF2), [(byte)0x23, (byte)0x52, "@密碼是什麼？@"], 0x0001);
+	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFF2), [(byte)0x23, (byte)0x52, "@口令是什麼？@"], 0x0001);
 	var0006 = UI_delayed_execute_usecode_array(UI_get_avatar_ref(), [(byte)0x23, (byte)0x52, "@Blackbird@"], 0x0005);
 	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFF2), [(byte)0x23, (byte)0x52, "@通過。@"], 0x000B);
 labelFunc0631_011F:
@@ -47,7 +47,7 @@ labelFunc0631_011F:
 labelFunc0631_0135:
 	if (!(Func08F7(0xFFE5) && (!gflags[0x0057]))) goto labelFunc0631_01B7;
 	if (!(Func0937(0xFFE5) && Func0937(0xFE9C))) goto labelFunc0631_01A1;
-	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFE5), [(byte)0x23, (byte)0x52, "@密碼是什麼？@"], 0x0001);
+	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFE5), [(byte)0x23, (byte)0x52, "@口令是什麼？@"], 0x0001);
 	var0006 = UI_delayed_execute_usecode_array(UI_get_avatar_ref(), [(byte)0x23, (byte)0x52, "@Blackbird@"], 0x0005);
 	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFE5), [(byte)0x23, (byte)0x52, "@通過。@"], 0x000B);
 labelFunc0631_01A1:
@@ -57,7 +57,7 @@ labelFunc0631_01B7:
 	if (!(UI_find_nearest(0xFE9C, 0x0326, 0xFFFF) && (!gflags[0x0057]))) goto labelFunc0631_0246;
 	var0007 = UI_find_nearest(item, 0x0326, 0x0014);
 	if (!(Func0937(var0007) && Func0937(0xFE9C))) goto labelFunc0631_0230;
-	var0006 = UI_delayed_execute_usecode_array(var0007, [(byte)0x23, (byte)0x52, "@密碼是什麼？@"], 0x0001);
+	var0006 = UI_delayed_execute_usecode_array(var0007, [(byte)0x23, (byte)0x52, "@口令是什麼？@"], 0x0001);
 	var0006 = UI_delayed_execute_usecode_array(UI_get_avatar_ref(), [(byte)0x23, (byte)0x52, "@Blackbird@"], 0x0005);
 	var0006 = UI_delayed_execute_usecode_array(var0007, [(byte)0x23, (byte)0x52, "@通過。@"], 0x000B);
 labelFunc0631_0230:
@@ -69,16 +69,16 @@ labelFunc0631_0246:
 labelFunc0631_024E:
 	if (!Func0937(0xFFF2)) goto labelFunc0631_0280;
 	if (!(Func08F7(0xFFF2) && (!gflags[0x0057]))) goto labelFunc0631_0280;
-	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFF2), [(byte)0x23, (byte)0x52, "@密碼是什麼？@"], 0x0001);
+	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFF2), [(byte)0x23, (byte)0x52, "@口令是什麼？@"], 0x0001);
 labelFunc0631_0280:
 	if (!(Func08F7(0xFFE5) && (!gflags[0x0057]))) goto labelFunc0631_02B2;
 	if (!Func0937(0xFFE5)) goto labelFunc0631_02B2;
-	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFF2), [(byte)0x23, (byte)0x52, "@密碼是什麼？@"], 0x0001);
+	var0006 = UI_delayed_execute_usecode_array(UI_get_npc_object(0xFFF2), [(byte)0x23, (byte)0x52, "@口令是什麼？@"], 0x0001);
 labelFunc0631_02B2:
 	if (!(UI_find_nearest(0xFE9C, 0x0326, 0xFFFF) && (!gflags[0x0057]))) goto labelFunc0631_02F5;
 	var0007 = UI_find_nearest(item, 0x0326, 0x0014);
 	if (!Func0937(var0007)) goto labelFunc0631_02F5;
-	var0006 = UI_delayed_execute_usecode_array(var0007, [(byte)0x23, (byte)0x52, "@密碼是什麼？@"], 0x0001);
+	var0006 = UI_delayed_execute_usecode_array(var0007, [(byte)0x23, (byte)0x52, "@口令是什麼？@"], 0x0001);
 labelFunc0631_02F5:
 	if (!(event == 0x0002)) goto labelFunc0631_0302;
 	Func083F(item, true);

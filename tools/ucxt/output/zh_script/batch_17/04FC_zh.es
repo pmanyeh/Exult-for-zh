@@ -19,7 +19,7 @@ void Func04FC object#(0x4FC) ()
 	var0001 = Func08F7(0xFF0C);
 	var0002 = false;
 	var0003 = Func0909();
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x02C9])) goto labelFunc04FC_0050;
 	message("你看到一個看起來相當矜持的石像鬼。");
 	say();
@@ -43,11 +43,11 @@ labelFunc04FC_0071:
 	if (!(!var0002)) goto labelFunc04FC_0092;
 	UI_add_answer("Cairbre");
 labelFunc04FC_0092:
-	case "工作" attend labelFunc04FC_00B6:
+	case "職業" attend labelFunc04FC_00B6:
 	message("「大部分時間都作為傭兵工作。現在正在待業中。幫助朋友 Cosmo 尋找獨角獸。」");
 	say();
 	gflags[0x02E0] = true;
-	UI_remove_answer("工作");
+	UI_remove_answer("職業");
 	UI_add_answer(["Cosmo", "獨角獸"]);
 labelFunc04FC_00B6:
 	case "Cairbre" attend labelFunc04FC_00F6:

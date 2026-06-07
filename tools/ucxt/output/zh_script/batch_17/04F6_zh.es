@@ -18,7 +18,7 @@ void Func04F6 object#(0x4F6) ()
 	UI_show_npc_face(0xFF0A, 0x0000);
 	var0000 = Func0908();
 	var0001 = UI_wearing_fellowship();
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(gflags[0x0133] && (!gflags[0x0196]))) goto labelFunc04F6_0047;
 	UI_add_answer(["小精靈", "筆記本"]);
 labelFunc04F6_0047:
@@ -51,7 +51,7 @@ labelFunc04F6_009B:
 	UI_pop_answers();
 	UI_remove_answer("姓名");
 labelFunc04F6_00B4:
-	case "工作" attend labelFunc04F6_00CD:
+	case "職業" attend labelFunc04F6_00CD:
 	message("「我的職業——或者說，我的命運——是學習和了解所有事物。我來到新馬金西亞建立我的工作室並實踐此事。」");
 	say();
 	UI_add_answer(["新馬金西亞", "工作室"]);

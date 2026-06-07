@@ -16,7 +16,7 @@ void Func049B object#(0x49B) ()
 	var0000 = Func0908();
 	var0001 = Func0909();
 	var0002 = false;
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	var0003 = UI_wearing_fellowship();
 	if (!var0003) goto labelFunc049B_004A;
 	message("\"");
@@ -43,7 +43,7 @@ labelFunc049B_0066:
 	UI_add_answer("Moonglow");
 	UI_remove_answer("姓名");
 labelFunc049B_0083:
-	case "工作" attend labelFunc049B_00A2:
+	case "職業" attend labelFunc049B_00A2:
 	message("「我是一名農夫，");
 	message(var0001);
 	message("。我在弟弟 Tolemac 和家庭友人 Morz 的幫助下管理我的農場。」");

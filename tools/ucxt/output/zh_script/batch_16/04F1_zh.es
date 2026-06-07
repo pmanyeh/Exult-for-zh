@@ -24,7 +24,7 @@ labelFunc04F1_001E:
 	if (!gflags[0x02D4]) goto labelFunc04F1_003E;
 	var0000 = true;
 labelFunc04F1_003E:
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x02BF])) goto labelFunc04F1_0060;
 	message("你看到一個有點野性的裸體男人。他對自己沒穿衣服一點都不在意。");
 	say();
@@ -47,7 +47,7 @@ labelFunc04F1_0080:
 	UI_remove_answer("姓名");
 	UI_add_answer("你的衣服呢？");
 labelFunc04F1_008E:
-	case "工作" attend labelFunc04F1_00B4:
+	case "職業" attend labelFunc04F1_00B4:
 	if (!var0000) goto labelFunc04F1_00A3;
 	message("「嘿，什麼工作？我在這裡過得很好。別煩我！」");
 	say();

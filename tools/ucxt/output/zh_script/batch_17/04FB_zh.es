@@ -22,7 +22,7 @@ void Func04FB object#(0x4FB) ()
 	say();
 	abort;
 labelFunc04FB_0048:
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(gflags[0x0104] || gflags[0x0135])) goto labelFunc04FB_0069;
 	UI_add_answer("Hook");
 labelFunc04FB_0069:
@@ -58,7 +58,7 @@ labelFunc04FB_00AC:
 	say();
 	UI_remove_answer("姓名");
 labelFunc04FB_00C2:
-	case "工作" attend labelFunc04FB_00DB:
+	case "職業" attend labelFunc04FB_00DB:
 	message("「我是這裡海盜巢穴的友誼會代理分會長。我們正式的會長 Abraham，目前因為友誼會的事務外出了。」");
 	say();
 	UI_add_answer(["友誼會", "Abraham"]);

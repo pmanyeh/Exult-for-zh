@@ -62,7 +62,9 @@ labelFunc08C7_0045:
 	UI_show_npc_face(0xFF15, 0x0000);
 	message("「我願將我一半的財富奉獻給你！~我會聽從你的吩咐然後等待。~我的回報總有一天會到來~並將我從可怕的命運中解脫。」");
 	say();
-	message(" Dustin 假裝給了 Paul 一些錢。Paul 退場，接著 Dustin 躺在舞台上假裝入睡。片刻之後，Meryl 登台，圍繞著 Dustin 的身軀跳舞，並在他身上灑下某種閃閃發光的粉末。*");
+	message("Dustin 假裝給了 Paul 一些錢。Paul 退場，接著 Dustin 躺在舞台上假裝入睡。");
+	say();
+	message("片刻之後，Meryl 登台，圍繞著 Dustin 的身軀跳舞，並在他身上灑下某種閃閃發光的粉末。*");
 	say();
 	if (!var0000) goto labelFunc08C7_010D;
 	UI_remove_npc_face(0xFF17);

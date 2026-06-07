@@ -26,7 +26,7 @@ void Func04C2 object#(0x4C2) ()
 	var0000 = Func0908();
 	var0001 = Func0909();
 	var0002 = false;
-	UI_add_answer(["姓名", "工作", "再見"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x026B])) goto labelFunc04C2_0044;
 	message("這名女子向你屈膝行禮。");
 	say();
@@ -55,11 +55,11 @@ labelFunc04C2_006A:
 	if (!(!var0002)) goto labelFunc04C2_00A3;
 	UI_add_answer("公地");
 labelFunc04C2_00A3:
-	case "工作" attend labelFunc04C2_00CE:
+	case "職業" attend labelFunc04C2_00CE:
 	message("「我是巨蛇堡的補給品商人。」");
 	say();
 	if (!(!gflags[0x0274])) goto labelFunc04C2_00C1;
-	message("「而且，」她補充道，「我還有一艘船要賣，如果你有興趣的話。」");
+	message("「而且，」她補充道，「我還有一艘船要賣，如果～你有興趣的話。」");
 	say();
 	UI_add_answer("船隻");
 labelFunc04C2_00C1:
@@ -179,7 +179,7 @@ labelFunc04C2_0280:
 	say();
 	UI_remove_answer("另一個");
 labelFunc04C2_0299:
-	case "再見" attend labelFunc04C2_02AC:
+	case "告辭" attend labelFunc04C2_02AC:
 	message("「願好運伴隨著你，");
 	message(var0001);
 	message("。」*");

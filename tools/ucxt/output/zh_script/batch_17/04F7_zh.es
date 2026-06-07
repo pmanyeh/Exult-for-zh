@@ -23,7 +23,7 @@ labelFunc04F7_001E:
 	var0001 = false;
 	var0002 = false;
 	var0003 = Func0909();
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x01C2])) goto labelFunc04F7_0052;
 	message("這名幽靈般的男子露出了充滿痛苦的表情。");
 	say();
@@ -71,7 +71,7 @@ labelFunc04F7_0103:
 	say();
 	UI_remove_answer("為什麼？");
 labelFunc04F7_0116:
-	case "工作" attend labelFunc04F7_0150:
+	case "職業" attend labelFunc04F7_0150:
 	message("他對你的話冷笑。~~「你想知道我的工作？我告訴你我的工作！」他大喊。~「為了我對美麗的 Skara Brae 犯下的罪行，在這裡永遠在火焰中燃燒！那，」他停頓了一下以強調語氣，「就是我的工作！」~過了一會兒，他平靜下來。~「我很抱歉，");
 	message(var0003);
 	message("。我知道你的問題無意進一步折磨我，」他嘆了口氣，把臉轉過去不看你。「曾經，我是這裡的煉金術士。」");

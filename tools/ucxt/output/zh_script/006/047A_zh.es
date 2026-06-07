@@ -82,13 +82,13 @@ labelFunc047A_0106:
 	case "職業" attend labelFunc047A_0122:
 	message("「我是個酒館女侍。在 Jhelom 這裡的舖位與凳子(Bunk and Stool)，大部分的工作都是我在做。」");
 	say();
-	UI_add_answer(["工作", "舖位與凳子", "Jhelom"]);
+	UI_add_answer(["職業", "舖位與凳子", "Jhelom"]);
 labelFunc047A_0122:
-	case "工作" attend labelFunc047A_0149:
+	case "職業" attend labelFunc047A_0149:
 	message("「自從老闆 Sprellic 被傷痕圖書館的那三個學生挑戰決鬥後，他就一直忙著準備。我一直獨自經營這個地方……我想 Daphne 也算是有幫忙啦。」");
 	say();
 	gflags[0x016E] = true;
-	UI_remove_answer("工作");
+	UI_remove_answer("職業");
 	UI_add_answer(["Sprellic", "圖書館", "Daphne"]);
 labelFunc047A_0149:
 	case "Daphne" attend labelFunc047A_01A6:

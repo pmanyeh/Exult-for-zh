@@ -31,7 +31,7 @@ labelFunc04F3_004F:
 	message("「你好，好朋友，」Malloy 說。「很高興再次見到你。」");
 	say();
 labelFunc04F3_0053:
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!gflags[0x02D9]) goto labelFunc04F3_0070;
 	UI_add_answer("腳上的頭盔");
 labelFunc04F3_0070:
@@ -64,7 +64,7 @@ labelFunc04F3_00C4:
 labelFunc04F3_00C8:
 	UI_remove_answer("姓名");
 labelFunc04F3_00CF:
-	case "工作" attend labelFunc04F3_0122:
+	case "職業" attend labelFunc04F3_0122:
 	if (!(!var0001)) goto labelFunc04F3_00E5;
 	message("「通常我的工作是挖土，但既然我的搭檔 Owings 似乎不見了，我想我的工作就是尋找他。我希望那個小傢伙沒出什麼事。」");
 	say();

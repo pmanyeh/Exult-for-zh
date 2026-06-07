@@ -26,7 +26,7 @@ void Func049A object#(0x49A) ()
 
 	if (!(event == 0x0001)) goto labelFunc049A_03B1;
 	UI_show_npc_face(0xFF66, 0x0000);
-	UI_add_answer(["姓名", "工作", "友誼會", "告辭"]);
+	UI_add_answer(["姓名", "職業", "友誼會", "告辭"]);
 	var0000 = Func08F7(0xFFFF);
 	var0001 = Func08F7(0xFFFE);
 	var0002 = Func08F7(0xFF10);
@@ -105,7 +105,7 @@ labelFunc049A_0160:
 labelFunc049A_016E:
 	UI_remove_answer("姓名");
 labelFunc049A_0175:
-	case "工作" attend labelFunc049A_026C:
+	case "職業" attend labelFunc049A_026C:
 	message("「我折磨囚犯，」他驕傲地捶著胸口說。*");
 	say();
 	if (!var0001) goto labelFunc049A_01A6;

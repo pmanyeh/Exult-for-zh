@@ -17,7 +17,7 @@ void Func04F2 object#(0x4F2) ()
 	UI_show_npc_face(0xFF0E, 0x0000);
 	var0000 = Func0909();
 	var0001 = false;
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x0147])) goto labelFunc04F2_003E;
 	message("你看到一個有魅力、看起來很用功的男人。");
 	say();
@@ -43,7 +43,7 @@ labelFunc04F2_005F:
 	if (!gflags[0x00E2]) goto labelFunc04F2_0088;
 	UI_add_answer("Julius");
 labelFunc04F2_0088:
-	case "工作" attend labelFunc04F2_00A7:
+	case "職業" attend labelFunc04F2_00A7:
 	message("「我在這座修道院研究當地的植物、動物和地理。」");
 	say();
 	UI_add_answer(["植物", "動物", "地理", "修道院"]);

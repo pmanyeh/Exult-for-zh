@@ -15,7 +15,7 @@ void Func049D object#(0x49D) ()
 	UI_show_npc_face(0xFF63, 0x0000);
 	var0000 = Func0909();
 	var0001 = UI_part_of_day();
-	UI_add_answer(["姓名", "工作", "友誼會", "告辭"]);
+	UI_add_answer(["姓名", "職業", "友誼會", "告辭"]);
 	if (!gflags[0x01D5]) goto labelFunc049D_003D;
 	message("「走開！我不想再聽你的謊言了！」*");
 	say();
@@ -59,7 +59,7 @@ labelFunc049D_0098:
 	if (!gflags[0x01D6]) goto labelFunc049D_00C1;
 	UI_add_answer("回心轉意");
 labelFunc049D_00C1:
-	case "工作" attend labelFunc049D_00DA:
+	case "職業" attend labelFunc049D_00DA:
 	message("「我在 Moonglow 這裡幫我哥哥照顧我們的農場。」");
 	say();
 	UI_add_answer(["哥哥", "Moonglow"]);

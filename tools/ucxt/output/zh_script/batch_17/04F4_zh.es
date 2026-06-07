@@ -15,7 +15,7 @@ void Func04F4 object#(0x4F4) ()
 	var0000 = Func08F7(0xFF03);
 	var0001 = Func08F7(0xFF04);
 	var0002 = Func0909();
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x02C8])) goto labelFunc04F4_004C;
 	message("這名戰士舉止充滿自信。");
 	say();
@@ -35,10 +35,10 @@ labelFunc04F4_0056:
 	say();
 	UI_remove_answer("姓名");
 labelFunc04F4_0072:
-	case "工作" attend labelFunc04F4_0092:
+	case "職業" attend labelFunc04F4_0092:
 	message("「我是一名傭兵。但目前，我正在努力幫助我的朋友恢復理智。」");
 	say();
-	UI_remove_answer("工作");
+	UI_remove_answer("職業");
 	UI_add_answer(["朋友", "理智"]);
 labelFunc04F4_0092:
 	case "朋友" attend labelFunc04F4_00B9:

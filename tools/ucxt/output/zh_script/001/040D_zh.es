@@ -17,7 +17,7 @@ labelFunc040D_0009:
 	var0000 = UI_part_of_day();
 	UI_add_answer(["姓名", "職業", "謀殺", "告辭"]);
 	if (!gflags[0x003D]) goto labelFunc040D_003A;
-	UI_add_answer("密語");
+	UI_add_answer("口令");
 labelFunc040D_003A:
 	if (!gflags[0x003F]) goto labelFunc040D_004D;
 	UI_add_answer(["友誼會", "Klog"]);
@@ -89,20 +89,20 @@ labelFunc040D_0165:
 	UI_remove_answer("Gargan");
 labelFunc040D_0178:
 	case "船隻" attend labelFunc040D_0192:
-	message("「如果你想要一艘船，你必須從造船匠那裡得到地契。你還必須有離開城鎮的密語。」");
+	message("「如果你想要一艘船，你必須從造船匠那裡得到地契。你還必須有離開城鎮的口令。」");
 	say();
 	UI_remove_answer("船隻");
-	UI_add_answer("密語");
+	UI_add_answer("口令");
 labelFunc040D_0192:
-	case "密語" attend labelFunc040D_01EF:
+	case "口令" attend labelFunc040D_01EF:
 	message("「是什麼呢？」");
 	say();
 	var0001 = ["呃，我不知道...", "國王萬歲...？", "拜託..."];
 	if (!gflags[0x003D]) goto labelFunc040D_01BD;
-	var0001 = (var0001 & "黑鳥");
+	var0001 = (var0001 & "Blackbird");
 labelFunc040D_01BD:
 	var0002 = Func090B(var0001);
-	if (!(var0002 == "黑鳥")) goto labelFunc040D_01EB;
+	if (!(var0002 == "Blackbird")) goto labelFunc040D_01EB;
 	var0003 = Func0834();
 	if (!var0003) goto labelFunc040D_01E3;
 	message("「好吧。你可以通過。」");
@@ -115,7 +115,7 @@ labelFunc040D_01E7:
 	abort;
 	goto labelFunc040D_01EF;
 labelFunc040D_01EB:
-	message("「你不知道密語。鎮長可以告訴你正確的密語。」");
+	message("「你不知道口令。鎮長可以告訴你正確的口令。」");
 	say();
 labelFunc040D_01EF:
 	case "Johnson" attend labelFunc040D_0202:

@@ -31,7 +31,7 @@ void Func04F9 object#(0x4F9) ()
 	UI_show_npc_face(0xFF07, 0x0000);
 	var0000 = Func0908();
 	var0001 = Func0909();
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x01F9])) goto labelFunc04F9_0044;
 	message("你看到一位看起來很博學的男人，帶著友善的表情。");
 	say();
@@ -57,7 +57,7 @@ labelFunc04F9_0068:
 	if (!gflags[0x01F6]) goto labelFunc04F9_008B;
 	UI_add_answer("東北海域");
 labelFunc04F9_008B:
-	case "工作" attend labelFunc04F9_00A4:
+	case "職業" attend labelFunc04F9_00A4:
 	message("「我是 Moonglow 這裡智者書庫的負責人，但是，」他靠近你說，「我的助手 Zelda 做了大部分的工作。」");
 	say();
 	UI_add_answer(["Moonglow", "Zelda"]);

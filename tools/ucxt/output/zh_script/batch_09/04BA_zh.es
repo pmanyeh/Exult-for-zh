@@ -127,13 +127,13 @@ labelFunc04BA_01E0:
 	message("他興奮地繼續說。~~「正在處理我的第一個轉化者。知道我將帶來喜悅和幸福。感到滿足與快樂。」");
 	say();
 	gflags[0x023E] = true;
-	UI_add_answer(["工作", "轉變"]);
+	UI_add_answer(["職業", "轉變"]);
 	UI_remove_answer("另一個人");
 labelFunc04BA_0204:
-	case "工作" attend labelFunc04BA_0217:
+	case "職業" attend labelFunc04BA_0217:
 	message("「還需要再稍微說服一下，」他低著頭，「但幾乎準備好要加入了！」");
 	say();
-	UI_remove_answer("工作");
+	UI_remove_answer("職業");
 labelFunc04BA_0217:
 	case "轉變" attend labelFunc04BA_022A:
 	message("「是物資商人 Betra 。有信心他很快就會加入。」");

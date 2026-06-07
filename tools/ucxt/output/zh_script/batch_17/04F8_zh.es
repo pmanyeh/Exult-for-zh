@@ -33,7 +33,7 @@ void Func04F8 object#(0x4F8) ()
 	var0001 = Func0909();
 	var0002 = false;
 	var0003 = false;
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x01F7])) goto labelFunc04F8_004C;
 	message("你看到一位看起來很博學的男人，帶著友善的表情。");
 	say();
@@ -68,7 +68,7 @@ labelFunc04F8_009A:
 labelFunc04F8_00BB:
 	UI_remove_answer("姓名");
 labelFunc04F8_00C2:
-	case "工作" attend labelFunc04F8_00E8:
+	case "職業" attend labelFunc04F8_00E8:
 	message("「我是 Moonglow 這裡天文台的負責人，」他自豪地說。「這就是存放望遠鏡的地方。」");
 	say();
 	UI_add_answer(["望遠鏡", "Moonglow"]);

@@ -20,7 +20,7 @@ void Func04F5 object#(0x4F5) ()
 	UI_show_npc_face(0xFF0B, 0x0000);
 	var0000 = Func0909();
 	var0001 = UI_get_npc_object(0xFF0B);
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	var0002 = UI_get_alignment(var0001);
 	if (!(var0002 == 0x0002)) goto labelFunc04F5_0050;
 	UI_set_schedule_type(var0001, 0x0000);
@@ -52,7 +52,7 @@ labelFunc04F5_008A:
 labelFunc04F5_00AC:
 	UI_remove_answer("姓名");
 labelFunc04F5_00B3:
-	case "工作" attend labelFunc04F5_00CC:
+	case "職業" attend labelFunc04F5_00CC:
 	message("「我是這座修道院的修道士。我正在研究一種煉金術混合物。」");
 	say();
 	UI_add_answer(["混合物", "修道院"]);

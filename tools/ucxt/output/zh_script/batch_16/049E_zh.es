@@ -13,7 +13,7 @@ void Func049E object#(0x49E) ()
 	UI_show_npc_face(0xFF62, 0x0000);
 	var0000 = Func0908();
 	var0001 = Func0909();
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x0200])) goto labelFunc049E_0040;
 	message("你面前的男人害羞地移開視線。");
 	say();
@@ -43,7 +43,7 @@ labelFunc049E_0074:
 	UI_add_answer("口吃");
 	UI_remove_answer("姓名");
 labelFunc049E_008E:
-	case "工作" attend labelFunc049E_00AD:
+	case "職業" attend labelFunc049E_00AD:
 	message("「我和 C、C、Cubolt 一起工作，在、在、在這裡務農。」");
 	say();
 	UI_add_answer(["Cubolt", "C-C-Cubolt", "口吃", "這裡"]);

@@ -45,7 +45,7 @@ labelFunc043D_0087:
 	message("「在我的農場裡，我養雞和種蔬菜。如果你需要工作，跟我說！」");
 	say();
 	UI_remove_answer("農夫");
-	UI_add_answer("工作");
+	UI_add_answer("職業");
 labelFunc043D_00A1:
 	case "瘋子" attend labelFunc043D_00C4:
 	message("「你也這麼認為，是吧？但我告訴你我說的都是真的！有來自星星上另一個地方的生物來拜訪我們！我親眼見過！」");
@@ -165,7 +165,7 @@ labelFunc043D_027F:
 	gflags[0x0095] = true;
 	UI_remove_answer("殺了 Wrathy");
 labelFunc043D_0296:
-	case "工作" attend labelFunc043D_02C4:
+	case "職業" attend labelFunc043D_02C4:
 	message("「我需要有人來幫我工作，幫忙收集雞下的所有蛋！當那個巨大的東西墜毀時，牠們都嚇壞了，所以牠們停不下來一直下蛋！你願意為我工作嗎？每顆雞蛋我付你 1 枚金幣。」");
 	say();
 	var0002 = Func090A();
@@ -178,7 +178,7 @@ labelFunc043D_02B9:
 	message("「如果你改變主意再問我吧。」");
 	say();
 labelFunc043D_02BD:
-	UI_remove_answer("工作");
+	UI_remove_answer("職業");
 labelFunc043D_02C4:
 	case "撿雞蛋" attend labelFunc043D_02D6:
 	Func08B8();

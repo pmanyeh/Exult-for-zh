@@ -18,7 +18,7 @@ void Func0638 object#(0x638) ()
 labelFunc0638_0017:
 	if (!(event == 0x0002)) goto labelFunc0638_0077;
 	if (!((var0000 == 0x0090) && (UI_get_item_shape(item) == 0x0282))) goto labelFunc0638_0055;
-	Func08FF("@Odd. The page is smudged with dirt here. I cannot make out this text.@");
+	Func08FF("@真奇怪。這裡被泥土弄髒了，我看不太清這些文字。@");
 	var0001 = UI_set_item_quality(item, 0x0091);
 	var0001 = UI_execute_usecode_array(item, [(byte)0x55, 0x0638]);
 	return;
@@ -26,7 +26,7 @@ labelFunc0638_0055:
 	if (!(item == UI_get_npc_object(0xFE9C))) goto labelFunc0638_0077;
 	if (!(!gflags[0x0325])) goto labelFunc0638_0076;
 	gflags[0x0325] = true;
-	Func08FF("@Why, a page has fallen out of the book!@");
+	Func08FF("@哎呀，這本書掉出了一頁！@");
 	return;
 	goto labelFunc0638_0077;
 labelFunc0638_0076:
@@ -35,7 +35,7 @@ labelFunc0638_0077:
 	UI_play_sound_effect2(0x000E, item);
 	UI_book_mode(item);
 	if (!(var0000 > 0x0094)) goto labelFunc0638_0092;
-	message("這@不是@一本有效的書");
+	message("這『不是』一本有效的書");
 	say();
 labelFunc0638_0092:
 	if (!(var0000 == 0x0064)) goto labelFunc0638_00AC;
@@ -73,7 +73,7 @@ labelFunc0638_00AC:
 	say();
 	message("第 111 天：其他人仍在試圖阻撓我！我聽到他們的聲音命令我停止。在我完成之前，我絕不休息！~~");
 	say();
-	message("Day 101: Again they come. They have sent a succubus to tempt me. \"Kiss me, kiss me,\" is all she would say. \"Nay\" was my reply. I will be strong!~~");
+	message("第 101 天：他們又來了。他們派了一名魅魔來誘惑我。她只會反覆說著：『吻我，吻我。』我的回答只有一個：『不。』我會保持堅強！");
 	say();
 	message("第 40232 天：哈！那些聲音現在在乞求，但在他離開之前我不會結束。夜晚是我的避風港，狗兒會吠叫！~~");
 	say();
@@ -81,7 +81,7 @@ labelFunc0638_00EE:
 	if (!(var0000 == 0x0066)) goto labelFunc0638_0100;
 	message("~~ ~~變形吸血鬼，Karen Elizabeth Gordon 著*");
 	say();
-	message("     This richly-detailed tome is a \"handbook of grammar for the Innocent, the Eager, and the Doomed.\"");
+	message("     這本細節豐富的巨著，是一本『專為無辜者、渴望者與命運註定受苦者所編纂的語法手冊』。");
 	say();
 labelFunc0638_0100:
 	if (!(var0000 == 0x0067)) goto labelFunc0638_0116;
@@ -133,7 +133,7 @@ labelFunc0638_0180:
 	if (!(var0000 == 0x006D)) goto labelFunc0638_0196;
 	message("~~ ~~家用物品附魔~~ ~~Nicodemus 著*");
 	say();
-	message("     Found upon the pages of this tome are many a recipe for the creation of \"mundane\" magic utensils and apparatuses, including such items as the SELF-PROPELLED BROOM, the GHOST WRITING QUILL, and the ALARM GEM.");
+	message("     這部典籍的書頁上記載了許多關於製造『世俗』魔法器具與裝置的配方，其中包括諸如『自動掃帚』、『幽靈書寫羽毛筆』以及『警報寶石』等物品。");
 	say();
 	message("在書本未完成的結尾部分，內容變得不穩定且幾乎難以辨認，彷彿是匆忙寫下的。後面的許多物品似乎有些瘋狂：巨大的黑曜石蒼蠅拍、會爆炸的玉米棒架，以及多刃梳子。看來這位法師在施法時可能並沒有準備好他所有的施法材料。");
 	say();
@@ -255,11 +255,11 @@ labelFunc0638_02A4:
 	say();
 	message("Fire Wand: This wand fires a bolt of flaming death. According to all known texts on the subject, the carnage was called \"amazing.\"~");
 	say();
-	message("Lightning Wand: The effects of a bolt of lightning as it bursts forth from the wand is as devastating, as its counterpart, the fire wand. However, according to one of its proponents, \"the corpses look and smell much less offensive.\"~");
+	message("火之魔杖：這根魔杖能發射一道燃燒的死亡之箭。根據所有已知的相關典籍記載，這場大屠殺被稱為『令人驚嘆』。");
 	say();
 	message("法師魔杖：雖然它的致命性只比一般的弓略高，但這根魔杖因為兩個有趣的特點而變得相當有效：它的傷害最具魔法性質，對付可能找法師麻煩的怪物非常強大，而且，它「永遠」不會耗盡充能。如果你對力量和持久性感興趣，這就是適合你的魔杖。*");
 	say();
-	message("Silver Serpent venom: mage's dream, youth's bane.~Once upon a time, the ability to gather this reagent was heralded as the beginning of a new era of magicry. It was the epitome of High Wizardry, but alas, as frequently happens, the promise paid but little.\tWhile direct doses of this reagent give a boost to strength, the permanent damage done to the body far outweighs any temporary advantage. Unfortunately, these adverse effects tend to carry over to the spells cast using this reagent.~ Before his illness, Garok Al-Mat, a mage of the high mountains, was experimenting with the vemom in conjunction with spider silk and giant bee pollen. His hope was to bind the qualities into an effective casting reagent for divination. But his work is now lost forever.*");
+	message("銀蛇毒液：法師之夢，少年之災。~曾幾何時，採集這種試劑的能力被譽為魔法新紀元的開端。那是高等魔法的象徵，然而遺憾的是，正如常見的那樣，許諾與結果往往難以兩全。\t雖然直接服用此試劑能增強力量，但它對身體造成的永久性損害，遠超任何短暫的優勢。不幸的是，這些副作用往往會傳導至使用此試劑施展的法術上。~在患病之前，高山法師加洛克·阿爾-馬特（Garok Al-Mat）曾嘗試將這種毒液與蜘蛛絲及巨蜂花粉結合。他希望能將這些屬性匯集成一種有效的占卜施法試劑，但他的研究成果如今已永遠失傳。*");
 	say();
 	message("毀滅之鋤：意外的榮耀。這是最近創造的魔法物品之一，這把曾經普通的鋤頭可以追溯到幾年前，當時第一批屈服於現在困擾所有法師的疾病的法師之一（一個沒有真正功績的鄉野法師），被要求為當地農夫修理一把破鋤頭，並為一名戰士附魔一把劍。不幸的是，他這可能是空前絕後的附魔，讓這把鋤頭成為今天最好的近戰武器之一。這把鋤頭的特徵是它獨特的紅色發光頭部。如果你遇到它，請務必小心。*");
 	say();
@@ -349,7 +349,7 @@ labelFunc0638_03A8:
 	if (!(var0000 == 0x0081)) goto labelFunc0638_03BA;
 	message("~~ ~~Nim 遊戲的一百零一種作弊方法~~ ~~Dr. Cat 著*");
 	say();
-	message("     Within the pages of this tome are all the many ways to earn supplementary gold by gambling at Nim. Written by the originator of the game, himself, this book covers in depth such strategies as, \"claw first, question later\" and \"there are no ways to skin a cat.\"");
+	message("     這本典籍中記載了透過『Nim』賭博賺取額外黃金的種種方法。書中由該遊戲的發明者本人親筆撰寫，深入探討了諸如『先出爪，後問話』以及『給貓剝皮根本沒有什麼所謂的正確方式』等策略。");
 	say();
 labelFunc0638_03BA:
 	if (!(var0000 == 0x0082)) goto labelFunc0638_03CC;
@@ -367,9 +367,9 @@ labelFunc0638_03DE:
 	if (!(var0000 == 0x0084)) goto labelFunc0638_03F8;
 	message("~~ ~~人如其食~~ ~~Fordras 著*");
 	say();
-	message("     Within these pages thou wilt find the comparitive analysis of many of things we, humans, place in our bodies in the name of food. I will attempt to provide for thee information on what constitutes \"good\" food and what constitutes \"bad,\" and will display the information by mentioning each type from best to worst, first in terms of nutritional value and second by taste.*");
+	message("     在這部典籍的書頁中，你會發現我們人類以食物之名，放入體內的諸多事物之比較分析。我將試著為你提供何謂『好』食物、何謂『壞』食物的資訊，並將依據營養價值由高至低，以及口味由優至劣的順序，逐一列出這些類型的資訊。*");
 	say();
-	message("     A large chop of fine meat, including mutton, fowl, ham, or ribs, is by far the most nourishing.  This does not include other forms of beef, however, for they are usually served in smaller portions. Pork and sausage are also lower on the proverbial \"scale,\" for they are not quite as filling. In place of meat, I would recommend flounder, cheese, or potatoes, for they are also quite good for thee.~     In some instances, trout, fish and chips, and some breads will pass for a meal. An egg and most any other fruit and vegetable, including: an apple, a banana, a carrot, a pumpkin, a bunch of grapes, and various cakes, will suffice in a pinch. However, despite its delectible taste and extravagant price, Silverleaf meals have absolutely no value on this chart at all. The moral is, my friend, never pass up meats when thou hast the chance to dine upon them!*");
+	message("     大塊的優質肉類，包含羊肉、家禽、火腿或肋排，絕對是最具營養的選擇。不過，這並不包含其他形式的牛肉，因為它們通常以較小的份量供應。豬肉與香腸在這份『食物量表』中的排名也較低，因為它們並不像前述肉類那麼有飽足感。若無肉類，我會建議選擇比目魚、起司或馬鈴薯，它們也相當不錯。~ 在某些情況下，鱒魚、炸魚薯條與某些麵包也能勉強當作一頓餐點。一顆雞蛋與大多數的水果和蔬菜——包括蘋果、香蕉、胡蘿蔔、南瓜、一串葡萄以及各式蛋糕——在急需時勉強足夠。然而，儘管『銀葉餐』（Silverleaf meals）味道可口且價格昂貴，但在這張量表中卻完全沒有價值。我的朋友，這其中的教訓就是：若有機會享用肉類，千萬別錯過！*");
 	say();
 	message("     顯然，並非所有好吃的東西都有營養。在這個清單的頂端，我必須寫下銀葉草。那味道絕對是精緻絕倫！除此之外，我推薦烤羊肉配上美味的 Minoc 釉醬。加上一顆馬鈴薯作為配菜，並以一些生蔬菜作為整頓飯的開胃菜，你就能真正享受一頓美妙的盛宴了！~     至於第二道菜，我建議……");
 	say();
@@ -393,15 +393,15 @@ labelFunc0638_041A:
 	say();
 	message("     這是一款雙人棋盤遊戲。每位玩家以三個棋子開始。目標是協同移動你的三個棋子，迫使寶藏從棋盤中心移動到你的一方。在此同時，你的對手也會試圖做同樣的事。~~");
 	say();
-	message("Each turn consists of a player either \"moving\" or \"pushing\" a piece followed by a similar action by the opposing player.~~");
+	message("每一回合包含一名玩家進行『移動』或『推動』棋子，隨後由對手玩家進行類似的行動。~~");
 	say();
-	message("A legal \"move\" consists of placing one's piece in any adjacent, unoccupied black or white square. A legal \"push\" is performed when a player forces a piece, either an opponent's or the treasure, one space directly away from his piece.~~");
+	message("合法的『移動』由將棋子置於任何相鄰且未被佔據的黑色或白色方格所組成。合法的『推動』則是在玩家強迫一枚棋子（無論是對手的棋子或寶藏）從其自身棋子所在位置直接推離一格時進行。~~");
 	say();
-	message("The exception to the latter rule, making a \"push\" illegal, occurs when a player wishes to \"push\" a piece into the space from which it just left in the preceding turn.~~");
+	message("後者規則的例外，也就是導致『推動』非法的情況，發生在玩家試圖將棋子『推動』回該棋子在上一回合剛離開的那個空格時。~~");
 	say();
-	message("If any piece, excluding the treasure, is \"pushed\" onto a blue square or off the board, that piece is considered lost, and is removed from play. The treasure may not be \"pushed\" off the board.~~");
+	message("若任何棋子（寶藏除外）被『推動』至藍色方格上或被推離棋盤，該棋子即視為遺失，並從遊戲中移除。寶藏不得被『推動』離開棋盤。~~");
 	say();
-	message("To win the game, a player must \"push\" the treasure to the back row of squares on his side of the board.");
+	message("若要贏得遊戲，玩家必須將寶藏『推動』至棋盤上其所在側的最末排方格。");
 	say();
 labelFunc0638_0440:
 	if (!(var0000 == 0x0087)) goto labelFunc0638_0452;
@@ -485,29 +485,29 @@ labelFunc0638_0502:
 	say();
 	message("……我在島上變得越來越孤獨。儘管有我的魔像，但我沒有任何人可以交談，沒有任何有個性的人。甚至連動物在這裡停留的時間都比在主島上少。~每天我都會望著地平線尋找人的蹤影。我不害怕陌生人，因為要嘛我會遇到聖者，要嘛我為了保護神殿而創造的魔像會擊退充滿敵意的訪客……~");
 	say();
-	message("……我太興奮了！今天在主島上，我偶然經過一棵樹。雖然這本身並不奇怪，但我注意到這棵樹似乎不是從地裡長出來的，而是從一塊大岩石上長出來的。同樣不尋常的是圍繞著它的五塊石頭，它們彼此之間以及與中心石頭的距離都相等。它們看起來很像能代表一顆五角星的頂點。~然後我意識到我目擊了什麼：傳說中的 Castambre 之石。即使我沒有注意到從巨石中冒出的生命之樹，岩石的五芒星也說明了一切……");
+	message("……我太興奮了！今天在主島上，我偶然經過一棵樹。雖然這本身並不奇怪，但我注意到這棵樹似乎不是從地裡長出來的，而是從一塊大岩石上長出來的。同樣不尋常的是圍繞著它的五塊石頭，它們彼此之間以及與中心石頭的距離都相等。它們看起來很像能代表一顆五角星的頂點。~然後我意識到我目擊了什麼：傳說中的 Castambre 之石。即使我沒有注意到從巨石中冒出的生命之樹，岩石的五芒星也說明了一切……~");
 	say();
-	message("……第一次測試成功了。我用鎬鑿下了一小塊石頭。一開始我被流血嚇了一跳，但因為我沒有聽到任何一點表示疼痛的聲音，所以我繼續了。我準備查閱書籍來決定我下一步的行動……");
+	message("……第一次測試成功了。我用鎬鑿下了一小塊石頭。一開始我被流血嚇了一跳，但因為我沒有聽到任何一點表示疼痛的聲音，所以我繼續了。我準備查閱書籍來決定我下一步的行動……~");
 	say();
-	message("……恐怕我暫時沒有什麼時間繼續寫這本日誌了。我明白一個真正的科學家會每天以極高的準確度記錄他所做和所見的一切，但每天所需的工作量已經讓我筋疲力盡很久了……");
+	message("……恐怕我暫時沒有什麼時間繼續寫這本日誌了。我明白一個真正的科學家會每天以極高的準確度記錄他所做和所見的一切，但每天所需的工作量已經讓我筋疲力盡很久了……~");
 	say();
-	message("... I have done it! My newest two golems can actually speak! And they offer original comments, not mere echoes of my own thought. The instructions in the book are correct. Bollux, my first attempt, succeeded, but my inexperience left him a little less intelligent than I would have preferred. However, his \"brother,\" Adjhar, benefited from my mistake with the other, and has full speech capabilities. As I sit now, writing this, I can hear them discussing weather! I must go now and talk with them. Oddly enough, the sky no longer seems overcast...");
+	message("……我終於成功了！我最新製作的兩具魔像居然能開口說話！而且它們能提出原創性的評論，不再只是我思想的單純迴聲。書中的指示是正確的。我的第一次嘗試——波洛克斯（Bollux），雖然成功了，但我當時的經驗不足，讓他比我預期的稍微笨拙了一點。然而，他的『兄弟』阿德哈爾（Adjhar），受益於我先前的錯誤，已具備完整的語言能力。現在當我坐下來寫下這篇紀錄時，我能聽見它們正在討論天氣！我必須去跟它們談談了。奇怪的是，天空似乎不再陰沉了……");
 	say();
 labelFunc0638_0524:
 	if (!(var0000 == 0x008F)) goto labelFunc0638_054A;
 	message("~~ ~~魔像：從泥土到石頭~~ ~~Castadon 著*");
 	say();
-	message("... Stone golems can be created from any hard rock. However, it is important to note that the enchantments require they be anthropomorphic\tin shape. Any other construct, or an incomplete one, will not be able to hold the creature together or permit locomotion.~");
+	message("……石魔像可以由任何堅硬的岩石製成。然而，必須注意的是，附魔條件要求其形狀必須呈人形。\t任何其他結構，或是殘缺不全的構造，都將無法維持生物的完整性，也無法使其移動。~");
 	say();
-	message("     Once the sufficient amount of stone has been gathered and placed roughly in the shape of a man, thou must cast the Vas Rel Ailem\tspell (see appendix QQ for spell description) to form the rock into a person. Needless to record, perhaps, the creature will barely resemble anything human, but will be able to function similarly.~");
+	message("     一旦收集了足量的岩石並大致堆疊成人形，你必須施展『Vas Rel Ailem』咒語（咒語描述請見附錄 QQ），將岩石塑造為一個個體。或許不必贅述，該生物與人類幾乎沒有什麼相似之處，但卻具備類似的功能。~");
 	say();
-	message("     The next enchantment is Kal Mani (appendix QQ). This will \"breathe life\" into the newly created golems, or rather, breathe animation into them. Once created, each golem will have enough rudimentary intelligence to obey and respond to three single-word commands, or one extensive request of any length.*");
+	message("     接下來的附魔是『Kal Mani』（請見附錄 QQ）。這將為新造的魔像『注入生命』，或者更精確地說，是賦予它們動作能力。一旦被創造出來，每具魔像都將具備足夠的初步智能，以聽從並回應三個單詞指令，或者一個長度不限的詳盡請求。*");
 	say();
 	message("*");
 	say();
 	message("     附錄 K~     Castambre 之石");
 	say();
-	message("~~     This mythological rock has legendary powers that permits one to shape and enchant stone -- and only stone -- to create golems by following only a single, short ritual instead of the lengthy and time-consuming process described in previous chapters. Though the Stone's existence has never been confirmed, there are also other purported powers that could make a risky investigation quite worth while. For additional information, see \"The Stone of Castambre,\" by MacCuth.");
+	message("~~     這塊神話般的岩石擁有傳奇的力量，能讓人塑造並附魔石頭——且僅限於石頭——透過單一且簡短的儀式，而非前幾章所描述的那種冗長且耗時的過程，即可創造出魔像。雖然這塊石頭的存在從未得到證實，但據稱它還擁有其他力量，使其成為一項相當值得冒險調查的目標。欲知詳情，請參閱馬克庫斯（MacCuth）所著的《卡斯坦布爾之石》（The Stone of Castambre）");
 	say();
 labelFunc0638_054A:
 	if (!(var0000 == 0x0090)) goto labelFunc0638_057C;
@@ -517,7 +517,7 @@ labelFunc0638_054A:
 	say();
 	message("     這塊石頭力量的主要目的是讓無生命的物體具有生命力：雕像、魔像、工具等。此外，如果想要的物體已經被賦予了對話能力，石頭會增強這些能力，賦予該物體（或者更確切地說是生物）獨立思考的能力。歷史學家聲稱，正是藉助這塊石頭，Castambre 創造出了具有如此深刻個性的生物，以至於在簾子後面，根本無法區分是一個人還是他創造的生物之一。*");
 	say();
-	message("     But how do I capture this ability, I hear thee ask.  First, assuming thou hast already discovered the Isle of Fire (no mean feat, I assure thee), thou must then search for the \"pentacle of rocks\" -- five boulders arranged as though they were vertices in a pentagram. In the center thou shouldst notice a sixth rock, from which grows a large, healthy tree -- the Tree of Life. This sixth rock is Castambre's Stone.");
+	message("     若要尋得這傳奇的「卡斯坦布爾之石」（Castambre's Stone），作者在書中提供了以下指引：首先，你必須先找到「火之島」（Isle of Fire），這絕非易事。接著，你必須搜尋島上的「岩石五芒星」（pentacle of rocks），這是由五顆巨石排列成五芒星頂點狀的結構。在五芒星的中心，你會發現第六顆岩石，那上面生長著一棵碩大且健康的樹木——「生命之樹」（Tree of Life）。這顆位居中心的第六顆岩石，正是卡斯坦布爾之石。");
 	say();
 	message("     然而，找到石頭只是一半的戰鬥，因為現在你必須施展超越常人能力的魔法。用一個……你必須……");
 	say();
@@ -525,7 +525,7 @@ labelFunc0638_054A:
 	var0001 = UI_execute_usecode_array(item, [(byte)0x55, 0x0638]);
 labelFunc0638_057C:
 	if (!(var0000 == 0x0091)) goto labelFunc0638_05DD;
-	message("... Once the the \"heart\" has been placed within the \"chest\" of the creature, the ritual may begin. First, using perhaps the same pick, thou must strike the Tree hard enough to draw blood. Blood from a Tree, questions thee? Aye, I say, for this Tree is one of life and energy -- collected from the nutrients of the Stone, and bleed it does. Some say thou wilt be able to hear the shrieks of pain from Castambre's Stone, but that rumor is waning. Thou wilt need enough of the Tree's life force to fill a bucket.");
+	message("「……一旦將『心臟』安置於生物的『胸腔』內，儀式即可開始。首先，你必須用同樣的鑿子用力敲擊那棵樹，直到引出汁液（血液）。你問，樹木會有血嗎？是的，我說，因為這棵樹充滿了生命與能量——這些養分皆匯集自那塊岩石，它確實會流血。有人說你能聽見卡斯坦布爾之石（Castambre's Stone）痛苦的尖叫聲，但這種傳言已漸漸平息。你需要獲取足夠的樹木生命力，將一個水桶填滿。");
 	say();
 	message("     將血妥善裝好後，必須將其灑在石像生物身體周圍的五個地方，就好像這生物是 Castambre 之石，而血泊是五芒星的五塊岩石。事實上，有必要放下五塊這樣的小石頭，來標記必須灑血的位置。然後你必須施展 Vas Flam Uus（見書末可撕下的附頁），點燃每一灘血泊。接著必須吟唱從 Castambre 日記中收集來的神聖詞彙（同樣在可撕下的附頁上）。");
 	say();

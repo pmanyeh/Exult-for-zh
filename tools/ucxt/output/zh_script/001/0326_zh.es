@@ -17,7 +17,7 @@ labelFunc0326_0009:
 	UI_show_npc_face(0xFEFD, 0x0000);
 	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!gflags[0x003D]) goto labelFunc0326_003C;
-	UI_add_answer("暗語");
+	UI_add_answer("口令");
 labelFunc0326_003C:
 	message("你看到一個看起來很強壯的守衛，他非常重視自己的工作。*（你覺得你應該跟他說什麼？）");
 	say();
@@ -29,19 +29,19 @@ labelFunc0326_0040:
 	UI_remove_answer("姓名");
 labelFunc0326_0056:
 	case "職業" attend labelFunc0326_0069:
-	message("「我負責阻止惡棍進入 Trinsic，並記錄所有離開的人。你必須有暗語才能離開。」");
+	message("「我負責阻止惡棍進入 Trinsic，並記錄所有離開的人。你必須有口令才能離開。」");
 	say();
-	UI_add_answer("暗語");
+	UI_add_answer("口令");
 labelFunc0326_0069:
-	case "暗語" attend labelFunc0326_00C7:
-	message("「暗語是？」");
+	case "口令" attend labelFunc0326_00C7:
+	message("「口令是？」");
 	say();
 	var0001 = ["嗯，我不知道", "國王萬歲", "拜託"];
 	if (!gflags[0x003D]) goto labelFunc0326_0094;
-	var0001 = (var0001 & "黑鳥");
+	var0001 = (var0001 & "Blackbird");
 labelFunc0326_0094:
 	var0002 = Func090B(var0001);
-	if (!(var0002 == "黑鳥")) goto labelFunc0326_00BF;
+	if (!(var0002 == "Blackbird")) goto labelFunc0326_00BF;
 	var0003 = Func0834();
 	var0003 = true;
 	if (!var0003) goto labelFunc0326_00BC;
@@ -51,7 +51,7 @@ labelFunc0326_0094:
 labelFunc0326_00BC:
 	goto labelFunc0326_00C7;
 labelFunc0326_00BF:
-	message("「你不知道暗語。抱歉。市長可以給你正確的暗語。」");
+	message("「你不知道口令。抱歉。市長可以給你正確的口令。」");
 	say();
 	gflags[0x0042] = true;
 labelFunc0326_00C7:

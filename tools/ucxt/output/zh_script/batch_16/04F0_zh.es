@@ -20,7 +20,7 @@ void Func04F0 object#(0x4F0) ()
 	var0002 = Func08F7(0xFF66);
 	var0003 = false;
 	var0004 = false;
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!gflags[0x02E1]) goto labelFunc04F0_0056;
 	message("「我感謝你，");
 	message(var0000);
@@ -59,7 +59,7 @@ labelFunc04F0_00BE:
 	UI_remove_answer("姓名");
 	UI_add_answer(["關心", "頸手枷"]);
 labelFunc04F0_00D2:
-	case "工作" attend labelFunc04F0_01C3:
+	case "職業" attend labelFunc04F0_01C3:
 	message("「那是什麼該死的愚蠢問題？我在監獄裡！我能有什麼該死的工作？」");
 	say();
 	if (!var0002) goto labelFunc04F0_00FD;

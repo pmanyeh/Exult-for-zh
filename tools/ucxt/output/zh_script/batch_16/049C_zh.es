@@ -22,7 +22,7 @@ void Func049C object#(0x49C) ()
 	var0001 = Func0909();
 	var0002 = UI_part_of_day();
 	var0003 = false;
-	UI_add_answer(["姓名", "工作", "友誼會", "告辭"]);
+	UI_add_answer(["姓名", "職業", "友誼會", "告辭"]);
 	if (!(var0002 == 0x0007)) goto labelFunc049C_0065;
 	var0004 = Func08FC(0xFF64, 0xFF06);
 	if (!var0004) goto labelFunc049C_0060;
@@ -55,7 +55,7 @@ labelFunc049C_008E:
 	say();
 	UI_remove_answer("姓名");
 labelFunc049C_00A4:
-	case "工作" attend labelFunc049C_00BD:
+	case "職業" attend labelFunc049C_00BD:
 	message("「我是友誼會 Moonglow 分會的書記。」");
 	say();
 	UI_add_answer(["書記", "Moonglow"]);

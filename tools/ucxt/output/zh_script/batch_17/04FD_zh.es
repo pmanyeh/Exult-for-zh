@@ -15,7 +15,7 @@ void Func04FD object#(0x4FD) ()
 	var0000 = Func0909();
 	var0001 = Func08F7(0xFF04);
 	var0002 = Func08F7(0xFF0C);
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x02CB])) goto labelFunc04FD_004C;
 	message("這個年輕人睜大眼睛的表情似乎表明了他的天真。");
 	say();
@@ -37,7 +37,7 @@ labelFunc04FD_0056:
 	UI_remove_answer("姓名");
 	UI_add_answer(["未婚妻", "Ophelia"]);
 labelFunc04FD_0083:
-	case "工作" attend labelFunc04FD_009C:
+	case "職業" attend labelFunc04FD_009C:
 	message("「我，呃，正在尋找某樣東西，");
 	message(var0000);
 	message("。」");

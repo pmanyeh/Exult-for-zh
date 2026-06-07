@@ -45,7 +45,7 @@ labelFunc04FA_005C:
 	Func08CF();
 	abort;
 labelFunc04FA_0064:
-	UI_add_answer(["姓名", "工作", "友誼會", "告辭"]);
+	UI_add_answer(["姓名", "職業", "友誼會", "告辭"]);
 	if (!gflags[0x0284]) goto labelFunc04FA_0084;
 	UI_add_answer("Elizabeth 和 Abraham");
 labelFunc04FA_0084:
@@ -81,7 +81,7 @@ labelFunc04FA_00D7:
 	if (!(!var0001)) goto labelFunc04FA_0110;
 	UI_add_answer("Balayna 的指控");
 labelFunc04FA_0110:
-	case "工作" attend labelFunc04FA_014F:
+	case "職業" attend labelFunc04FA_014F:
 	message("「我是 Moonglow 這裡友誼會的新分會會長。」");
 	say();
 	if (!gflags[0x01F5]) goto labelFunc04FA_0129;

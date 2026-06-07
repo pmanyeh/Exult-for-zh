@@ -188,7 +188,7 @@ labelFunc040C_0246:
 	UI_add_answer(["友誼會", "Klog"]);
 labelFunc040C_0259:
 	if (!(gflags[0x0042] && (!gflags[0x003D]))) goto labelFunc040C_026B;
-	UI_add_answer("暗語");
+	UI_add_answer("口令");
 labelFunc040C_026B:
 	if (!(gflags[0x0045] && (!gflags[0x0044]))) goto labelFunc040C_027D;
 	UI_add_answer("請現在付錢給我");
@@ -215,10 +215,10 @@ labelFunc040C_02C3:
 	message(var0008);
 	message("我相信它現在被保存在 Britain 的皇家博物館中，然而城鎮中心仍留著空蕩蕩的基座。我覺得這象徵著這個城鎮本身。它是相當空虛的——沒有人氣，沒有生氣，也沒有榮譽。真的很悲哀。」");
 	say();
-	message("「然後當然還有這起謀殺案。我們暫時關閉了城門，需要暗語才能進出。」");
+	message("「然後當然還有這起謀殺案。我們暫時關閉了城門，需要口令才能進出。」");
 	say();
 	UI_remove_answer("Trinsic");
-	UI_add_answer("暗語");
+	UI_add_answer("口令");
 labelFunc040C_02DF:
 	case "請現在付錢給我" attend labelFunc040C_032C:
 	message("「當然，");
@@ -335,22 +335,22 @@ labelFunc040C_0479:
 	say();
 	UI_remove_answer("Inamo");
 labelFunc040C_048C:
-	case "暗語" attend labelFunc040C_04EB:
+	case "口令" attend labelFunc040C_04EB:
 	if (!(gflags[0x0044] && (!gflags[0x003D]))) goto labelFunc040C_04D5;
-	message("「喔，你現在想要暗語嗎？」");
+	message("「喔，你現在想要口令嗎？」");
 	say();
 	if (!Func090A()) goto labelFunc040C_04CD;
 	if (!Func0886()) goto labelFunc040C_04C5;
 	message("「太好了！我現在毫不懷疑你就是那位真正的聖者！」");
 	say();
-	message("「喔——我差點忘了！離開或進入城鎮的暗語是『黑鳥』！」");
+	message("「喔——我差點忘了！離開或進入城鎮的口令是『Blackbird』！」");
 	say();
 	gflags[0x003D] = true;
 	Func0911(0x0064);
 	abort;
 	goto labelFunc040C_04CA;
 labelFunc040C_04C5:
-	message("「嗯。恐怕我還是對你是否為聖者感到懷疑。我的公職不允許我把暗語給你。我很抱歉。」");
+	message("「嗯。恐怕我還是對你是否為聖者感到懷疑。我的公職不允許我把口令給你。我很抱歉。」");
 	say();
 	abort;
 labelFunc040C_04CA:
@@ -362,12 +362,12 @@ labelFunc040C_04CD:
 labelFunc040C_04D2:
 	goto labelFunc040C_04E4;
 labelFunc040C_04D5:
-	message("「當你向我報告調查進度時，我就會把暗語給你。」");
+	message("「當你向我報告調查進度時，我就會把口令給你。」");
 	say();
 	UI_add_answer("報告");
 	gflags[0x0042] = true;
 labelFunc040C_04E4:
-	UI_remove_answer("暗語");
+	UI_remove_answer("口令");
 labelFunc040C_04EB:
 	case "告辭" attend labelFunc040C_04F6:
 	goto labelFunc040C_04F9;

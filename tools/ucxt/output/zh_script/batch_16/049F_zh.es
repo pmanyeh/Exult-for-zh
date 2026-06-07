@@ -17,7 +17,7 @@ void Func049F object#(0x49F) ()
 	var0000 = Func0908();
 	var0001 = Func0909();
 	var0002 = UI_part_of_day();
-	UI_add_answer(["姓名", "工作", "告辭"]);
+	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(!gflags[0x0201])) goto labelFunc049F_0047;
 	message("你看到一位舉止知性的年輕女子。");
 	say();
@@ -37,7 +37,7 @@ labelFunc049F_0051:
 	say();
 	UI_remove_answer("姓名");
 labelFunc049F_006D:
-	case "工作" attend labelFunc049F_0099:
+	case "職業" attend labelFunc049F_0099:
 	message("「我是一名學者，");
 	message(var0001);
 	message("。我也在這裡輔導並訓練那些在 Moonglow 尋求知識的人。」");
