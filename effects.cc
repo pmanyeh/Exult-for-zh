@@ -1008,7 +1008,12 @@ TileRect Text_effect::Figure_text_pos() {
 		// See if it's in a gump.
 		Gump* gump = gumpman->find_gump(item_obj.get());
 		if (gump) {
-			return gump->get_shape_rect(item_obj.get());
+			TileRect r = gump->get_shape_rect(item_obj.get());
+			Font::is_painting_bark = true;
+			int th = sman->get_text_height(0);
+			Font::is_painting_bark = false;
+			r.y -= th;
+			return r;
 		} else {
 			Game_object* outer = item_obj->get_outermost();
 			if (!outer->get_chunk()) {
@@ -1017,13 +1022,20 @@ TileRect Text_effect::Figure_text_pos() {
 			TileRect r = gwin->get_shape_rect(outer);
 			r.x -= gwin->get_scrolltx_lo();
 			r.y -= gwin->get_scrollty_lo();
+			Font::is_painting_bark = true;
+			int th = sman->get_text_height(0);
+			Font::is_painting_bark = false;
+			r.y -= th;
 			return r;
 		}
 	} else {
 		int x;
 		int y;
 		gwin->get_shape_location(tpos, x, y);
-		return TileRect(x, y, c_tilesize, c_tilesize);
+		Font::is_painting_bark = true;
+		int th = sman->get_text_height(0);
+		Font::is_painting_bark = false;
+		return TileRect(x, y - th, c_tilesize, c_tilesize);
 	}
 }
 
@@ -1044,8 +1056,10 @@ void Text_effect::add_dirty() {
 void Text_effect::init() {
 	set_always(true);    // Always execute in time queue, even
 	//   when paused.
+	Font::is_painting_bark = true;
 	width  = 8 + sman->get_text_width(0, msg.c_str());
 	height = 8 + sman->get_text_height(0);
+	Font::is_painting_bark = false;
 	add_dirty();    // Force first paint.
 	// Start immediately.
 	gwin->get_tqueue()->add(Game::get_ticks(), this);
@@ -1133,7 +1147,9 @@ Text_effect::~Text_effect() {
 void Text_effect::paint() {
 	const char* ptr = msg.c_str();
 	const int   len = strlen(ptr);
+	Font::is_painting_bark = true;
 	sman->paint_text(0, ptr, len, pos.x, pos.y);
+	Font::is_painting_bark = false;
 }
 
 /**

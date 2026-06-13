@@ -50,12 +50,12 @@ public:
 		return fonts[fontnum]->paint_text_box(win, text, x, y, w, h, vert_lead, pbreak, center, cursor);
 	}
 
-	int paint_text(Image_buffer8* win, int fontnum, const char* text, int xoff, int yoff) {
-		return fonts[fontnum]->paint_text(win, text, xoff, yoff);
+	int paint_text(Image_buffer8* win, int fontnum, const char* text, int xoff, int yoff, bool force_cjk = false) {
+		return fonts[fontnum]->paint_text(win, text, xoff, yoff, nullptr, force_cjk);
 	}
 
-	int paint_text(Image_buffer8* win, int fontnum, const char* text, int textlen, int xoff, int yoff) {
-		return fonts[fontnum]->paint_text(win, text, textlen, xoff, yoff);
+	int paint_text(Image_buffer8* win, int fontnum, const char* text, int textlen, int xoff, int yoff, bool force_cjk = false) {
+		return fonts[fontnum]->paint_text(win, text, textlen, xoff, yoff, nullptr, force_cjk);
 	}
 
 	// Get text width.

@@ -472,20 +472,20 @@ int Shape_manager::paint_text_box(
 	return fonts->paint_text_box(gwin->get_win()->get_ib8(), fontnum, text, x, y, w, h, vert_lead, pbreak, center, cursor);
 }
 
-int Shape_manager::paint_text(int fontnum, const char* text, int xoff, int yoff) {
-	return fonts->paint_text(gwin->get_win()->get_ib8(), fontnum, text, xoff, yoff);
+int Shape_manager::paint_text(int fontnum, const char* text, int xoff, int yoff, bool force_cjk) {
+	return fonts->paint_text(gwin->get_win()->get_ib8(), fontnum, text, xoff, yoff, force_cjk);
 }
 
-int Shape_manager::paint_text(int fontnum, const char* text, int textlen, int xoff, int yoff) {
-	return fonts->paint_text(gwin->get_win()->get_ib8(), fontnum, text, textlen, xoff, yoff);
+int Shape_manager::paint_text(int fontnum, const char* text, int textlen, int xoff, int yoff, bool force_cjk) {
+	return fonts->paint_text(gwin->get_win()->get_ib8(), fontnum, text, textlen, xoff, yoff, force_cjk);
 }
 
-int Shape_manager::paint_text(std::shared_ptr<Font> font, const char* text, int xoff, int yoff) {
-	return font->paint_text(gwin->get_win()->get_ib8(), text, xoff, yoff);
+int Shape_manager::paint_text(std::shared_ptr<Font> font, const char* text, int xoff, int yoff, bool force_cjk) {
+	return font->paint_text(gwin->get_win()->get_ib8(), text, xoff, yoff, nullptr, force_cjk);
 }
 
-int Shape_manager::paint_text(std::shared_ptr<Font> font, const char* text, int textlen, int xoff, int yoff) {
-	return font->paint_text(gwin->get_win()->get_ib8(), text, textlen, xoff, yoff);
+int Shape_manager::paint_text(std::shared_ptr<Font> font, const char* text, int textlen, int xoff, int yoff, bool force_cjk) {
+	return font->paint_text(gwin->get_win()->get_ib8(), text, textlen, xoff, yoff, nullptr, force_cjk);
 }
 
 int Shape_manager::get_text_width(int fontnum, const char* text) {

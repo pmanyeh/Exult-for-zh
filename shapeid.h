@@ -188,10 +188,10 @@ public:
 	int paint_text_box(
 			int fontnum, const char* text, int x, int y, int w, int h, int vert_lead = 0, bool pbreak = false, bool center = false,
 			int shading = -1, Cursor_info* cursor = nullptr);
-	int paint_text(int fontnum, const char* text, int xoff, int yoff);
-	int paint_text(int fontnum, const char* text, int textlen, int xoff, int yoff);
-	int paint_text(std::shared_ptr<Font> font, const char* text, int xoff, int yoff);
-	int paint_text(std::shared_ptr<Font> font, const char* text, int textlen, int xoff, int yoff);
+	int paint_text(int fontnum, const char* text, int xoff, int yoff, bool force_cjk = false);
+	int paint_text(int fontnum, const char* text, int textlen, int xoff, int yoff, bool force_cjk = false);
+	int paint_text(std::shared_ptr<Font> font, const char* text, int xoff, int yoff, bool force_cjk = false);
+	int paint_text(std::shared_ptr<Font> font, const char* text, int textlen, int xoff, int yoff, bool force_cjk = false);
 	// Get text width.
 	int get_text_width(int fontnum, const char* text);
 	int get_text_width(int fontnum, const char* text, int textlen);

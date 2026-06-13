@@ -69,6 +69,8 @@ private:
 	int get_text_baseline_for(const char* text, int len);
 
 public:
+	static bool is_painting_bark;
+
 	Font();
 	Font(const File_spec& fname0, int index, int hlead = 0, int vlead = 1);
 	Font(const File_spec& fname0, const File_spec& fname1, int index, int hlead = 0, int vlead = 1);

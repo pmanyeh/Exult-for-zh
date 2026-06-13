@@ -28,8 +28,22 @@
 #include "ibuf8.h"
 #include "ignore_unused_variable_warning.h"
 #include "vgafile.h"
+
+namespace TTF {
+    struct Render_Style {
+        int letter_spacing;
+        int weight;
+        int shadow_type;
+        int shadow_offset_x;
+        int shadow_offset_y;
+        int shadow_color;
+    };
+}
+
 #include "ttf_font.cc"
 #include "utils.h"
+
+bool Font::is_painting_bark = false;
 #include "Configuration.h"
 
 #include <fstream>
@@ -42,6 +56,31 @@ static std::string get_chinese_font_path() {
 		path = "<PATCH>/chinese.ttf";
 	}
 	return get_system_path(path);
+}
+
+static TTF::Render_Style get_chinese_ttf_style(int font_index) {
+	TTF::Render_Style style = {0, 0, -1, 1, 1, -1};
+	if (!config) return style;
+
+	bool is_bark = Font::is_painting_bark;
+	bool is_book = (font_index != 0 && font_index != 7);
+
+	if (is_book && !is_bark) {
+		config->value("config/video/chinese/letter_spacing_book", style.letter_spacing, 0);
+		config->value("config/video/chinese/font_weight_book", style.weight, 0);
+		config->value("config/video/chinese/shadow_type_book", style.shadow_type, -1);
+		config->value("config/video/chinese/shadow_offset_x_book", style.shadow_offset_x, 1);
+		config->value("config/video/chinese/shadow_offset_y_book", style.shadow_offset_y, 1);
+		config->value("config/video/chinese/shadow_color_book", style.shadow_color, -1);
+	} else {
+		config->value("config/video/chinese/letter_spacing", style.letter_spacing, 0);
+		config->value("config/video/chinese/font_weight", style.weight, 0);
+		config->value("config/video/chinese/shadow_type", style.shadow_type, -1);
+		config->value("config/video/chinese/shadow_offset_x", style.shadow_offset_x, 1);
+		config->value("config/video/chinese/shadow_offset_y", style.shadow_offset_y, 1);
+		config->value("config/video/chinese/shadow_color", style.shadow_color, -1);
+	}
+	return style;
 }
 
 static int get_chinese_baseline_adjust() {
@@ -178,7 +217,8 @@ int Font::paint_text_box(
 	const char* start    = text;    // Remember the start.
 	const bool  has_cjk  = Has_non_ascii(start);
 	auto        clipsave = win->SaveClip();
-	auto        newclip  = clipsave.Rect().intersect(TileRect(x, y, w, h));
+	// Expand the clipping rectangle slightly to ensure text shadows/outlines aren't cut off
+	auto        newclip  = clipsave.Rect().intersect(TileRect(x - 4, y - 4, w + 8, h + 8));
 	win->set_clip(newclip.x, newclip.y, newclip.w, newclip.h);
 
 	const int endx   = x + w;    // Figure where to stop.
@@ -367,6 +407,7 @@ int Font::paint_text(
 	TTF::load_font(get_chinese_font_path().c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {
 		bool is_book = (font_index != 0 && font_index != 7);
+		TTF::Render_Style style = get_chinese_ttf_style(font_index);
 		while (textlen > 0) {
 			uint32_t wch = TTF::decode_utf8(text, textlen);
 			if (wch == 0) {
@@ -389,8 +430,7 @@ int Font::paint_text(
 				}
 			} else {
 				Shape_frame* sample_shape = font_shapes->get_frame('A');
-				bool is_book = (font_index != 0 && font_index != 7);
-				x += TTF::paint_char(win, wch, x, yoff_original + get_chinese_baseline_adjust(), sample_shape, trans, is_book);
+				x += TTF::paint_char(win, wch, x, yoff_original + get_chinese_baseline_adjust(), sample_shape, trans, is_book, style);
 			}
 		}
 	}
@@ -553,6 +593,7 @@ int Font::paint_text_fixedwidth(
 	int yoff_original = yoff;
 	yoff += get_text_baseline_for(text);
 	TTF::load_font(get_chinese_font_path().c_str(), get_text_height_for(text));
+	TTF::Render_Style style = get_chinese_ttf_style(font_index);
 	while (*text != 0) {
 		uint32_t wch = TTF::decode_utf8(text);
 		if (wch == 0) {
@@ -575,10 +616,10 @@ int Font::paint_text_fixedwidth(
 			x += width;
 		} else {
 			Shape_frame* sample_shape = font_shapes->get_frame('A');
-			int          char_width   = TTF::get_char_width(wch);
+			int          char_width   = TTF::get_char_width(wch, style);
 			int          paint_x      = x + (width - char_width) / 2;
 			bool         is_book      = (font_index != 0 && font_index != 7);
-			TTF::paint_char(win, wch, paint_x, yoff_original + get_chinese_baseline_adjust(), sample_shape, trans, is_book);
+			TTF::paint_char(win, wch, paint_x, yoff_original + get_chinese_baseline_adjust(), sample_shape, trans, is_book, style);
 			x += width;
 		}
 	}
@@ -603,6 +644,7 @@ int Font::paint_text_fixedwidth(
 	int yoff_original = yoff;
 	yoff += get_text_baseline_for(text, textlen);
 	TTF::load_font(get_chinese_font_path().c_str(), get_text_height_for(text, textlen));
+	TTF::Render_Style style = get_chinese_ttf_style(font_index);
 	while (textlen > 0) {
 		uint32_t wch = TTF::decode_utf8(text, textlen);
 		if (wch == 0) {
@@ -625,10 +667,10 @@ int Font::paint_text_fixedwidth(
 			x += width;
 		} else {
 			Shape_frame* sample_shape = font_shapes->get_frame('A');
-			int          char_width   = TTF::get_char_width(wch);
+			int          char_width   = TTF::get_char_width(wch, style);
 			int          paint_x      = x + (width - char_width) / 2;
 			bool         is_book      = (font_index != 0 && font_index != 7);
-			TTF::paint_char(win, wch, paint_x, yoff_original + get_chinese_baseline_adjust(), sample_shape, trans, is_book);
+			TTF::paint_char(win, wch, paint_x, yoff_original + get_chinese_baseline_adjust(), sample_shape, trans, is_book, style);
 			x += width;
 		}
 	}
@@ -644,15 +686,20 @@ int Font::get_text_width(const char* text, bool force_cjk) {
 	TTF::load_font(get_chinese_font_path().c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text));
 	if (font_shapes) {
 		bool is_book = (font_index != 0 && font_index != 7);
+		TTF::Render_Style style = get_chinese_ttf_style(font_index);
 		while (*text != 0) {
-			uint32_t wch = TTF::decode_utf8(text);
-			if (wch < 0x80 && wch != 127 && !((is_book || get_chinese_force_ttf_for_english()) && force_cjk)) {
-				Shape_frame* shape = font_shapes->get_frame(wch);
+			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !((is_book || get_chinese_force_ttf_for_english()) && force_cjk)) {
+				Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(*text));
 				if (shape) {
 					width += shape->get_width() + hor_lead;
 				}
+				text++;
 			} else {
-				width += TTF::get_char_width(wch);
+				uint32_t wch = TTF::decode_utf8(text);
+				if (wch == 0) {
+					break;
+				}
+				width += TTF::get_char_width(wch, style);
 			}
 		}
 	}
@@ -672,18 +719,21 @@ int Font::get_text_width(
 	TTF::load_font(get_chinese_font_path().c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {
 		bool is_book = (font_index != 0 && font_index != 7);
+		TTF::Render_Style style = get_chinese_ttf_style(font_index);
 		while (textlen > 0) {
-			uint32_t wch = TTF::decode_utf8(text, textlen);
-			if (wch == 0) {
-				break;
-			}
-			if (wch < 0x80 && wch != 127 && !((is_book || get_chinese_force_ttf_for_english()) && force_cjk)) {
-				Shape_frame* shape = font_shapes->get_frame(wch);
+			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !((is_book || get_chinese_force_ttf_for_english()) && force_cjk)) {
+				Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(*text));
 				if (shape) {
 					width += shape->get_width() + hor_lead;
 				}
+				text++;
+				textlen--;
 			} else {
-				width += TTF::get_char_width(wch);
+				uint32_t wch = TTF::decode_utf8(text, textlen);
+				if (wch == 0) {
+					break;
+				}
+				width += TTF::get_char_width(wch, style);
 			}
 		}
 	}
@@ -697,6 +747,7 @@ void Font::get_text_box_dims(const char* text, int& width, int& height, int vert
 	const char* orig_text = text;
 	bool        has_cjk   = Has_non_ascii(orig_text);
 	bool        is_book   = (font_index != 0 && font_index != 7);
+	TTF::Render_Style style = get_chinese_ttf_style(font_index);
 
 	int num_lines = 1;
 	if (font_shapes) {
@@ -708,14 +759,18 @@ void Font::get_text_box_dims(const char* text, int& width, int& height, int vert
 				cur_width = 0;
 				continue;
 			}
-			uint32_t wch = TTF::decode_utf8(text);
-			if (wch < 0x80 && wch != 127 && !((is_book || get_chinese_force_ttf_for_english()) && has_cjk)) {
-				Shape_frame* shape = font_shapes->get_frame(wch);
+			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !((is_book || get_chinese_force_ttf_for_english()) && has_cjk)) {
+				Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(*text));
 				if (shape) {
 					cur_width += shape->get_width() + hor_lead;
 				}
+				text++;
 			} else {
-				cur_width += TTF::get_char_width(wch);
+				uint32_t wch = TTF::decode_utf8(text);
+				if (wch == 0) {
+					break;
+				}
+				cur_width += TTF::get_char_width(wch, style);
 			}
 		}
 		width  = std::max(width, cur_width);
@@ -742,8 +797,13 @@ int Font::get_original_height() {
 	return h;
 }
 
+
 int Font::get_chinese_font_size() {
 	int user_size = 0;
+	if (is_painting_bark) {
+		if (config) config->value("config/video/chinese/font_size_bark", user_size, 0);
+		return user_size > 0 ? user_size : 15;    // Bark default
+	}
 	if (font_index == 0) {
 		if (config) config->value("config/video/chinese/font_size_dialog", user_size, 0);
 		return user_size > 0 ? user_size : 15;    // Dialogues
@@ -842,12 +902,13 @@ int Font::find_cursor(
 	const int   max_lines   = h / height;    // # lines that can be shown.
 	int         cur_line    = 0;
 
+	TTF::Render_Style style = get_chinese_ttf_style(font_index);
 	while (*text != 0) {
 		const char* saved_text = text;
 		uint32_t    wch        = TTF::decode_utf8(text);
 
 		if (wch > 0x7F || wch == 127) {    // Multi-byte UTF-8 character (like Chinese) or custom bullet
-			int width = TTF::get_char_width(wch);
+			int width = TTF::get_char_width(wch, style);
 			if (curx + width - hor_lead > endx) {
 				// Word-wrap.
 				if (cy >= cury && cy < cury + height && cx >= curx && cx < x + w) {
@@ -963,7 +1024,8 @@ int Font::find_xcursor(
 		uint32_t    wch        = TTF::decode_utf8(text, textlen);
 
 		if (wch > 0x7F || wch == 127) {    // Multi-byte character or custom bullet
-			int w = TTF::get_char_width(wch) + hor_lead;
+			TTF::Render_Style style = get_chinese_ttf_style(font_index);
+			int w = TTF::get_char_width(wch, style);
 			if (cx >= curx && cx < curx + w) {
 				return static_cast<int>(saved_text - start);    // Adjust based on string parsing logic
 			}

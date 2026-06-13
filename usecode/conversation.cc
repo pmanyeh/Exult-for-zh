@@ -181,7 +181,7 @@ void Conversation::set_face_rect(Npc_face_info* info, Npc_face_info* prev, int s
 		if (starty < prev->face_rect.y + prev->face_rect.h) {
 			starty = prev->face_rect.y + prev->face_rect.h;
 		}
-		starty += 2 * base_text_height;
+		starty += (base_text_height > 15) ? 8 : 2 * base_text_height;
 		if (starty + face_h > screenh - 1) {
 			starty = screenh - face_h - 1;
 		}
@@ -192,11 +192,12 @@ void Conversation::set_face_rect(Npc_face_info* info, Npc_face_info* prev, int s
 	}
 	info->face_rect      = gwin->clip_to_win(TileRect(startx, starty, face_w + extraw, face_h + extrah));
 	const TileRect& fbox = info->face_rect;
+	int lines_allowed = (max_text_height > 15) ? 3 : 4;
 	if (info->large_face) {
-		info->text_rect = gwin->clip_to_win(TileRect(fbox.x + 8, fbox.y + fbox.h + 8, fbox.w - 16, 4 * max_text_height));
+		info->text_rect = gwin->clip_to_win(TileRect(fbox.x + 8, fbox.y + fbox.h + 8, fbox.w - 16, lines_allowed * max_text_height));
 	} else {
 		info->text_rect = gwin->clip_to_win(
-				TileRect(fbox.x + fbox.w + 8, fbox.y + 4, screenw - fbox.x - fbox.w - 16, 4 * max_text_height));
+				TileRect(fbox.x + fbox.w + 8, fbox.y + 4, screenw - fbox.x - fbox.w - 16, lines_allowed * max_text_height));
 	}
 	info->last_text_height = info->text_rect.h;
 }
@@ -551,7 +552,7 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 		if (fy < prev->face_rect.y + prev->face_rect.h) {
 			fy = prev->face_rect.y + prev->face_rect.h;
 		}
-		fy += line_height;
+		fy += (line_height > 15) ? 8 : line_height;
 	}
 
 	// Pre-calculate the total height of the choices to prevent them from going off-screen
@@ -572,9 +573,10 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 	}
 	int total_choices_height = temp_y + line_height;
 	
-	// If the choices exceed the bottom of the screen, push the avatar face up
-	if (fy + 4 + total_choices_height > sbox.h) {
-		fy = sbox.h - (4 + total_choices_height);
+	// If the choices or the avatar face exceed the bottom of the screen, push them up
+	int needed_h = std::max(face->get_height(), 4 + total_choices_height);
+	if (fy + needed_h > sbox.h) {
+		fy = sbox.h - needed_h;
 		if (fy < 0) fy = 0;
 	}
 
@@ -619,7 +621,7 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 		char text[256];
 		text[0] = 127;    // A circle.
 		strcpy(&text[1], choices[i]);
-		sman->paint_text(0, text, conv_choices[i].x, conv_choices[i].y);
+		sman->paint_text(0, text, conv_choices[i].x, conv_choices[i].y, has_chinese);
 	}
 	avatar_face.enlarge((3 * c_tilesize) / 4);    // Encloses entire area.
 	avatar_face = avatar_face.intersect(sbox);

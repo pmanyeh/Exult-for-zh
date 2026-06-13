@@ -127,14 +127,14 @@ namespace TTF {
         return c1;
     }
 
-    int get_char_width(uint32_t wch) {
-        if (wch == 127) return 8; // Custom bullet width
+    int get_char_width(uint32_t wch, const Render_Style& style) {
+        if (wch == 127) return 8 + style.letter_spacing; // Custom bullet width
         if (!face) return 16;
         if (FT_Load_Char(face, wch, FT_LOAD_RENDER | FT_LOAD_TARGET_MONO)) {
             return 16;
         }
         int base_advance = face->glyph->advance.x >> 6;
-        return base_advance + (base_advance >= 16 ? 2 : 1);
+        return base_advance + (base_advance >= 16 ? 2 : 1) + style.letter_spacing;
     }
 
     static unsigned char cached_fg = 254;
@@ -193,7 +193,7 @@ namespace TTF {
         }
     }
 
-    int paint_char(Image_buffer8* win, uint32_t wch, int x, int yoff_original, Shape_frame* sample_shape, unsigned char* trans, bool is_book = false) {
+    int paint_char(Image_buffer8* win, uint32_t wch, int x, int yoff_original, Shape_frame* sample_shape, unsigned char* trans, bool is_book, const Render_Style& style) {
         if (!win) return 16;
         if (wch == 127) {
             update_colors(sample_shape, is_book);
@@ -248,29 +248,49 @@ namespace TTF {
             bg_color = trans[bg_color];
         }
 
-        // Draw outline/shadow first
-        if (bg_color != 0) {
-            for (unsigned int row = 0; row < bitmap.rows; ++row) {
-                for (unsigned int col = 0; col < bitmap.width; ++col) {
-                    int byte_idx = row * bitmap.pitch + (col >> 3);
-                    int bit_idx = 7 - (col & 7);
-                    if (bitmap.buffer[byte_idx] & (1 << bit_idx)) {
-                        int draw_x = left_x + col;
-                        int draw_y = top_y + row;
-                        
-                        if (base_advance < 16) {
-                            // Full outline for English/ASCII
-                            win->put_pixel8(bg_color, draw_x - 1, draw_y);
-                            win->put_pixel8(bg_color, draw_x, draw_y - 1);
+            // Shadow color override
+            if (style.shadow_color >= 0 && style.shadow_color <= 255) {
+                bg_color = style.shadow_color;
+            }
+
+            // Draw outline/shadow first
+            if (bg_color != 0 && style.shadow_type != 0) {
+                for (unsigned int row = 0; row < bitmap.rows; ++row) {
+                    for (unsigned int col = 0; col < bitmap.width; ++col) {
+                        int byte_idx = row * bitmap.pitch + (col >> 3);
+                        int bit_idx = 7 - (col & 7);
+                        if (bitmap.buffer[byte_idx] & (1 << bit_idx)) {
+                            int draw_x = left_x + col;
+                            int draw_y = top_y + row;
+                            
+                            if (style.shadow_type == -1) {
+                                // Default legacy behavior
+                                if (base_advance < 16) {
+                                    win->put_pixel8(bg_color, draw_x - 1, draw_y);
+                                    win->put_pixel8(bg_color, draw_x, draw_y - 1);
+                                }
+                                win->put_pixel8(bg_color, draw_x + 1, draw_y);
+                                win->put_pixel8(bg_color, draw_x, draw_y + 1);
+                                win->put_pixel8(bg_color, draw_x + 1, draw_y + 1);
+                            } else if (style.shadow_type == 1) {
+                                // Bottom-Right Drop Shadow (configurable offset)
+                                win->put_pixel8(bg_color, draw_x + style.shadow_offset_x, draw_y + style.shadow_offset_y);
+                            } else if (style.shadow_type == 2) {
+                                // Full Outline (configurable offset)
+                                int ox = style.shadow_offset_x;
+                                int oy = style.shadow_offset_y;
+                                for (int dx = -ox; dx <= ox; dx++) {
+                                    for (int dy = -oy; dy <= oy; dy++) {
+                                        if (dx != 0 || dy != 0) {
+                                            win->put_pixel8(bg_color, draw_x + dx, draw_y + dy);
+                                        }
+                                    }
+                                }
+                            }
                         }
-                        // Bottom and right shadow for all characters
-                        win->put_pixel8(bg_color, draw_x + 1, draw_y);
-                        win->put_pixel8(bg_color, draw_x, draw_y + 1);
-                        win->put_pixel8(bg_color, draw_x + 1, draw_y + 1);
                     }
                 }
             }
-        }
 
         // Draw foreground text
         for (unsigned int row = 0; row < bitmap.rows; ++row) {
@@ -281,10 +301,14 @@ namespace TTF {
                     int draw_x = left_x + col;
                     int draw_y = top_y + row;
                     win->put_pixel8(fg_color, draw_x, draw_y);
+                    // Boldness
+                    for (int w = 1; w <= style.weight; ++w) {
+                        win->put_pixel8(fg_color, draw_x + w, draw_y);
+                    }
                 }
             }
         }
         
-        return advance;
+        return advance + style.letter_spacing;
     }
 }

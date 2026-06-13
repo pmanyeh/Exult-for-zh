@@ -50,6 +50,13 @@ Exult 啟動時會自動載入。
 
 ---
 
+## 設定與客製化
+
+關於如何透過 `exult.cfg` 自訂中文字型的大小、間距、粗細與陰影效果，
+請參閱：[字型進階設定指南 (README_Chinese_Config.md)](README_Chinese_Config.md)
+
+---
+
 ## 授權
 
 本專案基於 [Exult](https://github.com/exult/exult) 修改而來，遵循原專案的 **GPL-2.0** 授權。  
