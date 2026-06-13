@@ -219,7 +219,7 @@ labelFunc0638_0266:
 	say();
 labelFunc0638_0278:
 	if (!(var0000 == 0x0079)) goto labelFunc0638_028E;
-	message("~~ ~~THE SALTY DOG");
+	message("~~ ~~老海狗酒館 (THE SALTY DOG)");
 	say();
 	message("~~ ~~登記簿*");
 	say();

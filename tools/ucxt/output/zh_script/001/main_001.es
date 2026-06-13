@@ -36,5 +36,5 @@
 #include "zh_script/001/090A_zh.es"
 #include "zh_script/001/091A_zh.es"
 #include "zh_script/001/0921_zh.es"
-#include "zh_script/001/iolo_zh.es"
-#include "zh_script/001/peter_zh.es"
+#include "zh_script/001/0401_zh.es"
+#include "zh_script/001/0408_zh.es"

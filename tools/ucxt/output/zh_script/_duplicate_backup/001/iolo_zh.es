@@ -125,7 +125,7 @@ labelFunc0401_02ED:
 	UI_add_answer("Trinsic");
 labelFunc0401_02FB:
 	if (!(var0002 in var0001)) goto labelFunc0401_030C;
-	UI_add_answer("離開");
+	UI_add_answer("離隊");
 labelFunc0401_030C:
 	if (!(!(var0002 in var0001))) goto labelFunc0401_031E;
 	UI_add_answer("加入");
@@ -329,7 +329,7 @@ labelFunc0401_0605:
 	UI_remove_answer("Inamo");
 	UI_add_answer("石像鬼");
 labelFunc0401_061F:
-	case "離開" attend labelFunc0401_0696:
+	case "離隊" attend labelFunc0401_0696:
 	message("Iolo 看起來很受傷。「你真的要我離開嗎？」");
 	say();
 	var000D = Func090A();
@@ -370,7 +370,7 @@ labelFunc0401_06C1:
 	if (!(var000F < 0x0008)) goto labelFunc0401_06E3;
 	UI_add_to_party(0xFFFF);
 	UI_remove_answer("加入");
-	UI_add_answer("離開");
+	UI_add_answer("離隊");
 	goto labelFunc0401_06E7;
 labelFunc0401_06E3:
 	message("「看來與你同行的成員已經夠多了！我會等到有人離開隊伍時再加入。」");

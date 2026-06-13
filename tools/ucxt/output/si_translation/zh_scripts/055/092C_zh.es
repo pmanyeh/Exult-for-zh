@@ -1,0 +1,23 @@
+#game "serpentisle"
+var Func092C 0x92C (var var0000)
+{
+	var var0001;
+	var var0002;
+	var var0003;
+
+	if (!(var0000 == 0x0001)) goto labelFunc092C_004A;
+	var0001 = [0x0108, 0x0241, 0x034A, 0x02ED, 0x010B, 0x011D, 0x0377, 0x02A5, 0x0179, 0x00F4, 0x02D9, 0x0268, 0x0392, 0x024B, 0x03B4, 0x031A, 0x03EC, 0x01A3];
+	return var0001;
+labelFunc092C_004A:
+	if (!(var0000 == 0x0002)) goto labelFunc092C_0074;
+	var0002 = [false, false, false, false, false, false, false, false, false, false, false, false, 0x00FF, false, 0x0014, false, false, false];
+	return var0002;
+labelFunc092C_0074:
+	if (!(var0000 == 0x0003)) goto labelFunc092C_00BE;
+	var0003 = [0x0000, 0x0003, 0x000F, 0x0001, 0x0000, 0x0006, 0x0000, 0x0000, 0x0015, 0x0000, 0x0000, 0x0010, 0x0000, 0x0005, 0x0000, 0x0000, 0x0004, 0x0000];
+	return var0003;
+labelFunc092C_00BE:
+	return 0;
+}
+
+

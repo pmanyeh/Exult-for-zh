@@ -32,7 +32,7 @@ void Func0409 object#(0x409) ()
 	var0006 = Func08F7(0xFFFC);
 	UI_add_answer(["姓名", "職業", "告辭"]);
 	if (!(var0002 in var0001)) goto labelFunc0409_006B;
-	UI_add_answer("離開");
+	UI_add_answer("離隊");
 labelFunc0409_006B:
 	if (!gflags[0x018D]) goto labelFunc0409_0078;
 	UI_add_answer("Henry");
@@ -112,7 +112,7 @@ labelFunc0409_019A:
 	message("!」");
 	say();
 	UI_add_to_party(0xFFF7);
-	UI_add_answer("離開");
+	UI_add_answer("離隊");
 	UI_remove_answer("加入");
 	goto labelFunc0409_01CA;
 labelFunc0409_01C6:
@@ -121,7 +121,7 @@ labelFunc0409_01C6:
 labelFunc0409_01CA:
 	UI_remove_answer("加入");
 labelFunc0409_01D1:
-	case "離開" attend labelFunc0409_0231:
+	case "離隊" attend labelFunc0409_0231:
 	message("「你是想讓我在這裡等，還是我該回家了？」");
 	say();
 	UI_clear_answers();

@@ -1,0 +1,11 @@
+#game "serpentisle"
+var Func0968 0x968 (var var0000, var var0001, var var0002, var var0003, var var0004)
+{
+	var var0005;
+
+	var0005 = ((((((("To sell " + var0000) + var0001) + " for ") + var0003) + " gold") + var0004) + ".");
+	return var0005;
+	return 0;
+}
+
+

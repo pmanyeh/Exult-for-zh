@@ -1,0 +1,13 @@
+#game "serpentisle"
+void Func08E8 0x8E8 ()
+{
+	gflags[0x022E] = false;
+	gflags[0x022F] = false;
+	gflags[0x0230] = false;
+	gflags[0x0231] = false;
+	gflags[0x0232] = false;
+	UI_obj_sprite_effect(0xFE9C, 0x0011, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xFFFF);
+	return;
+}
+
+

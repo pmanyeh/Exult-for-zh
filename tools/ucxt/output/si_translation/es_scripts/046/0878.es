@@ -1,0 +1,24 @@
+#game "serpentisle"
+void Func0878 0x878 ()
+{
+	var var0000;
+	var var0001;
+	var var0002;
+	var var0003;
+	var var0004;
+	var var0005;
+	var var0006;
+
+	var0000 = [0x0673, 0x09CF];
+	var0001 = [0x0683, 0x0A15];
+	var0002 = [0x06CB, 0x0A27];
+	var0003 = [0x06FB, 0x0A37];
+	var0004 = [0x06EB, 0x0A37];
+	var0005 = [0x063B, 0x0A37];
+	var0006 = [0x06AB, 0x0A38];
+	UI_set_new_schedules(0xFF56, [0x0000, 0x0001, 0x0002, 0x0003, 0x0004, 0x0005, 0x0006], [0x000B, 0x000C, 0x000C, 0x0002, 0x0001, 0x000C, 0x000C], [var0000, var0001, var0002, var0003, var0004, var0005, var0006]);
+	UI_run_schedule(0xFF56);
+	return;
+}
+
+

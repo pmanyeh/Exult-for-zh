@@ -3642,7 +3642,9 @@ constexpr static const std::array encodings{
 		"ASCII",      "CP437",       "CP850",       "ISO-8859-1",  "CP1252",      "ISO-8859-15", "ISO-8859-2", "CP1250",
 		"ISO-8859-3", "ISO-8859-4",  "CP1257",      "ISO-8859-13", "ISO-8859-5",  "CP1251",      "KOI8-R",     "CP866",
 		"KOI8-U",     "ISO-8859-6",  "CP1256",      "ISO-8859-7",  "CP1253",      "ISO-8859-8",  "CP1255",     "ISO-8859-9",
-		"CP1254",     "ISO-8859-10", "ISO-8859-11", "CP874",       "ISO-8859-14",
+		"CP1254",     "ISO-8859-10", "ISO-8859-11", "CP874",       "ISO-8859-14", 
+		// [2026-06-13] Added support for Chinese Encodings and UTF-8
+		"UTF-8",       "Big5",       "CP950", "GBK",        "GB18030",
 };
 
 static inline int Find_Encoding_Index(const char* enc) {

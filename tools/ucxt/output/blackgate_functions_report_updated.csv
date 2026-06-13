@@ -1,644 +1,644 @@
-﻿"﻿""Function""","String Count","Total Characters","Translated","NPC/Event"
-"0096H","2","91","Yes","Done"
-"009AH","205","16793","Yes","Erethian (烈火島盲眼法師)"
-"009BH","54","2790","Yes","Ferryman of Skara Brae (Skara Brae 渡船夫)"
-"009FH","6","9","Yes","Done"
-"00FBH","2","114","Yes","Done"
-"00FCH","3","3","Yes","Done"
-"0102H","1","19","Yes","Done"
-"0105H","1","52","Yes","Done"
-"011CH","6","81","Yes",""
-"0149H","1","17","Yes","Done"
-"0154H","3","69","Yes","Done"
-"017BH","325","1814","","待與團隊討論 (Runic Font)"
-"018AH","15","309","Yes",""
-"01B2H","1","19","Yes","Done"
-"01BFH","1","5","Yes",""
-"01DFH","37","887","Yes","Emp (森靈)"
-"01EFH","3","39","Yes",""
-"01F0H","3","24","Yes","@乖狗狗。@"
-"01F4H","3","17","Yes","@哞@"
-"01F7H","1","130","Yes","\"
-"01F8H","11","2440","Yes","Dracothraxus (巨龍 - 勇氣考驗)"
-"01FAH","2","409","Yes","Batlin 以冰冷的無奈看著 Hook 死亡。當他轉向你時"
-"020AH","1","6","Yes","上鎖了"
-"0247H","1","41","Yes","Done"
-"0269H","114","8892","Yes","Time Lord (時間領主)"
-"026FH","2","50","Yes","Done"
-"0270H","3","126","Yes","Done"
-"0273H","7","110","Yes","Done"
-"0281H","3","24","Yes","Unlocked"
-"0282H","287","46807","Yes",""
-"0284H","6","62","Yes","Done"
-"0285H","2","91","Yes","Done"
-"0286H","2","91","Yes","Done"
-"0288H","1","20","Yes","Done"
-"028AH","9","62","Yes",""
-"028BH","2","81","Yes","Done"
-"0292H","3","74","Yes","Done"
-"0296H","10","178","Yes","Done"
-"029CH","2","45","Yes","@劍不夠熱。@"
-"02A3H","16","233","Yes",""
-"02BAH","1","64","Yes","Done"
-"02BEH","2","42","Yes","Done"
-"02CBH","444","2837","","待與團隊討論 (Runic Font)"
-"02D3H","2","167","Yes","\"
-"02D5H","2","35","Yes","Done"
-"02D8H","1","119","Yes","\"
-"02DAH","3","159","Yes","Done"
-"02DFH","3","107","Yes","Done"
-"02E6H","1","20","Yes","@哇！真俐落！！@"
-"02E7H","1","23","Yes","Done"
-"02F2H","1","240","Yes","隨著靈魂囚籠化為塵土，巫妖發生了巨大的轉變。在邪靈被囚禁的地"
-"02F8H","3","169","Yes","Done"
-"0303H","1","57","Yes","法杖發出微弱的光芒。Batlin 假笑著。\"
-"030DH","2","95","Yes","Done"
-"030EH","1","39","Yes","Done"
-"0311H","4","60","Yes","Done"
-"0316H","1","20","Yes","Done"
-"031DH","104","15292","Yes",""
-"0326H","22","466","Yes",""
-"0329H","1","12","Yes","Done"
-"032AH","17","357","Yes","Bucket / Interactive (水桶等互動)"
-"0334H","246","1459","","待與團隊討論 (Runic Font)"
-"0336H","2","51","Yes","Done"
-"0337H","11","190","Yes",""
-"033BH","6","143","Yes",""
-"0345H","2","45","Yes","Done"
-"0348H","1","48","Yes","Done"
-"0353H","3","140","Yes","Done"
-"0356H","22","3448","Yes","Shrine Statues (神殿雕像 - 烈火島)"
-"035FH","2","67","Yes","Done"
-"03B0H","1","5","Yes","呸！"
-"03B2H","11","222","Yes",""
-"03DBH","1","11","Yes","Done"
-"03DEH","2","558","Yes","你感覺自己的大腦正在被探測，起初很輕柔，然後越來越強烈。久遠"
-"03F7H","10","814","Yes","Golems Adjion and Bollux (魔像兄弟)"
-"0401H","148","6283","Yes","Iolo / Petre (Trinsic 劇情)"
-"0402H","162","7021","Yes",""
-"0403H","109","3736","Yes","Shamino (加入對話)"
-"0404H","108","5673","Yes","Dupre (加入對話)"
-"0405H","82","2865","Yes","Jaana (加入/治療對話)"
-"0406H","95","3241","Yes","Trellek (森靈 Trellek)"
-"0407H","83","3521","Yes","Sentri (加入/訓練對話)"
-"0408H","105","3835","Yes","Julia (加入對話)"
-"0409H","113","3902","Yes","Katrina (加入對話)"
-"040AH","222","8078","Yes","Tseramed (加入/狩獵對話)"
-"040BH","64","2324","Yes","Petre (Trinsic 馬廄管理員)"
-"040CH","132","6134","Yes",""
-"040DH","72","2109","Yes",""
-"040EH","56","1445","Yes",""
-"040FH","38","1920","Yes","Translated in Batch 03 (040F)"
-"0410H","80","2845","Yes",""
-"0411H","33","1038","Yes",""
-"0412H","48","1556","Yes",""
-"0413H","54","1780","Yes",""
-"0414H","26","611","Yes",""
-"0415H","62","2726","Yes",""
-"0416H","36","987","Yes","Translated in Batch 03 (0416)"
-"0417H","216","12401","Yes","Translated in Batch 03 (0417)"
-"0418H","36","1378","Yes","Translated in Batch 03 (0418)"
-"0419H","85","1910","Yes","Translated in Batch 03 (0419)"
-"041AH","168","10922","Yes","Translated in Batch 03 (041A)"
-"041BH","69","3687","Yes","Translated in Batch 03 (041B)"
-"041CH","44","1934","Yes","Translated in Batch 03 (041C)"
-"041DH","41","1534","Yes","Translated in Batch 03 (041D)"
-"041EH","51","1785","Yes","Translated in Batch 03 (041E)"
-"041FH","36","869","Yes",""
-"0420H","31","1077","Yes",""
-"0421H","32","911","Yes",""
-"0422H","64","2991","Yes",""
-"0423H","50","2945","Yes",""
-"0424H","38","1664","Yes",""
-"0425H","67","2092","Yes",""
-"0426H","73","3575","Yes",""
-"0427H","30","1525","Yes",""
-"0428H","50","1933","Yes",""
-"0429H","60","3663","Yes",""
-"042AH","72","3961","Yes",""
-"042BH","80","5328","Yes",""
-"042CH","77","5538","Yes",""
-"042DH","80","4152","Yes",""
-"042EH","89","3944","Yes",""
-"042FH","46","1889","Yes",""
-"0430H","51","3121","Yes",""
-"0431H","27","1397","Yes",""
-"0432H","50","1510","Yes",""
-"0433H","58","2422","Yes",""
-"0434H","98","4952","Yes",""
-"0435H","46","2385","Yes",""
-"0436H","66","2742","Yes",""
-"0437H","53","2089","Yes",""
-"0438H","53","2084","Yes",""
-"0439H","61","2584","Yes",""
-"043AH","66","2948","Yes",""
-"043BH","70","2924","Yes",""
-"043CH","69","2780","Yes",""
-"043DH","100","4891","Yes",""
-"043EH","102","5317","Yes",""
-"043FH","47","2608","Yes",""
-"0440H","38","1906","Yes",""
-"0441H","34","1409","Yes",""
-"0442H","51","1920","Yes",""
-"0443H","42","1780","Yes",""
-"0444H","33","1406","Yes",""
-"0445H","75","4545","Yes",""
-"0446H","60","2926","Yes",""
-"0447H","57","2125","Yes",""
-"0448H","45","1861","Yes",""
-"0449H","52","2436","Yes",""
-"044AH","55","2672","Yes",""
-"044BH","89","4285","Yes",""
-"044CH","33","1189","Yes",""
-"044DH","59","2560","Yes",""
-"044EH","35","965","Yes",""
-"044FH","35","1107","Yes",""
-"0450H","40","1070","Yes",""
-"0451H","96","8337","Yes","Elynor (Minoc 兄弟會分會顧問)"
-"0452H","65","2572","Yes","Gregor (Minoc 不列顛尼亞礦業公司負責人)"
-"0453H","54","1451","Yes","Margareta (吉普賽占卜師)"
-"0454H","40","1340","Yes","Sasha (吉普賽男孩/受害者之子)"
-"0455H","63","4227","Yes","Gladstone (玻璃工匠/藝術家公會會長)"
-"0456H","54","2715","Yes","Xanthia (藝術家公會成員/燭台工匠)"
-"0457H","77","3185","Yes","Zorn (Minoc 鐵匠)"
-"0458H","67","3264","Yes","Seara (藝術家公會成員/時鐘工匠)"
-"0459H","61","3773","Yes","Karl (山裡的老頭/造船匠受害者家屬)"
-"045AH","131","8492","Yes",""
-"045BH","82","4514","Yes",""
-"045CH","71","3732","Yes",""
-"045DH","43","2315","Yes",""
-"045EH","63","2660","Yes",""
-"045FH","61","3690","Yes","Jakher (Minoc 訓練師)"
-"0460H","60","2808","Yes","Jergi (Minoc 吉普賽人之王)"
-"0461H","48","2257","Yes","Mikos (Minoc 礦場工頭)"
-"0462H","84","3329","Yes","Saralek (雌性森靈)"
-"0463H","37","1316","Yes","Fodus (生病的石像鬼礦工)"
-"0464H","51","1774","Yes","Tavenor (森靈)"
-"0465H","71","2750","Yes","Salamon (森靈長老)"
-"0466H","68","5199","Yes","Translated in Batch 04 (0466)"
-"0467H","42","1856","Yes","Translated in Batch 04 (0467)"
-"0468H","46","1850","Yes","Translated in Batch 04 (0468)"
-"0469H","41","1231","Yes","Translated in Batch 04 (0469)"
-"046AH","55","2024","Yes","Translated in Batch 04 (046A)"
-"046BH","94","5119","Yes","Translated in Batch 04 (046B)"
-"046CH","84","3814","Yes","Translated in Batch 04 (046C)"
-"046DH","72","2455","Yes","Translated in Batch 04 (046D)"
-"046EH","68","3804","Yes","Translated in Batch 04 (046E)"
-"046FH","39","943","Yes","Translated in Batch 04 (046F)"
-"0470H","58","1989","Yes","Translated in Batch 05 (0470)"
-"0471H","92","2829","Yes","Translated in Batch 05 (0471)"
-"0472H","60","2288","Yes","Translated in Batch 05 (0472)"
-"0473H","50","2104","Yes","Translated in Batch 05 (0473)"
-"0474H","62","2171","Yes","Translated in Batch 05 (0474)"
-"0475H","70","1830","Yes","Translated in Batch 05 (0475)"
-"0476H","62","1814","Yes","Translated in Batch 05 (0476)"
-"0477H","71","3883","Yes","Translated in Batch 05 (0477)"
-"0478H","87","4875","Yes","Translated in Batch 05 (0478)"
-"0479H","85","4178","Yes","Translated in Batch 05 (0479)"
-"047AH","111","5350","Yes","Ophelia (Jhelom Barmaid)"
-"047BH","77","3445","Yes","Done"
-"047CH","146","6763","Yes","Done"
-"047DH","49","3213","Yes","Done"
-"047EH","55","2915","Yes","Done"
-"047FH","35","2280","Yes","Done"
-"0480H","33","1111","Yes","Done"
-"0481H","88","3296","Yes","Russell (New Magincia Shipwright)"
-"0482H","107","4688","Yes","Boris (New Magincia Innkeeper)"
-"0483H","81","3631","Yes","Magenta (New Magincia Mayor)"
-"0484H","66","2632","Yes","Henry (New Magincia Peddler)"
-"0485H","82","3889","Yes","Constance (New Magincia Waterbearer)"
-"0486H","108","5492","Yes","Done"
-"0487H","62","2398","Yes","Done"
-"0488H","98","3782","Yes","Done"
-"0489H","81","4727","Yes","Done"
-"048AH","97","5635","Yes","Done"
-"048CH","60","5544","Yes",""
-"048DH","63","4548","Yes",""
-"048EH","59","4634","Yes",""
-"048FH","84","6314","Yes",""
-"0490H","25","1497","Yes",""
-"0491H","71","3912","Yes",""
-"0492H","92","7140","Yes",""
-"0493H","95","6497","Yes",""
-"0495H","81","3230","Yes",""
-"0496H","86","5234","Yes",""
-"0497H","73","3319","Yes",""
-"0498H","89","4476","Yes",""
-"0499H","78","2585","Yes",""
-"\""049AH\""","77","2394","Yes","\""\"""
-"\""049BH\""","47","2878","Yes","\""\"""
-"\""049CH\""","82","4411","Yes","\""\"""
-"\""049DH\""","63","2543","Yes","\""\"""
-"\""049EH\""","50","1111","Yes","\""\"""
-"\""049FH\""","29","977","Yes","\""\"""
-"04A0H","49","2644","Yes","Effrem (Moonglow)"
-"04A1H","42","1329","Yes","Chad (Moonglow)"
-"04A2H","64","3012","Yes","Elad (Moonglow 治療師)"
-"04A3H","119","3960","Yes","Phearcy (Moonglow 酒保)"
-"04A4H","69","2414","Yes","Addom (旅行商人)"
-"04A5H","58","2440","Yes","Frank (誠實狐狸)"
-"04A6H","72","3363","Yes","Thurston (Paws 磨坊老闆)"
-"04A7H","136","6832","Yes","Feridwyn (Paws 庇護所負責人)"
-"04A8H","74","3631","Yes","Brita (庇護所負責人妻子)"
-"04A9H","55","2143","Yes","Alina (尋夫農婦)"
-"04AAH","69","2388","Yes","Merrick (Paws 乞丐)"
-"04ABH","105","4319","Yes","Garritt (Paws 屁孩)"
-"04ACH","140","5858","Yes","Morfin (Paws 屠宰場老闆)"
-"04ADH","85","5105","Yes","Beverlea (Paws 裁縫店老闆)"
-"04AEH","79","2233","Yes","Komor (Paws 乞丐)"
-"04AFH","104","2787","Yes","Fenn (Paws 乞丐)"
-"04B0H","80","2475","Yes","Andrew (Paws 乳製品廠老闆)"
-"04B1H","72","3634","Yes","Camille (Paws 農婦)"
-"04B2H","85","4263","Yes","Tobias (Paws 農婦之子)"
-"04B3H","51","1706","Yes","Polly (Paws 酒館老闆娘)"
-"04B4H","80","4617","Yes","Draxinusom (Terfin 前任國王)"
-"04B5H","48","1238","Yes","Inforlem (Terfin 訓練師)"
-"04B6H","60","1654","Yes","Inmanilem (Terfin 治療師)"
-"04B7H","78","5135","Yes","Teregus (Terfin 神殿守護者)"
-"04B8H","30","858","Yes","Runeb (Terfin 兄弟會陰謀家)"
-"04B9H","87","3583","Yes","Quan (Terfin 兄弟會領袖)"
-"04BAH","73","2697","Yes","Quaeven (Terfin 兄弟會成員)"
-"04BBH","32","941","Yes","Silamo (Terfin 守衛)"
-"04BCH","54","1846","Yes","Sarpling (Terfin 魔法材料商人)"
-"04BDH","91","3133","Yes","Forbrak (Terfin 酒保)"
-"04BEH","58","2285","Yes","Betra (Terfin 物資商人)"
-"04BFH","73","4876","Yes","Martingo (Spektran 蘇丹)"
-"04C0H","45","1531","Yes","Menion (Serpent's Hold 訓練師)"
-"04C1H","62","2122","Yes","Sir Pendaran (Serpent's Hold 騎士)"
-"04C2H","78","3366","Yes","Lady Jehanne (Serpent's Hold 物資商人)"
-"04C3H","100","4350","Yes","Lord John-Paul (Serpent's Hold 領主)"
-"04C4H","90","3546","Yes","Sir Richter (Serpent's Hold 騎士/副手)"
-"04C5H","58","1666","Yes","Sir Horffe (Serpent's Hold 衛兵隊長)"
-"04C6H","67","1854","Yes","Sir Jordan (Serpent's Hold 盲眼騎士)"
-"04C7H","122","4974","Yes","Sir Denton (Serpent's Hold 酒館老闆)"
-"04C8H","87","4034","Yes","Lady Tory (Serpent's Hold 顧問)"
-"04C9H","52","2110","Yes","Lady Leigh (Serpent's Hold 治療師)"
-"04CAH","60","2673","Yes","Ian (Vesper 冥想靜修處主任)"
-"04CBH","60","2026","Yes","Cador (Vesper 礦工)"
-"04CCH","49","1698","Yes","Mara (Vesper 礦工)"
-"04CDH","57","1886","Yes","Zaksam (Vesper 訓練師)"
-"04CEH","64","2011","Yes","Eldroth (Vesper 物資商人/顧問)"
-"04CFH","68","2470","Yes","Yongi (Vesper 鍍金蜥蜴酒館老闆)"
-"04D0H","36","1704","Yes","Blorn (Vesper 居民)"
-"04D1H","66","3153","Yes","Auston (Vesper 鎮長)"
-"04D2H","68","2582","Yes","Liana (Vesper 鎮長書記員)"
-"04D3H","52","1960","Yes","Lap-Lem (Vesper 礦工 - 石像鬼)"
-"04D4H","77","3364","Yes","Yvella (Vesper 居民 - Cador 的妻子)"
-"04D5H","40","1041","Yes","Catherine (Vesper 居民 - Cador 的女兒)"
-"04D6H","42","1748","Yes","For-Lem (Vesper 居民 - 石像鬼)"
-"04D7H","66","2197","Yes","Ansikart (Vesper 礦業公會領袖 - 石像鬼)"
-"04D8H","62","1305","Yes","Wis-Sur (Vesper 賢者 - 石像鬼)"
-"04D9H","28","908","Yes","Anmanivas (Vesper 酒客 - 石像鬼)"
-"04DAH","24","712","Yes","Foranamo (Vesper 酒客 - 石像鬼)"
-"04DBH","33","1360","Yes","Aurvidlem (Vesper 居民 - 石像鬼)"
-"04DCH","80","3744","Yes","Sullivan (冒充聖者的騙子)"
-"04DDH","64","3224","Yes","Wench (Buccaneer's Den 澡堂女侍)"
-"04DEH","62","3370","Yes","Glenno (Buccaneer's Den 澡堂經理)"
-"04DFH","59","3114","Yes","Martine (Buccaneer's Den 澡堂女侍)"
-"04E0H","59","3116","Yes","Roberto (Buccaneer's Den 澡堂男公關)"
-"04E1H","60","2246","Yes","Sintag (Buccaneer's Den 遊戲之屋守衛)"
-"04E2H","57","3119","Yes","Blacktooth (Buccaneer's Den 居民)"
-"04E3H","65","3613","Yes","Mole (Buccaneer's Den 居民)"
-"04E4H","35","1424","Yes","Lucky (Buccaneer's Den 訓練師)"
-"04E5H","71","3746","Yes","Budo (Buccaneer's Den 物資商人/盜賊公會)"
-"04E6H","57","3182","Yes","Gordy (Buccaneer's Den 遊戲之屋老闆)"
-"04E7H","122","5279","Yes","Paul (Buccaneer's Den 受難劇演員)"
-"04E8H","40","1506","Yes","Meryl (Buccaneer's Den 受難劇女演員)"
-"04E9H","32","1069","Yes","Dustin (Buccaneer's Den 受難劇演員)"
-"04EAH","5","296","Yes","你看到一位表情非常嚴肅的中年女演員。她無法和你說話，因為她正"
-"04EBH","5","288","Yes","你看到一位四十多歲、矮胖結實的男演員。他現在無法和你說話，因"
-"04ECH","33","964","Yes",""
-"04EDH","87","4159","Yes","Owings (Minoc 礦工)"
-"04EEH","48","1718","Yes","Malloy (Minoc 礦工)"
-"04EFH","59","7233","Yes","Smithy (Buccaneer's Den 旅館老闆 Mandy)"
-"04F0H","70","2927","Yes","\""\"""
-"04F1H","72","3061","Yes","\""\"""
-"04F2H","84","3567","Yes","\""\"""
-"04F3H","63","5668","Yes","\""\"""
-"04F4H","51","1631","Yes",""
-"04F5H","56","2365","Yes",""
-"04F6H","90","4174","Yes",""
-"04F7H","104","6304","Yes",""
-"04F8H","100","5094","Yes",""
-"04F9H","94","4711","Yes",""
-"04FAH","119","4912","Yes",""
-"04FBH","97","5779","Yes",""
-"04FCH","46","1596","Yes",""
-"04FDH","58","1748","Yes",""
-"04FEH","125","7231","Yes",""
-"04FFH","37","1331","Yes",""
-"0500H","63","5578","Yes",""
-"0603H","1","26","Yes","Done"
-"0608H","17","744","Yes",""
-"060AH","13","81","Yes","Done"
-"060CH","2","20","Yes","Done"
-"0610H","3","858","Yes","「我的好朋友，我很高興看到你還活著。你看似死亡時，我感到非常"
-"0614H","25","1338","Yes",""
-"0617H","1","93","Yes","「好了。完成了。現在把這該死的東西帶給 Mordra。她會指"
-"0621H","46","1065","Yes",""
-"0622H","7","115","Yes",""
-"0623H","2","38","Yes","「起來，"
-"0625H","12","1029","Yes",""
-"0628H","3","66","Yes","@那可是絕佳的啤酒啊！@"
-"0629H","2","36","Yes","Done"
-"062DH","1","47","Yes",""
-"062EH","1","61","Yes",""
-"0631H","12","192","Yes","Done"
-"0633H","3","45","Yes","@我要走了！@"
-"0635H","3","74","Yes","Done"
-"0638H","214","39634","Yes","Books (各種遊戲書籍)"
-"0639H","1","13","Yes","Done"
-"063AH","3","47","Yes","Done"
-"063DH","3","8","Yes","\"
-"063EH","3","394","Yes","抓到了，你這個偷竊的無賴混蛋！也許唯一比你這不付應付代價就想"
-"0640H","1","7","Yes","咒語"
-"0641H","1","9","Yes","咒語"
-"0642H","1","9","Yes","咒語"
-"0643H","1","9","Yes","咒語"
-"0644H","1","9","Yes","咒語"
-"0645H","1","9","Yes","咒語"
-"0646H","1","9","Yes","咒語"
-"0647H","1","9","Yes","咒語"
-"0648H","1","14","Yes","咒語"
-"0649H","1","8","Yes","咒語"
-"064AH","1","9","Yes","咒語"
-"064BH","1","13","Yes","咒語"
-"064CH","1","13","Yes","咒語"
-"064DH","1","8","Yes","咒語"
-"064EH","9","34","Yes",""
-"064FH","1","11","Yes","咒語"
-"0650H","1","8","Yes","咒語"
-"0651H","1","10","Yes","咒語"
-"0652H","1","10","Yes","咒語"
-"0653H","1","9","Yes","咒語"
-"0654H","1","12","Yes","咒語"
-"0655H","1","11","Yes","咒語"
-"0656H","1","14","Yes","咒語"
-"0657H","1","13","Yes","咒語"
-"0658H","1","11","Yes","咒語"
-"0659H","1","6","Yes","咒語"
-"065AH","1","13","Yes","@Kal Bet Xen@"
-"065BH","1","15","Yes","咒語"
-"065CH","1","8","Yes","咒語"
-"065DH","1","9","Yes","咒語"
-"065EH","1","8","Yes","咒語"
-"065FH","1","7","Yes","咒語"
-"0660H","1","9","Yes","@Kal Xen@"
-"0661H","1","10","Yes","咒語"
-"0662H","1","14","Yes","咒語"
-"0663H","1","15","Yes","咒語"
-"0664H","1","13","Yes","咒語"
-"0665H","1","10","Yes","咒語"
-"0666H","1","14","Yes","咒語"
-"0667H","1","8","Yes","咒語"
-"0668H","1","11","Yes","@An Xen Ex@"
-"0669H","9","89","Yes","@Por Xen@"
-"066AH","1","9","Yes","咒語"
-"066BH","1","14","Yes","咒語"
-"066CH","1","10","Yes","咒語"
-"066DH","1","11","Yes","咒語"
-"066EH","1","14","Yes","咒語"
-"066FH","1","8","Yes","咒語"
-"0670H","1","10","Yes","咒語"
-"0671H","1","13","Yes","@In Quas Xen@"
-"0672H","1","15","Yes","咒語"
-"0673H","1","18","Yes","咒語"
-"0674H","1","14","Yes","@Vas Oort Hur@"
-"0675H","1","13","Yes","咒語"
-"0676H","1","12","Yes","咒語"
-"0677H","1","14","Yes","咒語"
-"0678H","1","10","Yes","咒語"
-"0679H","1","10","Yes","咒語"
-"067AH","1","14","Yes","咒語"
-"067BH","1","15","Yes","咒語"
-"067CH","1","18","Yes","咒語"
-"067DH","1","15","Yes","@Vas An Xen Ex@"
-"067EH","1","12","Yes","咒語"
-"067FH","1","10","Yes","咒語"
-"0680H","2","34","Yes","咒語"
-"0681H","1","14","Yes","咒語"
-"0682H","1","10","Yes","咒語"
-"0683H","1","14","Yes","@Vas Sact Lor@"
-"0684H","1","14","Yes","咒語"
-"0685H","1","11","Yes","Kal Vas Xen"
-"0686H","1","17","Yes","咒語"
-"0687H","1","8","Yes","咒語"
-"068DH","1","28","Yes","@水不夠了。@"
-"0691H","4","434","Yes","過了一會兒，你注意到刀刃明顯變利了。"
-"0696H","23","2582","Yes",""
-"0697H","2","16","Yes","Done"
-"069EH","4","487","Yes","Erethian 佈滿皺紋的臉上露出冷酷堅決的神情。他捲起袖"
-"06A0H","4","828","Yes","在抱怨乙太的無用和討厭的跨次元生物的低聲咒罵中，Erethi"
-"06A2H","1","16","Yes","Done"
-"06A5H","1","18","Yes","Done"
-"06B9H","1","13","Yes","@救命！救命！@"
-"06BAH","4","29","Yes",""
-"06F5H","3","897","Yes","Erethian 的臉色轉為死灰，但他似乎對這件經由他之手完"
-"06F6H","221","14953","Yes",""
-"06F8H","9","655","Yes","「不！你絕不能這麼做！」Erethian 的聲音充滿了痛苦。"
-"06FAH","2","149","Yes","島嶼地震對話"
-"070AH","1","16","Yes","Done"
-"0710H","12","600","Yes","*"
-"0714H","10","421","Yes","「我把我的給他！」"
-"0800H","2","87","Yes","「現在不是睡覺的時候！振作點！」"
-"0809H","4","117","Yes","Done"
-"080EH","1","32","Yes","Done"
-"0813H","14","231","Yes",""
-"0815H","4","177","Yes","Done"
-"0818H","1","27","Yes","Done"
-"0819H","1","6","Yes",""
-"081AH","1","16","Yes","Done"
-"0831H","1","72","Yes","Done"
-"083DH","9","135","Yes","Done"
-"0840H","14","1033","Yes",""
-"0841H","20","295","Yes",""
-"0842H","30","518","Yes",""
-"0845H","6","246","Yes","「主人，你的力量不需要補充。」惡魔聽起來有點不悅。"
-"084CH","26","329","Yes",""
-"084DH","9","918","Yes",""
-"084EH","51","6853","Yes",""
-"084FH","42","4729","Yes",""
-"0850H","23","4981","Yes",""
-"0851H","5","791","Yes","「我需要你將這個未開封的包裹，原封不動地送給我們在 Mino"
-"0852H","8","636","Yes",""
-"0853H","33","377","Yes",""
-"0854H","6","340","Yes",""
-"0855H","25","333","Yes",""
-"0856H","15","712","Yes",""
-"0857H","9","511","Yes",""
-"0858H","24","328","Yes",""
-"0859H","19","309","Yes",""
-"085AH","19","297","Yes",""
-"085BH","4","68","Yes",""
-"085CH","19","386","Yes",""
-"085DH","26","516","Yes",""
-"085EH","13","209","Yes",""
-"085FH","13","614","Yes",""
-"0860H","26","1048","Yes",""
-"0861H","1","70","Yes","「你剛才打破了『遊戲』的規則！你最好學會它！」*"
-"0862H","44","1189","Yes",""
-"0863H","20","306","Yes",""
-"0864H","4","98","Yes",""
-"0865H","36","167","Yes","Done"
-"0866H","42","226","Yes",""
-"0867H","37","319","Yes",""
-"0868H","61","231","Yes",""
-"0869H","46","238","Yes",""
-"086AH","10","143","Yes","Done"
-"086BH","9","150","Yes","Done"
-"086CH","38","174","Yes","Done"
-"086DH","40","189","Yes","Done"
-"086EH","17","140","Yes","Done"
-"086FH","161","1469","Yes",""
-"0870H","25","822","Yes",""
-"0871H","31","464","Yes",""
-"0872H","30","428","Yes",""
-"0873H","18","382","Yes",""
-"0874H","23","387","Yes",""
-"0875H","33","1123","Yes",""
-"0876H","36","496","Yes",""
-"0877H","10","1620","Yes",""
-"0878H","10","917","Yes",""
-"0879H","24","705","Yes",""
-"087AH","29","463","Yes",""
-"087BH","16","3071","Yes",""
-"087CH","12","323","Yes",""
-"0883H","4","288","Yes","Petre (Trinsic 市長辦公室)"
-"0884H","70","2650","Yes",""
-"0885H","14","555","Yes","案件調查 (Trinsic)"
-"0886H","11","1128","Yes",""
-"0889H","30","366","Yes",""
-"088AH","5","552","Yes","在得知沒有鎮民願意為了更大的利益犧牲自己後，Forsythe"
-"088CH","30","398","Yes",""
-"088DH","3","170","Yes","你感覺還好嗎？"
-"088EH","23","305","Yes",""
-"088FH","14","279","Yes",""
-"0890H","68","4249","Yes",""
-"0891H","3","1127","Yes","「正如我所料。Bollux 以為他必須犧牲自己的心臟才能讓我"
-"0892H","21","1290","Yes",""
-"0893H","12","474","Yes","Adjhar 似乎恢復了傳統魔像守衛的姿態——堅定而疏遠。然"
-"0894H","72","3250","Yes",""
-"0895H","15","557","Yes",""
-"0896H","13","386","Yes","魔像似乎恢復了牠穩重的鎮定。然而，牠寶石般的眼睛裡依然閃爍著"
-"0897H","18","283","Yes",""
-"0898H","26","305","Yes",""
-"0899H","29","365","Yes",""
-"089AH","11","596","Yes",""
-"089BH","14","559","Yes",""
-"089CH","13","233","Yes",""
-"089DH","32","965","Yes",""
-"089EH","30","1201","Yes","復活與治療服務"
-"089FH","12","911","Yes",""
-"08A0H","32","600","Yes",""
-"08A1H","30","405","Yes",""
-"08A2H","13","674","Yes",""
-"08A3H","14","259","Yes",""
-"08A4H","15","238","Yes",""
-"08A5H","4","86","Yes",""
-"08A6H","24","891","Yes",""
-"08A7H","26","393","Yes",""
-"08A8H","27","335","Yes",""
-"08A9H","24","287","Yes",""
-"08AAH","14","226","Yes",""
-"08ABH","16","2552","Yes",""
-"08ACH","25","695","Yes",""
-"08ADH","16","2232","Yes",""
-"08AEH","3","449","Yes","\"
-"08AFH","8","700","Yes",""
-"08B0H","2","166","Yes","在你面前是巫妖邪惡的身軀。它一動也不動，眼睛直視前方。*"
-"08B1H","5","1009","Yes","「聖者，你再次證明了你始終是 Britannia 和無辜者的"
-"08B2H","15","753","Yes",""
-"08B4H","26","790","Yes",""
-"08B5H","7","970","Yes",""
-"08B6H","16","1156","Yes",""
-"08B7H","32","579","Yes",""
-"08B8H","9","482","Yes",""
-"08B9H","24","454","Yes",""
-"08BAH","21","2048","Yes",""
-"08BBH","60","654","Yes",""
-"08BCH","29","403","Yes",""
-"08BDH","14","1013","Yes",""
-"08BEH","14","695","Yes",""
-"08C0H","86","8128","Yes",""
-"08C1H","4","485","Yes","「親愛的 Rowena，我很高興能看到妳離開那座可怕的高塔。"
-"08C2H","11","1394","Yes",""
-"08C3H","60","662","Yes","Spell Seller (法術商人)"
-"08C4H","15","263","Yes",""
-"08C5H","60","673","Yes","Spell Seller (法術商人)"
-"08C6H","15","298","Yes","Reagent Seller (魔法材料商人)"
-"08C7H","30","3656","Yes",""
-"08C8H","13","628","Yes",""
-"08CAH","17","890","Yes",""
-"08CBH","23","485","Yes",""
-"08CCH","14","219","Yes",""
-"08CDH","28","379","Yes",""
-"08CEH","11","946","Yes",""
-"08CFH","10","1262","Yes",""
-"08D0H","18","858","Yes",""
-"08D1H","17","1172","Yes",""
-"08D2H","27","710","Yes",""
-"08D3H","19","405","Yes",""
-"08D4H","26","344","Yes",""
-"08D5H","16","1090","Yes","Fellowship Resurrection (兄弟會復活事件)"
-"08D6H","11","540","Yes",""
-"08D7H","18","1326","Yes",""
-"08D8H","14","1875","Yes",""
-"08D9H","2","239","Yes","這個美麗的鬼魂目前似乎無法回應你，甚至也無法回應任何其他人。"
-"08DAH","2","190","Yes","當你開始說話時，可愛的鬼魂舉起她的手，「不好意思！"
-"08DBH","60","644","Yes","Spell Seller (法術商人)"
-"08DCH","15","298","Yes","Reagent Seller (魔法材料商人)"
-"08DEH","26","474","Yes",""
-"08DFH","11","288","Yes","像猿猴一樣的生物緩慢而小心地走向你。牠嗅了一會兒，然後指著你"
-"08E0H","11","288","Yes","像猿猴一樣的生物緩慢而小心地走向你。牠嗅了一會兒，然後指著你"
-"08E1H","21","304","Yes",""
-"08E2H","17","289","Yes",""
-"08E3H","14","236","Yes",""
-"08E5H","34","1016","Yes",""
-"08ECH","5","928","Yes","「獅子 Hubert 既傲慢又虛榮，~尤其對牠那優雅的鬃毛感"
-"08EDH","11","288","Yes","像猿猴一樣的生物緩慢而小心地走向你。牠嗅了一會兒，然後指著你"
-"08EEH","11","288","Yes","像猿猴一樣的生物緩慢而小心地走向你。牠嗅了一會兒，然後指著你"
-"08EFH","30","2224","Yes",""
-"08F0H","11","588","Yes",""
-"08F1H","7","43","Yes","Done"
-"08F2H","43","816","Yes",""
-"08F3H","28","1655","Yes",""
-"08F4H","14","308","Yes","\"
-"08F5H","23","966","Yes",""
-"08F8H","3","69","Yes","「我來拿吧	。」"
-"0903H","1","6","Yes","Done"
-"0904H","1","6","Yes","@嘓！@"
-"0909H","2","12","Yes","性別尊稱處理 (milord/milady)"
-"090AH","4","10","Yes",""
-"090DH","1","6","Yes","Done"
-"090EH","1","6","Yes","Done"
-"0919H","5","1235","Yes","「兄弟會是一個由心靈探索者組成的協會，致力於激發人類最高的潛"
-"091AH","5","1007","Yes",""
-"091BH","6","22","Yes","String builder for item selling price"
-"091CH","4","19","Yes","String builder for item selling price (Gargoyle)"
-"091DH","4","81","Yes","「傷口已經癒合了。」"
-"091EH","2","69","Yes","傷口已經癒合了。」"
-"091FH","2","170","Yes","「呼吸回到了身體裡。你的同伴活過來了！」"
-"0920H","1","31","Yes","Dialogue for combat training"
-"0921H","4","92","Yes",""
-"0923H","1","12","Yes","「可以嗎？」"
-"0924H","1","18","Yes","「同意嗎？」"
-"0927H","20","323","Yes","Drinking dialogue (generic)"
-"0928H","20","322","Yes","Drinking dialogue (generic alternate)"
-"0929H","2","117","Yes","Item usage message (hitting someone)"
-"092EH","25","458","Yes","NPC barks based on schedule (Britannian)"
-"092FH","17","372","Yes","NPC barks based on schedule (Gargoyle)"
-"0942H","1","5","Yes","Done"
-"0946H","18","302","Yes","Generic food buying (bread"
-"0947H","9","456","Yes","Generic bread selling (to merchant)"
-"0948H","9","478","Yes","Generic flour selling (to merchant)"
-"0949H","18","282","Yes","Gargoyle potion seller"
-"094AH","16","305","Yes","Gargoyle reagent seller"
-"094BH","14","388","Yes","Gargoyle haggling script"
-"094CH","50","585","Yes","Gargoyle spell seller"
-"094DH","16","398","Yes","Britannian food buying (mutton"
-"094EH","13","339","Yes","Britannian drink buying"
-"094FH","16","581","Yes","Generic combat trainer"
-"0950H","39","1045","Yes","Boxing trainer (Zella)"
-"0951H","28","618","Yes","Tavern seller (including Silverleaf dialogue)"
-"0952H","16","259","Yes","Weapon seller"
-"0953H","23","324","Yes","Armour seller"
+﻿"﻿""Function""",String Count,Total Characters,Translated,NPC/Event
+0096H,2,91,Yes,Done
+009AH,205,16793,Yes,Erethian (烈火島盲眼法師)
+009BH,54,2790,Yes,Ferryman of Skara Brae (Skara Brae 渡船夫)
+009FH,6,9,Yes,Done
+00FBH,2,114,Yes,Done
+00FCH,3,3,Yes,Done
+0102H,1,19,Yes,Done
+0105H,1,52,Yes,Done
+011CH,6,81,Yes,
+0149H,1,17,Yes,Done
+0154H,3,69,Yes,Done
+017BH,325,1814,No,盧恩符文不翻譯
+018AH,15,309,Yes,
+01B2H,1,19,Yes,Done
+01BFH,1,5,Yes,
+01DFH,37,887,Yes,Emp (森靈)
+01EFH,3,39,Yes,
+01F0H,3,24,Yes,@乖狗狗。@
+01F4H,3,17,Yes,@哞@
+01F7H,1,130,Yes,\
+01F8H,11,2440,Yes,Dracothraxus (巨龍 - 勇氣考驗)
+01FAH,2,409,Yes,Batlin 以冰冷的無奈看著 Hook 死亡。當他轉向你時
+020AH,1,6,Yes,上鎖了
+0247H,1,41,Yes,Done
+0269H,114,8892,Yes,Time Lord (時間領主)
+026FH,2,50,Yes,Done
+0270H,3,126,Yes,Done
+0273H,7,110,Yes,Done
+0281H,3,24,Yes,Unlocked
+0282H,287,46807,Yes,
+0284H,6,62,Yes,Done
+0285H,2,91,Yes,Done
+0286H,2,91,Yes,Done
+0288H,1,20,Yes,Done
+028AH,9,62,Yes,
+028BH,2,81,Yes,Done
+0292H,3,74,Yes,Done
+0296H,10,178,Yes,Done
+029CH,2,45,Yes,@劍不夠熱。@
+02A3H,16,233,Yes,
+02BAH,1,64,Yes,Done
+02BEH,2,42,Yes,Done
+02CBH,444,2837,No,盧恩符文不翻譯
+02D3H,2,167,Yes,\
+02D5H,2,35,Yes,Done
+02D8H,1,119,Yes,\
+02DAH,3,159,Yes,Done
+02DFH,3,107,Yes,Done
+02E6H,1,20,Yes,@哇！真俐落！！@
+02E7H,1,23,Yes,Done
+02F2H,1,240,Yes,隨著靈魂囚籠化為塵土，巫妖發生了巨大的轉變。在邪靈被囚禁的地
+02F8H,3,169,Yes,Done
+0303H,1,57,Yes,法杖發出微弱的光芒。Batlin 假笑著。\
+030DH,2,95,Yes,Done
+030EH,1,39,Yes,Done
+0311H,4,60,Yes,Done
+0316H,1,20,Yes,Done
+031DH,104,15292,Yes,
+0326H,22,466,Yes,
+0329H,1,12,Yes,Done
+032AH,17,357,Yes,Bucket / Interactive (水桶等互動)
+0334H,246,1459,No,盧恩符文不翻譯
+0336H,2,51,Yes,Done
+0337H,11,190,Yes,
+033BH,6,143,Yes,
+0345H,2,45,Yes,Done
+0348H,1,48,Yes,Done
+0353H,3,140,Yes,Done
+0356H,22,3448,Yes,Shrine Statues (神殿雕像 - 烈火島)
+035FH,2,67,Yes,Done
+03B0H,1,5,Yes,呸！
+03B2H,11,222,Yes,
+03DBH,1,11,Yes,Done
+03DEH,2,558,Yes,你感覺自己的大腦正在被探測，起初很輕柔，然後越來越強烈。久遠
+03F7H,10,814,Yes,Golems Adjion and Bollux (魔像兄弟)
+0401H,148,6283,Yes,Iolo / Petre (Trinsic 劇情)
+0402H,162,7021,Yes,
+0403H,109,3736,Yes,Shamino (加入對話)
+0404H,108,5673,Yes,Dupre (加入對話)
+0405H,82,2865,Yes,Jaana (加入/治療對話)
+0406H,95,3241,Yes,Trellek (森靈 Trellek)
+0407H,83,3521,Yes,Sentri (加入/訓練對話)
+0408H,105,3835,Yes,Julia (加入對話)
+0409H,113,3902,Yes,Katrina (加入對話)
+040AH,222,8078,Yes,Tseramed (加入/狩獵對話)
+040BH,64,2324,Yes,Petre (Trinsic 馬廄管理員)
+040CH,132,6134,Yes,
+040DH,72,2109,Yes,
+040EH,56,1445,Yes,
+040FH,38,1920,Yes,Translated in Batch 03 (040F)
+0410H,80,2845,Yes,
+0411H,33,1038,Yes,
+0412H,48,1556,Yes,
+0413H,54,1780,Yes,
+0414H,26,611,Yes,
+0415H,62,2726,Yes,
+0416H,36,987,Yes,Translated in Batch 03 (0416)
+0417H,216,12401,Yes,Translated in Batch 03 (0417)
+0418H,36,1378,Yes,Translated in Batch 03 (0418)
+0419H,85,1910,Yes,Translated in Batch 03 (0419)
+041AH,168,10922,Yes,Translated in Batch 03 (041A)
+041BH,69,3687,Yes,Translated in Batch 03 (041B)
+041CH,44,1934,Yes,Translated in Batch 03 (041C)
+041DH,41,1534,Yes,Translated in Batch 03 (041D)
+041EH,51,1785,Yes,Translated in Batch 03 (041E)
+041FH,36,869,Yes,
+0420H,31,1077,Yes,
+0421H,32,911,Yes,
+0422H,64,2991,Yes,
+0423H,50,2945,Yes,
+0424H,38,1664,Yes,
+0425H,67,2092,Yes,
+0426H,73,3575,Yes,
+0427H,30,1525,Yes,
+0428H,50,1933,Yes,
+0429H,60,3663,Yes,
+042AH,72,3961,Yes,
+042BH,80,5328,Yes,
+042CH,77,5538,Yes,
+042DH,80,4152,Yes,
+042EH,89,3944,Yes,
+042FH,46,1889,Yes,
+0430H,51,3121,Yes,
+0431H,27,1397,Yes,
+0432H,50,1510,Yes,
+0433H,58,2422,Yes,
+0434H,98,4952,Yes,
+0435H,46,2385,Yes,
+0436H,66,2742,Yes,
+0437H,53,2089,Yes,
+0438H,53,2084,Yes,
+0439H,61,2584,Yes,
+043AH,66,2948,Yes,
+043BH,70,2924,Yes,
+043CH,69,2780,Yes,
+043DH,100,4891,Yes,
+043EH,102,5317,Yes,
+043FH,47,2608,Yes,
+0440H,38,1906,Yes,
+0441H,34,1409,Yes,
+0442H,51,1920,Yes,
+0443H,42,1780,Yes,
+0444H,33,1406,Yes,
+0445H,75,4545,Yes,
+0446H,60,2926,Yes,
+0447H,57,2125,Yes,
+0448H,45,1861,Yes,
+0449H,52,2436,Yes,
+044AH,55,2672,Yes,
+044BH,89,4285,Yes,
+044CH,33,1189,Yes,
+044DH,59,2560,Yes,
+044EH,35,965,Yes,
+044FH,35,1107,Yes,
+0450H,40,1070,Yes,
+0451H,96,8337,Yes,Elynor (Minoc 兄弟會分會顧問)
+0452H,65,2572,Yes,Gregor (Minoc 不列顛尼亞礦業公司負責人)
+0453H,54,1451,Yes,Margareta (吉普賽占卜師)
+0454H,40,1340,Yes,Sasha (吉普賽男孩/受害者之子)
+0455H,63,4227,Yes,Gladstone (玻璃工匠/藝術家公會會長)
+0456H,54,2715,Yes,Xanthia (藝術家公會成員/燭台工匠)
+0457H,77,3185,Yes,Zorn (Minoc 鐵匠)
+0458H,67,3264,Yes,Seara (藝術家公會成員/時鐘工匠)
+0459H,61,3773,Yes,Karl (山裡的老頭/造船匠受害者家屬)
+045AH,131,8492,Yes,
+045BH,82,4514,Yes,
+045CH,71,3732,Yes,
+045DH,43,2315,Yes,
+045EH,63,2660,Yes,
+045FH,61,3690,Yes,Jakher (Minoc 訓練師)
+0460H,60,2808,Yes,Jergi (Minoc 吉普賽人之王)
+0461H,48,2257,Yes,Mikos (Minoc 礦場工頭)
+0462H,84,3329,Yes,Saralek (雌性森靈)
+0463H,37,1316,Yes,Fodus (生病的石像鬼礦工)
+0464H,51,1774,Yes,Tavenor (森靈)
+0465H,71,2750,Yes,Salamon (森靈長老)
+0466H,68,5199,Yes,Translated in Batch 04 (0466)
+0467H,42,1856,Yes,Translated in Batch 04 (0467)
+0468H,46,1850,Yes,Translated in Batch 04 (0468)
+0469H,41,1231,Yes,Translated in Batch 04 (0469)
+046AH,55,2024,Yes,Translated in Batch 04 (046A)
+046BH,94,5119,Yes,Translated in Batch 04 (046B)
+046CH,84,3814,Yes,Translated in Batch 04 (046C)
+046DH,72,2455,Yes,Translated in Batch 04 (046D)
+046EH,68,3804,Yes,Translated in Batch 04 (046E)
+046FH,39,943,Yes,Translated in Batch 04 (046F)
+0470H,58,1989,Yes,Translated in Batch 05 (0470)
+0471H,92,2829,Yes,Translated in Batch 05 (0471)
+0472H,60,2288,Yes,Translated in Batch 05 (0472)
+0473H,50,2104,Yes,Translated in Batch 05 (0473)
+0474H,62,2171,Yes,Translated in Batch 05 (0474)
+0475H,70,1830,Yes,Translated in Batch 05 (0475)
+0476H,62,1814,Yes,Translated in Batch 05 (0476)
+0477H,71,3883,Yes,Translated in Batch 05 (0477)
+0478H,87,4875,Yes,Translated in Batch 05 (0478)
+0479H,85,4178,Yes,Translated in Batch 05 (0479)
+047AH,111,5350,Yes,Ophelia (Jhelom Barmaid)
+047BH,77,3445,Yes,Done
+047CH,146,6763,Yes,Done
+047DH,49,3213,Yes,Done
+047EH,55,2915,Yes,Done
+047FH,35,2280,Yes,Done
+0480H,33,1111,Yes,Done
+0481H,88,3296,Yes,Russell (New Magincia Shipwright)
+0482H,107,4688,Yes,Boris (New Magincia Innkeeper)
+0483H,81,3631,Yes,Magenta (New Magincia Mayor)
+0484H,66,2632,Yes,Henry (New Magincia Peddler)
+0485H,82,3889,Yes,Constance (New Magincia Waterbearer)
+0486H,108,5492,Yes,Done
+0487H,62,2398,Yes,Done
+0488H,98,3782,Yes,Done
+0489H,81,4727,Yes,Done
+048AH,97,5635,Yes,Done
+048CH,60,5544,Yes,
+048DH,63,4548,Yes,
+048EH,59,4634,Yes,
+048FH,84,6314,Yes,
+0490H,25,1497,Yes,
+0491H,71,3912,Yes,
+0492H,92,7140,Yes,
+0493H,95,6497,Yes,
+0495H,81,3230,Yes,
+0496H,86,5234,Yes,
+0497H,73,3319,Yes,
+0498H,89,4476,Yes,
+0499H,78,2585,Yes,
+049AH,77,2394,Yes,
+049BH,47,2878,Yes,
+049CH,82,4411,Yes,
+049DH,63,2543,Yes,
+049EH,50,1111,Yes,
+049FH,29,977,Yes,
+04A0H,49,2644,Yes,Effrem (Moonglow)
+04A1H,42,1329,Yes,Chad (Moonglow)
+04A2H,64,3012,Yes,Elad (Moonglow 治療師)
+04A3H,119,3960,Yes,Phearcy (Moonglow 酒保)
+04A4H,69,2414,Yes,Addom (旅行商人)
+04A5H,58,2440,Yes,Frank (誠實狐狸)
+04A6H,72,3363,Yes,Thurston (Paws 磨坊老闆)
+04A7H,136,6832,Yes,Feridwyn (Paws 庇護所負責人)
+04A8H,74,3631,Yes,Brita (庇護所負責人妻子)
+04A9H,55,2143,Yes,Alina (尋夫農婦)
+04AAH,69,2388,Yes,Merrick (Paws 乞丐)
+04ABH,105,4319,Yes,Garritt (Paws 屁孩)
+04ACH,140,5858,Yes,Morfin (Paws 屠宰場老闆)
+04ADH,85,5105,Yes,Beverlea (Paws 裁縫店老闆)
+04AEH,79,2233,Yes,Komor (Paws 乞丐)
+04AFH,104,2787,Yes,Fenn (Paws 乞丐)
+04B0H,80,2475,Yes,Andrew (Paws 乳製品廠老闆)
+04B1H,72,3634,Yes,Camille (Paws 農婦)
+04B2H,85,4263,Yes,Tobias (Paws 農婦之子)
+04B3H,51,1706,Yes,Polly (Paws 酒館老闆娘)
+04B4H,80,4617,Yes,Draxinusom (Terfin 前任國王)
+04B5H,48,1238,Yes,Inforlem (Terfin 訓練師)
+04B6H,60,1654,Yes,Inmanilem (Terfin 治療師)
+04B7H,78,5135,Yes,Teregus (Terfin 神殿守護者)
+04B8H,30,858,Yes,Runeb (Terfin 兄弟會陰謀家)
+04B9H,87,3583,Yes,Quan (Terfin 兄弟會領袖)
+04BAH,73,2697,Yes,Quaeven (Terfin 兄弟會成員)
+04BBH,32,941,Yes,Silamo (Terfin 守衛)
+04BCH,54,1846,Yes,Sarpling (Terfin 魔法材料商人)
+04BDH,91,3133,Yes,Forbrak (Terfin 酒保)
+04BEH,58,2285,Yes,Betra (Terfin 物資商人)
+04BFH,73,4876,Yes,Martingo (Spektran 蘇丹)
+04C0H,45,1531,Yes,Menion (Serpent's Hold 訓練師)
+04C1H,62,2122,Yes,Sir Pendaran (Serpent's Hold 騎士)
+04C2H,78,3366,Yes,Lady Jehanne (Serpent's Hold 物資商人)
+04C3H,100,4350,Yes,Lord John-Paul (Serpent's Hold 領主)
+04C4H,90,3546,Yes,Sir Richter (Serpent's Hold 騎士/副手)
+04C5H,58,1666,Yes,Sir Horffe (Serpent's Hold 衛兵隊長)
+04C6H,67,1854,Yes,Sir Jordan (Serpent's Hold 盲眼騎士)
+04C7H,122,4974,Yes,Sir Denton (Serpent's Hold 酒館老闆)
+04C8H,87,4034,Yes,Lady Tory (Serpent's Hold 顧問)
+04C9H,52,2110,Yes,Lady Leigh (Serpent's Hold 治療師)
+04CAH,60,2673,Yes,Ian (Vesper 冥想靜修處主任)
+04CBH,60,2026,Yes,Cador (Vesper 礦工)
+04CCH,49,1698,Yes,Mara (Vesper 礦工)
+04CDH,57,1886,Yes,Zaksam (Vesper 訓練師)
+04CEH,64,2011,Yes,Eldroth (Vesper 物資商人/顧問)
+04CFH,68,2470,Yes,Yongi (Vesper 鍍金蜥蜴酒館老闆)
+04D0H,36,1704,Yes,Blorn (Vesper 居民)
+04D1H,66,3153,Yes,Auston (Vesper 鎮長)
+04D2H,68,2582,Yes,Liana (Vesper 鎮長書記員)
+04D3H,52,1960,Yes,Lap-Lem (Vesper 礦工 - 石像鬼)
+04D4H,77,3364,Yes,Yvella (Vesper 居民 - Cador 的妻子)
+04D5H,40,1041,Yes,Catherine (Vesper 居民 - Cador 的女兒)
+04D6H,42,1748,Yes,For-Lem (Vesper 居民 - 石像鬼)
+04D7H,66,2197,Yes,Ansikart (Vesper 礦業公會領袖 - 石像鬼)
+04D8H,62,1305,Yes,Wis-Sur (Vesper 賢者 - 石像鬼)
+04D9H,28,908,Yes,Anmanivas (Vesper 酒客 - 石像鬼)
+04DAH,24,712,Yes,Foranamo (Vesper 酒客 - 石像鬼)
+04DBH,33,1360,Yes,Aurvidlem (Vesper 居民 - 石像鬼)
+04DCH,80,3744,Yes,Sullivan (冒充聖者的騙子)
+04DDH,64,3224,Yes,Wench (Buccaneer's Den 澡堂女侍)
+04DEH,62,3370,Yes,Glenno (Buccaneer's Den 澡堂經理)
+04DFH,59,3114,Yes,Martine (Buccaneer's Den 澡堂女侍)
+04E0H,59,3116,Yes,Roberto (Buccaneer's Den 澡堂男公關)
+04E1H,60,2246,Yes,Sintag (Buccaneer's Den 遊戲之屋守衛)
+04E2H,57,3119,Yes,Blacktooth (Buccaneer's Den 居民)
+04E3H,65,3613,Yes,Mole (Buccaneer's Den 居民)
+04E4H,35,1424,Yes,Lucky (Buccaneer's Den 訓練師)
+04E5H,71,3746,Yes,Budo (Buccaneer's Den 物資商人/盜賊公會)
+04E6H,57,3182,Yes,Gordy (Buccaneer's Den 遊戲之屋老闆)
+04E7H,122,5279,Yes,Paul (Buccaneer's Den 受難劇演員)
+04E8H,40,1506,Yes,Meryl (Buccaneer's Den 受難劇女演員)
+04E9H,32,1069,Yes,Dustin (Buccaneer's Den 受難劇演員)
+04EAH,5,296,Yes,你看到一位表情非常嚴肅的中年女演員。她無法和你說話，因為她正
+04EBH,5,288,Yes,你看到一位四十多歲、矮胖結實的男演員。他現在無法和你說話，因
+04ECH,33,964,Yes,
+04EDH,87,4159,Yes,Owings (Minoc 礦工)
+04EEH,48,1718,Yes,Malloy (Minoc 礦工)
+04EFH,59,7233,Yes,Smithy (Buccaneer's Den 旅館老闆 Mandy)
+04F0H,70,2927,Yes,
+04F1H,72,3061,Yes,
+04F2H,84,3567,Yes,
+04F3H,63,5668,Yes,
+04F4H,51,1631,Yes,
+04F5H,56,2365,Yes,
+04F6H,90,4174,Yes,
+04F7H,104,6304,Yes,
+04F8H,100,5094,Yes,
+04F9H,94,4711,Yes,
+04FAH,119,4912,Yes,
+04FBH,97,5779,Yes,
+04FCH,46,1596,Yes,
+04FDH,58,1748,Yes,
+04FEH,125,7231,Yes,
+04FFH,37,1331,Yes,
+0500H,63,5578,Yes,鬼火，Wisps
+0603H,1,26,Yes,Done
+0608H,17,744,Yes,
+060AH,13,81,Yes,Done
+060CH,2,20,Yes,Done
+0610H,3,858,Yes,「我的好朋友，我很高興看到你還活著。你看似死亡時，我感到非常
+0614H,25,1338,Yes,
+0617H,1,93,Yes,「好了。完成了。現在把這該死的東西帶給 Mordra。她會指
+0621H,46,1065,Yes,
+0622H,7,115,Yes,
+0623H,2,38,Yes,「起來，
+0625H,12,1029,Yes,
+0628H,3,66,Yes,@那可是絕佳的啤酒啊！@
+0629H,2,36,Yes,Done
+062DH,1,47,Yes,
+062EH,1,61,Yes,
+0631H,12,192,Yes,Done
+0633H,3,45,Yes,@我要走了！@
+0635H,3,74,Yes,Done
+0638H,214,39634,Yes,Books (各種遊戲書籍)
+0639H,1,13,Yes,Done
+063AH,3,47,Yes,Done
+063DH,3,8,Yes,\
+063EH,3,394,Yes,抓到了，你這個偷竊的無賴混蛋！也許唯一比你這不付應付代價就想
+0640H,1,7,Yes,咒語
+0641H,1,9,Yes,咒語
+0642H,1,9,Yes,咒語
+0643H,1,9,Yes,咒語
+0644H,1,9,Yes,咒語
+0645H,1,9,Yes,咒語
+0646H,1,9,Yes,咒語
+0647H,1,9,Yes,咒語
+0648H,1,14,Yes,咒語
+0649H,1,8,Yes,咒語
+064AH,1,9,Yes,咒語
+064BH,1,13,Yes,咒語
+064CH,1,13,Yes,咒語
+064DH,1,8,Yes,咒語
+064EH,9,34,Yes,
+064FH,1,11,Yes,咒語
+0650H,1,8,Yes,咒語
+0651H,1,10,Yes,咒語
+0652H,1,10,Yes,咒語
+0653H,1,9,Yes,咒語
+0654H,1,12,Yes,咒語
+0655H,1,11,Yes,咒語
+0656H,1,14,Yes,咒語
+0657H,1,13,Yes,咒語
+0658H,1,11,Yes,咒語
+0659H,1,6,Yes,咒語
+065AH,1,13,Yes,@Kal Bet Xen@
+065BH,1,15,Yes,咒語
+065CH,1,8,Yes,咒語
+065DH,1,9,Yes,咒語
+065EH,1,8,Yes,咒語
+065FH,1,7,Yes,咒語
+0660H,1,9,Yes,@Kal Xen@
+0661H,1,10,Yes,咒語
+0662H,1,14,Yes,咒語
+0663H,1,15,Yes,咒語
+0664H,1,13,Yes,咒語
+0665H,1,10,Yes,咒語
+0666H,1,14,Yes,咒語
+0667H,1,8,Yes,咒語
+0668H,1,11,Yes,@An Xen Ex@
+0669H,9,89,Yes,@Por Xen@
+066AH,1,9,Yes,咒語
+066BH,1,14,Yes,咒語
+066CH,1,10,Yes,咒語
+066DH,1,11,Yes,咒語
+066EH,1,14,Yes,咒語
+066FH,1,8,Yes,咒語
+0670H,1,10,Yes,咒語
+0671H,1,13,Yes,@In Quas Xen@
+0672H,1,15,Yes,咒語
+0673H,1,18,Yes,咒語
+0674H,1,14,Yes,@Vas Oort Hur@
+0675H,1,13,Yes,咒語
+0676H,1,12,Yes,咒語
+0677H,1,14,Yes,咒語
+0678H,1,10,Yes,咒語
+0679H,1,10,Yes,咒語
+067AH,1,14,Yes,咒語
+067BH,1,15,Yes,咒語
+067CH,1,18,Yes,咒語
+067DH,1,15,Yes,@Vas An Xen Ex@
+067EH,1,12,Yes,咒語
+067FH,1,10,Yes,咒語
+0680H,2,34,Yes,咒語
+0681H,1,14,Yes,咒語
+0682H,1,10,Yes,咒語
+0683H,1,14,Yes,@Vas Sact Lor@
+0684H,1,14,Yes,咒語
+0685H,1,11,Yes,Kal Vas Xen
+0686H,1,17,Yes,咒語
+0687H,1,8,Yes,咒語
+068DH,1,28,Yes,@水不夠了。@
+0691H,4,434,Yes,過了一會兒，你注意到刀刃明顯變利了。
+0696H,23,2582,Yes,
+0697H,2,16,Yes,Done
+069EH,4,487,Yes,Erethian 佈滿皺紋的臉上露出冷酷堅決的神情。他捲起袖
+06A0H,4,828,Yes,在抱怨乙太的無用和討厭的跨次元生物的低聲咒罵中，Erethi
+06A2H,1,16,Yes,Done
+06A5H,1,18,Yes,Done
+06B9H,1,13,Yes,@救命！救命！@
+06BAH,4,29,Yes,
+06F5H,3,897,Yes,Erethian 的臉色轉為死灰，但他似乎對這件經由他之手完
+06F6H,221,14953,Yes,
+06F8H,9,655,Yes,「不！你絕不能這麼做！」Erethian 的聲音充滿了痛苦。
+06FAH,2,149,Yes,島嶼地震對話
+070AH,1,16,Yes,Done
+0710H,12,600,Yes,*
+0714H,10,421,Yes,「我把我的給他！」
+0800H,2,87,Yes,「現在不是睡覺的時候！振作點！」
+0809H,4,117,Yes,Done
+080EH,1,32,Yes,Done
+0813H,14,231,Yes,
+0815H,4,177,Yes,Done
+0818H,1,27,Yes,Done
+0819H,1,6,Yes,
+081AH,1,16,Yes,Done
+0831H,1,72,Yes,Done
+083DH,9,135,Yes,Done
+0840H,14,1033,Yes,
+0841H,20,295,Yes,
+0842H,30,518,Yes,
+0845H,6,246,Yes,「主人，你的力量不需要補充。」惡魔聽起來有點不悅。
+084CH,26,329,Yes,
+084DH,9,918,Yes,
+084EH,51,6853,Yes,巴特林
+084FH,42,4729,Yes,
+0850H,23,4981,Yes,巴特林
+0851H,5,791,Yes,「我需要你將這個未開封的包裹，原封不動地送給我們在 Mino
+0852H,8,636,Yes, 入會儀式的問答，第二次防複製檢定內容
+0853H,33,377,Yes,
+0854H,6,340,Yes,
+0855H,25,333,Yes,
+0856H,15,712,Yes,
+0857H,9,511,Yes,
+0858H,24,328,Yes,
+0859H,19,309,Yes,
+085AH,19,297,Yes,
+085BH,4,68,Yes,
+085CH,19,386,Yes,
+085DH,26,516,Yes,
+085EH,13,209,Yes,
+085FH,13,614,Yes,
+0860H,26,1048,Yes,
+0861H,1,70,Yes,「你剛才打破了『遊戲』的規則！你最好學會它！」*
+0862H,44,1189,Yes,
+0863H,20,306,Yes,
+0864H,4,98,Yes,
+0865H,36,167,Yes,Done
+0866H,42,226,Yes,
+0867H,37,319,Yes,
+0868H,61,231,Yes,
+0869H,46,238,Yes,
+086AH,10,143,Yes,Done
+086BH,9,150,Yes,Done
+086CH,38,174,Yes,Done
+086DH,40,189,Yes,Done
+086EH,17,140,Yes,Done
+086FH,161,1469,Yes,
+0870H,25,822,Yes,
+0871H,31,464,Yes,
+0872H,30,428,Yes,
+0873H,18,382,Yes,
+0874H,23,387,Yes,
+0875H,33,1123,Yes,
+0876H,36,496,Yes,
+0877H,10,1620,Yes,
+0878H,10,917,Yes,
+0879H,24,705,Yes,
+087AH,29,463,Yes,
+087BH,16,3071,Yes,
+087CH,12,323,Yes,
+0883H,4,288,Yes,Petre (Trinsic 市長辦公室)
+0884H,70,2650,Yes,
+0885H,14,555,Yes,案件調查 (Trinsic)
+0886H,11,1128,Yes,
+0889H,30,366,Yes,
+088AH,5,552,Yes,在得知沒有鎮民願意為了更大的利益犧牲自己後，Forsythe
+088CH,30,398,Yes,
+088DH,3,170,Yes,你感覺還好嗎？
+088EH,23,305,Yes,
+088FH,14,279,Yes,
+0890H,68,4249,Yes,
+0891H,3,1127,Yes,「正如我所料。Bollux 以為他必須犧牲自己的心臟才能讓我
+0892H,21,1290,Yes,
+0893H,12,474,Yes,Adjhar 似乎恢復了傳統魔像守衛的姿態——堅定而疏遠。然
+0894H,72,3250,Yes,
+0895H,15,557,Yes,
+0896H,13,386,Yes,魔像似乎恢復了牠穩重的鎮定。然而，牠寶石般的眼睛裡依然閃爍著
+0897H,18,283,Yes,
+0898H,26,305,Yes,
+0899H,29,365,Yes,
+089AH,11,596,Yes,
+089BH,14,559,Yes,
+089CH,13,233,Yes,
+089DH,32,965,Yes,
+089EH,30,1201,Yes,復活與治療服務
+089FH,12,911,Yes,
+08A0H,32,600,Yes,
+08A1H,30,405,Yes,
+08A2H,13,674,Yes,
+08A3H,14,259,Yes,
+08A4H,15,238,Yes,
+08A5H,4,86,Yes,
+08A6H,24,891,Yes,
+08A7H,26,393,Yes,
+08A8H,27,335,Yes,
+08A9H,24,287,Yes,
+08AAH,14,226,Yes,
+08ABH,16,2552,Yes,
+08ACH,25,695,Yes,
+08ADH,16,2232,Yes,
+08AEH,3,449,Yes,\
+08AFH,8,700,Yes,
+08B0H,2,166,Yes,在你面前是巫妖邪惡的身軀。它一動也不動，眼睛直視前方。*
+08B1H,5,1009,Yes,「聖者，你再次證明了你始終是 Britannia 和無辜者的
+08B2H,15,753,Yes,
+08B4H,26,790,Yes,
+08B5H,7,970,Yes,
+08B6H,16,1156,Yes,
+08B7H,32,579,Yes,
+08B8H,9,482,Yes,
+08B9H,24,454,Yes,
+08BAH,21,2048,Yes,
+08BBH,60,654,Yes,
+08BCH,29,403,Yes,
+08BDH,14,1013,Yes,
+08BEH,14,695,Yes,
+08C0H,86,8128,Yes,
+08C1H,4,485,Yes,「親愛的 Rowena，我很高興能看到妳離開那座可怕的高塔。
+08C2H,11,1394,Yes,
+08C3H,60,662,Yes,Spell Seller (法術商人)
+08C4H,15,263,Yes,
+08C5H,60,673,Yes,Spell Seller (法術商人)
+08C6H,15,298,Yes,Reagent Seller (魔法材料商人)
+08C7H,30,3656,Yes,
+08C8H,13,628,Yes,
+08CAH,17,890,Yes,
+08CBH,23,485,Yes,
+08CCH,14,219,Yes,
+08CDH,28,379,Yes,
+08CEH,11,946,Yes,
+08CFH,10,1262,Yes,
+08D0H,18,858,Yes,
+08D1H,17,1172,Yes,
+08D2H,27,710,Yes,
+08D3H,19,405,Yes,
+08D4H,26,344,Yes,
+08D5H,16,1090,Yes,Fellowship Resurrection (兄弟會復活事件)
+08D6H,11,540,Yes,
+08D7H,18,1326,Yes,
+08D8H,14,1875,Yes,
+08D9H,2,239,Yes,這個美麗的鬼魂目前似乎無法回應你，甚至也無法回應任何其他人。
+08DAH,2,190,Yes,當你開始說話時，可愛的鬼魂舉起她的手，「不好意思！
+08DBH,60,644,Yes,Spell Seller (法術商人)
+08DCH,15,298,Yes,Reagent Seller (魔法材料商人)
+08DEH,26,474,Yes,
+08DFH,11,288,Yes,像猿猴一樣的生物緩慢而小心地走向你。牠嗅了一會兒，然後指著你
+08E0H,11,288,Yes,像猿猴一樣的生物緩慢而小心地走向你。牠嗅了一會兒，然後指著你
+08E1H,21,304,Yes,
+08E2H,17,289,Yes,
+08E3H,14,236,Yes,
+08E5H,34,1016,Yes,
+08ECH,5,928,Yes,「獅子 Hubert 既傲慢又虛榮，~尤其對牠那優雅的鬃毛感
+08EDH,11,288,Yes,像猿猴一樣的生物緩慢而小心地走向你。牠嗅了一會兒，然後指著你
+08EEH,11,288,Yes,像猿猴一樣的生物緩慢而小心地走向你。牠嗅了一會兒，然後指著你
+08EFH,30,2224,Yes,
+08F0H,11,588,Yes,
+08F1H,7,43,Yes,Done
+08F2H,43,816,Yes,
+08F3H,28,1655,Yes,
+08F4H,14,308,Yes,Tseramed對話相關
+08F5H,23,966,Yes,
+08F8H,3,69,Yes,"「我來拿吧	。」"
+0903H,1,6,Yes,Done
+0904H,1,6,Yes,@嘓！@
+0909H,2,12,Yes,性別尊稱處理 (milord/milady)
+090AH,4,10,Yes,
+090DH,1,6,Yes,Done
+090EH,1,6,Yes,Done
+0919H,5,1235,Yes,「兄弟會是一個由心靈探索者組成的協會，致力於激發人類最高的潛
+091AH,5,1007,Yes,
+091BH,6,22,Yes,String builder for item selling price
+091CH,4,19,Yes,String builder for item selling price (Gargoyle)
+091DH,4,81,Yes,「傷口已經癒合了。」
+091EH,2,69,Yes,傷口已經癒合了。」
+091FH,2,170,Yes,「呼吸回到了身體裡。你的同伴活過來了！」
+0920H,1,31,Yes,Dialogue for combat training
+0921H,4,92,Yes,
+0923H,1,12,Yes,「可以嗎？」
+0924H,1,18,Yes,「同意嗎？」
+0927H,20,323,Yes,Drinking dialogue (generic)
+0928H,20,322,Yes,Drinking dialogue (generic alternate)
+0929H,2,117,Yes,Item usage message (hitting someone)
+092EH,25,458,Yes,NPC barks based on schedule (Britannian)
+092FH,17,372,Yes,NPC barks based on schedule (Gargoyle)
+0942H,1,5,Yes,Done
+0946H,18,302,Yes,Generic food buying (bread
+0947H,9,456,Yes,Generic bread selling (to merchant)
+0948H,9,478,Yes,Generic flour selling (to merchant)
+0949H,18,282,Yes,Gargoyle potion seller
+094AH,16,305,Yes,Gargoyle reagent seller
+094BH,14,388,Yes,Gargoyle haggling script
+094CH,50,585,Yes,Gargoyle spell seller
+094DH,16,398,Yes,Britannian food buying (mutton
+094EH,13,339,Yes,Britannian drink buying
+094FH,16,581,Yes,Generic combat trainer
+0950H,39,1045,Yes,Boxing trainer (Zella)
+0951H,28,618,Yes,Tavern seller (including Silverleaf dialogue)
+0952H,16,259,Yes,Weapon seller
+0953H,23,324,Yes,Armour seller

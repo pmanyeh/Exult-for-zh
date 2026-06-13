@@ -1,0 +1,37 @@
+// Header for "d:\git\exult-master\tools\ucxt\output\MAINSHP_ZH.FLX" Created by expack
+
+// DO NOT MODIFY
+
+#ifndef MAINSHP_ZH_FLX_INCLUDED
+#define MAINSHP_ZH_FLX_INCLUDED
+
+#define	MAINSHP_ZH_FLX_0_U7O		0
+#define	MAINSHP_ZH_FLX_1_U7O		1
+#define	MAINSHP_ZH_FLX_2_U7O		2
+#define	MAINSHP_ZH_FLX_3_U7O		3
+#define	MAINSHP_ZH_FLX_4_U7O		4
+#define	MAINSHP_ZH_FLX_5_U7O		5
+#define	MAINSHP_ZH_FLX_6_U7O		6
+#define	MAINSHP_ZH_FLX_7_U7O		7
+#define	MAINSHP_ZH_FLX_8_U7O		8
+#define	MAINSHP_ZH_FLX_9_U7O		9
+#define	MAINSHP_ZH_FLX_10_U7O		10
+#define	MAINSHP_ZH_FLX_11_U7O		11
+#define	MAINSHP_ZH_FLX_12_U7O		12
+#define	MAINSHP_ZH_FLX_13_U7O		13
+#define	MAINSHP_ZH_FLX_14_U7O		14
+#define	MAINSHP_ZH_FLX_15_U7O		15
+#define	MAINSHP_ZH_FLX_16_U7O		16
+#define	MAINSHP_ZH_FLX_17_U7O		17
+#define	MAINSHP_ZH_FLX_18_U7O		18
+#define	MAINSHP_ZH_FLX_19_U7O		19
+#define	MAINSHP_ZH_FLX_20_U7O		20
+#define	MAINSHP_ZH_FLX_21_U7O		21
+#define	MAINSHP_ZH_FLX_22_U7O		22
+#define	MAINSHP_ZH_FLX_23_U7O		23
+#define	MAINSHP_ZH_FLX_24_U7O		24
+
+#define	MAINSHP_ZH_FLX_CRC32	0x8fb00876U
+
+#endif
+

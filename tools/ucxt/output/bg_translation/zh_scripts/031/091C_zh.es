@@ -1,0 +1,11 @@
+#game "blackgate"
+var Func091C 0x91C (var var0000, var var0001, var var0002, var var0003, var var0004)
+{
+	var var0005;
+
+	var0005 = ((((((("販售 " + var0000) + var0001) + " 的價格是 ") + var0003) + " 枚金幣") + var0004) + "。");
+	return var0005;
+	return 0;
+}
+
+

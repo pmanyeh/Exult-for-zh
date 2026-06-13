@@ -1414,6 +1414,22 @@
       <row>
         <col id="0" translatable="yes">Celtic (ISO-8859-14)</col>
       </row>
+      <!-- [2026-06-13] Added support for Chinese Encodings and UTF-8 -->
+      <row>
+        <col id="0" translatable="yes">Unicode (UTF-8)</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Traditional Chinese (Big5)</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Traditional Chinese (CP-950)</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Simplified Chinese (GBK)</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Simplified Chinese (GB18030)</col>
+      </row>
     </data>
   </object>
   <object class="GtkListStore" id="criteria_liststore">

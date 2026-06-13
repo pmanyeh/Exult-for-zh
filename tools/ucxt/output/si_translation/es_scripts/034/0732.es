@@ -1,0 +1,13 @@
+#game "serpentisle"
+void Func0732 object#(0x732) ()
+{
+	var var0000;
+
+	var0000 = [0x0125, 0x03B7, 0x0000];
+	UI_move_object(0xFE9B, var0000);
+	UI_play_sound_effect(0x0082);
+	UI_obj_sprite_effect(0xFE9C, 0x0020, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0xFFFF);
+	return;
+}
+
+
