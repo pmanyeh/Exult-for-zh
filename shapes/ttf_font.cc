@@ -265,7 +265,7 @@ namespace TTF {
                             
                             if (style.shadow_type == -1) {
                                 // Default legacy behavior
-                                if (base_advance < 16) {
+                                if (base_advance >= 16) {
                                     win->put_pixel8(bg_color, draw_x - 1, draw_y);
                                     win->put_pixel8(bg_color, draw_x, draw_y - 1);
                                 }

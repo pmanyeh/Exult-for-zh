@@ -48,9 +48,19 @@ bool Font::is_painting_bark = false;
 
 #include <fstream>
 
-static std::string get_chinese_font_path() {
+static std::string get_chinese_font_path(int font_size = -1) {
 	std::string path;
 	if (config) {
+		if (font_size >= 0 && font_size <= 10) {
+			std::string small_path;
+			config->value("config/video/chinese/small_font_path", small_path, "");
+			if (!small_path.empty()) {
+				std::string sys_path = get_system_path(small_path);
+				if (U7exists(sys_path)) {
+					return sys_path;
+				}
+			}
+		}
 		config->value("config/video/chinese/font_path", path, "<PATCH>/chinese.ttf");
 	} else {
 		path = "<PATCH>/chinese.ttf";
@@ -239,7 +249,7 @@ int Font::paint_text_box(
 		coff      = cursor->offset;
 		cursor->x = -1;
 	}
-	TTF::load_font(get_chinese_font_path().c_str(), get_text_height_for(text));    // Load default Big5 font
+	TTF::load_font(get_chinese_font_path(get_text_height_for(text)).c_str(), get_text_height_for(text));    // Load default Big5 font
 	while (*text) {
 		if (cursor && text - start == coff) {
 			cursor->set_found(curx, cury, cur_line);
@@ -404,7 +414,7 @@ int Font::paint_text(
 	int yoff_original = yoff;
 	int baseline      = force_cjk ? get_chinese_font_size() : get_text_baseline_for(text, textlen);
 	yoff += baseline;
-	TTF::load_font(get_chinese_font_path().c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
+	TTF::load_font(get_chinese_font_path(force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen)).c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {
 		bool is_book = (font_index != 0 && font_index != 7);
 		TTF::Render_Style style = get_chinese_ttf_style(font_index);
@@ -592,7 +602,7 @@ int Font::paint_text_fixedwidth(
 	int x             = xoff;
 	int yoff_original = yoff;
 	yoff += get_text_baseline_for(text);
-	TTF::load_font(get_chinese_font_path().c_str(), get_text_height_for(text));
+	TTF::load_font(get_chinese_font_path(get_text_height_for(text)).c_str(), get_text_height_for(text));
 	TTF::Render_Style style = get_chinese_ttf_style(font_index);
 	while (*text != 0) {
 		uint32_t wch = TTF::decode_utf8(text);
@@ -643,7 +653,7 @@ int Font::paint_text_fixedwidth(
 	int x             = xoff;
 	int yoff_original = yoff;
 	yoff += get_text_baseline_for(text, textlen);
-	TTF::load_font(get_chinese_font_path().c_str(), get_text_height_for(text, textlen));
+	TTF::load_font(get_chinese_font_path(get_text_height_for(text, textlen)).c_str(), get_text_height_for(text, textlen));
 	TTF::Render_Style style = get_chinese_ttf_style(font_index);
 	while (textlen > 0) {
 		uint32_t wch = TTF::decode_utf8(text, textlen);
@@ -683,7 +693,7 @@ int Font::paint_text_fixedwidth(
 
 int Font::get_text_width(const char* text, bool force_cjk) {
 	int width = 0;
-	TTF::load_font(get_chinese_font_path().c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text));
+	TTF::load_font(get_chinese_font_path(force_cjk ? get_chinese_font_size() : get_text_height_for(text)).c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text));
 	if (font_shapes) {
 		bool is_book = (font_index != 0 && font_index != 7);
 		TTF::Render_Style style = get_chinese_ttf_style(font_index);
@@ -716,7 +726,7 @@ int Font::get_text_width(
 		bool        force_cjk
 ) {
 	int width = 0;
-	TTF::load_font(get_chinese_font_path().c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
+	TTF::load_font(get_chinese_font_path(force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen)).c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {
 		bool is_book = (font_index != 0 && font_index != 7);
 		TTF::Render_Style style = get_chinese_ttf_style(font_index);
@@ -854,7 +864,7 @@ int Font::get_rendered_line_height_for(const char* text, int len) {
 int Font::get_text_baseline_for(const char* text) {
 	if (Has_non_ascii(text)) {
 		int sz = get_chinese_font_size();
-		TTF::load_font(get_chinese_font_path().c_str(), sz);
+		TTF::load_font(get_chinese_font_path(sz).c_str(), sz);
 		return TTF::get_ascender() + get_chinese_baseline_adjust();
 	}
 	return get_text_baseline();
@@ -863,7 +873,7 @@ int Font::get_text_baseline_for(const char* text) {
 int Font::get_text_baseline_for(const char* text, int len) {
 	if (Has_non_ascii(text, len)) {
 		int sz = get_chinese_font_size();
-		TTF::load_font(get_chinese_font_path().c_str(), sz);
+		TTF::load_font(get_chinese_font_path(sz).c_str(), sz);
 		return TTF::get_ascender() + get_chinese_baseline_adjust();
 	}
 	return get_text_baseline();
