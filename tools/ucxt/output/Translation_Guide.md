@@ -142,9 +142,19 @@
 - **Man Versus Fish: The Ultimate Conflict** ➔ **人與魚：終極衝突**
 - **Knight's Bridge in a Nutshell** ➔ **騎士橋遊戲簡介**
 
+## 線性法術翻譯
+- **Awaken** ➔ **喚醒**
+- **Douse** ➔ **熄滅**
+- **Fireworks** ➔ **火術**
+- **Glimmer** ➔ **微光**
+- **Help** ➔ **幫助**
+- **Ignite** ➔ **點燃**
+- **Thunder** ➔ **雷聲**
+- **Weather** ➔ **改變天候**
+
 ## 八環法術翻譯
 ### 第一環 (1st Circle) —— 基礎、環境操作
-- **Awaken** ➔ **喚醒眾人**
+- **Awaken All** ➔ **喚醒眾人**
 - **Create Food** ➔ **製造食物**
 - **Cure** ➔ **醫療**
 - **Detect Trap** ➔ **偵測陷阱**

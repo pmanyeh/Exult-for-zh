@@ -74,6 +74,7 @@ public:
 	void paint_button(Gump_button* btn);
 	// Paint it and its contents.
 	void paint() override;
+	TileRect get_rect() const override;
 	bool handle_kbd_event(void* ev) override;
 };
 

@@ -45,6 +45,12 @@
 #include "spellbook.h"
 
 #include <cstdio>
+#include <string>
+#include <vector>
+#include <fstream>
+#include "fnames.h"
+#include "utils.h"
+#include "effects.h"
 
 const int REAGENTS = 842;    // Shape #.
 
@@ -64,6 +70,42 @@ const int REAGENTS = 842;    // Shape #.
  */
 #define CIRCLE    ((GAME_BG ? 0x45 : 0x51))
 #define CIRCLENUM ((GAME_BG ? 0x45 : 0x52))
+
+/*
+ *  Custom spell names from patch/spellnames.txt
+ */
+static std::vector<std::string> custom_spell_names;
+static bool spell_names_loaded = false;
+
+static void Load_spell_names() {
+	if (spell_names_loaded) {
+		return;
+	}
+	spell_names_loaded = true;
+	custom_spell_names.resize(72);
+	if (!U7exists("<PATCH>/spellnames.txt")) {
+		return;
+	}
+	auto in = U7open_in("<PATCH>/spellnames.txt");
+	if (!in) {
+		return;
+	}
+	std::string line;
+	while (std::getline(*in, line)) {
+		size_t pos = line.find(':');
+		if (pos != std::string::npos) {
+			int spell = std::atoi(line.substr(0, pos).c_str());
+			if (spell >= 0 && spell < 72) {
+				std::string name = line.substr(pos + 1);
+				// Trim trailing \r if present
+				if (!name.empty() && name.back() == '\r') {
+					name.pop_back();
+				}
+				custom_spell_names[spell] = name;
+			}
+		}
+	}
+}
 
 /*
  *  Get circle, given a spell #.
@@ -393,6 +435,7 @@ void Spellbook_gump::change_page(int delta) {
 
 void Spellbook_gump::select_spell(int spell) {
 	if (spells[spell]) {
+		gwin->add_dirty(get_rect());
 		book->bookmark = spell;
 		bookmark->set();    // Update bookmark's position/frame.
 		paint();
@@ -503,7 +546,19 @@ void Spellbook_gump::paint() {
 		sman->paint_text(5, circ, x + 92 + (44 - sman->get_text_width(5, circ)) / 2, y + 20);
 	}
 	if (book->bookmark >= 0) {    // Bookmark?
-		paint_button(bookmark);
+		bookmark->paint();
+		
+		// Paint custom spell name at the bottom of the spellbook
+		Load_spell_names();
+		int spell = book->bookmark;
+		if (spell >= 0 && spell < 72 && !custom_spell_names[spell].empty()) {
+			const char* name_str = custom_spell_names[spell].c_str();
+			// Use font 2 so Chinese TTF uses font_size_book (which defaults to 11)
+			int text_w = sman->get_text_width(2, name_str);
+			int px = x + object_area.x + object_area.w / 2 - text_w / 2;
+			int py = y + object_area.y + object_area.h + 4; // Draw just below the spellbook
+			sman->paint_text(2, name_str, px, py);
+		}
 	}
 	if (turning_page) {    // Animate turning page.
 		const int    TPXOFF = 5;
@@ -519,6 +574,13 @@ void Spellbook_gump::paint() {
 		}
 	}
 	gwin->set_painted();
+}
+
+TileRect Spellbook_gump::get_rect() const {
+	TileRect r = Spelltype_gump::get_rect();
+	// Expand the rectangle downwards by 25 pixels to include the custom spell name
+	r.h += 25;
+	return r;
 }
 
 /*
