@@ -50,8 +50,8 @@ Exult 是開源的 Ultima VII 遊戲引擎，原版僅支援英文字元顯示�
 請參考 [Exult 官方建置說明](https://exult.info/docs.php)。
 
 ### 安裝中文字型
-將 `chinese.ttf` 放入遊戲的 `patch/` 資料夾，  
-Exult 啟動時會自動載入。
+將主要中文字型命名為 `chinese.ttf` 放入遊戲的 `patch/` 資料夾，Exult 啟動時會自動載入。
+若想在書本與卷軸等微小文字（<= 10 級）獲得最佳顯示效果，建議可額外準備專用的點陣字型，命名為 `chinese_small.ttf` 並一併放入 `patch/` 資料夾。
 
 ---
 
