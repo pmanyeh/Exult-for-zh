@@ -68,6 +68,13 @@ public:
 	void clear_avatar_choices();
 	int  conversation_choice(int x, int y);
 
+	TileRect get_choice_rect(int index) const {
+		if (conv_choices && index >= 0 && index < get_num_answers()) {
+			return conv_choices[index];
+		}
+		return TileRect(0, 0, 0, 0);
+	}
+
 	void set_slot(int i) {
 		last_face_shown = i;    // SI.
 	}

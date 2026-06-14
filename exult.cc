@@ -165,7 +165,7 @@ int current_scaleval = 1;
 static int  exult_main(const char* runpath);
 static void Init();
 static int  Play();
-static bool Get_click(int& x, int& y, char* chr, bool drag_ok, bool rotate_colors = false);
+static bool Get_click(int& x, int& y, char* chr, bool drag_ok, bool rotate_colors = false, int* keycode = nullptr);
 static void set_scaleval(int new_scaleval);
 #ifdef USE_EXULTSTUDIO
 static void Move_dragged_shape(int shape, int frame, int x, int y, int prevx, int prevy, bool show);
@@ -2275,7 +2275,8 @@ static bool Get_click(
 		int& x, int& y,
 		char* chr,             // Char. returned if not null.
 		bool  drag_ok,         // Okay to drag/close while here.
-		bool  rotate_colors    // If the palette colors should rotate.
+		bool  rotate_colors,   // If the palette colors should rotate.
+		int*  keycode          // SDL keycode returned if not null.
 ) {
 	dragging               = false;    // Init.
 	uint32 last_rotate     = 0;
@@ -2387,15 +2388,22 @@ static bool Get_click(
 				case SDLK_SCROLLLOCK:
 					break;
 				default:
-					if (keybinder->IsMotionEvent(event)) {
+					if (keybinder->IsMotionEvent(event) && !keycode) {
 						break;
 					}
 					if ((c == SDLK_S) && (event.key.mod & SDL_KMOD_ALT) && (event.key.mod & SDL_KMOD_CTRL)) {
 						make_screenshot(true);
 						break;
 					}
+					if (keycode) {
+						*keycode = c;
+					}
 					if (chr) {    // Looking for a character?
 						*chr                = (event.key.mod & SDL_KMOD_SHIFT) ? toupper(c) : c;
+						g_waiting_for_click = false;
+						return true;
+					}
+					if (keycode) {
 						g_waiting_for_click = false;
 						return true;
 					}
@@ -2437,7 +2445,8 @@ bool Get_click(
 		char*               chr,             // Char. returned if not null.
 		bool                drag_ok,         // Okay to drag/close while here.
 		Paintable*          paint,           // Paint this over everything else.
-		bool                rotate_colors    // If the palette colors should rotate.
+		bool                rotate_colors,   // If the palette colors should rotate.
+		int*                keycode          // SDL keycode returned if not null.
 ) {
 	if (chr) {
 		*chr = 0;    // Init.
@@ -2452,7 +2461,7 @@ bool Get_click(
 	Mouse::mouse()->show();
 	gwin->show(true);    // Want to see new mouse.
 	gwin->get_tqueue()->pause(Game::get_ticks());
-	const bool ret = Get_click(x, y, chr, drag_ok, rotate_colors);
+	const bool ret = Get_click(x, y, chr, drag_ok, rotate_colors, keycode);
 	gwin->get_tqueue()->resume(Game::get_ticks());
 	Mouse::mouse()->set_shape(saveshape);
 	return ret;

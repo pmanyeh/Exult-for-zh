@@ -1681,12 +1681,39 @@ int Usecode_internal::get_user_choice_num() {
 	int x;
 	int y;    // Get click.
 	int choice_num;
+	int hover_index = 0;
 	do {
 		char chr;         // Allow '1', '2', etc.
+		int keycode = 0;
 		gwin->paint();    // Paint scenery.
-		const bool result = Get_click(x, y, Mouse::hand, &chr, false, conv, true);
+		const bool result = Get_click(x, y, Mouse::hand, &chr, false, conv, true, &keycode);
 		if (!result) {    // ESC pressed, select 'bye' if poss.
 			choice_num = conv->locate_answer("bye");
+		} else if (keycode == SDLK_RETURN || keycode == SDLK_KP_ENTER || keycode == SDLK_SPACE) {
+			choice_num = conv->conversation_choice(Mouse::mouse()->get_mousex(), Mouse::mouse()->get_mousey());
+			if (choice_num == -1 && conv->get_num_answers() > 0) {
+				choice_num = hover_index;
+			}
+		} else if (keycode == SDLK_UP || keycode == SDLK_DOWN || keycode == SDLK_LEFT || keycode == SDLK_RIGHT) {
+			choice_num = -1;
+			int num_ans = conv->get_num_answers();
+			if (num_ans > 0) {
+				if (keycode == SDLK_UP || keycode == SDLK_LEFT) {
+					hover_index--;
+					if (hover_index < 0) hover_index = num_ans - 1;
+				} else {
+					hover_index++;
+					if (hover_index >= num_ans) hover_index = 0;
+				}
+				TileRect rect = conv->get_choice_rect(hover_index);
+				if (rect.w > 0) {
+					int cx = rect.x + rect.w / 2;
+					int cy = rect.y + rect.h / 2;
+					int sx, sy;
+					gwin->get_win()->game_to_screen(cx, cy, gwin->get_fastmouse(), sx, sy);
+					SDL_WarpMouseInWindow(gwin->get_win()->get_screen_window(), (float)sx, (float)sy);
+				}
+			}
 		} else if (chr) {       // key pressed
 			choice_num = -1;    // invalid key
 			if (std::isalnum(static_cast<unsigned char>(chr))) {

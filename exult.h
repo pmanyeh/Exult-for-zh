@@ -46,7 +46,8 @@ extern bool Get_click(
 		char*               chr           = nullptr,    // Char. returned if not null.
 		bool                drag_ok       = false,      // Can drag while here.
 		Paintable*          paint         = nullptr,    // Paint over everything else.
-		bool                rotate_colors = false       // If the palette colors should rotate.
+		bool                rotate_colors = false,      // If the palette colors should rotate.
+		int*                keycode       = nullptr     // SDL keycode returned if not null.
 );
 
 /*
