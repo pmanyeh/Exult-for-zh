@@ -429,6 +429,18 @@ public:
 		return draw_surface;
 	}
 
+	SDL_Surface* get_paletted_surface() {
+		return paletted_surface;
+	}
+
+	SDL_Surface* get_inter_surface() {
+		return inter_surface;
+	}
+
+	int get_guard_band() const {
+		return guard_band;
+	}
+
 	bool ready() {    // Ready to draw?
 		return ibuf->bits != nullptr;
 	}

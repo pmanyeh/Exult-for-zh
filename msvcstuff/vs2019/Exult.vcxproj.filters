@@ -584,6 +584,9 @@
     <ClCompile Include="..\..\imagewin\BilinearScaler.cpp">
       <Filter>imagewin</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\imagewin\deferred_text.cc">
+      <Filter>imagewin</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\gumps\Book_gump.cc">
       <Filter>gumps</Filter>
     </ClCompile>
@@ -1244,6 +1247,9 @@
       <Filter>imagewin</Filter>
     </ClInclude>
     <ClInclude Include="..\..\imagewin\ArbScaler.h">
+      <Filter>imagewin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imagewin\deferred_text.h">
       <Filter>imagewin</Filter>
     </ClInclude>
     <ClInclude Include="..\..\headers\exceptions.h">

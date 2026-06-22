@@ -337,3 +337,5 @@ docs/xml/web_tmp/studio.html
 
 vcpkg/
 
+# TrueType Font files
+*.ttf

@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "game.h"
 #include "gamewin.h"
 #include "gumpinf.h"
+#include "deferred_text.h"
 #include "misc_buttons.h"
 #include "objiter.h"
 #include "utils.h"
@@ -417,6 +418,10 @@ void check_elem_positions(Object_list& objects) {
  */
 
 void Gump::paint() {
+	if (Deferred_text_renderer::instance().is_active()) {
+		TileRect rect = get_rect();
+		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
+	}
 	// Paint the gump itself.
 	if (get_shape()) {
 		paint_shape(x, y);

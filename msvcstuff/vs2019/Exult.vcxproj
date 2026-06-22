@@ -478,6 +478,7 @@ for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT
     <ClCompile Include="..\..\gumps\VideoOptions_gump.cc" />
     <ClCompile Include="..\..\gumps\Yesno_gump.cc" />
     <ClCompile Include="..\..\imagewin\BilinearScaler.cpp" />
+    <ClCompile Include="..\..\imagewin\deferred_text.cc" />
     <ClCompile Include="..\..\imagewin\BilinearScalerInternal_2x.cpp" />
     <ClCompile Include="..\..\imagewin\BilinearScalerInternal_Arb.cpp" />
     <ClCompile Include="..\..\imagewin\BilinearScalerInternal_X1Y12.cpp" />
@@ -720,6 +721,7 @@ for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT
     <ClInclude Include="..\..\imagewin\AffineScaler.h" />
     <ClInclude Include="..\..\imagewin\ArbScaler.h" />
     <ClInclude Include="..\..\imagewin\BilinearScaler.h" />
+    <ClInclude Include="..\..\imagewin\deferred_text.h" />
     <ClInclude Include="..\..\imagewin\BilinearScalerInternal.h" />
     <ClInclude Include="..\..\imagewin\ibuf8.h" />
     <ClInclude Include="..\..\imagewin\imagebuf.h" />

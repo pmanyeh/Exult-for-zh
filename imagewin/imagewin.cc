@@ -34,10 +34,12 @@ Boston, MA  02111-1307, USA.
 #include "Configuration.h"
 #include "PointScaler.h"
 #include "common_types.h"
+#include "deferred_text.h"
 #include "istring.h"
 #include "items.h"
 #include "manip.h"
 #include "mouse.h"
+
 
 #include <cstdlib>
 #include <iostream>
@@ -654,6 +656,19 @@ void Image_window::create_surface(unsigned int w, unsigned int h) {
 	if (draw_surface != display_surface) {
 		ibuf->bits += guard_band + ibuf->line_width * guard_band;
 	}
+
+	// Set up deferred CJK text rendering: enable when using a non-trivial
+	// scaler (HQx, xBR, etc.) that would distort Chinese font rendering.
+	// When scale > 1 and draw_surface != display_surface, scaling is active.
+	bool use_deferred = (draw_surface != display_surface && scale > 1
+	                     && scaler != point);
+	// Check config for user override
+	if (config) {
+		bool cfg_val = use_deferred;
+		config->value("config/video/chinese/post_scale_rendering", cfg_val, use_deferred);
+		use_deferred = cfg_val;
+	}
+	Deferred_text_renderer::instance().set_active(use_deferred, scale, inter_surface->w, inter_surface->h);
 }
 
 /*
@@ -938,6 +953,7 @@ void Image_window::resized(
  *   Repaint portion of window.
  */
 
+
 void Image_window::show(int x, int y, int w, int h) {
 	if (!ready()) {
 		return;
@@ -992,6 +1008,11 @@ void Image_window::show(int x, int y, int w, int h) {
 		h = buffer_h - y;
 	}
 
+	const int unscaled_x = x;
+	const int unscaled_y = y;
+	const int unscaled_w = w;
+	const int unscaled_h = h;
+
 	// Phase 1 blit from draw_surface to inter_surface
 	if (draw_surface != inter_surface) {
 		const ScalerInfo& sel_scaler = Scalers[scaler];
@@ -1043,6 +1064,114 @@ void Image_window::show(int x, int y, int w, int h) {
 		w *= scale;
 		h *= scale;
 	}
+
+	// Phase 1.5: Blit deferred high-res Chinese text onto inter_surface.
+	// To keep the cursor visible on top of text, we temporarily punch a
+	// transparent hole in text_surface at the cursor position before blitting.
+	// The HQx-scaled cursor on inter_surface then shows through the hole.
+	// After blitting, text_surface is restored.
+	auto& deferred = Deferred_text_renderer::instance();
+	if (deferred.is_active()) {
+		SDL_Surface* text_surf = deferred.get_surface();
+		SDL_Surface* text_backup = nullptr;
+		SDL_Rect text_cursor_rect = {0, 0, 0, 0};
+		bool hole_punched = false;
+
+		auto* mouse_obj = Mouse::mouse();
+		if (mouse_obj && mouse_obj->is_onscreen() && text_surf) {
+			Shape_frame* cur_frame = mouse_obj->get_current_frame();
+			if (cur_frame) {
+				// Cursor bounding box in game coordinates
+				int cx = mouse_obj->get_mousex() - cur_frame->get_xleft();
+				int cy = mouse_obj->get_mousey() - cur_frame->get_yabove();
+				int cw = cur_frame->get_width();
+				int ch = cur_frame->get_height();
+
+				// Convert to text_surface coordinates (include offset and guard_band)
+				text_cursor_rect.x = (cx + ibuf->get_offset_x() + guard_band) * scale;
+				text_cursor_rect.y = (cy + ibuf->get_offset_y() + guard_band) * scale;
+				text_cursor_rect.w = cw * scale;
+				text_cursor_rect.h = ch * scale;
+
+				// Clamp to text_surface bounds
+				if (text_cursor_rect.x < 0) {
+					text_cursor_rect.w += text_cursor_rect.x;
+					text_cursor_rect.x = 0;
+				}
+				if (text_cursor_rect.y < 0) {
+					text_cursor_rect.h += text_cursor_rect.y;
+					text_cursor_rect.y = 0;
+				}
+				if (text_cursor_rect.x + text_cursor_rect.w > text_surf->w) {
+					text_cursor_rect.w = text_surf->w - text_cursor_rect.x;
+				}
+				if (text_cursor_rect.y + text_cursor_rect.h > text_surf->h) {
+					text_cursor_rect.h = text_surf->h - text_cursor_rect.y;
+				}
+
+				if (text_cursor_rect.w > 0 && text_cursor_rect.h > 0) {
+					// Save the cursor region of text_surface
+					text_backup = SDL_CreateSurface(
+							text_cursor_rect.w, text_cursor_rect.h,
+							SDL_PIXELFORMAT_RGBA32);
+					if (text_backup) {
+						SDL_SetSurfaceBlendMode(text_backup, SDL_BLENDMODE_NONE);
+						SDL_BlitSurface(text_surf, &text_cursor_rect, text_backup, nullptr);
+
+						// Punch transparent hole in text_surface only where the cursor is non-transparent
+						int cx_start = cx + ibuf->get_offset_x() + guard_band;
+						int cy_start = cy + ibuf->get_offset_y() + guard_band;
+						int cur_w = cur_frame->get_width();
+						int cur_h = cur_frame->get_height();
+
+						for (int r = 0; r < cur_h; ++r) {
+							for (int c = 0; c < cur_w; ++c) {
+								if (cur_frame->has_point(c - cur_frame->get_xleft(), r - cur_frame->get_yabove())) {
+									int hx = (cx_start + c) * scale;
+									int hy = (cy_start + r) * scale;
+									int hw = scale;
+									int hh = scale;
+									// Clip to surface bounds
+									if (hx < 0) {
+										hw += hx;
+										hx = 0;
+									}
+									if (hy < 0) {
+										hh += hy;
+										hy = 0;
+									}
+									if (hx + hw > text_surf->w) {
+										hw = text_surf->w - hx;
+									}
+									if (hy + hh > text_surf->h) {
+										hh = text_surf->h - hy;
+									}
+									if (hw > 0 && hh > 0) {
+										SDL_Rect hole = { hx, hy, hw, hh };
+										SDL_FillSurfaceRect(text_surf, &hole, 0x00000000);
+									}
+								}
+							}
+						}
+						hole_punched = true;
+					}
+				}
+			}
+		}
+
+		// Blit text onto inter_surface (cursor area is transparent, cursor shows through)
+		deferred.blit(inter_surface, unscaled_x, unscaled_y, unscaled_w, unscaled_h, guard_band);
+
+		// Restore text_surface cursor region
+		if (hole_punched) {
+			SDL_SetSurfaceBlendMode(text_backup, SDL_BLENDMODE_NONE);
+			SDL_BlitSurface(text_backup, nullptr, text_surf, &text_cursor_rect);
+			SDL_DestroySurface(text_backup);
+		}
+	}
+
+
+
 
 	// Phase 2 blit from inter_surface to display_surface
 	if (inter_surface != display_surface && fill_scaler != SDLScaler) {

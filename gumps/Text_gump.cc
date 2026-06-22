@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "game.h"
 #include "gamewin.h"
+#include "deferred_text.h"
 
 #include <cstring>
 #include <string>
@@ -61,6 +62,9 @@ void Text_gump::add_text(const char* str) {
  */
 
 int Text_gump::paint_page(const TileRect& box, int start) {
+	if (Deferred_text_renderer::instance().is_active()) {
+		Deferred_text_renderer::instance().clear_region(x + box.x, y + box.y, box.w, box.h);
+	}
 	int       ypos       = 0;
 	const int vlead      = 1;
 	const int textheight = sman->get_text_height(font) + vlead;

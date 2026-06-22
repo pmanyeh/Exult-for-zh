@@ -191,6 +191,7 @@ GUMPS_OBJS:= \
 	gumps/Scrollable_widget.o
 
 IMAGEWIN_OBJS:=\
+	imagewin/deferred_text.o \
 	imagewin/ibuf8.o \
 	imagewin/imagebuf.o \
 	imagewin/imagewin.o \

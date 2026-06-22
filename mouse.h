@@ -216,6 +216,10 @@ public:
 		return mousey;
 	}
 
+	inline Shape_frame* get_current_frame() const {
+		return cur;
+	}
+
 	// Sets hand or speed cursors
 	void set_speed_cursor();
 

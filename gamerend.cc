@@ -24,6 +24,7 @@
 #endif
 
 #include "gamerend.h"
+#include "deferred_text.h"
 
 #include "Gump.h"
 #include "Gump_manager.h"
@@ -332,6 +333,9 @@ void Game_window::paint(
 	// This will adjust and clip the rectangle as appropriate, it may end up
 	// bigger or smaller
 	win->BeginPaintIntoGuardBand(&x, &y, &w, &h);
+	if (Deferred_text_renderer::instance().is_active()) {
+		Deferred_text_renderer::instance().clear_region(x, y, w, h);
+	}
 	int gx = x;
 	int gy = y;
 	int gw = w;

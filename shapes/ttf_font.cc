@@ -1,4 +1,5 @@
 #include "ibuf8.h"
+#include "deferred_text.h"
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include <string>
@@ -8,8 +9,8 @@
 #endif
 
 namespace TTF {
-    static FT_Library library = nullptr;
-    static FT_Face face = nullptr;
+    FT_Library library = nullptr;
+    FT_Face face = nullptr;
     static bool initialized = false;
 
     bool init() {
@@ -240,6 +241,16 @@ namespace TTF {
                 fg_color = trans[fg_color];
                 bg_color = trans[bg_color];
             }
+            // Check if deferred mode is active — if so, draw the bullet
+            auto& deferred = Deferred_text_renderer::instance();
+            if (deferred.is_active()) {
+                Deferred_glyph_style dgs = {style.letter_spacing, style.weight,
+                                            style.shadow_type, style.shadow_offset_x,
+                                            style.shadow_offset_y, style.shadow_color,
+                                            style.fg_color};
+                deferred.draw_glyph(wch, x, yoff_original, fg_color, bg_color, (bg_color != 0), dgs, loaded_path, loaded_size, is_book, win);
+                return 8;
+            }
             int ascender = face ? (face->size->metrics.ascender >> 6) : 10;
             int dot_x = x + 3;
             // Center the bullet vertically around 2/3 of ascender height
@@ -313,6 +324,25 @@ namespace TTF {
         if (trans) {
             fg_color = trans[fg_color];
             bg_color = trans[bg_color];
+        }
+
+        // Check if deferred mode is active — if so, draw the glyph
+        auto& deferred = Deferred_text_renderer::instance();
+        if (deferred.is_active()) {
+            bool should_draw_shadow = false;
+            if (style.shadow_type != 0) {
+                if (style.shadow_color >= 0 && style.shadow_color <= 255) {
+                    should_draw_shadow = true;
+                } else if (cached_bg != 0 && bg_color != 0) {
+                    should_draw_shadow = true;
+                }
+            }
+            Deferred_glyph_style dgs = {style.letter_spacing, style.weight,
+                                         style.shadow_type, style.shadow_offset_x,
+                                         style.shadow_offset_y, style.shadow_color,
+                                         style.fg_color};
+            deferred.draw_glyph(wch, x, yoff_original, fg_color, bg_color, should_draw_shadow, dgs, loaded_path, loaded_size, is_book, win);
+            return advance + style.letter_spacing;
         }
 
             bool should_draw_shadow = false;

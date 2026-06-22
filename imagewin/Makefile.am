@@ -38,6 +38,8 @@ libimagewin_la_SOURCES += \
 	scale_2xSaI.cc \
 	scale_2xSaI.h \
 	ArbScaler.h \
+	deferred_text.cc \
+	deferred_text.h \
 	BilinearScaler.cpp \
 	BilinearScaler.h \
 	BilinearScalerInternal.h \

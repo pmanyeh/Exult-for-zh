@@ -158,6 +158,14 @@ public:
 		return height;
 	}
 
+	int get_offset_x() const {
+		return offset_x;
+	}
+
+	int get_offset_y() const {
+		return offset_y;
+	}
+
 	unsigned int get_line_width() {
 		return line_width;
 	}

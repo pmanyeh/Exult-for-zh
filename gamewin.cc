@@ -29,6 +29,7 @@
 #endif
 
 #include "gamewin.h"
+#include "deferred_text.h"
 
 #include "Astar.h"
 #include "Audio.h"
@@ -486,6 +487,9 @@ Game_window::Game_window(
  *  Blank out screen.
  */
 void Game_window::clear_screen(bool update) {
+	if (Deferred_text_renderer::instance().is_active()) {
+		Deferred_text_renderer::instance().clear();
+	}
 	win->BeginPaintIntoGuardBand(nullptr, nullptr, nullptr, nullptr);
 	win->fill8(0, win->get_full_width(), win->get_full_height(), win->get_start_x(), win->get_start_y());
 
