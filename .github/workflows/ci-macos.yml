@@ -61,7 +61,7 @@ jobs:
           brew update
           brew upgrade || true
           brew install automake libtool pkg-config libpng zlib libogg libvorbis fluid-synth freetype gtk+3 libxml2 bison flex
-          brew install sdl3 sdl3_image icu4c mt32emu autoconf-archive
+          brew install sdl3 sdl3_image icu4c mt32emu autoconf-archive dylibbundler create-dmg
       - name: Checkout code
         uses: actions/checkout@v6
       - name: Run autoreconf
@@ -69,20 +69,29 @@ jobs:
           autoreconf -v -i
       - name: Configure
         run: |
-          export LDFLAGS="-L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix zlib)/lib"
-          export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix zlib)/include"
+          export LDFLAGS="-L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix freetype)/lib"
+          export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix zlib)/include -I$(brew --prefix freetype)/include/freetype2"
           export PATH="$(brew --prefix bison)/bin:$(brew --prefix flex)/bin:$(brew --prefix libxml2)/bin:$PATH"
-          export PKG_CONFIG_PATH="$(brew --prefix zlib)/lib/pkgconfig:$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig"
+          export PKG_CONFIG_PATH="$(brew --prefix zlib)/lib/pkgconfig:$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix freetype)/lib/pkgconfig"
+          export LIBS="-lfreetype"
           ./configure --with-debug=extreme --enable-exult-studio --enable-exult-studio-support --enable-compiler \
             --enable-zip-support --enable-shared --enable-shp-thumbnailer --enable-data --enable-mods --enable-aseprite-plugin \
             --disable-alsa --disable-timidity-midi
       - name: Build
         run: |
-          export LDFLAGS="-L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix zlib)/lib"
-          export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix zlib)/include"
+          export LDFLAGS="-L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix freetype)/lib"
+          export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix zlib)/include -I$(brew --prefix freetype)/include/freetype2"
           export PATH="$(brew --prefix bison)/bin:$(brew --prefix flex)/bin:$(brew --prefix libxml2)/bin:$PATH"
-          export PKG_CONFIG_PATH="$(brew --prefix zlib)/lib/pkgconfig:$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig"
+          export PKG_CONFIG_PATH="$(brew --prefix zlib)/lib/pkgconfig:$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix freetype)/lib/pkgconfig"
+          export LIBS="-lfreetype"
           make -j3
+          make bundle_shared
+          make osxdmg
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Exult-macOS-Build
+          path: Exult*.dmg
   notify:
     if: ${{ always() }}
     needs:
