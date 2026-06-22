@@ -1087,9 +1087,9 @@ void Image_window::show(int x, int y, int w, int h) {
 				int cw = cur_frame->get_width();
 				int ch = cur_frame->get_height();
 
-				// Convert to text_surface coordinates (include offset and guard_band)
-				text_cursor_rect.x = (cx + ibuf->get_offset_x() + guard_band) * scale;
-				text_cursor_rect.y = (cy + ibuf->get_offset_y() + guard_band) * scale;
+				// Convert to text_surface coordinates (include offset and gb)
+				text_cursor_rect.x = (cx + ibuf->get_offset_x() + gb) * scale;
+				text_cursor_rect.y = (cy + ibuf->get_offset_y() + gb) * scale;
 				text_cursor_rect.w = cw * scale;
 				text_cursor_rect.h = ch * scale;
 
@@ -1119,8 +1119,8 @@ void Image_window::show(int x, int y, int w, int h) {
 						SDL_BlitSurface(text_surf, &text_cursor_rect, text_backup, nullptr);
 
 						// Punch transparent hole in text_surface only where the cursor is non-transparent
-						int cx_start = cx + ibuf->get_offset_x() + guard_band;
-						int cy_start = cy + ibuf->get_offset_y() + guard_band;
+						int cx_start = cx + ibuf->get_offset_x() + gb;
+						int cy_start = cy + ibuf->get_offset_y() + gb;
 						int cur_w = cur_frame->get_width();
 						int cur_h = cur_frame->get_height();
 
@@ -1160,7 +1160,7 @@ void Image_window::show(int x, int y, int w, int h) {
 		}
 
 		// Blit text onto inter_surface (cursor area is transparent, cursor shows through)
-		deferred.blit(inter_surface, unscaled_x, unscaled_y, unscaled_w, unscaled_h, guard_band);
+		deferred.blit(inter_surface, unscaled_x, unscaled_y, unscaled_w, unscaled_h, gb);
 
 		// Restore text_surface cursor region
 		if (hole_punched) {

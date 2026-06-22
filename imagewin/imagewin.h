@@ -437,6 +437,10 @@ public:
 		return inter_surface;
 	}
 
+	SDL_Surface* get_display_surface() {
+		return display_surface;
+	}
+
 	int get_guard_band() const {
 		return guard_band;
 	}

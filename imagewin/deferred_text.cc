@@ -79,7 +79,7 @@ void Deferred_text_renderer::clear_region(int x, int y, int w, int h) {
 	auto* ibuf = image_win->get_ibuf();
 	if (!ibuf) return;
 
-	int gb = image_win->get_guard_band();
+	int gb = (image_win->get_inter_surface() != image_win->get_display_surface()) ? image_win->get_guard_band() : 0;
 	int ox = ibuf->get_offset_x();
 	int oy = ibuf->get_offset_y();
 
@@ -158,7 +158,7 @@ void Deferred_text_renderer::draw_glyph(
 		if (TTF::load_font(font_path.c_str(), pixel_size)) {
 			ascender = TTF::face->size->metrics.ascender >> 6;
 		}
-		int gb = image_win->get_guard_band();
+		int gb = (image_win->get_inter_surface() != image_win->get_display_surface()) ? image_win->get_guard_band() : 0;
 		int scaled_dot_x = (x + win->get_offset_x() + gb + 3) * scale;
 		int scaled_dot_y = (y + win->get_offset_y() + gb + ascender - 5) * scale;
 		int dot_size = 2 * scale;
@@ -215,7 +215,7 @@ void Deferred_text_renderer::draw_glyph(
 
 	// Scale the game-coordinate position to text_surface coordinates
 	// Add offset_x/offset_y (the main draw surface has offset padding)
-	int gb = image_win->get_guard_band();
+	int gb = (image_win->get_inter_surface() != image_win->get_display_surface()) ? image_win->get_guard_band() : 0;
 	int sx = (x + win->get_offset_x() + gb) * scale;
 	int sy = (y + win->get_offset_y() + gb) * scale;
 
