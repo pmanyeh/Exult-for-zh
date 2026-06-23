@@ -777,6 +777,11 @@ bool Image_window::create_scale_surfaces(int w, int h, int bpp) {
 	display_surface = SDL_CreateSurface(w, h, SDL_GetPixelFormatForMasks(sbpp, sRmask, sGmask, sBmask, sAmask));
 	if (display_surface == nullptr) {
 		cout << "Couldn't create display surface: " << SDL_GetError() << std::endl;
+	} else {
+		const SDL_PixelFormatDetails* d_fmt = SDL_GetPixelFormatDetails(display_surface->format);
+		if (d_fmt) {
+			SDL_FillSurfaceRect(display_surface, nullptr, SDL_MapRGBA(d_fmt, nullptr, 0, 0, 0, 255));
+		}
 	}
 	if (screen_texture == nullptr) {
 		screen_texture = SDL_CreateTexture(
@@ -821,6 +826,11 @@ bool Image_window::create_scale_surfaces(int w, int h, int bpp) {
 			cerr << "Couldn't create inter surface: " << SDL_GetError() << endl;
 			free_surface();
 			return false;
+		} else {
+			const SDL_PixelFormatDetails* i_fmt = SDL_GetPixelFormatDetails(inter_surface->format);
+			if (i_fmt) {
+				SDL_FillSurfaceRect(inter_surface, nullptr, SDL_MapRGBA(i_fmt, nullptr, 0, 0, 0, 255));
+			}
 		}
 	}
 	// Scale using 'scaler' only

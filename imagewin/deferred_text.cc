@@ -325,12 +325,89 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 		return;
 	}
 
-	int dx = (x + guard_band) * scale;
-	int dy = (y + guard_band) * scale;
+	auto* gwin = Game_window::get_instance();
+	if (!gwin) return;
+	auto* image_win = gwin->get_win();
+	if (!image_win) return;
+	auto* ibuf = image_win->get_ibuf();
+	if (!ibuf) return;
+
+	int ox = ibuf->get_offset_x();
+	int oy = ibuf->get_offset_y();
+
+	int src_x = (x + ox + guard_band) * scale;
+	int src_y = (y + oy + guard_band) * scale;
+	int dst_x = (x + guard_band) * scale;
+	int dst_y = (y + guard_band) * scale;
+	
 	int dw = w * scale;
 	int dh = h * scale;
 
-	SDL_Rect srcrect = { dx, dy, dw, dh };
-	SDL_Rect dstrect = { dx, dy, dw, dh };
-	SDL_BlitSurface(text_surface, &srcrect, inter_surface, &dstrect);
+	// Clamp to inter_surface bounds
+	if (dst_x < 0) { dw += dst_x; src_x -= dst_x; dst_x = 0; }
+	if (dst_y < 0) { dh += dst_y; src_y -= dst_y; dst_y = 0; }
+	if (dst_x + dw > inter_surface->w) { dw = inter_surface->w - dst_x; }
+	if (dst_y + dh > inter_surface->h) { dh = inter_surface->h - dst_y; }
+
+	// Clamp to text_surface bounds
+	if (src_x < 0) { dw += src_x; dst_x -= src_x; src_x = 0; }
+	if (src_y < 0) { dh += src_y; dst_y -= src_y; src_y = 0; }
+	if (src_x + dw > text_surface->w) { dw = text_surface->w - src_x; }
+	if (src_y + dh > text_surface->h) { dh = text_surface->h - src_y; }
+
+	if (dw <= 0 || dh <= 0) return;
+
+	const SDL_PixelFormatDetails* src_fmt = SDL_GetPixelFormatDetails(text_surface->format);
+	const SDL_PixelFormatDetails* dst_fmt = SDL_GetPixelFormatDetails(inter_surface->format);
+	if (!src_fmt || !dst_fmt) return;
+
+	const SDL_Palette* src_pal = SDL_GetSurfacePalette(text_surface);
+	const SDL_Palette* dst_pal = SDL_GetSurfacePalette(inter_surface);
+
+	uint8_t* src_pixels = static_cast<uint8_t*>(text_surface->pixels);
+	uint8_t* dst_pixels = static_cast<uint8_t*>(inter_surface->pixels);
+	int src_pitch = text_surface->pitch;
+	int dst_pitch = inter_surface->pitch;
+
+	for (int r = 0; r < dh; ++r) {
+		uint8_t* src_row = src_pixels + (src_y + r) * src_pitch + src_x * src_fmt->bytes_per_pixel;
+		uint8_t* dst_row = dst_pixels + (dst_y + r) * dst_pitch + dst_x * dst_fmt->bytes_per_pixel;
+		
+		for (int c = 0; c < dw; ++c) {
+			uint32_t sp = 0;
+			if (src_fmt->bytes_per_pixel == 4) sp = *reinterpret_cast<uint32_t*>(src_row + c * 4);
+			else if (src_fmt->bytes_per_pixel == 1) sp = *(src_row + c);
+			
+			uint8_t sr, sg, sb, sa;
+			SDL_GetRGBA(sp, src_fmt, src_pal, &sr, &sg, &sb, &sa);
+			
+			if (sa > 0) {
+				uint32_t dp = 0;
+				if (dst_fmt->bytes_per_pixel == 4) dp = *reinterpret_cast<uint32_t*>(dst_row + c * 4);
+				else if (dst_fmt->bytes_per_pixel == 1) dp = *(dst_row + c);
+				else if (dst_fmt->bytes_per_pixel == 3) {
+					dp = dst_row[c*3] | (dst_row[c*3+1] << 8) | (dst_row[c*3+2] << 16);
+				}
+
+				uint8_t dr, dg, db, da;
+				SDL_GetRGBA(dp, dst_fmt, dst_pal, &dr, &dg, &db, &da);
+
+				// Source over blending
+				uint8_t out_r = (sr * sa + dr * (255 - sa)) / 255;
+				uint8_t out_g = (sg * sa + dg * (255 - sa)) / 255;
+				uint8_t out_b = (sb * sa + db * (255 - sa)) / 255;
+				uint8_t out_a = sa + da * (255 - sa) / 255;
+
+				uint32_t out_p = SDL_MapRGBA(dst_fmt, dst_pal, out_r, out_g, out_b, out_a);
+
+				if (dst_fmt->bytes_per_pixel == 4) *reinterpret_cast<uint32_t*>(dst_row + c * 4) = out_p;
+				else if (dst_fmt->bytes_per_pixel == 1) *(dst_row + c) = static_cast<uint8_t>(out_p);
+				else if (dst_fmt->bytes_per_pixel == 3) {
+					dst_row[c*3] = out_p & 0xFF;
+					dst_row[c*3+1] = (out_p >> 8) & 0xFF;
+					dst_row[c*3+2] = (out_p >> 16) & 0xFF;
+				}
+			}
+		}
+	}
 }
