@@ -1073,9 +1073,7 @@ void Image_window::show(int x, int y, int w, int h) {
 	auto& deferred = Deferred_text_renderer::instance();
 	if (deferred.is_active()) {
 		SDL_Surface* text_surf = deferred.get_surface();
-		SDL_Surface* text_backup = nullptr;
 		SDL_Rect text_cursor_rect = {0, 0, 0, 0};
-		bool hole_punched = false;
 
 		auto* mouse_obj = Mouse::mouse();
 		if (mouse_obj && mouse_obj->is_onscreen() && text_surf) {
@@ -1110,50 +1108,43 @@ void Image_window::show(int x, int y, int w, int h) {
 				}
 
 				if (text_cursor_rect.w > 0 && text_cursor_rect.h > 0) {
-					// Save the cursor region of text_surface
-					text_backup = SDL_CreateSurface(
-							text_cursor_rect.w, text_cursor_rect.h,
-							SDL_PIXELFORMAT_RGBA32);
-					if (text_backup) {
-						SDL_SetSurfaceBlendMode(text_backup, SDL_BLENDMODE_NONE);
-						SDL_BlitSurface(text_surf, &text_cursor_rect, text_backup, nullptr);
+					// Punch transparent hole in text_surface only where the cursor is non-transparent
+					int cx_start = cx + ibuf->get_offset_x() + gb;
+					int cy_start = cy + ibuf->get_offset_y() + gb;
+					int cur_w = cur_frame->get_width();
+					int cur_h = cur_frame->get_height();
 
-						// Punch transparent hole in text_surface only where the cursor is non-transparent
-						int cx_start = cx + ibuf->get_offset_x() + gb;
-						int cy_start = cy + ibuf->get_offset_y() + gb;
-						int cur_w = cur_frame->get_width();
-						int cur_h = cur_frame->get_height();
-
-						for (int r = 0; r < cur_h; ++r) {
-							for (int c = 0; c < cur_w; ++c) {
-								if (cur_frame->has_point(c - cur_frame->get_xleft(), r - cur_frame->get_yabove())) {
-									int hx = (cx_start + c) * scale;
-									int hy = (cy_start + r) * scale;
-									int hw = scale;
-									int hh = scale;
-									// Clip to surface bounds
-									if (hx < 0) {
-										hw += hx;
-										hx = 0;
-									}
-									if (hy < 0) {
-										hh += hy;
-										hy = 0;
-									}
-									if (hx + hw > text_surf->w) {
-										hw = text_surf->w - hx;
-									}
-									if (hy + hh > text_surf->h) {
-										hh = text_surf->h - hy;
-									}
-									if (hw > 0 && hh > 0) {
-										SDL_Rect hole = { hx, hy, hw, hh };
-										SDL_FillSurfaceRect(text_surf, &hole, 0x00000000);
+					for (int r = 0; r < cur_h; ++r) {
+						for (int c = 0; c < cur_w; ++c) {
+							if (cur_frame->has_point(c - cur_frame->get_xleft(), r - cur_frame->get_yabove())) {
+								int hx = (cx_start + c) * scale;
+								int hy = (cy_start + r) * scale;
+								int hw = scale;
+								int hh = scale;
+								// Clip to surface bounds
+								if (hx < 0) {
+									hw += hx;
+									hx = 0;
+								}
+								if (hy < 0) {
+									hh += hy;
+									hy = 0;
+								}
+								if (hx + hw > text_surf->w) {
+									hw = text_surf->w - hx;
+								}
+								if (hy + hh > text_surf->h) {
+									hh = text_surf->h - hy;
+								}
+								if (hw > 0 && hh > 0) {
+									auto* t_pixels = static_cast<uint8_t*>(text_surf->pixels);
+									int t_pitch = text_surf->pitch;
+									for (int hr = 0; hr < hh; ++hr) {
+										std::memset(t_pixels + (hy + hr) * t_pitch + hx * 4, 0, hw * 4);
 									}
 								}
 							}
 						}
-						hole_punched = true;
 					}
 				}
 			}
@@ -1161,13 +1152,6 @@ void Image_window::show(int x, int y, int w, int h) {
 
 		// Blit text onto inter_surface (cursor area is transparent, cursor shows through)
 		deferred.blit(inter_surface, unscaled_x, unscaled_y, unscaled_w, unscaled_h, gb);
-
-		// Restore text_surface cursor region
-		if (hole_punched) {
-			SDL_SetSurfaceBlendMode(text_backup, SDL_BLENDMODE_NONE);
-			SDL_BlitSurface(text_backup, nullptr, text_surf, &text_cursor_rect);
-			SDL_DestroySurface(text_backup);
-		}
 	}
 
 

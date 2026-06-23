@@ -64,7 +64,7 @@ void Deferred_text_renderer::set_active(bool enable, int scale_factor, int w, in
 
 void Deferred_text_renderer::clear() {
 	if (text_surface) {
-		SDL_FillSurfaceRect(text_surface, nullptr, 0);
+		std::memset(text_surface->pixels, 0, text_surface->pitch * text_surface->h);
 	}
 }
 
@@ -84,7 +84,20 @@ void Deferred_text_renderer::clear_region(int x, int y, int w, int h) {
 	int oy = ibuf->get_offset_y();
 
 	SDL_Rect rect = { (x + ox + gb) * scale, (y + oy + gb) * scale, w * scale, h * scale };
-	SDL_FillSurfaceRect(text_surface, &rect, 0);
+	
+	// Clip rect to surface bounds to avoid out-of-bounds memset
+	if (rect.x < 0) { rect.w += rect.x; rect.x = 0; }
+	if (rect.y < 0) { rect.h += rect.y; rect.y = 0; }
+	if (rect.x + rect.w > text_surface->w) { rect.w = text_surface->w - rect.x; }
+	if (rect.y + rect.h > text_surface->h) { rect.h = text_surface->h - rect.y; }
+
+	if (rect.w > 0 && rect.h > 0) {
+		auto* pixels = static_cast<uint8_t*>(text_surface->pixels);
+		int pitch = text_surface->pitch;
+		for (int r = 0; r < rect.h; ++r) {
+			std::memset(pixels + (rect.y + r) * pitch + rect.x * 4, 0, rect.w * 4);
+		}
+	}
 }
 
 /*
@@ -317,6 +330,7 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 	int dw = w * scale;
 	int dh = h * scale;
 
-	SDL_Rect rect = { dx, dy, dw, dh };
-	SDL_BlitSurface(text_surface, &rect, inter_surface, &rect);
+	SDL_Rect srcrect = { dx, dy, dw, dh };
+	SDL_Rect dstrect = { dx, dy, dw, dh };
+	SDL_BlitSurface(text_surface, &srcrect, inter_surface, &dstrect);
 }
