@@ -108,17 +108,15 @@ static inline void put_pixel_rgba(SDL_Surface* surf, int px, int py, uint8_t r, 
 	if (px < 0 || py < 0 || px >= surf->w || py >= surf->h) {
 		return;
 	}
-	auto* pixels = static_cast<uint32_t*>(surf->pixels);
-	const int pitch_pixels = surf->pitch / 4;
-	uint32_t& dest = pixels[py * pitch_pixels + px];
+	auto* pixels = static_cast<uint8_t*>(surf->pixels);
+	uint32_t* target_pixel = reinterpret_cast<uint32_t*>(pixels + py * surf->pitch + px * 4);
+	uint32_t dest = *target_pixel;
 
 	const SDL_PixelFormatDetails* fmt = SDL_GetPixelFormatDetails(surf->format);
+	if (!fmt) return;
 
-	// Extract existing RGBA channels based on the format layout
-	uint8_t dr = ((dest >> fmt->Rshift) << (8 - fmt->Rbits)) & 0xff;
-	uint8_t dg = ((dest >> fmt->Gshift) << (8 - fmt->Gbits)) & 0xff;
-	uint8_t db = ((dest >> fmt->Bshift) << (8 - fmt->Bbits)) & 0xff;
-	uint8_t da = fmt->Amask ? (((dest >> fmt->Ashift) << (8 - fmt->Abits)) & 0xff) : 0;
+	uint8_t dr, dg, db, da;
+	SDL_GetRGBA(dest, fmt, nullptr, &dr, &dg, &db, &da);
 
 	// Alpha blend source over destination
 	uint8_t out_a = a + ((da * (255 - a)) / 255);
@@ -131,13 +129,7 @@ static inline void put_pixel_rgba(SDL_Surface* surf, int px, int py, uint8_t r, 
 		out_r = out_g = out_b = 0;
 	}
 
-	uint32_t pixel = ((out_r >> (8 - fmt->Rbits)) << fmt->Rshift)
-	               | ((out_g >> (8 - fmt->Gbits)) << fmt->Gshift)
-	               | ((out_b >> (8 - fmt->Bbits)) << fmt->Bshift);
-	if (fmt->Amask) {
-		pixel |= ((out_a >> (8 - fmt->Abits)) << fmt->Ashift);
-	}
-	dest = pixel;
+	*target_pixel = SDL_MapRGBA(fmt, nullptr, out_r, out_g, out_b, out_a);
 }
 
 /*
