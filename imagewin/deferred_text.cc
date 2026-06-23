@@ -317,20 +317,14 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 		return;
 	}
 
-	auto* gwin = Game_window::get_instance();
-	if (!gwin) return;
-	auto* image_win = gwin->get_win();
-	if (!image_win) return;
-	auto* ibuf = image_win->get_ibuf();
-	if (!ibuf) return;
-
-	int ox = ibuf->get_offset_x();
-	int oy = ibuf->get_offset_y();
-
-	int src_x = (x + ox + guard_band) * scale;
-	int src_y = (y + oy + guard_band) * scale;
-	int dst_x = (x + guard_band) * scale;
-	int dst_y = (y + guard_band) * scale;
+	// x, y here are already in ibuf-offset-adjusted coordinates (from show()),
+	// matching the coordinate space used in draw_glyph's sx = (x + offset_x + gb)*scale.
+	// So src coords on text_surface = (x + guard_band) * scale
+	// dst coords on inter_surface   = (x + guard_band) * scale  (same layout)
+	int src_x = (x + guard_band) * scale;
+	int src_y = (y + guard_band) * scale;
+	int dst_x = src_x;
+	int dst_y = src_y;
 	
 	int dw = w * scale;
 	int dh = h * scale;
@@ -368,6 +362,7 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 		for (int c = 0; c < dw; ++c) {
 			uint32_t sp = 0;
 			if (src_fmt->bytes_per_pixel == 4) sp = *reinterpret_cast<uint32_t*>(src_row + c * 4);
+			else if (src_fmt->bytes_per_pixel == 2) sp = *reinterpret_cast<uint16_t*>(src_row + c * 2);
 			else if (src_fmt->bytes_per_pixel == 1) sp = *(src_row + c);
 			
 			uint8_t sr, sg, sb, sa;
@@ -376,6 +371,7 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 			if (sa > 0) {
 				uint32_t dp = 0;
 				if (dst_fmt->bytes_per_pixel == 4) dp = *reinterpret_cast<uint32_t*>(dst_row + c * 4);
+				else if (dst_fmt->bytes_per_pixel == 2) dp = *reinterpret_cast<uint16_t*>(dst_row + c * 2);
 				else if (dst_fmt->bytes_per_pixel == 1) dp = *(dst_row + c);
 				else if (dst_fmt->bytes_per_pixel == 3) {
 					dp = dst_row[c*3] | (dst_row[c*3+1] << 8) | (dst_row[c*3+2] << 16);
@@ -393,6 +389,7 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 				uint32_t out_p = SDL_MapRGBA(dst_fmt, dst_pal, out_r, out_g, out_b, out_a);
 
 				if (dst_fmt->bytes_per_pixel == 4) *reinterpret_cast<uint32_t*>(dst_row + c * 4) = out_p;
+				else if (dst_fmt->bytes_per_pixel == 2) *reinterpret_cast<uint16_t*>(dst_row + c * 2) = static_cast<uint16_t>(out_p);
 				else if (dst_fmt->bytes_per_pixel == 1) *(dst_row + c) = static_cast<uint8_t>(out_p);
 				else if (dst_fmt->bytes_per_pixel == 3) {
 					dst_row[c*3] = out_p & 0xFF;
