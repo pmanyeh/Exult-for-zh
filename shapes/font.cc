@@ -21,6 +21,7 @@
 #endif
 
 #include "font.h"
+#include "deferred_text.h"
 
 #include "U7file.h"
 #include "databuf.h"
@@ -186,11 +187,26 @@ static int get_chinese_line_spacing(int font_size) {
 }
 
 static bool get_chinese_force_ttf_for_english() {
+	if (Deferred_text_renderer::instance().is_active()) {
+		return true;
+	}
 	bool force = false;
 	if (config) {
 		config->value("config/video/chinese/force_ttf_for_english", force, false);
 	}
 	return force;
+}
+
+static bool should_force_ttf_for_english(int font_index) {
+	// Exclude UI/Menu fonts and Runic from forced TTF
+	// 2 = SMALL_BLACK_FONT (Setup menus)
+	// 4 = TINY_BLACK_FONT / Runic
+	// 9, 16, 17 = MENU_FONT (Game menus)
+	// 18-21 = Intro Menu fonts
+	if (font_index == 2 || font_index == 4 || font_index == 9 || font_index == 16 || font_index == 17 || (font_index >= 18 && font_index <= 21)) {
+		return false;
+	}
+	return get_chinese_force_ttf_for_english();
 }
 
 
@@ -500,7 +516,7 @@ int Font::paint_text(
 				break;
 			}
 
-			if (wch < 0x80 && wch != 127 && !((is_book || get_chinese_force_ttf_for_english()) && force_cjk)) {
+			if (wch < 0x80 && wch != 127 && !( (is_book && force_cjk) || should_force_ttf_for_english(font_index) )) {
 				Shape_frame* shape = font_shapes->get_frame(wch);
 				if (shape) {
 					if (shape->is_rle()) {
@@ -685,7 +701,7 @@ int Font::paint_text_fixedwidth(
 		if (wch == 0) {
 			break;
 		}
-		if (wch < 0x80 && wch != 127) {
+		if (wch < 0x80 && wch != 127 && !(should_force_ttf_for_english(font_index))) {
 			Shape_frame* shape = font_shapes->get_frame(wch);
 			if (shape) {
 				int paint_x = x + (width - shape->get_width()) / 2;
@@ -736,7 +752,7 @@ int Font::paint_text_fixedwidth(
 		if (wch == 0) {
 			break;
 		}
-		if (wch < 0x80 && wch != 127) {
+		if (wch < 0x80 && wch != 127 && !(should_force_ttf_for_english(font_index))) {
 			Shape_frame* shape = font_shapes->get_frame(wch);
 			if (shape) {
 				int paint_x = x + (width - shape->get_width()) / 2;
@@ -774,7 +790,7 @@ int Font::get_text_width(const char* text, bool force_cjk) {
 		bool is_book = (font_index != 0 && font_index != 7 && !force_not_book);
 		TTF::Render_Style style = get_chinese_ttf_style(this);
 		while (*text != 0) {
-			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !((is_book || get_chinese_force_ttf_for_english()) && force_cjk)) {
+			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !( (is_book && force_cjk) || should_force_ttf_for_english(font_index) )) {
 				Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(*text));
 				if (shape) {
 					width += shape->get_width() + hor_lead;
@@ -807,7 +823,7 @@ int Font::get_text_width(
 		bool is_book = (font_index != 0 && font_index != 7 && !force_not_book);
 		TTF::Render_Style style = get_chinese_ttf_style(this);
 		while (textlen > 0) {
-			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !((is_book || get_chinese_force_ttf_for_english()) && force_cjk)) {
+			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !( (is_book && force_cjk) || should_force_ttf_for_english(font_index) )) {
 				Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(*text));
 				if (shape) {
 					width += shape->get_width() + hor_lead;
@@ -845,7 +861,7 @@ void Font::get_text_box_dims(const char* text, int& width, int& height, int vert
 				cur_width = 0;
 				continue;
 			}
-			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !((is_book || get_chinese_force_ttf_for_english()) && has_cjk)) {
+			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !( (is_book && has_cjk) || should_force_ttf_for_english(font_index) )) {
 				Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(*text));
 				if (shape) {
 					cur_width += shape->get_width() + hor_lead;

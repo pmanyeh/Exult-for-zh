@@ -109,14 +109,13 @@ static inline void put_pixel_rgba(SDL_Surface* surf, int px, int py, uint8_t r, 
 		return;
 	}
 	auto* pixels = static_cast<uint8_t*>(surf->pixels);
-	uint32_t* target_pixel = reinterpret_cast<uint32_t*>(pixels + py * surf->pitch + px * 4);
-	uint32_t dest = *target_pixel;
+	uint8_t* p = pixels + py * surf->pitch + px * 4;
 
-	const SDL_PixelFormatDetails* fmt = SDL_GetPixelFormatDetails(surf->format);
-	if (!fmt) return;
-
-	uint8_t dr, dg, db, da;
-	SDL_GetRGBA(dest, fmt, nullptr, &dr, &dg, &db, &da);
+	// Extract existing RGBA channels based on the RGBA32 array layout
+	uint8_t dr = p[0];
+	uint8_t dg = p[1];
+	uint8_t db = p[2];
+	uint8_t da = p[3];
 
 	// Alpha blend source over destination
 	uint8_t out_a = a + ((da * (255 - a)) / 255);
@@ -129,7 +128,10 @@ static inline void put_pixel_rgba(SDL_Surface* surf, int px, int py, uint8_t r, 
 		out_r = out_g = out_b = 0;
 	}
 
-	*target_pixel = SDL_MapRGBA(fmt, nullptr, out_r, out_g, out_b, out_a);
+	p[0] = out_r;
+	p[1] = out_g;
+	p[2] = out_b;
+	p[3] = out_a;
 }
 
 /*
@@ -360,13 +362,11 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 		uint8_t* dst_row = dst_pixels + (dst_y + r) * dst_pitch + dst_x * dst_fmt->bytes_per_pixel;
 		
 		for (int c = 0; c < dw; ++c) {
-			uint32_t sp = 0;
-			if (src_fmt->bytes_per_pixel == 4) sp = *reinterpret_cast<uint32_t*>(src_row + c * 4);
-			else if (src_fmt->bytes_per_pixel == 2) sp = *reinterpret_cast<uint16_t*>(src_row + c * 2);
-			else if (src_fmt->bytes_per_pixel == 1) sp = *(src_row + c);
-			
-			uint8_t sr, sg, sb, sa;
-			SDL_GetRGBA(sp, src_fmt, src_pal, &sr, &sg, &sb, &sa);
+			uint8_t* sp_ptr = src_row + c * 4;
+			uint8_t sr = sp_ptr[0];
+			uint8_t sg = sp_ptr[1];
+			uint8_t sb = sp_ptr[2];
+			uint8_t sa = sp_ptr[3];
 			
 			if (sa > 0) {
 				uint32_t dp = 0;
