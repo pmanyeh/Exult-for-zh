@@ -39,6 +39,7 @@
 #include "gump_utils.h"
 #include "imagewin/ArbScaler.h"
 #include "imagewin/imagewin.h"
+#include "deferred_text.h"
 #include "istring.h"
 #include "items.h"
 #include "mappatch.h"
@@ -967,6 +968,9 @@ void BG_Game::scene_guardian() {
 				auto DrawSpeech = [&]() {
 					// Erase text
 					win->put(backup3.get(), win->get_start_x(), clear_ypos);
+					if (Deferred_text_renderer::instance().is_active()) {
+						Deferred_text_renderer::instance().clear_region(win->get_start_x(), clear_ypos, win->get_full_width(), clear_height);
+					}
 					// Erase and redraw eyes
 					EraseAndDraw(backup2.get(), s2, guardian_eyes_shp, eye_frame, Eyes_Dist);
 					// Erase and redraw mouth
@@ -1036,6 +1040,9 @@ void BG_Game::scene_guardian() {
 				win->ShowFillGuardBand();
 
 				win->put(backup3.get(), win->get_start_x(), clear_ypos);
+				if (Deferred_text_renderer::instance().is_active()) {
+					Deferred_text_renderer::instance().clear_region(win->get_start_x(), clear_ypos, win->get_full_width(), clear_height);
+				}
 				win->put(cbackup.get(), centerx - s->get_xleft(), centery - s->get_yabove());
 				win->put(cbackup2.get(), centerx - s2->get_xleft(), centery - Eyes_Dist - s2->get_yabove());
 				win->put(cbackup3.get(), centerx - s3->get_xleft(), centery - Forehead_Dist - s3->get_yabove());
