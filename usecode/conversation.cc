@@ -510,24 +510,16 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 			break;
 		}
 	}
-	// paint_text shifts each glyph down by 'highest', so a row occupies
-	// [y, y + highest + lowest] – not just get_text_height().
-	// Use the actual rendered span as the base for row spacing in all cases.
-	std::shared_ptr<Font> font0       = sman->get_font(0);
-	int                   line_height = sman->get_text_line_height(0);    // default fallback
-	if (font0) {
-		const int rendered_h = font0->get_rendered_line_height();
-		// +2: 1px gap + 1px for descender shadow pixel
-		line_height = rendered_h + font0->get_ver_lead() + 2;
-	}
-	if (has_chinese) {
-		// CJK glyphs (15pt FreeType) need at least 22px per row.
-		const int cjk_min = 22 + (font0 ? font0->get_ver_lead() : 0);
-		if (line_height < cjk_min) {
-			line_height = cjk_min;
+	struct AvatarChoicesFontAdjuster {
+		AvatarChoicesFontAdjuster() {
+			Font::is_painting_avatar_choices = true;
+			Font::avatar_choices_font_size_adjust = 0;
 		}
-	}
-	const int space_width = sman->get_text_width(0, " ", has_chinese);
+		~AvatarChoicesFontAdjuster() {
+			Font::is_painting_avatar_choices = false;
+			Font::avatar_choices_font_size_adjust = 0;
+		}
+	} font_adjuster;
 
 	// Get main actor's portrait, checking for Petra flag.
 	int shape = Shapeinfo_lookup::GetFaceReplacement(0);
@@ -554,68 +546,108 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 	}
 	// Get last one shown.
 	Npc_face_info* prev = empty ? face_info[empty - 1] : nullptr;
-	int            fx   = prev ? prev->face_rect.x + prev->face_rect.w + 4 : 16;
-	if (has_chinese) {
-		// Move Avatar face to the left edge to maximize horizontal text space
-		fx = 16;
-	}
-	int            fy;
-	if (SI) {
-		if (static_cast<unsigned>(num_faces) == face_info.size()) {
-			// Remove face #1 if still there.
-			remove_slot_face(face_info.size() - 1);
-		}
-		fy = sbox.h - 2 - face->get_height();
-		fx = 8;
-	} else if (!prev) {
-		fy = sbox.h - face->get_height() - 3 * line_height;
-	} else {
-		fy = prev->text_rect.y + prev->last_text_height;
-		if (fy < prev->face_rect.y + prev->face_rect.h) {
-			fy = prev->face_rect.y + prev->face_rect.h;
-		}
-		fy += 10;
-	}
 
-	int tbox_x_offset = 8;
-	int tbox_w_offset = 16;
+	int line_height = 0;
+	int space_width = 0;
+	int fx = 0, fy = 0;
+	int tbox_x_offset = 8, tbox_w_offset = 16;
+	int needed_h = 0;
 
-	auto calc_height = [&]() {
-		int test_tbox_w = sbox.w - fx - face->get_width() - tbox_w_offset;
-		int temp_x = 0;
-		int temp_y = 0;
-		int temp_line_step = has_chinese ? line_height : line_height - 1;
-		for (int i = 0; i < num_choices; i++) {
-			char text[256];
-			text[0] = 127;    // A circle.
-			strcpy(&text[1], choices[i]);
-			const int width = sman->get_text_width(0, text, has_chinese);
-			if (temp_x > 0 && temp_x + width >= test_tbox_w) {
-				temp_x = 0;
-				temp_y += temp_line_step;
+	for (int retry = 0; retry < 4; ++retry) {
+		Font::avatar_choices_font_size_adjust = retry;
+
+		// paint_text shifts each glyph down by 'highest', so a row occupies
+		// [y, y + highest + lowest] – not just get_text_height().
+		// Use the actual rendered span as the base for row spacing in all cases.
+		std::shared_ptr<Font> font0       = sman->get_font(0);
+		line_height = sman->get_text_line_height(0);    // default fallback
+		if (font0) {
+			const int rendered_h = font0->get_rendered_line_height();
+			// +2: 1px gap + 1px for descender shadow pixel
+			line_height = rendered_h + font0->get_ver_lead() + 2;
+		}
+		if (has_chinese) {
+			// CJK glyphs (15pt FreeType) need at least 22px per row.
+			// Shrink cjk_min slightly if we are actively shrinking font size.
+			const int cjk_min = (22 - retry) + (font0 ? font0->get_ver_lead() : 0);
+			if (line_height < cjk_min) {
+				line_height = cjk_min;
 			}
-			temp_x += width + space_width;
 		}
-		return temp_y + line_height;
-	};
+		space_width = sman->get_text_width(0, " ", has_chinese);
 
-	int total_choices_height = calc_height();
-	int needed_h = std::max(face->get_height(), 4 + total_choices_height);
+		fx = prev ? prev->face_rect.x + prev->face_rect.w + 4 : 16;
+		if (has_chinese) {
+			// Move Avatar face to the left edge to maximize horizontal text space
+			fx = 16;
+		}
+		
+		int min_fy;
+		if (SI) {
+			if (static_cast<unsigned>(num_faces) == face_info.size()) {
+				// Remove face #1 if still there.
+				remove_slot_face(face_info.size() - 1);
+			}
+			min_fy = sbox.h - 2 - face->get_height();
+			fx = 8;
+		} else if (!prev) {
+			min_fy = sbox.h - face->get_height() - 3 * line_height;
+		} else {
+			min_fy = prev->text_rect.y + prev->last_text_height;
+			if (min_fy < prev->face_rect.y + prev->face_rect.h) {
+				min_fy = prev->face_rect.y + prev->face_rect.h;
+			}
+			min_fy += 10;
+		}
+		fy = min_fy;
 
-	// If choices exceed screen height and we have horizontal room to spare, widen the layout
-	if (fy + needed_h > sbox.h && fx > 8) {
-		fx = 8;
-		tbox_x_offset = 4;
-		tbox_w_offset = 8;
-		// Recalculate with the wider layout
-		total_choices_height = calc_height();
+		tbox_x_offset = 8;
+		tbox_w_offset = 16;
+
+		auto calc_height = [&]() {
+			int test_tbox_w = sbox.w - fx - face->get_width() - tbox_w_offset;
+			int temp_x = 0;
+			int temp_y = 0;
+			int temp_line_step = has_chinese ? line_height : line_height - 1;
+			for (int i = 0; i < num_choices; i++) {
+				char text[256];
+				text[0] = 127;    // A circle.
+				strcpy(&text[1], choices[i]);
+				const int width = sman->get_text_width(0, text, has_chinese);
+				if (temp_x > 0 && temp_x + width >= test_tbox_w) {
+					temp_x = 0;
+					temp_y += temp_line_step;
+				}
+				temp_x += width + space_width;
+			}
+			return temp_y + line_height;
+		};
+
+		int total_choices_height = calc_height();
 		needed_h = std::max(face->get_height(), 4 + total_choices_height);
-	}
 
-	// If it still exceeds the bottom of the screen, push them up
-	if (fy + needed_h > sbox.h) {
-		fy = sbox.h - needed_h;
-		if (fy < 0) fy = 0;
+		// If choices exceed screen height and we have horizontal room to spare, widen the layout
+		if (fy + needed_h > sbox.h && fx > 8) {
+			fx = 8;
+			tbox_x_offset = 4;
+			tbox_w_offset = 8;
+			// Recalculate with the wider layout
+			total_choices_height = calc_height();
+			needed_h = std::max(face->get_height(), 4 + total_choices_height);
+		}
+
+		// If it still exceeds the bottom of the screen, push them up
+		if (fy + needed_h > sbox.h) {
+			fy = sbox.h - needed_h;
+			if (fy < 0) fy = 0;
+		}
+
+		// Check if shifting up caused overlap with previous portrait/text.
+		// If it didn't overlap (or if we don't care because no prev), layout is good! Break early.
+		bool overlap = (prev && fy < min_fy && !SI);
+		if (!overlap && fy + needed_h <= sbox.h) {
+			break;
+		}
 	}
 
 

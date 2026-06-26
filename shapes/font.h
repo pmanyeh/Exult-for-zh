@@ -22,6 +22,13 @@
 #include "hash_utils.h"
 
 #include <memory>
+#include <string>
+
+typedef bool (*Chinese_IsSerpentIsle_Fn)();
+extern Chinese_IsSerpentIsle_Fn chinese_is_serpent_isle_pfn;
+
+typedef uint32_t (*Chinese_GetTicks_Fn)();
+extern Chinese_GetTicks_Fn chinese_get_ticks_pfn;
 
 class Image_buffer8;
 class Shape_file;
@@ -57,6 +64,7 @@ private:
 	int                         font_index = -1;
 	bool                        force_not_book = false;
 
+
 	void calc_highlow();
 	void clean_up();
 	int  load_internal(IDataSource& data, int hlead, int vlead);
@@ -70,6 +78,8 @@ private:
 public:
 	static bool is_painting_bark;
 	static bool is_painting_sign;
+	static bool is_painting_avatar_choices;
+	static int avatar_choices_font_size_adjust;
 	
 	int get_rendered_line_height_for(const char* text);
 	int get_rendered_line_height_for(const char* text, int len);
@@ -84,6 +94,8 @@ public:
 	void set_force_not_book(bool val) { force_not_book = val; }
 	bool get_force_not_book() const { return force_not_book; }
 	int get_font_index() const { return font_index; }
+	void set_font_name(const std::string& name);
+	const std::string& get_font_name() const;
 
 	/**
 	 *  Loads a font from a File_spec.
@@ -133,6 +145,8 @@ public:
 	int get_ver_lead() const {
 		return ver_lead;
 	}
+
+	int get_effective_ver_lead() const;
 
 	// Actual vertical span produced by paint_text after baseline-shift:
 	// text renders from row_y to row_y + highest + lowest.

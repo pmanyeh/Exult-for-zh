@@ -38,6 +38,7 @@
 #include "gamewin.h"
 #include "gump_utils.h"
 #include "imagewin/ArbScaler.h"
+#include "imagewin/deferred_text.h"
 #include "imagewin/imagewin.h"
 #include "istring.h"
 #include "items.h"
@@ -967,6 +968,9 @@ void BG_Game::scene_guardian() {
 				auto DrawSpeech = [&]() {
 					// Erase text
 					win->put(backup3.get(), win->get_start_x(), clear_ypos);
+					if (Deferred_text_renderer::instance().is_active()) {
+						Deferred_text_renderer::instance().clear_region(win->get_start_x(), clear_ypos, win->get_full_width(), clear_height);
+					}
 					// Erase and redraw eyes
 					EraseAndDraw(backup2.get(), s2, guardian_eyes_shp, eye_frame, Eyes_Dist);
 					// Erase and redraw mouth
@@ -1710,8 +1714,11 @@ void BG_Game::end_game(bool success, bool within_game) {
 			const char* message = get_text_msg(blackgate_destroyed);
 			const int   height  = (gwin->get_height() - normal->get_rendered_line_height_for(message)) / 2;
 			const int   width   = (gwin->get_width() - normal->get_text_width(message)) / 2;
-
+			// force_not_book = true so get_chinese_ttf_style() picks the 'is_ending'
+			// branch for font_color_ending and hires_brightness_boost_ending config keys.
+			normal->set_force_not_book(true);
 			normal->draw_text(ibuf, width, height, message);
+			normal->set_force_not_book(false);
 		}
 
 		// Fade in for 1 sec (50 cycles)
@@ -1737,7 +1744,11 @@ void BG_Game::end_game(bool success, bool within_game) {
 			const char* message = get_text_msg(guardian_has_stopped);
 			const int   height  = (gwin->get_height() - normal->get_rendered_line_height_for(message)) / 2;
 			const int   width   = (gwin->get_width() - normal->get_text_width(message)) / 2;
+			// force_not_book = true so get_chinese_ttf_style() picks the 'is_ending'
+			// branch for font_color_ending and hires_brightness_boost_ending config keys.
+			normal->set_force_not_book(true);
 			normal->draw_text(ibuf, width, height, message);
+			normal->set_force_not_book(false);
 		}
 
 		// Fade in for 1 sec (50 cycles)

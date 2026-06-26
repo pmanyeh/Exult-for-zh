@@ -17,7 +17,10 @@
 #include "manip.h"
 #include "gamewin.h"
 #include "imagewin.h"
+#include "iwin8.h"
 #include "ignore_unused_variable_warning.h"
+#include "mouse.h"
+#include "palette.h"
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -144,6 +147,14 @@ void Deferred_text_renderer::draw_glyph(
 		bool has_shadow, const Deferred_glyph_style& style,
 		const std::string& font_path, int pixel_size,
 		bool is_book, Image_buffer8* win) {
+	if (wch >= 0x80) {
+		static int draw_glyph_enter_log = 0;
+		if (draw_glyph_enter_log++ < 5) {
+			std::cout << "draw_glyph ENTRANCE: wch=" << wch << ", raw_x=" << x << ", raw_y=" << y 
+			          << ", active=" << active << ", text_surf=" << (void*)text_surface << std::endl;
+		}
+	}
+
 	if (!active || !text_surface) {
 		return;
 	}
@@ -170,8 +181,35 @@ void Deferred_text_renderer::draw_glyph(
 		int scaled_dot_y = (y + win->get_offset_y() + gb + ascender - 5) * scale;
 		int dot_size = 2 * scale;
 
-		SDL_Color fg_rgb = palette[fg_palette];
-		SDL_Color bg_rgb = palette[bg_palette];
+		SDL_Color fg_rgb;
+		SDL_Color bg_rgb;
+		Palette* exult_pal = gwin->get_pal();
+		if (exult_pal) {
+			fg_rgb.r = exult_pal->get_red(fg_palette);
+			fg_rgb.g = exult_pal->get_green(fg_palette);
+			fg_rgb.b = exult_pal->get_blue(fg_palette);
+			bg_rgb.r = exult_pal->get_red(bg_palette);
+			bg_rgb.g = exult_pal->get_green(bg_palette);
+			bg_rgb.b = exult_pal->get_blue(bg_palette);
+		} else {
+			fg_rgb = palette[fg_palette];
+			bg_rgb = palette[bg_palette];
+		}
+		// Apply brightness boost for intro/ending scenes to compensate for
+		// anti-aliasing darkening effect on dark backgrounds.
+		if (style.brightness_boost > 1.0f) {
+			auto boost = [](uint8_t v, float f) -> uint8_t {
+				int r = static_cast<int>(v * f);
+				return r > 255 ? 255 : static_cast<uint8_t>(r);
+			};
+			const float b = style.brightness_boost;
+			fg_rgb.r = boost(fg_rgb.r, b);
+			fg_rgb.g = boost(fg_rgb.g, b);
+			fg_rgb.b = boost(fg_rgb.b, b);
+			bg_rgb.r = boost(bg_rgb.r, b);
+			bg_rgb.g = boost(bg_rgb.g, b);
+			bg_rgb.b = boost(bg_rgb.b, b);
+		}
 
 		if (has_shadow) {
 			// Right vertical bar of shadow
@@ -230,9 +268,37 @@ void Deferred_text_renderer::draw_glyph(
 	int left_x = sx + TTF::face->glyph->bitmap_left;
 	int top_y  = sy + ascender - TTF::face->glyph->bitmap_top;
 
-	// Get RGB colors from palette
-	SDL_Color fg_rgb = palette[fg_palette];
-	SDL_Color bg_rgb = palette[bg_palette];
+	// Get RGB colors from palette (use base colors to avoid capturing black during a fade out)
+	SDL_Color fg_rgb;
+	SDL_Color bg_rgb;
+	Palette* exult_pal = gwin->get_pal();
+	if (exult_pal) {
+		// Palette stores 6-bit colors (0-63), scale to 8-bit (0-255) by multiplying by 4
+		fg_rgb.r = exult_pal->get_red(fg_palette) * 4;
+		fg_rgb.g = exult_pal->get_green(fg_palette) * 4;
+		fg_rgb.b = exult_pal->get_blue(fg_palette) * 4;
+		bg_rgb.r = exult_pal->get_red(bg_palette) * 4;
+		bg_rgb.g = exult_pal->get_green(bg_palette) * 4;
+		bg_rgb.b = exult_pal->get_blue(bg_palette) * 4;
+	} else {
+		fg_rgb = palette[fg_palette];
+		bg_rgb = palette[bg_palette];
+	}
+	// Apply brightness boost for intro/ending scenes to compensate for
+	// anti-aliasing darkening effect on dark backgrounds.
+	if (style.brightness_boost > 1.0f) {
+		auto boost = [](uint8_t v, float f) -> uint8_t {
+			int r = static_cast<int>(v * f);
+			return r > 255 ? 255 : static_cast<uint8_t>(r);
+		};
+		const float b = style.brightness_boost;
+		fg_rgb.r = boost(fg_rgb.r, b);
+		fg_rgb.g = boost(fg_rgb.g, b);
+		fg_rgb.b = boost(fg_rgb.b, b);
+		bg_rgb.r = boost(bg_rgb.r, b);
+		bg_rgb.g = boost(bg_rgb.g, b);
+		bg_rgb.b = boost(bg_rgb.b, b);
+	}
 
 	// For grayscale bitmaps, bitmap.pixel_mode == FT_PIXEL_MODE_GRAY
 	// Each byte is an alpha value 0-255
@@ -304,6 +370,15 @@ void Deferred_text_renderer::draw_glyph(
 			int draw_x = left_x + col;
 			int draw_y = top_y + row;
 
+			if (alpha > 0) {
+				static int glyph_log_cnt = 0;
+				if (glyph_log_cnt++ < 5) {
+					std::cout << "draw_glyph WRITE: draw_x=" << draw_x << ", draw_y=" << draw_y 
+					          << ", font_alpha=" << alpha << ", surface_w=" << text_surface->w 
+					          << ", surface_h=" << text_surface->h << std::endl;
+				}
+			}
+
 			put_pixel_rgba(text_surface, draw_x, draw_y, fg_rgb.r, fg_rgb.g, fg_rgb.b, alpha);
 
 			// Boldness (weight)
@@ -319,17 +394,43 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 		return;
 	}
 
-	// x, y here are already in ibuf-offset-adjusted coordinates (from show()),
-	// matching the coordinate space used in draw_glyph's sx = (x + offset_x + gb)*scale.
-	// So src coords on text_surface = (x + guard_band) * scale
-	// dst coords on inter_surface   = (x + guard_band) * scale  (same layout)
-	int src_x = (x + guard_band) * scale;
-	int src_y = (y + guard_band) * scale;
-	int dst_x = src_x;
-	int dst_y = src_y;
+	auto* gwin = Game_window::get_instance();
+	if (!gwin) return;
+	auto* image_win = gwin->get_win();
+	if (!image_win) return;
+	auto* ibuf = image_win->get_ibuf();
+	if (!ibuf) return;
+
+	int ox = ibuf->get_offset_x();
+	int oy = ibuf->get_offset_y();
+
+	// x, y here are already in ibuf-offset-adjusted coordinates (from show()).
+	// draw_glyph uses sx = (x + offset_x + gb) * scale to draw onto text_surface.
+	// So src coords on text_surface MUST include ox and oy.
+	int src_x = (x + ox + guard_band) * scale;
+	int src_y = (y + oy + guard_band) * scale;
+	// dst coords on inter_surface MUST NOT include ox and oy, because inter_surface 
+	// is scaled directly from draw_surface which handles its own offset.
+	int dst_x = (x + guard_band) * scale;
+	int dst_y = (y + guard_band) * scale;
 	
 	int dw = w * scale;
 	int dh = h * scale;
+
+	// Check for mouse to mask out
+	auto* mouse_obj = Mouse::mouse();
+	Shape_frame* cur_frame = nullptr;
+	int cx_start = 0, cy_start = 0;
+	if (mouse_obj && mouse_obj->is_onscreen() && image_win) {
+		cur_frame = mouse_obj->get_current_frame();
+		if (cur_frame) {
+			// Get mouse coordinates relative to the visible screen area
+			int screen_mouse_x = mouse_obj->get_mousex() - image_win->get_start_x();
+			int screen_mouse_y = mouse_obj->get_mousey() - image_win->get_start_y();
+			cx_start = screen_mouse_x - cur_frame->get_xleft();
+			cy_start = screen_mouse_y - cur_frame->get_yabove();
+		}
+	}
 
 	// Clamp to inter_surface bounds
 	if (dst_x < 0) { dw += dst_x; src_x -= dst_x; dst_x = 0; }
@@ -343,7 +444,23 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 	if (src_x + dw > text_surface->w) { dw = text_surface->w - src_x; }
 	if (src_y + dh > text_surface->h) { dh = text_surface->h - src_y; }
 
-	if (dw <= 0 || dh <= 0) return;
+	if (dw <= 0 || dh <= 0) {
+		static int blit_skip_log = 0;
+		if (blit_skip_log++ < 5) {
+			std::cout << "blit SKIPPED: src_x=" << src_x << ", src_y=" << src_y 
+			          << ", dst_x=" << dst_x << ", dst_y=" << dst_y 
+			          << ", dw=" << dw << ", dh=" << dh << std::endl;
+		}
+		return;
+	}
+
+	static int blit_bounds_log = 0;
+	if (blit_bounds_log++ < 5) {
+		std::cout << "blit BOUNDS: src_x=" << src_x << ", src_y=" << src_y 
+		          << ", dst_x=" << dst_x << ", dst_y=" << dst_y 
+		          << ", dw=" << dw << ", dh=" << dh << " | inter_w=" << inter_surface->w 
+		          << ", inter_h=" << inter_surface->h << std::endl;
+	}
 
 	const SDL_PixelFormatDetails* src_fmt = SDL_GetPixelFormatDetails(text_surface->format);
 	const SDL_PixelFormatDetails* dst_fmt = SDL_GetPixelFormatDetails(inter_surface->format);
@@ -369,6 +486,32 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 			uint8_t sa = sp_ptr[3];
 			
 			if (sa > 0) {
+				if (cur_frame && mouse_obj->is_onscreen()) {
+					int buffer_x = x + (c / scale);
+					int buffer_y = y + (r / scale);
+					
+					// Convert buffer coordinates to actual screen pixels
+					int sx_pixel = buffer_x + image_win->get_start_x();
+					int sy_pixel = buffer_y + image_win->get_start_y();
+
+					if (sx_pixel >= cx_start && sx_pixel < cx_start + cur_frame->get_width() &&
+						sy_pixel >= cy_start && sy_pixel < cy_start + cur_frame->get_height()) {
+						
+						int mx = sx_pixel - cx_start;
+						int my = sy_pixel - cy_start;
+						if (cur_frame->has_point(mx - cur_frame->get_xleft(), my - cur_frame->get_yabove())) {
+							continue; // Skip drawing text here, let mouse show through
+						}
+					}
+				}
+
+				static int blit_log_cnt = 0;
+				if (blit_log_cnt++ < 10) {
+					std::cout << "blit BLEND: dst[" << dst_x + c << "," << dst_y + r << "], "
+					          << "src_RGBA(" << (int)sr << "," << (int)sg << "," << (int)sb << "," << (int)sa << "), "
+					          << "dst_bpp=" << (int)dst_fmt->bytes_per_pixel << std::endl;
+				}
+
 				uint32_t dp = 0;
 				if (dst_fmt->bytes_per_pixel == 4) dp = *reinterpret_cast<uint32_t*>(dst_row + c * 4);
 				else if (dst_fmt->bytes_per_pixel == 2) dp = *reinterpret_cast<uint16_t*>(dst_row + c * 2);
@@ -380,10 +523,17 @@ void Deferred_text_renderer::blit(SDL_Surface* inter_surface, int x, int y, int 
 				uint8_t dr, dg, db, da;
 				SDL_GetRGBA(dp, dst_fmt, dst_pal, &dr, &dg, &db, &da);
 
+				// Apply global palette brightness to text color to sync with fades
+				Palette* exult_pal = image_win ? Game_window::get_instance()->get_pal() : nullptr;
+				int brightness = exult_pal ? exult_pal->get_brightness() : 100;
+				uint8_t br = (sr * brightness) / 100;
+				uint8_t bg = (sg * brightness) / 100;
+				uint8_t bb = (sb * brightness) / 100;
+
 				// Source over blending
-				uint8_t out_r = (sr * sa + dr * (255 - sa)) / 255;
-				uint8_t out_g = (sg * sa + dg * (255 - sa)) / 255;
-				uint8_t out_b = (sb * sa + db * (255 - sa)) / 255;
+				uint8_t out_r = (br * sa + dr * (255 - sa)) / 255;
+				uint8_t out_g = (bg * sa + dg * (255 - sa)) / 255;
+				uint8_t out_b = (bb * sa + db * (255 - sa)) / 255;
 				uint8_t out_a = sa + da * (255 - sa) / 255;
 
 				uint32_t out_p = SDL_MapRGBA(dst_fmt, dst_pal, out_r, out_g, out_b, out_a);

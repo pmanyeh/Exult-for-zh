@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "gamewin.h"
 #include "items.h"
 #include "misc_buttons.h"
+#include "deferred_text.h"
 
 /*
  *  Some gump shape numbers:
@@ -73,6 +74,11 @@ public:
  */
 
 void Stats_extra_gump::paint() {
+	if (Deferred_text_renderer::instance().is_active()) {
+		TileRect rect = get_rect();
+		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
+	}
+
 	const int     font = 2;
 	Gump_manager* gman = gumpman;
 
@@ -155,6 +161,11 @@ Stats_gump* Stats_gump::create(Game_object* npc_obj, int x, int y) {
  */
 
 void Stats_gump::paint() {
+	if (Deferred_text_renderer::instance().is_active()) {
+		TileRect rect = get_rect();
+		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
+	}
+
 	Gump_manager* gman = gumpman;
 
 	// Area to print name in.

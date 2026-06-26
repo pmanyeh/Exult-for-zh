@@ -38,6 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ready.h"
 #include "shapeid.h"
 #include "weaponinf.h"
+#include "deferred_text.h"
 
 #include <array>
 #include <cstdio>
@@ -377,6 +378,11 @@ void Paperdoll_gump::set_to_spot(
  */
 
 void Paperdoll_gump::paint() {
+	if (Deferred_text_renderer::instance().is_active()) {
+		TileRect rect = get_rect();
+		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
+	}
+
 	const Game_object* obj;
 
 	// Paint Objects

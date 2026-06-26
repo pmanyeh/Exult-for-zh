@@ -49,6 +49,16 @@
 
 ---
 
+### 1b. 高解析文字渲染 (Deferred Rendering)
+
+*   `<post_scale_rendering>`：**高解析文字渲染開關 (預設值: 自動)**
+    *   說明：控制是否啟用獨立的 32-bit RGBA 文字圖層進行中文渲染。
+        *   `yes`：強制啟用高解析獨立文字渲染。若玩家在 Exult 顯示設定中啟用了畫面縮放濾鏡（如 HQ3x、xBR 等，即 `scale > 1`），此項會強制將 CJK 字體繪製於獨立的高解析圖層上，避免被縮放濾鏡扭曲或模糊，呈現極為細緻平滑的文字外觀。
+        *   `no`：停用高解析文字渲染。文字會直接以低解析點陣形式寫入 8-bit 背景，並隨遊戲畫面一起被濾鏡放大。
+        *   *(註：當 scale > 1 且有使用濾鏡時，系統預設即會自動開啟此功能，一般情況下無須手動指定)*
+
+---
+
 ### 2. NPC 對話與介面字型設定
 
 這些參數主要影響 **NPC 對話框** 以及 **系統選單** 的顯示效果：
@@ -160,6 +170,7 @@
 *   `<shadow_type_intro>`：開場陰影類型 (預設值: `-1`)
 *   `<shadow_offset_x_intro>` / `<shadow_offset_y_intro>`：開場陰影偏移 (預設值: `1`)
 *   `<shadow_color_intro>`：開場陰影顏色 (預設值: `-1`)
+*   `<hires_brightness_boost_intro>`：高解析度渲染模式下的**字幕亮度預增強/預補償**。用以抵消抗鋸齒（Anti-aliasing）與深色背景混合產生的變暗現象。以 `100` 為基底代表 `1.0` 倍無補償，例如設為 `130` 代表 `1.30` 倍亮度增強。此值只對高解析模式有效，8-bit 模式不予理會。(預設值: `100`)
 
 ---
 
@@ -174,6 +185,28 @@
 *   `<shadow_type_ending>`：結局陰影類型 (預設值: `-1`)
 *   `<shadow_offset_x_ending>` / `<shadow_offset_y_ending>`：結局陰影偏移 (預設值: `1`)
 *   `<shadow_color_ending>`：結局陰影顏色 (預設值: `-1`)
+*   `<hires_brightness_boost_ending>`：高解析度渲染模式下結局字幕的亮度增強。單位為整數百分比（例如 `130` 代表 `1.30` 倍，預設為 `100` 即無補正）。
+
+---
+
+### 8. 巨蛇之島 (Serpent Isle) OP/ED 專屬設定
+
+為了解決巨蛇之島（SI）在字型索引重疊下的字幕控制問題，Exult 提供了一套獨立於黑月之門（BG）之外的巨蛇之島專屬樣式設定。若未設定，則會 fallback 至預設值：
+
+*   **巨蛇之島 OP (SI Intro)**：
+    *   `<font_size_si_intro>`：開場文字大小 (預設: `15`)
+    *   `<font_color_si_intro>`：開場文字顏色 (預設: `-1`)
+    *   `<shadow_type_si_intro>`：開場陰影類型 (預設: `-1`)
+    *   `<shadow_offset_x_si_intro>` / `<shadow_offset_y_si_intro>`：開場陰影偏移 (預設: `1`)
+    *   `<shadow_color_si_intro>`：開場陰影顏色 (預設: `-1`)
+    *   `<hires_brightness_boost_si_intro>`：高解析度開場字幕亮度預補正倍率 (以 `100` 為基底，預設 `100`)
+*   **巨蛇之島 ED (SI Ending)**：
+    *   `<font_size_si_ending>`：結局文字大小 (預設: `15`)
+    *   `<font_color_si_ending>`：結局文字顏色 (預設: `-1`)
+    *   `<shadow_type_si_ending>`：結局陰影類型 (預設: `-1`)
+    *   `<shadow_offset_x_si_ending>` / `<shadow_offset_y_si_ending>`：結局陰影偏移 (預設: `1`)
+    *   `<shadow_color_si_ending>`：結局陰影顏色 (預設: `-1`)
+    *   `<hires_brightness_boost_si_ending>`：高解析度結局字幕亮度預補正倍率 (以 `100` 為基底，預設 `100`)
 
 ---
 
@@ -201,6 +234,7 @@
       <baseline_adjust> 0 </baseline_adjust>
       <line_spacing> 8 </line_spacing>
       <force_ttf_for_english> no </force_ttf_for_english>
+      <post_scale_rendering> yes </post_scale_rendering>
 
       <!-- =============================== -->
       <!--     NPC 對話與介面 (主字型)      -->
@@ -276,7 +310,7 @@
       <shadow_color_goldsign> -1 </shadow_color_goldsign>
 
       <!-- =============================== -->
-      <!--        開場動畫 (Guardian)       -->
+      <!--    黑月之門 - 開場動畫 (BG Intro)   -->
       <!-- =============================== -->
       <font_size_intro> 15 </font_size_intro>
       <font_color_intro> -1 </font_color_intro>
@@ -284,9 +318,10 @@
       <shadow_offset_x_intro> 1 </shadow_offset_x_intro>
       <shadow_offset_y_intro> 1 </shadow_offset_y_intro>
       <shadow_color_intro> -1 </shadow_color_intro>
+      <hires_brightness_boost_intro> 130 </hires_brightness_boost_intro>
 
       <!-- =============================== -->
-      <!--        結局動畫 (Ending)         -->
+      <!--    黑月之門 - 結局動畫 (BG Ending)  -->
       <!-- =============================== -->
       <font_size_ending> 15 </font_size_ending>
       <font_color_ending> 134 </font_color_ending>
@@ -294,6 +329,29 @@
       <shadow_offset_x_ending> 1 </shadow_offset_x_ending>
       <shadow_offset_y_ending> 1 </shadow_offset_y_ending>
       <shadow_color_ending> -1 </shadow_color_ending>
+      <hires_brightness_boost_ending> 130 </hires_brightness_boost_ending>
+
+      <!-- =============================== -->
+      <!--    巨蛇之島 - 開場動畫 (SI Intro)   -->
+      <!-- =============================== -->
+      <font_size_si_intro> 15 </font_size_si_intro>
+      <font_color_si_intro> -1 </font_color_si_intro>
+      <shadow_type_si_intro> -1 </shadow_type_si_intro>
+      <shadow_offset_x_si_intro> 1 </shadow_offset_x_si_intro>
+      <shadow_offset_y_si_intro> 1 </shadow_offset_y_si_intro>
+      <shadow_color_si_intro> -1 </shadow_color_si_intro>
+      <hires_brightness_boost_si_intro> 130 </hires_brightness_boost_si_intro>
+
+      <!-- =============================== -->
+      <!--    巨蛇之島 - 結局動畫 (SI Ending)  -->
+      <!-- =============================== -->
+      <font_size_si_ending> 15 </font_size_si_ending>
+      <font_color_si_ending> -1 </font_color_si_ending>
+      <shadow_type_si_ending> -1 </shadow_type_si_ending>
+      <shadow_offset_x_si_ending> 1 </shadow_offset_x_si_ending>
+      <shadow_offset_y_si_ending> 1 </shadow_offset_y_si_ending>
+      <shadow_color_si_ending> -1 </shadow_color_si_ending>
+      <hires_brightness_boost_si_ending> 130 </hires_brightness_boost_si_ending>
     </chinese>
   </video>
 </config>

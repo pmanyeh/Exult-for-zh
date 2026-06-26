@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "game.h"
 #include "gamewin.h"
+#include "deferred_text.h"
 
 /*
  *  Create scroll display.
@@ -36,6 +37,10 @@ Scroll_gump::Scroll_gump(int fnt, int gump) : Text_gump(gump < 0 ? game->get_sha
  */
 
 void Scroll_gump::paint() {
+	if (Deferred_text_renderer::instance().is_active()) {
+		TileRect rect = get_rect();
+		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
+	}
 	// Paint the gump itself.
 	paint_shape(x, y);
 	curend = paint_page(TileRect(51, 31, 142, 118), curtop);

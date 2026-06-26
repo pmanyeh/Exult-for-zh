@@ -144,6 +144,14 @@ namespace {
 // THE game window:
 Game_window* Game_window::game_window = nullptr;
 
+static bool is_serpent_isle_cjk() {
+	return Game::get_game_type() == SERPENT_ISLE;
+}
+
+static uint32_t get_sdl_ticks_cjk() {
+	return SDL_GetTicks();
+}
+
 /*
  *  Provide chirping birds.
  */
@@ -319,6 +327,8 @@ Game_window::Game_window(
 		  walk_in_formation(false), debug(0), blits(0), scrolltx_l(0), scrollty_l(0), scrolltx_lp(0), scrollty_lp(0),
 		  scrolltx_lo(0), scrollty_lo(0), avposx_ld(0), avposy_ld(0), lerping_enabled(0) {
 	game_window = this;    // Set static ->.
+	chinese_is_serpent_isle_pfn = is_serpent_isle_cjk;
+	chinese_get_ticks_pfn = get_sdl_ticks_cjk;
 	clock       = new Game_clock(tqueue);
 	shape_man   = new Shape_manager();    // Create the single instance.
 	maps.push_back(map);                  // Map #0.

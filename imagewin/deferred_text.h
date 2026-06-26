@@ -21,13 +21,16 @@ struct SDL_Surface;
  *  Style parameters for deferred glyph rendering.
  */
 struct Deferred_glyph_style {
-	int letter_spacing;
-	int weight;
-	int shadow_type;
-	int shadow_offset_x;
-	int shadow_offset_y;
-	int shadow_color;    // palette index, -1 = auto
-	int fg_color;        // palette index, -1 = auto
+	int   letter_spacing;
+	int   weight;
+	int   shadow_type;
+	int   shadow_offset_x;
+	int   shadow_offset_y;
+	int   shadow_color;        // palette index, -1 = auto
+	int   fg_color;            // palette index, -1 = auto
+	float brightness_boost;    // Pre-compensation for anti-aliasing darkening.
+	                           // 1.0 = no boost (default). Only set > 1.0 for
+	                           // intro/ending scenes on dark backgrounds.
 };
 
 #if __has_include(<SDL3/SDL.h>)

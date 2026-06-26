@@ -660,14 +660,21 @@ void Image_window::create_surface(unsigned int w, unsigned int h) {
 	// Set up deferred CJK text rendering: enable when using a non-trivial
 	// scaler (HQx, xBR, etc.) that would distort Chinese font rendering.
 	// When scale > 1 and draw_surface != display_surface, scaling is active.
-	bool use_deferred = (draw_surface != display_surface && scale > 1
-	                     && scaler != point);
+	bool use_deferred = (draw_surface != display_surface && scale > 1);
 	// Check config for user override
 	if (config) {
 		bool cfg_val = use_deferred;
 		config->value("config/video/chinese/post_scale_rendering", cfg_val, use_deferred);
 		use_deferred = cfg_val;
 	}
+	
+	// CRITICAL: We cannot use deferred text rendering if draw_surface is inter_surface.
+	// If they are the same, deferred renderer would permanently embed text into the game's
+	// background buffer (ibuf), causing text to flash and darken as the mouse moves over it.
+	if (draw_surface == inter_surface) {
+		use_deferred = false;
+	}
+
 	Deferred_text_renderer::instance().set_active(use_deferred, scale, inter_surface->w, inter_surface->h);
 }
 
@@ -811,8 +818,14 @@ bool Image_window::create_scale_surfaces(int w, int h, int bpp) {
 		return false;
 	}
 
-	// Scale using 'fill_scaler' only
-	if (fill_scaler != SDLScaler && (scaler == fill_scaler || scale == 1)) {
+	bool force_inter = false;
+	if (config) {
+		config->value("config/video/chinese/post_scale_rendering", force_inter, false);
+	}
+
+	// Scale using 'fill_scaler' only. If we need post_scale_rendering, we MUST force
+	// inter_surface to be separate from draw_surface, otherwise text will bleed into ibuf.
+	if (!force_inter && fill_scaler != SDLScaler && (scaler == fill_scaler || scale == 1)) {
 		inter_surface = draw_surface;
 	} else if (inter_width != w || inter_height != h) {
 		const SDL_PixelFormatDetails* display_surface_format = SDL_GetPixelFormatDetails(display_surface->format);
@@ -1076,92 +1089,11 @@ void Image_window::show(int x, int y, int w, int h) {
 	}
 
 	// Phase 1.5: Blit deferred high-res Chinese text onto inter_surface.
-	// To keep the cursor visible on top of text, we temporarily punch a
-	// transparent hole in text_surface at the cursor position before blitting.
-	// The HQx-scaled cursor on inter_surface then shows through the hole.
-	// After blitting, text_surface is restored.
+	// To keep the cursor visible on top of text, we mask it out during blit.
 	auto& deferred = Deferred_text_renderer::instance();
 	if (deferred.is_active()) {
-		SDL_Surface* text_surf = deferred.get_surface();
-		SDL_Rect text_cursor_rect = {0, 0, 0, 0};
-
-		auto* mouse_obj = Mouse::mouse();
-		if (mouse_obj && mouse_obj->is_onscreen() && text_surf) {
-			Shape_frame* cur_frame = mouse_obj->get_current_frame();
-			if (cur_frame) {
-				// Cursor bounding box in game coordinates
-				int cx = mouse_obj->get_mousex() - cur_frame->get_xleft();
-				int cy = mouse_obj->get_mousey() - cur_frame->get_yabove();
-				int cw = cur_frame->get_width();
-				int ch = cur_frame->get_height();
-
-				// Convert to text_surface coordinates (include offset and gb)
-				text_cursor_rect.x = (cx + ibuf->get_offset_x() + gb) * scale;
-				text_cursor_rect.y = (cy + ibuf->get_offset_y() + gb) * scale;
-				text_cursor_rect.w = cw * scale;
-				text_cursor_rect.h = ch * scale;
-
-				// Clamp to text_surface bounds
-				if (text_cursor_rect.x < 0) {
-					text_cursor_rect.w += text_cursor_rect.x;
-					text_cursor_rect.x = 0;
-				}
-				if (text_cursor_rect.y < 0) {
-					text_cursor_rect.h += text_cursor_rect.y;
-					text_cursor_rect.y = 0;
-				}
-				if (text_cursor_rect.x + text_cursor_rect.w > text_surf->w) {
-					text_cursor_rect.w = text_surf->w - text_cursor_rect.x;
-				}
-				if (text_cursor_rect.y + text_cursor_rect.h > text_surf->h) {
-					text_cursor_rect.h = text_surf->h - text_cursor_rect.y;
-				}
-
-				if (text_cursor_rect.w > 0 && text_cursor_rect.h > 0) {
-					// Punch transparent hole in text_surface only where the cursor is non-transparent
-					int cx_start = cx + ibuf->get_offset_x() + gb;
-					int cy_start = cy + ibuf->get_offset_y() + gb;
-					int cur_w = cur_frame->get_width();
-					int cur_h = cur_frame->get_height();
-
-					for (int r = 0; r < cur_h; ++r) {
-						for (int c = 0; c < cur_w; ++c) {
-							if (cur_frame->has_point(c - cur_frame->get_xleft(), r - cur_frame->get_yabove())) {
-								int hx = (cx_start + c) * scale;
-								int hy = (cy_start + r) * scale;
-								int hw = scale;
-								int hh = scale;
-								// Clip to surface bounds
-								if (hx < 0) {
-									hw += hx;
-									hx = 0;
-								}
-								if (hy < 0) {
-									hh += hy;
-									hy = 0;
-								}
-								if (hx + hw > text_surf->w) {
-									hw = text_surf->w - hx;
-								}
-								if (hy + hh > text_surf->h) {
-									hh = text_surf->h - hy;
-								}
-								if (hw > 0 && hh > 0) {
-									auto* t_pixels = static_cast<uint8_t*>(text_surf->pixels);
-									int t_pitch = text_surf->pitch;
-									for (int hr = 0; hr < hh; ++hr) {
-										std::memset(t_pixels + (hy + hr) * t_pitch + hx * 4, 0, hw * 4);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		// Blit text onto inter_surface (cursor area is transparent, cursor shows through)
-		deferred.blit(inter_surface, unscaled_x, unscaled_y, unscaled_w, unscaled_h, gb);
+		int text_gb = (inter_surface != display_surface) ? guard_band : 0;
+		deferred.blit(inter_surface, unscaled_x, unscaled_y, unscaled_w, unscaled_h, text_gb);
 	}
 
 

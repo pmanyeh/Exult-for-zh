@@ -22,7 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "Sign_gump.h"
 
+#include "Font.h"
 #include "actors.h"
+#include "deferred_text.h"
 #include "font.h"
 #include "game.h"
 #include "gamewin.h"
@@ -114,6 +116,11 @@ void Sign_gump::add_text(int line, const std::string& txt) {
  */
 
 void Sign_gump::paint() {
+	if (Deferred_text_renderer::instance().is_active()) {
+		TileRect rect = get_rect();
+		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
+	}
+
 	int font = 1;    // Normal runes.
 	if (get_shapenum() == game->get_shape("gumps/goldsign")) {
 		if (serpentine) {

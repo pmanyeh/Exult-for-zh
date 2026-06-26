@@ -247,7 +247,7 @@ namespace TTF {
                 Deferred_glyph_style dgs = {style.letter_spacing, style.weight,
                                             style.shadow_type, style.shadow_offset_x,
                                             style.shadow_offset_y, style.shadow_color,
-                                            style.fg_color};
+                                            style.fg_color, style.brightness_boost};
                 deferred.draw_glyph(wch, x, yoff_original, fg_color, bg_color, (bg_color != 0), dgs, loaded_path, loaded_size, is_book, win);
                 return 8;
             }
@@ -340,7 +340,7 @@ namespace TTF {
             Deferred_glyph_style dgs = {style.letter_spacing, style.weight,
                                          style.shadow_type, style.shadow_offset_x,
                                          style.shadow_offset_y, style.shadow_color,
-                                         style.fg_color};
+                                         style.fg_color, style.brightness_boost};
             deferred.draw_glyph(wch, x, yoff_original, fg_color, bg_color, should_draw_shadow, dgs, loaded_path, loaded_size, is_book, win);
             return advance + style.letter_spacing;
         }

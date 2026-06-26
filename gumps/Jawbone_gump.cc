@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ignore_unused_variable_warning.h"
 #include "jawbone.h"
 #include "misc_buttons.h"
+#include "deferred_text.h"
 #include "objiter.h"
 
 const int toothx[19] = {34, 32, 31, 31, 28, 31, 27, 31, 40, 50, 57, 63, 72, 70, 75, 82, 83, 87, 0};
@@ -49,6 +50,10 @@ bool Jawbone_gump::add(Game_object* obj, int mx, int my, int sx, int sy, bool do
 }
 
 void Jawbone_gump::paint() {
+	if (Deferred_text_renderer::instance().is_active()) {
+		TileRect rect = get_rect();
+		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
+	}
 	// Paint gump itself
 	paint_shape(x, y);
 
