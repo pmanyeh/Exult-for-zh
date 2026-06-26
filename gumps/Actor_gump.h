@@ -45,6 +45,10 @@ public:
 	void paint() override;
 
 	Container_game_object* find_actor(int mx, int my) override;
+	
+	bool is_scaled_gump() const override {
+		return true;
+	}
 };
 
 #endif

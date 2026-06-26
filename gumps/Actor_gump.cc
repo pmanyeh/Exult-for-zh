@@ -31,6 +31,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 using std::size_t;
 
+static void Paint_ShapeID_scaled_Actor(const ShapeID& s, int x, int y, int scale) {
+	if (scale > 1) {
+		Shape_frame* frame = s.get_shape();
+		if (frame && frame->is_rle()) {
+			frame->paint_rle_scaled(x, y, scale);
+			return;
+		}
+	}
+	s.paint_shape(x, y);
+}
+
 #define TWO_HANDED_BROWN_SHAPE 48
 #define TWO_HANDED_BROWN_FRAME 0
 #define TWO_FINGER_BROWN_SHAPE 48
@@ -79,6 +90,9 @@ int Actor_gump::find_closest(
 ) {
 	mx -= x;
 	my -= y;                           // Get point rel. to us.
+	int scale = get_gump_scale();
+	mx /= scale;
+	my /= scale;
 	long closest_squared = 1000000;    // Best distance squared.
 	int  closest         = -1;         // Best index.
 	for (size_t i = 0; i < coords.size(); i++) {
@@ -217,19 +231,20 @@ void Actor_gump::paint() {
 	// Paint over blue lines for 2 handed
 	Actor* actor = container->as_actor();
 	if (actor) {
+		int scale = get_gump_scale();
 		if (actor->is_two_fingered()) {
-			const int sx = x + 36;
+			const int sx = x + 36 * scale;
 			// Note this is the right finger slot shifted slightly
-			const int sy = y + 70;
+			const int sy = y + 70 * scale;
 			ShapeID   sid(TWO_FINGER_BROWN_SHAPE, TWO_FINGER_BROWN_FRAME, SF_GUMPS_VGA);
-			sid.paint_shape(sx, sy);
+			Paint_ShapeID_scaled_Actor(sid, sx, sy, scale);
 		}
 		if (actor->is_two_handed()) {
-			const int sx = x + 36;
+			const int sx = x + 36 * scale;
 			// Note this is the right hand slot shifted slightly
-			const int sy = y + 55;
+			const int sy = y + 55 * scale;
 			ShapeID   sid(TWO_HANDED_BROWN_SHAPE, TWO_HANDED_BROWN_FRAME, SF_GUMPS_VGA);
-			sid.paint_shape(sx, sy);
+			Paint_ShapeID_scaled_Actor(sid, sx, sy, scale);
 		}
 	}
 	// Show weight.
@@ -239,7 +254,8 @@ void Actor_gump::paint() {
 	snprintf(text, sizeof(text), "%d/%d", weight, max_weight);
 	const int twidth = sman->get_text_width(2, text);
 	const int boxw   = 102;
-	sman->paint_text(2, text, x + 28 + (boxw - twidth) / 2, y + 120);
+	int scale = get_gump_scale();
+	sman->paint_text(2, text, x + 28 * scale + (boxw * scale - twidth) / 2, y + 120 * scale);
 }
 
 Container_game_object* Actor_gump::find_actor(int mx, int my) {

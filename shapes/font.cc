@@ -262,12 +262,12 @@ static bool get_chinese_force_ttf_for_english() {
 
 static bool should_force_ttf_for_english(int font_index) {
 	// Exclude UI/Menu fonts and Runic from forced TTF
-	// 1 = Wood sign, 3 = Tombstone, 6 = Gold sign, 8/10 = Serpentine (all are runic/special)
+	// 1 = Wood sign, 3 = Tombstone, 5 = Spellbook, 6 = Gold sign, 8/10 = Serpentine (all are runic/special)
 	// 2 = SMALL_BLACK_FONT (Setup menus)
 	// 4 = TINY_BLACK_FONT / Runic
 	// 9, 16, 17 = MENU_FONT (Game menus)
 	// 18-21 = Intro Menu fonts
-	if (font_index == 1 || font_index == 3 || font_index == 6 || font_index == 8 || font_index == 10 ||
+	if (font_index == 1 || font_index == 3 || font_index == 5 || font_index == 6 || font_index == 8 || font_index == 10 ||
 	    font_index == 2 || font_index == 4 || font_index == 9 || font_index == 16 || font_index == 17 || (font_index >= 18 && font_index <= 21)) {
 		return false;
 	}
@@ -596,6 +596,9 @@ int Font::paint_text(
 	int x             = xoff;
 	int yoff_original = yoff;
 	int baseline      = force_cjk ? get_chinese_font_size() : get_text_baseline_for(text, textlen);
+	if (current_gump_scale > 1.0f && !force_cjk) {
+		baseline = static_cast<int>(baseline * current_gump_scale);
+	}
 	yoff += baseline;
 	TTF::load_font(get_chinese_font_path(force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen)).c_str(), force_cjk ? get_chinese_font_size() : get_text_height_for(text, textlen));
 	if (font_shapes) {

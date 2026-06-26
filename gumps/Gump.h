@@ -340,6 +340,10 @@ public:
 	Gump* clone(Container_game_object* cont, int initx, int inity) override {
 		return new Container_gump(cont, initx, inity, this);
 	}
+
+	bool is_scaled_gump() const override {
+		return true;
+	}
 };
 
 #endif

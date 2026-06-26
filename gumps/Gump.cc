@@ -235,13 +235,16 @@ void Gump::set_object_area(TileRect area, int checkx, int checky, bool set_check
  */
 
 TileRect Gump::get_shape_rect(const Game_object* obj) const {
-	const Shape_frame* s = obj->get_shape();
+	Shape_frame* s = obj->get_shape();
 	if (!s) {
 		return TileRect(0, 0, 0, 0);
 	}
-	return TileRect(
-			x + object_area.x + obj->get_tx() - s->get_xleft(), y + object_area.y + obj->get_ty() - s->get_yabove(), s->get_width(),
-			s->get_height());
+	int          ox;
+	int          oy;
+	get_shape_location(obj, ox, oy);
+	int scale = get_gump_scale();
+	return TileRect(ox - s->get_xleft() * scale, oy - s->get_yabove() * scale,
+			s->get_width() * scale, s->get_height() * scale);
 }
 
 /*
@@ -249,8 +252,9 @@ TileRect Gump::get_shape_rect(const Game_object* obj) const {
  */
 
 void Gump::get_shape_location(const Game_object* obj, int& ox, int& oy) const {
-	ox = x + object_area.x + obj->get_tx();
-	oy = y + object_area.y + obj->get_ty();
+	int scale = get_gump_scale();
+	ox = x + object_area.x * scale + obj->get_tx() * scale;
+	oy = y + object_area.y * scale + obj->get_ty() * scale;
 }
 
 /*
@@ -279,7 +283,8 @@ Game_object* Gump::find_object(
 		if (box.has_point(mx, my)) {
 			s = obj->get_shape();
 			get_shape_location(obj, ox, oy);
-			if (s->has_point(mx - ox, my - oy)) {
+			int scale = get_gump_scale();
+			if (s->has_point_scaled(mx - ox, my - oy, scale)) {
 				list[cnt++] = obj;
 			}
 		}
@@ -384,8 +389,9 @@ bool Gump::add(
 	// -2's mean tx, ty are already set.
 	else if (sx != -2 && sy != -2 && mx != -2 && my != -2) {
 		// Put it where desired.
-		sx -= x + object_area.x;    // Get point rel. to object_area.
-		sy -= y + object_area.y;
+		int scale = get_gump_scale();
+		sx = (sx - (x + object_area.x * scale)) / scale;    // Get point rel. to object_area and inverse-scale it.
+		sy = (sy - (y + object_area.y * scale)) / scale;
 		Shape_frame* shape = obj->get_shape();
 		// But shift within range.
 		if (sx - shape->get_xleft() < 0) {
@@ -530,7 +536,16 @@ void Gump::paint() {
 				}
 			}
 		}
-		obj->paint_shape(box.x + obj->get_tx(), box.y + obj->get_ty());
+		
+		int scale = get_gump_scale();
+		int draw_x = x + object_area.x * scale + obj->get_tx() * scale;
+		int draw_y = y + object_area.y * scale + obj->get_ty() * scale;
+		
+		if (scale > 1 && shape && shape->is_rle()) {
+			shape->paint_rle_scaled(draw_x, draw_y, scale);
+		} else {
+			obj->paint_shape(draw_x, draw_y);
+		}
 	}
 	// Outline selections in this gump.
 	const Game_object_shared_vector& sel = cheat.get_selected();
@@ -655,8 +670,24 @@ void Container_gump::initialize(int shnum) {
  */
 int Gump::get_gump_scale() const {
 	if (!is_scaled_gump()) return 1;
-	const float s = get_ui_scale();
-	return static_cast<int>(s);
+	float s = get_ui_scale();
+	
+	if (config) {
+		std::string inv_str;
+		config->value("config/video/scale_inventory_mult", inv_str, "");
+		if (inv_str.empty()) {
+			config->value("config/video/chinese/scale_inventory_mult", inv_str, "");
+		}
+		if (!inv_str.empty()) {
+			size_t comma = inv_str.find(',');
+			if (comma != std::string::npos) inv_str[comma] = '.';
+			try {
+				s *= std::stof(inv_str);
+			} catch (...) {}
+		}
+	}
+	
+	return std::max(1, static_cast<int>(s));
 }
 
 /*

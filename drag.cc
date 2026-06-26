@@ -257,8 +257,29 @@ bool Dragging_info::moved(
 	const int deltay = y - mousey;
 	mousex           = x;
 	mousey           = y;
-	// Shift to new position.
-	rect.shift(deltax, deltay);
+	
+	// Dynamic Dirty Rectangle Calculation based on scale
+	int scale = 1;
+	Gump* hover_gump = gumpman->find_gump(mousex, mousey);
+	if (hover_gump && hover_gump->is_scaled_gump()) {
+		scale = hover_gump->get_gump_scale();
+	}
+	if (obj) {
+		Shape_frame* frame = obj->get_shape();
+		if (frame) {
+			int draw_x = mousex - (mousex - paintx) * scale;
+			int draw_y = mousey - (mousey - painty) * scale;
+			rect.x = draw_x - frame->get_xleft() * scale;
+			rect.y = draw_y - frame->get_yabove() * scale;
+			rect.w = frame->get_width() * scale;
+			rect.h = frame->get_height() * scale;
+			rect.enlarge(8); // Safety margin for bbox and edges
+		}
+	} else {
+		// Shift to new position for non-objects.
+		rect.shift(deltax, deltay);
+	}
+	
 	paintx += deltax;
 	painty += deltay;
 	if (gump && !obj) {    // Dragging a gump?
@@ -277,23 +298,37 @@ void Dragging_info::paint() {
 		return;
 	}
 	if (obj) {
+		int scale = 1;
+		Gump* hover_gump = gumpman->find_gump(mousex, mousey);
+		if (hover_gump && hover_gump->is_scaled_gump()) {
+			scale = hover_gump->get_gump_scale();
+		}
+
+		int draw_x = mousex - (mousex - paintx) * scale;
+		int draw_y = mousey - (mousey - painty) * scale;
+
 		if (obj->get_flag(Obj_flags::invisible)) {
-			obj->paint_invisible(paintx, painty);
+			obj->paint_invisible(draw_x, draw_y);
 		} else {
 			int bbox = gwin->get_render()->get_bbox_index();
 
 			// paint bbox back
-			if (bbox != -1) {
+			if (bbox != -1 && scale == 1) {
 				obj->get_info().paint_bbox(
-						paintx, painty, obj->get_framenum(), Game_window::get_instance()->get_win()->get_ib8(), bbox, 2);
+						draw_x, draw_y, obj->get_framenum(), Game_window::get_instance()->get_win()->get_ib8(), bbox, 2);
 			}
 
-			obj->paint_shape(paintx, painty);
+			Shape_frame* frame = obj->get_shape();
+			if (scale > 1 && frame && frame->is_rle()) {
+				frame->paint_rle_scaled(draw_x, draw_y, scale);
+			} else {
+				obj->paint_shape(draw_x, draw_y);
+			}
 
 			// paint bbox front
-			if (bbox != -1) {
+			if (bbox != -1 && scale == 1) {
 				obj->get_info().paint_bbox(
-						paintx, painty, obj->get_framenum(), Game_window::get_instance()->get_win()->get_ib8(), bbox, 1);
+						draw_x, draw_y, obj->get_framenum(), Game_window::get_instance()->get_win()->get_ib8(), bbox, 1);
 			}
 		}
 	} else if (gump) {

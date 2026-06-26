@@ -50,6 +50,10 @@ protected:
 	// Set to location of an object a spot
 	void set_to_spot(Game_object* obj, int index);
 
+	bool is_scaled_gump() const override {
+		return true;
+	}
+
 public:
 	Paperdoll_gump(Container_game_object* cont, int initx, int inity, int shnum);
 

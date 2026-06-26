@@ -45,6 +45,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 using std::size_t;
 
+static void Paint_ShapeID_scaled(const ShapeID& s, int x, int y, int scale, std::optional<bool> force_trans = std::nullopt) {
+	if (scale > 1) {
+		Shape_frame* frame = s.get_shape();
+		if (frame && frame->is_rle()) {
+			frame->paint_rle_scaled(x, y, scale);
+			return;
+		}
+	}
+	s.paint_shape(x, y, force_trans);
+}
+
 /*
  *
  *  SERPENT ISLE PAPERDOLL GUMP
@@ -173,6 +184,9 @@ int Paperdoll_gump::find_closest(
 ) {
 	mx -= x;
 	my -= y;                           // Get point rel. to us.
+	int scale = get_gump_scale();
+	mx /= scale;
+	my /= scale;
 	long closest_squared = 1000000;    // Best distance squared.
 	int  closest         = -1;         // Best index.
 
@@ -386,10 +400,16 @@ void Paperdoll_gump::paint() {
 	const Game_object* obj;
 
 	// Paint Objects
+	int scale = get_gump_scale();
 	TileRect box = object_area;    // Paint objects inside.
-	box.shift(x, y);               // Set box to screen location.
+	box.x = x + object_area.x * scale;
+	box.y = y + object_area.y * scale;
 
-	paint_shape(x, y);
+	if (scale > 1) {
+		paint_shape_scaled(scale);
+	} else {
+		paint_shape(x, y);
+	}
 
 	// Paint red "checkmark".
 	paint_elems();
@@ -548,7 +568,7 @@ void Paperdoll_gump::paint() {
 		snprintf(text, sizeof(text), "%d/%d", weight, max_weight);
 	}
 	const int twidth = sman->get_text_width(2, text);
-	sman->paint_text(2, text, x + 84 - (twidth / 2), y + 114);
+	sman->paint_text(2, text, x + 84 * scale - (twidth / 2), y + 114 * scale);
 }
 
 static inline bool Get_ammo_frame(Game_object* obj, Container_game_object* container, int& frame) {
@@ -607,10 +627,11 @@ void Paperdoll_gump::paint_object(
 		const int shnum = Shapeinfo_lookup::GetBlueShapeData(spot);
 		ShapeID   s(shnum, 0, SF_GUMPS_VGA);
 
-		s.paint_shape(box.x + coords_blue[spot].x, box.y + coords_blue[spot].y);
-		const int ox = box.x + obj->get_tx();
-		const int oy = box.y + obj->get_ty();
-		obj->paint_shape(ox, oy);
+		int scale = get_gump_scale();
+		Paint_ShapeID_scaled(s, box.x + coords_blue[spot].x * scale, box.y + coords_blue[spot].y * scale, scale);
+		const int ox = box.x + obj->get_tx() * scale;
+		const int oy = box.y + obj->get_ty() * scale;
+		Paint_ShapeID_scaled(*obj, ox, oy, scale);
 		if (cheat.is_selected(obj)) {
 			// Outline selected obj.
 			obj->ShapeID::paint_outline(ox, oy, HIT_PIXEL);
@@ -627,9 +648,10 @@ void Paperdoll_gump::paint_object(
 	}
 
 	ShapeID s(item->get_paperdoll_shape(), f, SF_PAPERDOL_VGA);
-	s.paint_shape(box.x + sx, box.y + sy, item->is_translucent());
+	int scale = get_gump_scale();
+	Paint_ShapeID_scaled(s, box.x + sx * scale, box.y + sy * scale, scale, item->is_translucent());
 	if (cheat.is_selected(obj)) {    // Outline selected obj.
-		s.paint_outline(box.x + sx, box.y + sy, HIT_PIXEL);
+		s.paint_outline(box.x + sx * scale, box.y + sy * scale, HIT_PIXEL);
 	}
 }
 
@@ -646,7 +668,8 @@ void Paperdoll_gump::paint_object_arms(
  */
 void Paperdoll_gump::paint_body(const TileRect& box, const Paperdoll_npc* info) {
 	ShapeID s(info->get_body_shape(), info->get_body_frame(), SF_PAPERDOL_VGA);
-	s.paint_shape(box.x + body.x, box.y + body.y, info->is_translucent());
+	int scale = get_gump_scale();
+	Paint_ShapeID_scaled(s, box.x + body.x * scale, box.y + body.y * scale, scale, info->is_translucent());
 }
 
 /*
@@ -657,7 +680,8 @@ void Paperdoll_gump::paint_belt(const TileRect& box, const Paperdoll_npc* info) 
 	if (!container->as_actor()->get_type_flag(Actor::tf_sex) && !info->is_npc_female()) {
 		s.set_frame(1);
 	}
-	s.paint_shape(box.x + beltm.x, box.y + beltm.y, info->is_translucent());
+	int scale = get_gump_scale();
+	Paint_ShapeID_scaled(s, box.x + beltm.x * scale, box.y + beltm.y * scale, scale, info->is_translucent());
 }
 
 /*
@@ -679,7 +703,8 @@ void Paperdoll_gump::paint_head(const TileRect& box, const Paperdoll_npc* info) 
 	}
 
 	ShapeID s(info->get_head_shape(), f, SF_PAPERDOL_VGA);
-	s.paint_shape(box.x + headp.x, box.y + headp.y, info->is_translucent());
+	int scale = get_gump_scale();
+	Paint_ShapeID_scaled(s, box.x + headp.x * scale, box.y + headp.y * scale, scale, info->is_translucent());
 }
 
 /*
@@ -688,7 +713,8 @@ void Paperdoll_gump::paint_head(const TileRect& box, const Paperdoll_npc* info) 
 void Paperdoll_gump::paint_arms(const TileRect& box, const Paperdoll_npc* info) {
 	const int frnum = info->get_arms_frame(get_arm_type());
 	ShapeID   s(info->get_arms_shape(), frnum, SF_PAPERDOL_VGA);
-	s.paint_shape(box.x + body.x, box.y + body.y, info->is_translucent());
+	int scale = get_gump_scale();
+	Paint_ShapeID_scaled(s, box.x + body.x * scale, box.y + body.y * scale, scale, info->is_translucent());
 }
 
 /*
@@ -720,9 +746,11 @@ Game_object* Paperdoll_gump::find_object(
 ) {
 	// Check Objects
 	TileRect box = object_area;    // Paint objects inside.
-	box.shift(x, y);               // Set box to screen location.
-	mx -= box.x;
-	my -= box.y;
+	int scale = get_gump_scale();
+	box.x = x + object_area.x * scale;
+	box.y = y + object_area.y * scale;
+	mx = (mx - box.x) / scale;
+	my = (my - box.y) / scale;
 
 	// Get the information required about ourself
 	const Actor*         actor = container->as_actor();
