@@ -93,6 +93,8 @@ public:
 
 	void paint_rle(int xoff, int yoff, const unsigned char* in);
 	void paint_rle_remapped(int xoff, int yoff, const unsigned char* inptr, const unsigned char*& trans);
+	// Scaled nearest-neighbour RLE painter (each pixel -> scale x scale block).
+	void paint_rle_scaled(int xoff, int yoff, const unsigned char* inptr, int scale);
 
 	void draw_beveled_box(
 			int x, int y, int w, int h, int depth, uint8 colfill, uint8 coltop, uint8 coltr, uint8 colbottom, uint8 colbl,

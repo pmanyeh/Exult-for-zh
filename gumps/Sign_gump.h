@@ -35,6 +35,8 @@ protected:
 public:
 	Sign_gump(int shapenum, int nlines);
 	~Sign_gump() override;
+	// Returns true so the gump uses resolution-aware scaling.
+	bool is_scaled_gump() const override { return true; }
 	// Set a line of text.
 	void add_text(int line, const std::string& txt);
 	// Paint it and its contents.

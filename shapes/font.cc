@@ -64,6 +64,12 @@ bool Font::is_painting_sign = false;
 bool Font::is_painting_avatar_choices = false;
 int Font::avatar_choices_font_size_adjust = 0;
 
+// ---------------------------------------------------------------------------
+// Global UI scale factor (1.0 = no scaling).
+// Managed by Gump_scale_guard during paint() of scaled gumps.
+// ---------------------------------------------------------------------------
+float current_gump_scale = 1.0f;
+
 #include "Configuration.h"
 
 #include <fstream>
@@ -608,12 +614,20 @@ int Font::paint_text(
 						if (trans) {
 							shape->paint_rle_remapped(win, x, yoff, trans);
 						} else {
-							shape->paint_rle(win, x, yoff);
+							if (current_gump_scale > 1.0f) {
+								shape->paint_rle_scaled(win, x, yoff, static_cast<int>(current_gump_scale));
+							} else {
+								shape->paint_rle(win, x, yoff);
+							}
 						}
 					} else {
 						shape->paint(win, x, yoff);
 					}
-					x += shape->get_width() + hor_lead;
+					int advance = shape->get_width() + hor_lead;
+					if (current_gump_scale > 1.0f) {
+						advance = static_cast<int>(advance * current_gump_scale);
+					}
+					x += advance;
 				}
 			} else {
 				Shape_frame* sample_shape = font_shapes->get_frame('A');
@@ -795,7 +809,11 @@ int Font::paint_text_fixedwidth(
 					if (trans) {
 						shape->paint_rle_remapped(win, paint_x, yoff, trans);
 					} else {
-						shape->paint_rle(win, paint_x, yoff);
+						if (current_gump_scale > 1.0f) {
+							shape->paint_rle_scaled(win, paint_x, yoff, static_cast<int>(current_gump_scale));
+						} else {
+							shape->paint_rle(win, paint_x, yoff);
+						}
 					}
 				} else {
 					shape->paint(win, paint_x, yoff);
@@ -846,7 +864,11 @@ int Font::paint_text_fixedwidth(
 					if (trans) {
 						shape->paint_rle_remapped(win, paint_x, yoff, trans);
 					} else {
-						shape->paint_rle(win, paint_x, yoff);
+						if (current_gump_scale > 1.0f) {
+							shape->paint_rle_scaled(win, paint_x, yoff, static_cast<int>(current_gump_scale));
+						} else {
+							shape->paint_rle(win, paint_x, yoff);
+						}
 					}
 				} else {
 					shape->paint(win, paint_x, yoff);
@@ -879,7 +901,11 @@ int Font::get_text_width(const char* text, bool force_cjk) {
 			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !( (is_book && force_cjk) || should_force_ttf_for_english(font_index) )) {
 				Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(*text));
 				if (shape) {
-					width += shape->get_width() + hor_lead;
+					int advance = shape->get_width() + hor_lead;
+					if (current_gump_scale > 1.0f) {
+						advance = static_cast<int>(advance * current_gump_scale);
+					}
+					width += advance;
 				}
 				text++;
 			} else {
@@ -912,7 +938,11 @@ int Font::get_text_width(
 			if (static_cast<unsigned char>(*text) < 0x80 && *text != 127 && !( (is_book && force_cjk) || should_force_ttf_for_english(font_index) )) {
 				Shape_frame* shape = font_shapes->get_frame(static_cast<unsigned char>(*text));
 				if (shape) {
-					width += shape->get_width() + hor_lead;
+					int advance = shape->get_width() + hor_lead;
+					if (current_gump_scale > 1.0f) {
+						advance = static_cast<int>(advance * current_gump_scale);
+					}
+					width += advance;
 				}
 				text++;
 				textlen--;
@@ -1049,6 +1079,12 @@ int Font::get_chinese_font_size() {
 	if (Font::is_painting_avatar_choices) {
 		final_size -= Font::avatar_choices_font_size_adjust;
 		if (final_size < 10) final_size = 10;
+	}
+
+	// Scale font size when painting inside a scaled gump (Book/Scroll/Sign).
+	// current_gump_scale is set by Gump_scale_guard during paint().
+	if (current_gump_scale > 1.0f && final_size > 0) {
+		final_size = static_cast<int>(final_size * current_gump_scale + 0.5f);
 	}
 
 	return final_size;

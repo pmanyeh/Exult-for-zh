@@ -33,6 +33,12 @@ struct Deferred_glyph_style {
 	                           // intro/ending scenes on dark backgrounds.
 };
 
+// ---------------------------------------------------------------------------
+// Global UI scale factor managed by Gump_scale_guard (defined in Gump.cc).
+// font.cc reads this to scale font sizes when painting inside a scaled gump.
+// ---------------------------------------------------------------------------
+extern float current_gump_scale;
+
 #if __has_include(<SDL3/SDL.h>)
 
 /*

@@ -30,18 +30,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *  Create scroll display.
  */
 
-Scroll_gump::Scroll_gump(int fnt, int gump) : Text_gump(gump < 0 ? game->get_shape("gumps/scroll") : gump, fnt) {}
+Scroll_gump::Scroll_gump(int fnt, int gump) : Text_gump(gump < 0 ? game->get_shape("gumps/scroll") : gump, fnt) {
+	set_pos();
+}
 
 /*
  *  Paint scroll.  Updates curend.
  */
 
 void Scroll_gump::paint() {
+	const int scale = get_gump_scale();
+	Gump_scale_guard guard(static_cast<float>(scale));
+
 	if (Deferred_text_renderer::instance().is_active()) {
 		TileRect rect = get_rect();
 		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
 	}
-	// Paint the gump itself.
-	paint_shape(x, y);
-	curend = paint_page(TileRect(51, 31, 142, 118), curtop);
+	// Paint the background shape at UI scale.
+	paint_shape_scaled(scale);
+
+	// Original page area: (51, 31, 142, 118). Scale proportionally.
+	curend = paint_page(TileRect(51 * scale, 31 * scale, 142 * scale, 118 * scale), curtop);
 }

@@ -699,6 +699,31 @@ void Shape_frame::paint_rle_outline(
 }
 
 /*
+ *  Scaled nearest-neighbour RLE painter.
+ *  Delegates directly to Image_buffer8::paint_rle_scaled.
+ */
+void Shape_frame::paint_rle_scaled(Image_buffer8* win, int xoff, int yoff, int scale) {
+	assert(rle);
+	win->paint_rle_scaled(xoff, yoff, data.get(), scale);
+}
+
+/*
+ *  Check if a screen-space point (sx, sy) hits this shape when it is
+ *  rendered at scale `scale` centred at origin (0,0).
+ *  We inverse-scale the point back to shape coordinates and delegate.
+ */
+bool Shape_frame::has_point_scaled(int sx, int sy, int scale) const {
+	if (scale <= 1) {
+		return has_point(sx, sy);
+	}
+	// Inverse-scale: divide (rounding toward zero)
+	// has_point expects coords relative to shape origin
+	const int lx = (sx >= 0) ? (sx / scale) : -( (-sx + scale - 1) / scale );
+	const int ly = (sy >= 0) ? (sy / scale) : -( (-sy + scale - 1) / scale );
+	return has_point(lx, ly);
+}
+
+/*
  *  See if a point, relative to the shape's 'origin', actually within the
  *  shape.
  */

@@ -30,21 +30,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *  Create book display.
  */
 
-Book_gump::Book_gump(int fnt, int gump) : Text_gump(gump < 0 ? game->get_shape("gumps/book") : gump, fnt) {}
+Book_gump::Book_gump(int fnt, int gump) : Text_gump(gump < 0 ? game->get_shape("gumps/book") : gump, fnt) {
+	// Re-calculate position now that the virtual table is fully constructed.
+	// This ensures is_scaled_gump() correctly returns true and set_pos_scaled() is executed.
+	set_pos();
+}
 
 /*
  *  Paint book.  Updates curend.
  */
 
 void Book_gump::paint() {
+	const int scale = get_gump_scale();
+	Gump_scale_guard guard(static_cast<float>(scale));
+
 	if (Deferred_text_renderer::instance().is_active()) {
 		TileRect rect = get_rect();
 		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
 	}
-	// Paint the gump itself.
-	paint_shape(x, y);
+	// Paint the gump itself at UI scale.
+	paint_shape_scaled(scale);
 	// Paint left page.
-	curend = paint_page(TileRect(35, 8, 125, 130), curtop);
+	curend = paint_page(TileRect(35 * scale, 8 * scale, 125 * scale, 130 * scale), curtop);
 	// Paint right page.
-	curend = paint_page(TileRect(173, 8, 125, 130), curend);
+	curend = paint_page(TileRect(173 * scale, 8 * scale, 125 * scale, 130 * scale), curend);
 }

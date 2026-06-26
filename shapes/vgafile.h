@@ -93,6 +93,8 @@ public:
 	void paint_rle_translucent(Image_buffer8* win, int xoff, int yoff, const Xform_palette* xforms, int xfcnt);
 	void paint_rle_transformed(Image_buffer8* win, int xoff, int yoff, const Xform_palette& xform);
 	void paint_rle_outline(Image_buffer8* win, int xoff, int yoff, unsigned char color);
+	// Scaled nearest-neighbour painter (each pixel -> scale x scale block).
+	void paint_rle_scaled(Image_buffer8* win, int xoff, int yoff, int scale);
 
 	// Paint to screen.
 	void paint_rle(int px, int py) {
@@ -118,6 +120,13 @@ public:
 	void paint_rle_outline(int px, int py, unsigned char color) {
 		paint_rle_outline(scrwin, px, py, color);
 	}
+
+	void paint_rle_scaled(int px, int py, int scale) {
+		paint_rle_scaled(scrwin, px, py, scale);
+	}
+
+	// Point-in-shape check for scaled rendering (inverse-scales the point).
+	bool has_point_scaled(int x, int y, int scale) const;
 
 	bool has_point(int x, int y) const;    // Is a point within the shape?
 

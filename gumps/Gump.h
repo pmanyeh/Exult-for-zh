@@ -24,6 +24,24 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "rect.h"
 #include "shapeid.h"
 
+// ---------------------------------------------------------------------------
+// Global UI scale factor for scaled gumps (Book / Scroll / Sign).
+// Set by Gump_scale_guard during paint(); read by Font and deferred renderer.
+// ---------------------------------------------------------------------------
+extern float current_gump_scale;
+
+// Calculate the UI scale factor based on current game resolution vs 320x200.
+float get_ui_scale();
+
+/*
+ *  RAII guard: sets current_gump_scale for the duration of a paint() call.
+ */
+struct Gump_scale_guard {
+	const float prev;
+	explicit Gump_scale_guard(float s) : prev(current_gump_scale) { current_gump_scale = s; }
+	~Gump_scale_guard() { current_gump_scale = prev; }
+};
+
 #ifdef __GNUC__
 #	pragma GCC diagnostic push
 #	pragma GCC diagnostic ignored "-Wold-style-cast"
@@ -258,6 +276,24 @@ public:
 
 	virtual bool     has_point(int x, int y) const;
 	virtual TileRect get_rect() const;
+
+	// -----------------------------------------------------------------------
+	// Scaled-gump support.
+	// Override is_scaled_gump() in Book/Scroll/Sign to return true.
+	// -----------------------------------------------------------------------
+	virtual bool is_scaled_gump() const { return false; }
+
+	// Returns the integer UI scale for this gump (1 when not scaled).
+	int get_gump_scale() const;
+
+	// Paint background shape at integer scale (nearest-neighbour RLE scaling).
+	void paint_shape_scaled(int scale) const;
+
+	// has_point variant that accounts for scaling.
+	bool has_point_scaled(int sx, int sy, int scale) const;
+
+	// Centres the gump on screen accounting for the given scale factor.
+	void set_pos_scaled(int scale);
 
 	// Is the gump partially or completely off screen
 	// Only check shape rectangle, not against the actual shape

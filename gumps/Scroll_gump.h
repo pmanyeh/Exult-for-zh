@@ -27,6 +27,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 class Scroll_gump : public Text_gump {
 public:
 	Scroll_gump(int fnt = 4, int gump = -1);
+	// Returns true so the gump uses resolution-aware scaling.
+	bool is_scaled_gump() const override { return true; }
 	// Paint it and its contents.
 	void paint() override;
 };

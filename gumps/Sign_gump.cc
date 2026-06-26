@@ -66,6 +66,11 @@ Sign_gump::Sign_gump(
 		set_object_area(TileRect(48, 30, 146, 118));
 	}
 	lines = new std::string[num_lines];
+
+	// Re-calculate position now that the virtual table is fully constructed.
+	// This ensures is_scaled_gump() correctly returns true and set_pos_scaled() is executed,
+	// properly centering the scaled sign before usecode/intrinsics.cc potentially shifts it.
+	set_pos();
 }
 
 /*
@@ -116,6 +121,9 @@ void Sign_gump::add_text(int line, const std::string& txt) {
  */
 
 void Sign_gump::paint() {
+	const int scale = get_gump_scale();
+	Gump_scale_guard guard(static_cast<float>(scale));
+
 	if (Deferred_text_renderer::instance().is_active()) {
 		TileRect rect = get_rect();
 		Deferred_text_renderer::instance().clear_region(rect.x, rect.y, rect.w, rect.h);
@@ -134,9 +142,6 @@ void Sign_gump::paint() {
 		font = 3;
 	}
 	// Exult-zh: Determine if any sign line contains Chinese (non-ASCII) characters.
-	// If so, use the TTF-aware height (which our modified get_text_height() returns).
-	// If not (i.e. original runic glyphs), fall back to the actual shape height to
-	// avoid the text floating upward due to oversized TTF-based spacing.
 	bool has_chinese = false;
 	for (int i = 0; i < num_lines; i++) {
 		for (unsigned char c : lines[i]) {
@@ -144,24 +149,40 @@ void Sign_gump::paint() {
 		}
 		if (has_chinese) break;
 	}
-	// Get height of 1 line.
+	// Get height of 1 line (already scale-aware via get_text_height when
+	// current_gump_scale > 1, because font.cc reads current_gump_scale).
 	const int lheight = has_chinese ? sman->get_text_height(font) : sman->get_font(font)->get_rendered_line_height();
-	// Get space between lines.
-	const int lspace = (object_area.h - num_lines * lheight) / (num_lines + 1);
-	// Paint the gump itself.
-	paint_shape(x, y);
-	Font::is_painting_sign = true;    // Exult-zh: signal font system to use sign-specific font
-	int ypos = y + object_area.y;    // Where to paint next line.
+
+	// Scale the object_area so the existing lspace/ypos logic operates
+	// within the correct pixel bounds. The original positioning offsets
+	// (e.g. "translation mode shifts text slightly down") are preserved
+	// because they are derived from lspace which scales with object_area.h.
+	const TileRect scaled_area(
+		object_area.x * scale,
+		object_area.y * scale,
+		object_area.w * scale,
+		object_area.h * scale
+	);
+
+	// Get space between lines (uses scaled area height).
+	const int lspace = (scaled_area.h - num_lines * lheight) / (num_lines + 1);
+
+	// Paint the background shape at UI scale.
+	paint_shape_scaled(scale);
+
+	Font::is_painting_sign = true;
+	int ypos = y + scaled_area.y;    // Where to paint next line.
 	for (int i = 0; i < num_lines; i++) {
 		ypos += lspace;
 		if (lines[i].empty()) {
 			continue;
 		}
 		sman->paint_text(
-				font, lines[i].c_str(), x + object_area.x + (object_area.w - sman->get_text_width(font, lines[i].c_str())) / 2,
+				font, lines[i].c_str(),
+				x + scaled_area.x + (scaled_area.w - sman->get_text_width(font, lines[i].c_str())) / 2,
 				ypos);
 		ypos += lheight;
 	}
-	Font::is_painting_sign = false;    // Exult-zh: restore
+	Font::is_painting_sign = false;
 	gwin->set_painted();
 }

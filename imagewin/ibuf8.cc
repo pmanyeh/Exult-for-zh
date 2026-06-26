@@ -668,6 +668,93 @@ void Image_buffer8::paint_rle(int xoff, int yoff, const unsigned char* inptr) {
 	}
 }
 
+/*
+ *  Scaled nearest-neighbour RLE painter.
+ *  Each original pixel is expanded into a (scale x scale) block.
+ *  Handles both raw and encoded RLE scanlines with full clip-rect safety.
+ */
+void Image_buffer8::paint_rle_scaled(int xoff, int yoff, const unsigned char* inptr, int scale) {
+	if (scale <= 1) {
+		paint_rle(xoff, yoff, inptr);
+		return;
+	}
+	const uint8* in     = inptr;
+	int          scanlen;
+	const int    right  = clipx + clipw;
+	const int    bottom = clipy + cliph;
+
+	// Helper lambda: paint one (scale x scale) pixel block at (bx, by)
+	auto paint_block = [&](int bx, int by, unsigned char pix) {
+		const int x0 = bx;
+		const int y0 = by;
+		const int x1 = bx + scale;
+		const int y1 = by + scale;
+		for (int py = y0; py < y1; py++) {
+			if (py < clipy || py >= bottom) continue;
+			for (int px = x0; px < x1; px++) {
+				if (px < clipx || px >= right) continue;
+				bits[py * line_width + px] = pix;
+			}
+		}
+	};
+
+	while ((scanlen = little_endian::Read2(in)) != 0) {
+		const int encoded  = scanlen & 1;
+		scanlen            = scanlen >> 1;
+		const int rel_x    = static_cast<sint16>(little_endian::Read2(in));
+		const int rel_y    = static_cast<sint16>(little_endian::Read2(in));
+		// Scaled top-left of this scanline's first pixel block
+		const int base_x   = xoff + rel_x * scale;
+		const int base_y   = yoff + rel_y * scale;
+
+		// Quick Y-visibility check
+		if (base_y >= bottom || base_y + scale <= clipy) {
+			// Skip pixel data
+			if (!encoded) {
+				in += scanlen;
+			} else {
+				int rem = scanlen;
+				while (rem > 0) {
+					unsigned char bcnt = Read1(in);
+					const int cnt = bcnt >> 1;
+					if (bcnt & 1) { ++in; } else { in += cnt; }
+					rem -= cnt;
+				}
+			}
+			continue;
+		}
+
+		if (!encoded) {
+			// Raw pixel data
+			for (int i = 0; i < scanlen; i++) {
+				unsigned char pix = Read1(in);
+				paint_block(base_x + i * scale, base_y, pix);
+			}
+		} else {
+			// Encoded (RLE) pixel data
+			int col = 0;
+			while (col < scanlen) {
+				unsigned char bcnt = Read1(in);
+				const int     cnt  = bcnt >> 1;
+				if (bcnt & 1) {
+					// Repeat: one colour for cnt pixels
+					unsigned char pix = Read1(in);
+					for (int i = 0; i < cnt; i++) {
+						paint_block(base_x + (col + i) * scale, base_y, pix);
+					}
+				} else {
+					// Raw run: cnt individual pixels
+					for (int i = 0; i < cnt; i++) {
+						unsigned char pix = Read1(in);
+						paint_block(base_x + (col + i) * scale, base_y, pix);
+					}
+				}
+				col += cnt;
+			}
+		}
+	}
+}
+
 // Slightly Optimized RLE Painter
 void Image_buffer8::paint_rle_remapped(int xoff, int yoff, const unsigned char* inptr, const unsigned char*& trans) {
 	const uint8* in = inptr;
