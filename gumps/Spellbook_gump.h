@@ -40,6 +40,8 @@ public:
 	virtual void do_spell(int spell) = 0;
 	// Set bookmark.
 	virtual void select_spell(int spell) = 0;
+	// Returns true so the gump uses resolution-aware scaling.
+	bool is_scaled_gump() const override { return true; }
 };
 
 /*

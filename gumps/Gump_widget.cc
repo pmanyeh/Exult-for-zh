@@ -38,7 +38,8 @@ bool Gump_widget::on_widget(
 	int lx = mx, ly = my;
 	screen_to_local(lx, ly);
 	Shape_frame* cshape = get_shape();
-	return (cshape != nullptr) ? cshape->has_point(lx, ly) : get_rect().has_point(mx, my);
+	int scale = get_widget_scale();
+	return (cshape != nullptr) ? cshape->has_point_scaled(lx, ly, scale) : get_rect().has_point(mx, my);
 }
 
 /*
@@ -70,7 +71,8 @@ TileRect Gump_widget::get_rect() const {
 		return TileRect(0, 0, 0, 0);
 	}
 
-	return TileRect(sx - s->get_xleft(), sy - s->get_yabove(), s->get_width(), s->get_height());
+	int scale = get_widget_scale();
+	return TileRect(sx - s->get_xleft() * scale, sy - s->get_yabove() * scale, s->get_width() * scale, s->get_height() * scale);
 }
 
 void Gump_widget::set_pos(int newx, int newy) {
@@ -115,4 +117,16 @@ Gump_widget* Gump_widget::findSorted(int sx, int sy, Sort_Order sort, Sort_Order
 		return this;
 	}
 	return nullptr;
+}
+
+void Gump_widget::paint_shape(int xoff, int yoff, std::optional<bool> force_trans) const {
+	int scale = get_widget_scale();
+	if (scale > 1) {
+		Shape_frame* s = get_shape();
+		if (s && s->is_rle()) {
+			s->paint_rle_scaled(xoff, yoff, scale);
+			return;
+		}
+	}
+	ShapeID::paint_shape(xoff, yoff, force_trans);
 }

@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "Gump.h"
 
+#include "Configuration.h"
 #include "Dynamic_button.h"
 #include "Dynamic_shape_widget.h"
 #include "Dynamic_slider.h"
@@ -57,6 +58,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *  Returns at least 1.
  */
 float get_ui_scale() {
+	if (config) {
+		bool scale_ui = true;
+		config->value("config/video/scale_ui", scale_ui, true);
+		if (!scale_ui) {
+			return 1.0f;
+		}
+	}
+
 	Game_window* gwnd = Game_window::get_instance();
 	if (!gwnd) return 1.0f;
 	auto* win = gwnd->get_win();
@@ -462,7 +471,12 @@ void Gump::paint() {
 	}
 	// Paint the gump itself.
 	if (get_shape()) {
-		paint_shape(x, y);
+		int scale = get_gump_scale();
+		if (scale > 1) {
+			paint_shape_scaled(scale);
+		} else {
+			paint_shape(x, y);
+		}
 	}
 	gwin->set_painted();
 

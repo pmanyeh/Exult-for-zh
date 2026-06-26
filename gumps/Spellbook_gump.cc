@@ -350,6 +350,7 @@ Spellbook_gump::Spellbook_gump(Spellbook_object* b) : Spelltype_gump(SPELLBOOK),
 			}
 		}
 	}
+	set_pos();
 }
 
 /*
@@ -492,6 +493,9 @@ void Spellbook_gump::paint_button(Gump_button* btn) {
  */
 
 void Spellbook_gump::paint() {
+	const int scale = get_gump_scale();
+	Gump_scale_guard guard(static_cast<float>(scale));
+
 	const int numx = 1;
 	const int numy = -4;    // Where to draw numbers on spells,
 	//   with numx being the right edge.
@@ -536,14 +540,15 @@ void Spellbook_gump::paint() {
 			} else {    // prevent garbage text
 				std::strcpy(text, "");
 			}
-			sman->paint_text(5, text, x + spell->x + numx - sman->get_text_width(5, text), y + spell->y + numy);
+			// `sman->get_text_width` returns the scaled width when `Gump_scale_guard` is active.
+			sman->paint_text(5, text, x + spell->x * scale + numx * scale - sman->get_text_width(5, text), y + spell->y * scale + numy * scale);
 		}
 	}
 	if (page > 0 || GAME_SI) {    // Paint circle.
 		const char* circ = get_misc_name(CIRCLE);
 		const char* cnum = get_misc_name(CIRCLENUM + page);
-		sman->paint_text(5, cnum, x + 40 + (44 - sman->get_text_width(5, cnum)) / 2, y + 20);
-		sman->paint_text(5, circ, x + 92 + (44 - sman->get_text_width(5, circ)) / 2, y + 20);
+		sman->paint_text(5, cnum, x + 40 * scale + (44 * scale - sman->get_text_width(5, cnum)) / 2, y + 20 * scale);
+		sman->paint_text(5, circ, x + 92 * scale + (44 * scale - sman->get_text_width(5, circ)) / 2, y + 20 * scale);
 	}
 	if (book->bookmark >= 0) {    // Bookmark?
 		bookmark->paint();
@@ -555,8 +560,8 @@ void Spellbook_gump::paint() {
 			const char* name_str = custom_spell_names[spell].c_str();
 			// Use font 0 (Normal Yellow) to match NPC dialogue/item names and use font_size_dialog
 			int text_w = sman->get_text_width(0, name_str);
-			int px = x + object_area.x + object_area.w / 2 - text_w / 2;
-			int py = y + object_area.y + object_area.h + 4; // Draw just below the spellbook
+			int px = x + (object_area.x + object_area.w / 2) * scale - text_w / 2;
+			int py = y + (object_area.y + object_area.h + 4) * scale; // Draw just below the spellbook
 			sman->paint_text(0, name_str, px, py);
 		}
 	}
@@ -565,9 +570,9 @@ void Spellbook_gump::paint() {
 		const int    TPYOFF = 3;
 		ShapeID      shape(TURNINGPAGE, turning_frame, SF_GUMPS_VGA);
 		Shape_frame* fr      = shape.get_shape();
-		const int    spritex = x + object_area.x + fr->get_xleft() + TPXOFF;
-		const int    spritey = y + fr->get_yabove() + TPYOFF;
-		shape.paint_shape(spritex, spritey);
+		const int    spritex = x + (object_area.x + fr->get_xleft() + TPXOFF) * scale;
+		const int    spritey = y + (fr->get_yabove() + TPYOFF) * scale;
+		fr->paint_rle_scaled(spritex, spritey, scale);
 		turning_frame += turning_page;
 		if (turning_frame < 0 || turning_frame >= shape.get_num_frames()) {
 			turning_page = 0;    // Last one.
@@ -704,9 +709,10 @@ Spellscroll_gump::Spellscroll_gump(Game_object* s)
 	const int spellnum   = scroll->get_quality();
 	if (spellnum >= 0 && spellnum < 8 * 9) {
 		spell = new Spell_button(
-				this, object_area.x + 4 + spshape->get_xleft(), object_area.y + 4 + spshape->get_yabove(), spellnum,
+			this, object_area.x + 4 + spshape->get_xleft(), object_area.y + 4 + spshape->get_yabove(), spellnum,
 				SCROLLSPELLS + spellnum / 8, spellnum % 8);
 	}
+	set_pos();
 }
 
 /*
@@ -769,6 +775,9 @@ void Spellscroll_gump::paint_button(Gump_button* btn) {
  */
 
 void Spellscroll_gump::paint() {
+	const int scale = get_gump_scale();
+	Gump_scale_guard guard(static_cast<float>(scale));
+
 	Spelltype_gump::paint();    // Paint outside & checkmark.
 	if (spell) {
 		paint_button(spell);

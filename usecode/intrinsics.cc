@@ -29,6 +29,7 @@
 #include "Gump.h"
 #include "Gump_manager.h"
 #include "Scroll_gump.h"
+#include "Gump.h"
 #include "ShortcutBar_gump.h"
 #include "Sign_gump.h"
 #include "actions.h"
@@ -1536,13 +1537,19 @@ protected:
 public:
 	Paint_centered(ShapeID* si) : sid(si) {
 		Shape_frame* s = sid->get_shape();
+		const float scale = get_ui_scale();
 		// Get coords. for centered view.
-		x = (gwin->get_game_width() - s->get_width()) / 2 + s->get_xleft();
-		y = (gwin->get_game_height() - s->get_height()) / 2 + s->get_yabove();
+		x = (gwin->get_game_width() - s->get_width() * scale) / 2 + s->get_xleft() * scale;
+		y = (gwin->get_game_height() - s->get_height() * scale) / 2 + s->get_yabove() * scale;
 	}
 
 	void paint() override {
-		sid->paint_shape(x, y);
+		const float scale = get_ui_scale();
+		if (scale > 1.0f) {
+			sid->get_shape()->paint_rle_scaled(x, y, static_cast<int>(scale));
+		} else {
+			sid->paint_shape(x, y);
+		}
 	}
 };
 
@@ -1573,10 +1580,12 @@ public:
 				yy = std::lround(t.ty / 16.0 + 5);
 			}
 			Shape_frame* s = sid->get_shape();
-			xx += x - s->get_xleft();
-			yy += y - s->get_yabove();
-			gwin->get_win()->fill8(50, 1, 5, xx, yy - 2);
-			gwin->get_win()->fill8(50, 5, 1, xx - 2, yy);
+			const float scale = get_ui_scale();
+			
+			xx = xx * scale + x - s->get_xleft() * scale;
+			yy = yy * scale + y - s->get_yabove() * scale;
+			gwin->get_win()->fill8(50, 1 * scale, 5 * scale, xx, yy - 2 * scale);
+			gwin->get_win()->fill8(50, 5 * scale, 1 * scale, xx - 2 * scale, yy);
 		}
 	}
 };

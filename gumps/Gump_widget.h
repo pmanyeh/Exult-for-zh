@@ -99,16 +99,33 @@ public:
 	void set_pos(int newx, int newy) override;
 
 	void screen_to_local(int& sx, int& sy) const override {
-		sx -= x;
-		sy -= y;
+		int scale = get_widget_scale();
+		sx -= x * scale;
+		sy -= y * scale;
 		if (parent) {
 			parent->screen_to_local(sx, sy);
 		}
 	}
 
+	int get_widget_scale() const {
+		if (parent && parent->get_shapenum() >= 0) {
+			// A quick way to get scale without dynamic_cast: use the global current_gump_scale
+			// since paint/hit-tests in scaled gumps will have current_gump_scale set or we can
+			// rely on Gump's scale if it is a scaled gump.
+			// Actually, dynamic_cast is safe here.
+			if (const Gump* g = dynamic_cast<const Gump*>(parent)) {
+				return g->get_gump_scale();
+			}
+		}
+		return 1;
+	}
+
+	void paint_shape(int xoff, int yoff, std::optional<bool> force_trans = std::nullopt) const;
+
 	void local_to_screen(int& sx, int& sy) const override {
-		sx += x;
-		sy += y;
+		int scale = get_widget_scale();
+		sx += x * scale;
+		sy += y * scale;
 		if (parent) {
 			parent->local_to_screen(sx, sy);
 		}
