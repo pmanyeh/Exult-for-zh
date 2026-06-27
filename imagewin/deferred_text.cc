@@ -185,12 +185,28 @@ void Deferred_text_renderer::draw_glyph(
 		SDL_Color bg_rgb;
 		Palette* exult_pal = gwin->get_pal();
 		if (exult_pal) {
-			fg_rgb.r = exult_pal->get_red(fg_palette);
-			fg_rgb.g = exult_pal->get_green(fg_palette);
-			fg_rgb.b = exult_pal->get_blue(fg_palette);
-			bg_rgb.r = exult_pal->get_red(bg_palette);
-			bg_rgb.g = exult_pal->get_green(bg_palette);
-			bg_rgb.b = exult_pal->get_blue(bg_palette);
+			if (fg_palette == 255 && exult_pal->get_border_index() == 255) {
+				unsigned char br, bg, bb;
+				Palette::get_border(br, bg, bb);
+				fg_rgb.r = br;
+				fg_rgb.g = bg;
+				fg_rgb.b = bb;
+			} else {
+				fg_rgb.r = exult_pal->get_red(fg_palette) * 4;
+				fg_rgb.g = exult_pal->get_green(fg_palette) * 4;
+				fg_rgb.b = exult_pal->get_blue(fg_palette) * 4;
+			}
+			if (bg_palette == 255 && exult_pal->get_border_index() == 255) {
+				unsigned char br, bg, bb;
+				Palette::get_border(br, bg, bb);
+				bg_rgb.r = br;
+				bg_rgb.g = bg;
+				bg_rgb.b = bb;
+			} else {
+				bg_rgb.r = exult_pal->get_red(bg_palette) * 4;
+				bg_rgb.g = exult_pal->get_green(bg_palette) * 4;
+				bg_rgb.b = exult_pal->get_blue(bg_palette) * 4;
+			}
 		} else {
 			fg_rgb = palette[fg_palette];
 			bg_rgb = palette[bg_palette];
@@ -273,13 +289,28 @@ void Deferred_text_renderer::draw_glyph(
 	SDL_Color bg_rgb;
 	Palette* exult_pal = gwin->get_pal();
 	if (exult_pal) {
-		// Palette stores 6-bit colors (0-63), scale to 8-bit (0-255) by multiplying by 4
-		fg_rgb.r = exult_pal->get_red(fg_palette) * 4;
-		fg_rgb.g = exult_pal->get_green(fg_palette) * 4;
-		fg_rgb.b = exult_pal->get_blue(fg_palette) * 4;
-		bg_rgb.r = exult_pal->get_red(bg_palette) * 4;
-		bg_rgb.g = exult_pal->get_green(bg_palette) * 4;
-		bg_rgb.b = exult_pal->get_blue(bg_palette) * 4;
+		if (fg_palette == 255 && exult_pal->get_border_index() == 255) {
+			unsigned char br, bg, bb;
+			Palette::get_border(br, bg, bb);
+			fg_rgb.r = br;
+			fg_rgb.g = bg;
+			fg_rgb.b = bb;
+		} else {
+			fg_rgb.r = exult_pal->get_red(fg_palette) * 4;
+			fg_rgb.g = exult_pal->get_green(fg_palette) * 4;
+			fg_rgb.b = exult_pal->get_blue(fg_palette) * 4;
+		}
+		if (bg_palette == 255 && exult_pal->get_border_index() == 255) {
+			unsigned char br, bg, bb;
+			Palette::get_border(br, bg, bb);
+			bg_rgb.r = br;
+			bg_rgb.g = bg;
+			bg_rgb.b = bb;
+		} else {
+			bg_rgb.r = exult_pal->get_red(bg_palette) * 4;
+			bg_rgb.g = exult_pal->get_green(bg_palette) * 4;
+			bg_rgb.b = exult_pal->get_blue(bg_palette) * 4;
+		}
 	} else {
 		fg_rgb = palette[fg_palette];
 		bg_rgb = palette[bg_palette];

@@ -138,6 +138,12 @@ public:
 		border[2] = b;
 	}
 
+	static void get_border(unsigned char &r, unsigned char &g, unsigned char &b) {
+		r = border[0];
+		g = border[1];
+		b = border[2];
+	}
+
 	unsigned char get_border_index() const {
 		return border255 ? 255 : 0;
 	}
