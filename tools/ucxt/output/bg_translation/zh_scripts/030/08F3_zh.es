@@ -39,7 +39,7 @@ labelFunc08F3_006C:
 	UI_remove_answer("近身肉搏");
 	var0004 = "而且你看起來很有男子氣概，足以應付這種近身戰";
 	if (!(UI_is_pc_female() == 0x0001)) goto labelFunc08F3_0096;
-	var0004 = "特別是在女性身上。Britannia 的女性很少具備這些特質";
+	var0004 = "特別是在女性身上。不列顛尼亞的女性很少具備這些特質";
 	var0002 = true;
 labelFunc08F3_0096:
 	message("「這種武器需要力量與膽識！我很欣賞這樣的特質，");
@@ -52,7 +52,7 @@ labelFunc08F3_0096:
 labelFunc08F3_00A8:
 	case "遠程武器" attend labelFunc08F3_00C3:
 	UI_remove_answer("遠程武器");
-	message("「這也是我的選擇。在箭術方面，很少有人能與我並駕齊驅。這需要敏銳的眼神與沉穩的雙手，這在現今的男人之中相當罕見。在女人之中更是少之又少。真是悲哀，Britannia 的女性竟然對這種技藝一無所知！」");
+	message("「這也是我的選擇。在箭術方面，很少有人能與我並駕齊驅。這需要敏銳的眼神與沉穩的雙手，這在現今的男人之中相當罕見。在女人之中更是少之又少。真是悲哀，不列顛尼亞的女性竟然對這種技藝一無所知！」");
 	say();
 	var0002 = true;
 	var0003 = true;
@@ -74,7 +74,7 @@ labelFunc08F3_00F8:
 	message("「說話注意點，嚮導大師。」");
 	say();
 	UI_show_npc_face(0xFFF6, 0x0000);
-	message("「我不是指在座的諸位優秀同伴！妳無疑是 Britannia 的菁英，更是世間罕見的奇女子。」");
+	message("「我不是指在座的諸位優秀同伴！妳無疑是不列顛尼亞的菁英，更是世間罕見的奇女子。」");
 	say();
 	UI_show_npc_face(var0008, 0x0000);
 	message("「算你會說話。唉！學習武藝的女性實在太少了。」");

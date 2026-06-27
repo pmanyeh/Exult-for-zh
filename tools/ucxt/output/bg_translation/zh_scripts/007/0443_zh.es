@@ -30,7 +30,7 @@ labelFunc0443_0047:
 	UI_remove_answer("姓名");
 labelFunc0443_005D:
 	case "職業" attend labelFunc0443_0070:
-	message("「哎呀，我是 Lord British 的私人廚師！我負責準備整個城堡的餐點。」");
+	message("「哎呀，我是不列顛王的私人廚師！我負責準備整個城堡的餐點。」");
 	say();
 	UI_add_answer("餐點");
 labelFunc0443_0070:
@@ -46,7 +46,7 @@ labelFunc0443_0093:
 	UI_remove_answer("早餐");
 labelFunc0443_00A6:
 	case "晚餐" attend labelFunc0443_00B9:
-	message("「這頓飯通常是 Lord British 要求的任何肉類、野味或魚，並伴隨幾道配菜和一份精美的甜點。」");
+	message("「這頓飯通常是不列顛王要求的任何肉類、野味或魚，並伴隨幾道配菜和一份精美的甜點。」");
 	say();
 	UI_remove_answer("晚餐");
 labelFunc0443_00B9:
@@ -58,7 +58,7 @@ labelFunc0443_00B9:
 	gflags[0x0071] = true;
 labelFunc0443_00DD:
 	case "健忘" attend labelFunc0443_00F0:
-	message("「上週我叫他在湯裡放一點大蒜。他放了大蒜，然後就忘了這回事。所以他又去放了一些。然後他又忘了自己放過。所以他又放了更多。嗯，你可以想像 Lord British 最後嚐到那碗湯時臉上的表情！幸好我們是在如此公正的統治者的城堡裡生活和工作。」");
+	message("「上週我叫他在湯裡放一點大蒜。他放了大蒜，然後就忘了這回事。所以他又去放了一些。然後他又忘了自己放過。所以他又放了更多。嗯，你可以想像不列顛王最後嚐到那碗湯時臉上的表情！幸好我們是在如此公正的統治者的城堡裡生活和工作。」");
 	say();
 	UI_remove_answer("健忘");
 labelFunc0443_00F0:

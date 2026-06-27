@@ -24,7 +24,7 @@ void Func042B object#(0x42B) ()
 	goto labelFunc042B_0052;
 labelFunc042B_003D:
 	if (!gflags[0x00DA]) goto labelFunc042B_004D;
-	message("「我想知道 Batlin 在哪裡！錯過聚會可不像他的作風。」");
+	message("「我想知道巴特林在哪裡！錯過聚會可不像他的作風。」");
 	say();
 	goto labelFunc042B_0052;
 	goto labelFunc042B_0052;
@@ -86,7 +86,7 @@ labelFunc042B_010D:
 	UI_remove_answer("姓名");
 labelFunc042B_0123:
 	case "職業" attend labelFunc042B_013F:
-	message("「哎呀，我是城鎮市長！也就是 Britain 的城鎮市長！我想讓你知道，我的選舉是一場壓倒性的勝利！我的對手根本沒有機會！~~ 「我也是 Britannia 稅務委員會的主席。」");
+	message("「哎呀，我是城鎮市長！也就是不列顛城的城鎮市長！我想讓你知道，我的選舉是一場壓倒性的勝利！我的對手根本沒有機會！~~ 「我也是不列顛尼亞稅務委員會的主席。」");
 	say();
 	UI_add_answer(["選舉", "對手", "稅務委員會"]);
 labelFunc042B_013F:
@@ -118,25 +118,25 @@ labelFunc042B_0195:
 	UI_add_answer(["誠實", "妻子"]);
 labelFunc042B_01A9:
 	case "農民" attend labelFunc042B_01C3:
-	message("「我有這麼說嗎？我絕對不是那個意思。 Britain 已經沒有階級制度了，整個國家也都沒有！我的意思是『農民階級』，也就是那些沒有優越血統的人—— Brownie 就是那種人——『他們』也不支持他。他們知道誰會是最好的領導者！」");
+	message("「我有這麼說嗎？我絕對不是那個意思。不列顛城已經沒有階級制度了，整個國家也都沒有！我的意思是『農民階級』，也就是那些沒有優越血統的人—— Brownie 就是那種人——『他們』也不支持他。他們知道誰會是最好的領導者！」");
 	say();
 	UI_remove_answer("農民");
 	UI_add_answer("優越");
 labelFunc042B_01C3:
 	case "優越" attend labelFunc042B_01E3:
-	message("「我有這麼說嗎？我想我並不是那個意思。我想說的是，有些人出身於地位比其他人更好的家庭。而 Brownie 不是其中之一！但別誤會我——我仍然堅持 Britannia 的階級制度已經被廢除了！」");
+	message("「我有這麼說嗎？我想我並不是那個意思。我想說的是，有些人出身於地位比其他人更好的家庭。而 Brownie 不是其中之一！但別誤會我——我仍然堅持不列顛尼亞的階級制度已經被廢除了！」");
 	say();
 	UI_remove_answer("優越");
 	if (!gflags[0x0082]) goto labelFunc042B_01E3;
 	UI_add_answer("Nanna");
 labelFunc042B_01E3:
 	case "Nanna" attend labelFunc042B_01F6:
-	message("「她說什麼？嗯，她錯了！虧她還是個『弟兄』。友誼會的一員！我得跟 Batlin 談談她的事。」~~你注意到 Patterson 似乎感到不安。");
+	message("「她說什麼？嗯，她錯了！虧她還是個『弟兄』。友誼會的一員！我得跟巴特林談談她的事。」~~你注意到 Patterson 似乎感到不安。");
 	say();
 	UI_remove_answer("Nanna");
 labelFunc042B_01F6:
 	case "誠實" attend labelFunc042B_0216:
-	message("「我顯然是 Britain 最誠實的人！也許我該搬去 Moonglow！哈！」");
+	message("「我顯然是不列顛城最誠實的人！也許我該搬去 Moonglow！哈！」");
 	say();
 	UI_remove_answer("誠實");
 	if (!gflags[0x0081]) goto labelFunc042B_0216;
@@ -148,7 +148,7 @@ labelFunc042B_0216:
 	UI_remove_answer("妻子");
 labelFunc042B_0229:
 	case "稅務委員會" attend labelFunc042B_023C:
-	message("「這片土地必須有某種產生收入的方法。稅收是唯一的解決方案。每個商人和農夫都要納稅。任何靠工作謀生的人都要納稅。」~~ 「Britannia 稅務委員會的主要辦公室在皇家造幣廠。」");
+	message("「這片土地必須有某種產生收入的方法。稅收是唯一的解決方案。每個商人和農夫都要納稅。任何靠工作謀生的人都要納稅。」~~ 「不列顛尼亞稅務委員會的主要辦公室在皇家造幣廠。」");
 	say();
 	UI_remove_answer("稅務委員會");
 labelFunc042B_023C:
@@ -171,13 +171,13 @@ labelFunc042B_027D:
 	UI_remove_answer("Candice");
 labelFunc042B_0290:
 	case "屍體" attend labelFunc042B_02AA:
-	message("你轉述了 Lord British 關於幾年前在 Britain 發生謀殺案的說法。 Patterson 點點頭。~~「我記得很清楚。那非常令人毛骨悚然。有一個名叫 Finster 的人正在競選公職。他對自己的意見非常直言不諱，我想這給他帶來了麻煩。」");
+	message("你轉述了不列顛王關於幾年前在不列顛城發生謀殺案的說法。 Patterson 點點頭。~~「我記得很清楚。那非常令人毛骨悚然。有一個名叫 Finster 的人正在競選公職。他對自己的意見非常直言不諱，我想這給他帶來了麻煩。」");
 	say();
 	UI_remove_answer("屍體");
 	UI_add_answer("意見");
 labelFunc042B_02AA:
 	case "意見" attend labelFunc042B_02C4:
-	message("「他試圖進行許多社會變革。他希望大議會 (Great Council) 和 Britannia 稅務委員會有更多權力，而且他想解散友誼會。 Finster 是一個野心太大的貴族。總之，他的信仰一定為他樹立了幾個敵人。」");
+	message("「他試圖進行許多社會變革。他希望大議會 (Great Council) 和不列顛尼亞稅務委員會有更多權力，而且他想解散友誼會。 Finster 是一個野心太大的貴族。總之，他的信仰一定為他樹立了幾個敵人。」");
 	say();
 	UI_remove_answer("意見");
 	UI_add_answer("敵人");

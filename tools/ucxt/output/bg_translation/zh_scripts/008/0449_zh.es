@@ -42,12 +42,12 @@ labelFunc0449_005F:
 	UI_remove_answer("姓名");
 labelFunc0449_0075:
 	case "職業" attend labelFunc0449_008E:
-	message("「我是 Lord British 城堡裡的僕人。我是貼身男僕，當然還有做其他事。現在我正在端酒。」");
+	message("「我是不列顛王城堡裡的僕人。我是貼身男僕，當然還有做其他事。現在我正在端酒。」");
 	say();
 	UI_add_answer(["僕人", "酒"]);
 labelFunc0449_008E:
 	case "僕人" attend labelFunc0449_00AE:
-	message("「我的家族已經被 Lord British 僱用很多年了。我的父親 Bennie 曾經擔任我現在的職位。他是僕人總管。我想，總有一天我也會成為僕人總管。到那時，也許我的心上人就會愛我了。」");
+	message("「我的家族已經被不列顛王僱用很多年了。我的父親 Bennie 曾經擔任我現在的職位。他是僕人總管。我想，總有一天我也會成為僕人總管。到那時，也許我的心上人就會愛我了。」");
 	say();
 	UI_remove_answer("僕人");
 	UI_add_answer(["家族", "心上人"]);

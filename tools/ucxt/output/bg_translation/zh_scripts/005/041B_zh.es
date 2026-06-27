@@ -56,7 +56,7 @@ labelFunc041B_00A2:
 	message("「-真的嗎-！？我很驚訝！不過算了…");
 	say();
 labelFunc041B_00A6:
-	message("「我是 Britain 這裡皇家劇院的導演。我也是駐院劇作家。我偶爾也會作些曲子。我有時也會演戲，但演自己導的戲可不是明智之舉。~");
+	message("「我是不列顛城這裡皇家劇院的導演。我也是駐院劇作家。我偶爾也會作些曲子。我有時也會演戲，但演自己導的戲可不是明智之舉。~");
 	say();
 	if (!(var0001 == 0x0007)) goto labelFunc041B_00BB;
 	message("「我們目前正在排練一齣戲。」");
@@ -69,7 +69,7 @@ labelFunc041B_00BF:
 	UI_add_answer(["皇家劇院", "排戲"]);
 labelFunc041B_00CC:
 	case "排戲" attend labelFunc041B_0114:
-	message("「這是我寫的一點小東西，名為『聖者的試煉（The Trials of the Avatar）』。這是關於 Britannia 歷史上一位傳奇人物的故事。」這位藝術家上下打量著你。");
+	message("「這是我寫的一點小東西，名為『聖者的試煉（The Trials of the Avatar）』。這是關於不列顛尼亞歷史上一位傳奇人物的故事。」這位藝術家上下打量著你。");
 	say();
 	message("「嗯...你的確有一種特質...你曾經在舞台上演過戲嗎？」");
 	say();

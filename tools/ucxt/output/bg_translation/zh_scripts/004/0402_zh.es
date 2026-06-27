@@ -146,7 +146,7 @@ labelFunc0402_01BA:
 	UI_add_answer(["鐵匠鋪", "父親", "孤兒"]);
 labelFunc0402_01D6:
 	case "鐵匠鋪" attend labelFunc0402_01E9:
-	message("「父親是 Britannia 最好的鐵匠。總是有來自四面八方的人找他打造各種東西。」");
+	message("「父親是不列顛尼亞最好的鐵匠。總是有來自四面八方的人找他打造各種東西。」");
 	say();
 	UI_remove_answer("鐵匠鋪");
 labelFunc0402_01E9:
@@ -340,7 +340,7 @@ labelFunc0402_04CB:
 	UI_remove_answer("父親");
 labelFunc0402_04E5:
 	case "友誼會" attend labelFunc0402_0503:
-	message("「嗯，一開始他們跑來要我們加入時，還騷擾了父親和我。我想他們也是在做好事。很多人喜歡他們。父親去了一趟 Britain 並且參加了他們的一項測驗後，最終也加入了他們。」");
+	message("「嗯，一開始他們跑來要我們加入時，還騷擾了父親和我。我想他們也是在做好事。很多人喜歡他們。父親去了一趟不列顛城並且參加了他們的一項測驗後，最終也加入了他們。」");
 	say();
 	UI_add_answer("測驗");
 	gflags[0x003F] = true;
@@ -353,7 +353,7 @@ labelFunc0402_0503:
 	UI_remove_answer("測驗");
 labelFunc0402_0523:
 	case "分會" attend labelFunc0402_0536:
-	message("「友誼會在整個 Britannia 都有分會。」");
+	message("「友誼會在整個不列顛尼亞都有分會。」");
 	say();
 	UI_remove_answer("分會");
 labelFunc0402_0536:

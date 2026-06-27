@@ -44,7 +44,7 @@ labelFunc04BF_003F:
 	say();
 	goto labelFunc04BF_009D;
 labelFunc04BF_007C:
-	message("「你當然是！而我是 Mondain 的邪靈，回來對整個 Britannia 進行大破壞。好笑，你看起來不像聖者 (Avatar) ——你看起來像個傻瓜。");
+	message("「你當然是！而我是 Mondain 的邪靈，回來對整個不列顛尼亞進行大破壞。好笑，你看起來不像聖者 (Avatar) ——你看起來像個傻瓜。");
 	say();
 	if (!var0000) goto labelFunc04BF_008D;
 	message("「我能為你做什麼，傻瓜小姐？」");
@@ -186,7 +186,7 @@ labelFunc04BF_0231:
 	UI_add_answer("金庫");
 labelFunc04BF_024B:
 	case "金庫" attend labelFunc04BF_026B:
-	message("Martingo 的眼睛亮了起來。「我的金庫是全 Britannia 防護最嚴密的金庫。沒有人，我再說一遍，『沒有人』能從我的金庫偷走任何東西。我那裡有很多好寶物。」他轉向「Lucinda」並咬了一個不存在的耳垂。");
+	message("Martingo 的眼睛亮了起來。「我的金庫是全不列顛尼亞防護最嚴密的金庫。沒有人，我再說一遍，『沒有人』能從我的金庫偷走任何東西。我那裡有很多好寶物。」他轉向「Lucinda」並咬了一個不存在的耳垂。");
 	say();
 	UI_remove_answer("金庫");
 	UI_add_answer(["寶物", "受保護"]);

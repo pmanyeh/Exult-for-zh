@@ -125,7 +125,7 @@ labelFunc04AC_0194:
 	UI_remove_answer("需求");
 labelFunc04AC_01A7:
 	case "供應" attend labelFunc04AC_01C7:
-	message("「我不時會保留少量銀蛇毒液庫存，賣給 Britannia 的藥劑師以賺取微薄利潤。官方正試圖控制它的銷售，直到他們能夠確定它的影響有多危險。」");
+	message("「我不時會保留少量銀蛇毒液庫存，賣給不列顛尼亞的藥劑師以賺取微薄利潤。官方正試圖控制它的銷售，直到他們能夠確定它的影響有多危險。」");
 	say();
 	UI_remove_answer("供應");
 	UI_add_answer(["藥劑師", "影響"]);
@@ -136,7 +136,7 @@ labelFunc04AC_01C7:
 	UI_remove_answer("藥劑師");
 labelFunc04AC_01DA:
 	case "Paws" attend labelFunc04AC_01FB:
-	message("「我想我的生意賺的錢足夠讓我搬到 Britain 了，但這裡的東西便宜多了。當然，這起竊盜案讓我有點警惕。~~『如果你想多了解這裡的人，可以去跟經營友誼會庇護所的那對夫婦 Feridwyn 和 Brita 談談。』」");
+	message("「我想我的生意賺的錢足夠讓我搬到不列顛城了，但這裡的東西便宜多了。當然，這起竊盜案讓我有點警惕。~~『如果你想多了解這裡的人，可以去跟經營友誼會庇護所的那對夫婦 Feridwyn 和 Brita 談談。』」");
 	say();
 	UI_remove_answer("Paws");
 	if (!(!gflags[0x0218])) goto labelFunc04AC_01FB;
@@ -327,7 +327,7 @@ labelFunc04AC_04F8:
 	UI_remove_answer("販賣");
 labelFunc04AC_050B:
 	case "法律" attend labelFunc04AC_0525:
-	message("「我和 Britannian 礦業公司簽了經過公證的合約。他們用它來讓他們的石像鬼工作更長的時間。看來石像鬼對銀蛇毒液的影響有較強的抵抗力。可憐的傢伙們。」他對自己的笑話惡意地咧嘴一笑。");
+	message("「我和不列顛尼亞n 礦業公司簽了經過公證的合約。他們用它來讓他們的石像鬼工作更長的時間。看來石像鬼對銀蛇毒液的影響有較強的抵抗力。可憐的傢伙們。」他對自己的笑話惡意地咧嘴一笑。");
 	say();
 	UI_remove_answer("法律");
 	UI_add_answer("影響");

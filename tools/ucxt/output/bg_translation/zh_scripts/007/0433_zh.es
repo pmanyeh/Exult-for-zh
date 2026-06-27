@@ -45,16 +45,16 @@ labelFunc0433_0075:
 	UI_add_answer(["Fred", "農夫市集", "買東西"]);
 labelFunc0433_0091:
 	case "Fred" attend labelFunc0433_00B7:
-	message("「我的 Fred 是 Britain 最受尊敬的商人之一。他賣 Brownie 和 Mack 種的蔬菜和雞蛋，還有異國進口水果。」");
+	message("「我的 Fred 是不列顛城最受尊敬的商人之一。他賣 Brownie 和 Mack 種的蔬菜和雞蛋，還有異國進口水果。」");
 	say();
 	UI_remove_answer("Fred");
 	UI_add_answer(["雞蛋", "水果和蔬菜", "Brownie", "Mack"]);
 labelFunc0433_00B7:
 	case "農夫市集" attend labelFunc0433_00D7:
-	message("「農夫市集是大部分 Britain 人買食物的地方。哎呀，就連 Paws 的人也會來這裡買雞蛋和蔬菜。自從多年前開設這個市集以來， Fred 從未漲過任何東西的價格。」");
+	message("「農夫市集是大部分不列顛城人買食物的地方。哎呀，就連 Paws 的人也會來這裡買雞蛋和蔬菜。自從多年前開設這個市集以來， Fred 從未漲過任何東西的價格。」");
 	say();
 	UI_remove_answer("農夫市集");
-	UI_add_answer(["Britain", "Paws"]);
+	UI_add_answer(["不列顛城", "Paws"]);
 labelFunc0433_00D7:
 	case "雞蛋" attend labelFunc0433_00EA:
 	message("「農夫 Mack 的雞下了很多蛋。這裡的人胃口這麼好真是件好事！」");
@@ -76,10 +76,10 @@ labelFunc0433_0110:
 	say();
 	UI_remove_answer("Mack");
 labelFunc0433_0123:
-	case "Britain" attend labelFunc0433_0136:
-	message("「喔，在 Britain 他們會尋找高品質的農產品。我看到在這裡買東西的人會仔細檢查每顆雞蛋有沒有裂縫，每顆蔬菜有沒有腐壞的跡象。」");
+	case "不列顛城" attend labelFunc0433_0136:
+	message("「喔，在不列顛城他們會尋找高品質的農產品。我看到在這裡買東西的人會仔細檢查每顆雞蛋有沒有裂縫，每顆蔬菜有沒有腐壞的跡象。」");
 	say();
-	UI_remove_answer("Britain");
+	UI_remove_answer("不列顛城");
 labelFunc0433_0136:
 	case "Paws" attend labelFunc0433_0149:
 	message("「Paws 的人總是缺錢。我對他們深感同情。他們總是在找最便宜的物品來買，因為那是他們唯一負擔得起的。」");

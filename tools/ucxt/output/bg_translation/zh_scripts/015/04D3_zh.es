@@ -53,7 +53,7 @@ labelFunc04D3_00C3:
 	UI_remove_answer("種族");
 labelFunc04D3_00D6:
 	case "城鎮" attend labelFunc04D3_00F6:
-	message("「被稱作 Vesper 。是除了 Britain 的部分地區之外，唯一一個石像鬼和人類共同生活的地方。告訴你這裡有更多的衝突。」他嘆了口氣。~~「想知道 Terfin 是否會是維持家園更好的選擇。」");
+	message("「被稱作 Vesper 。是除了不列顛城的部分地區之外，唯一一個石像鬼和人類共同生活的地方。告訴你這裡有更多的衝突。」他嘆了口氣。~~「想知道 Terfin 是否會是維持家園更好的選擇。」");
 	say();
 	UI_remove_answer("城鎮");
 	UI_add_answer(["衝突", "Terfin"]);

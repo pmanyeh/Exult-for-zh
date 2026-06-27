@@ -75,7 +75,7 @@ labelFunc08F5_010C:
 	var0007 = true;
 labelFunc08F5_011E:
 	if (!(var000B == 0xFFFD)) goto labelFunc08F5_014C;
-	message("「你好嗎，Shamino？你的荒野求生本領在 Britannia 可是赫赫有名。」");
+	message("「你好嗎，Shamino？你的荒野求生本領在不列顛尼亞可是赫赫有名。」");
 	say();
 	UI_show_npc_face(0xFFFD, 0x0000);
 	message("「名聲總是伴隨著與聖者同行的人。謝謝你。」");

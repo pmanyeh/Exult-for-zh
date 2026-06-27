@@ -39,7 +39,7 @@ labelFunc04D2_005E:
 	UI_add_answer(["Vesper", "市長"]);
 labelFunc04D2_0077:
 	case "Vesper" attend labelFunc04D2_0097:
-	message("「我喜歡這個城鎮，但它離 Britain 太遠了，以至於吸引了一些真正……不尋常的人。」");
+	message("「我喜歡這個城鎮，但它離不列顛城太遠了，以至於吸引了一些真正……不尋常的人。」");
 	say();
 	UI_add_answer(["居民", "奇怪的人"]);
 	UI_remove_answer("Vesper");
@@ -114,7 +114,7 @@ labelFunc04D2_01B3:
 	UI_add_answer("死去的");
 	goto labelFunc04D2_01E8;
 labelFunc04D2_01DD:
-	message("「Cador 是這裡 Vesper 的 Britannia 礦業公司分部的負責人。」");
+	message("「Cador 是這裡 Vesper 的不列顛尼亞礦業公司分部的負責人。」");
 	say();
 	UI_remove_answer("Cador");
 labelFunc04D2_01E8:

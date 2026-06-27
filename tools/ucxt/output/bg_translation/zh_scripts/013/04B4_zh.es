@@ -79,7 +79,7 @@ labelFunc04B4_0105:
 	UI_remove_answer("Sultan");
 labelFunc04B4_0129:
 	case "安全" attend labelFunc04B4_013C:
-	message("他點點頭。「據說擁有全 Britannia 防守最嚴密的金庫之一。據說是被附魔過的。不知道細節。」");
+	message("他點點頭。「據說擁有全不列顛尼亞防守最嚴密的金庫之一。據說是被附魔過的。不知道細節。」");
 	say();
 	UI_remove_answer("安全");
 labelFunc04B4_013C:

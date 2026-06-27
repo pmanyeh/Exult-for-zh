@@ -94,7 +94,7 @@ labelFunc04AB_0149:
 	UI_remove_answer("Tobias");
 labelFunc04AB_0150:
 	case "招募" attend labelFunc04AB_0163:
-	message("「我父親曾經是 Britain 的首席招募員，直到他們把他調來這裡。我曾聽他對母親說，友誼會在這裡是浪費時間。」");
+	message("「我父親曾經是不列顛城的首席招募員，直到他們把他調來這裡。我曾聽他對母親說，友誼會在這裡是浪費時間。」");
 	say();
 	UI_remove_answer("招募");
 labelFunc04AB_0163:

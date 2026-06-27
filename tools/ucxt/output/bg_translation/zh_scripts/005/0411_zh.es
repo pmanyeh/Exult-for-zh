@@ -40,7 +40,7 @@ labelFunc0411_0074:
 	say();
 labelFunc0411_0080:
 	case "謀殺" attend labelFunc0411_0093:
-	message("「'對 Britannia 來說，發生這樣的事情實在令人悲哀。 Christopher 是個好人。我希望兇手能被繩之以法。」");
+	message("「'對不列顛尼亞來說，發生這樣的事情實在令人悲哀。 Christopher 是個好人。我希望兇手能被繩之以法。」");
 	say();
 	UI_remove_answer("謀殺");
 labelFunc0411_0093:
@@ -48,7 +48,7 @@ labelFunc0411_0093:
 	Func0860(0x001E, 0x0032, 0x0190);
 labelFunc0411_00A7:
 	case "友誼會" attend labelFunc0411_00CE:
-	message("醫者皺起眉頭。「友誼會不欣賞醫者在 Britannia 所做的努力。雖然他們做了令人欽佩的事情，但友誼會在評估對醫者的需求時，目光短淺。他們相信我們的工作可以透過所謂的『內在力量的三位一體(Triad of Inner Strength)』來完成。」");
+	message("醫者皺起眉頭。「友誼會不欣賞醫者在不列顛尼亞所做的努力。雖然他們做了令人欽佩的事情，但友誼會在評估對醫者的需求時，目光短淺。他們相信我們的工作可以透過所謂的『內在力量的三位一體(Triad of Inner Strength)』來完成。」");
 	say();
 	if (!var0001) goto labelFunc0411_00C7;
 	message("Chantu 注意到你的徽章，眼睛睜大了。");

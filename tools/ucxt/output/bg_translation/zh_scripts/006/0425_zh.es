@@ -94,7 +94,7 @@ labelFunc0425_0146:
 	UI_remove_answer("姓名");
 labelFunc0425_015C:
 	case "職業" attend labelFunc0425_01C0:
-	message("「我經營藍野豬酒館。 Britannia 最古老的酒館。」");
+	message("「我經營藍野豬酒館。不列顛尼亞最古老的酒館。」");
 	say();
 	if (!(var0003 == 0x0017)) goto labelFunc0425_01BC;
 	message("「如果你想吃點或喝點什麼，只要說一聲！」");
@@ -143,7 +143,7 @@ labelFunc0425_020F:
 	UI_add_answer("狂歡");
 labelFunc0425_021D:
 	case "狂歡" attend labelFunc0425_0230:
-	message("Lucy 笑了。「狂歡！唱歌！跳舞！吃東西！喝酒！在一個可以讓人停下來享受生活的地方和時刻！我看得出來，你已經很久沒有品嚐 Britannia 生活中簡單的樂趣了！」");
+	message("Lucy 笑了。「狂歡！唱歌！跳舞！吃東西！喝酒！在一個可以讓人停下來享受生活的地方和時刻！我看得出來，你已經很久沒有品嚐不列顛尼亞生活中簡單的樂趣了！」");
 	say();
 	UI_remove_answer("狂歡");
 labelFunc0425_0230:
@@ -166,7 +166,7 @@ labelFunc0425_025C:
 	UI_add_answer("銀樹葉");
 labelFunc0425_0276:
 	case "飲料" attend labelFunc0425_0289:
-	message("「我提供 Britain 最棒的麥酒和葡萄酒。」");
+	message("「我提供不列顛城最棒的麥酒和葡萄酒。」");
 	say();
 	UI_remove_answer("飲料");
 labelFunc0425_0289:

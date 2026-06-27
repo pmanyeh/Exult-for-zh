@@ -182,7 +182,7 @@ labelFunc04B1_02AB:
 	UI_remove_answer("Feridwyn");
 labelFunc04B1_02BE:
 	case "Tobias 沉冤得雪" attend labelFunc04B1_02D1:
-	message("你告訴 Camille 你是如何發現 Garritt 才是真正的小偷，而她的兒子 Tobias 已經洗清了嫌疑。「我要感謝你在我們鎮上找到了小偷，並還我兒子清白。看到聖者再次回到我們身邊，而且你夠關心 Britannia 的人民，願意幫助解決我們 Paws 這裡的當地麻煩，這讓我的心感到安慰。聖者，我再次感謝你。」");
+	message("你告訴 Camille 你是如何發現 Garritt 才是真正的小偷，而她的兒子 Tobias 已經洗清了嫌疑。「我要感謝你在我們鎮上找到了小偷，並還我兒子清白。看到聖者再次回到我們身邊，而且你夠關心不列顛尼亞的人民，願意幫助解決我們 Paws 這裡的當地麻煩，這讓我的心感到安慰。聖者，我再次感謝你。」");
 	say();
 	UI_remove_answer("Tobias 沉冤得雪");
 labelFunc04B1_02D1:

@@ -46,7 +46,7 @@ void Func043B object#(0x43B) ()
 	goto labelFunc043B_0074;
 labelFunc043B_005F:
 	if (!gflags[0x00DA]) goto labelFunc043B_006F;
-	message("「我無法想像 Batlin 在哪裡。他從不錯過友誼會集會！」");
+	message("「我無法想像巴特林在哪裡。他從不錯過友誼會集會！」");
 	say();
 	goto labelFunc043B_0074;
 	goto labelFunc043B_0074;
@@ -74,9 +74,9 @@ labelFunc043B_00A0:
 	UI_remove_answer("姓名");
 labelFunc043B_00B6:
 	case "職業" attend labelFunc043B_00D5:
-	message("「當我不在處理友誼會事務時，我是 Britain 這裡的珠寶商。如果你想買些什麼，請說！」");
+	message("「當我不在處理友誼會事務時，我是不列顛城這裡的珠寶商。如果你想買些什麼，請說！」");
 	say();
-	UI_add_answer(["友誼會", "珠寶商", "Britain", "買東西"]);
+	UI_add_answer(["友誼會", "珠寶商", "不列顛城", "買東西"]);
 labelFunc043B_00D5:
 	case "珠寶商" attend labelFunc043B_00F5:
 	message("「這是一項非常精細的工作。它需要只有少數人擁有的特殊手感。你必須確切地知道如何處理珍貴的材料。只有最優秀的工匠才能成為珠寶商，而且他們能獲得最高的報酬。」");
@@ -194,10 +194,10 @@ labelFunc043B_02A3:
 labelFunc043B_02A7:
 	UI_remove_answer("理念");
 labelFunc043B_02AE:
-	case "Britain" attend labelFunc043B_02C8:
-	message("「我把整個生意搬到 Britain ，就是為了靠近友誼會的總部。你根本無法想像我加入友誼會之後，我的生意改善了多少。」");
+	case "不列顛城" attend labelFunc043B_02C8:
+	message("「我把整個生意搬到不列顛城，就是為了靠近友誼會的總部。你根本無法想像我加入友誼會之後，我的生意改善了多少。」");
 	say();
-	UI_remove_answer("Britain");
+	UI_remove_answer("不列顛城");
 	UI_add_answer("友誼會");
 labelFunc043B_02C8:
 	case "買東西" attend labelFunc043B_02FC:

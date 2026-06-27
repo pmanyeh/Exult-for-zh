@@ -34,12 +34,12 @@ labelFunc0441_005E:
 	UI_remove_answer("Wislem");
 labelFunc0441_0071:
 	case "職業" attend labelFunc0441_0084:
-	message("「擔任 Lord British 的顧問，並作為我們種族在 Britain 這裡的代表。很榮幸能成為國王漫長的顧問名單中的一員。」");
+	message("「擔任不列顛王的顧問，並作為我們種族在不列顛城這裡的代表。很榮幸能成為國王漫長的顧問名單中的一員。」");
 	say();
 	UI_add_answer("顧問");
 labelFunc0441_0084:
 	case "顧問" attend labelFunc0441_00A4:
-	message("「為了確保石像鬼種族的聲音在城堡裡被聽見。要被 Britannia 社會接受和融合，是一條漫長的路。」");
+	message("「為了確保石像鬼種族的聲音在城堡裡被聽見。要被不列顛尼亞社會接受和融合，是一條漫長的路。」");
 	say();
 	UI_add_answer(["融合", "社會"]);
 	UI_remove_answer("顧問");

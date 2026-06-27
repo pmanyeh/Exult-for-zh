@@ -38,7 +38,7 @@ labelFunc0432_0059:
 	UI_remove_answer("姓名");
 labelFunc0432_006F:
 	case "職業" attend labelFunc0432_0088:
-	message("「我在 Britain 的農夫市集 (Farmer's Market) 這裡賣肉。」");
+	message("「我在不列顛城的農夫市集 (Farmer's Market) 這裡賣肉。」");
 	say();
 	UI_add_answer(["肉類", "農夫市集"]);
 labelFunc0432_0088:
@@ -123,7 +123,7 @@ labelFunc0432_01CD:
 	var0005 = "@賣雞蛋囉！@";
 labelFunc0432_01DD:
 	if (!(var0004 == 0x0004)) goto labelFunc0432_01ED;
-	var0005 = "@全 Britannia 最好的價格！@";
+	var0005 = "@全不列顛尼亞最好的價格！@";
 labelFunc0432_01ED:
 	UI_item_say(0xFFCE, var0005);
 	goto labelFunc0432_0200;

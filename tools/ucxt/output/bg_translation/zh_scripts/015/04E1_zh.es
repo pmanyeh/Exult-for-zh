@@ -23,7 +23,7 @@ void Func04E1 object#(0x4E1) ()
 	UI_add_answer("Hook");
 labelFunc04E1_005D:
 	if (!(!gflags[0x02AE])) goto labelFunc04E1_006F;
-	message("你看到你在 Britannia 見過最兇惡、最難纏的守衛。");
+	message("你看到你在不列顛尼亞見過最兇惡、最難纏的守衛。");
 	say();
 	gflags[0x02AE] = true;
 	goto labelFunc04E1_0073;

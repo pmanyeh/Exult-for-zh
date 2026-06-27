@@ -97,7 +97,7 @@ labelFunc042C_0147:
 	UI_remove_answer("低賤乞丐");
 labelFunc042C_015A:
 	case "王座居民" attend labelFunc042C_016D:
-	message("「你的無知讓我感到不安，~你肯定聽說過睿智的 Lord British。」");
+	message("「你的無知讓我感到不安，~你肯定聽說過睿智的不列顛王。」");
 	say();
 	UI_remove_answer("王座居民");
 labelFunc042C_016D:

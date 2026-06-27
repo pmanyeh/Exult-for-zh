@@ -154,7 +154,7 @@ labelFunc0439_021A:
 labelFunc0439_0221:
 	case "皇冠寶石號" attend labelFunc0439_024D:
 	if (!(!gflags[0x0086])) goto labelFunc0439_023B;
-	message("「皇冠寶石號 (Crown Jewel) 來過 Britain ？最近絕對沒有。肯定沒有。我記得皇冠寶石號，它已經很久沒來 Britain 了。」");
+	message("「皇冠寶石號 (Crown Jewel) 來過不列顛城？最近絕對沒有。肯定沒有。我記得皇冠寶石號，它已經很久沒來不列顛城了。」");
 	say();
 	gflags[0x0086] = true;
 	goto labelFunc0439_0246;

@@ -142,7 +142,7 @@ labelFunc04AA_020E:
 	UI_remove_answer("寡婦");
 labelFunc04AA_0221:
 	case "Komor" attend labelFunc04AA_0234:
-	message("「他曾經擁有全 Britannia 最大的農場之一。他出生於富裕的家庭。失去農場後，他開始睡在路邊。一天晚上，一群惡霸想搶他的金幣。他沒有，所以他們把他打成了瘸子。他是個充滿怨恨的人。真悲慘。」");
+	message("「他曾經擁有全不列顛尼亞最大的農場之一。他出生於富裕的家庭。失去農場後，他開始睡在路邊。一天晚上，一群惡霸想搶他的金幣。他沒有，所以他們把他打成了瘸子。他是個充滿怨恨的人。真悲慘。」");
 	say();
 	UI_remove_answer("Komor");
 labelFunc04AA_0234:

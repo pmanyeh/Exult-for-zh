@@ -15,7 +15,7 @@ labelFunc08D5_0015:
 	say();
 	if (!(!gflags[0x003A])) goto labelFunc08D5_00C6;
 	if (!(!gflags[0x0087])) goto labelFunc08D5_0031;
-	message("「他們在前往 Britain 的路上順道把你帶來這裡。」");
+	message("「他們在前往不列顛城的路上順道把你帶來這裡。」");
 	say();
 labelFunc08D5_0031:
 	if (!(gflags[0x0087] && (!gflags[0x0105]))) goto labelFunc08D5_0040;
@@ -32,7 +32,7 @@ labelFunc08D5_0053:
 	say();
 labelFunc08D5_0062:
 	if (!(gflags[0x016B] && (!gflags[0x0088]))) goto labelFunc08D5_0071;
-	message("「他們在前往 Britain 的路上順道把你帶來這裡。」");
+	message("「他們在前往不列顛城的路上順道把你帶來這裡。」");
 	say();
 labelFunc08D5_0071:
 	if (!(gflags[0x0088] && (!gflags[0x0284]))) goto labelFunc08D5_0080;

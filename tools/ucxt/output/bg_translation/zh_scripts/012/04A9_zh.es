@@ -33,7 +33,7 @@ labelFunc04A9_0061:
 	case "職業" attend labelFunc04A9_0080:
 	message("「我...沒有工作，");
 	message(var0000);
-	message("。除了作為我孩子的母親，我正在等我丈夫 Weston 從 Britain 回來。」");
+	message("。除了作為我孩子的母親，我正在等我丈夫 Weston 從不列顛城回來。」");
 	say();
 	UI_add_answer(["孩子", "Weston"]);
 labelFunc04A9_0080:
@@ -46,11 +46,11 @@ labelFunc04A9_0093:
 	if (!gflags[0x00CC]) goto labelFunc04A9_00AE;
 	message("「好消息，");
 	message(var0000);
-	message("！我丈夫被 Lord British 赦免了。他甚至為 Weston 提供了短期的工作，這樣他就能口袋裡帶著足夠養活我們一段時間的錢回到我身邊！~~好消息，不是嗎？」");
+	message("！我丈夫被不列顛王赦免了。他甚至為 Weston 提供了短期的工作，這樣他就能口袋裡帶著足夠養活我們一段時間的錢回到我身邊！~~好消息，不是嗎？」");
 	say();
 	goto labelFunc04A9_00B9;
 labelFunc04A9_00AE:
-	message("「我丈夫因為偷了皇家果園的水果被關在 Britain 的監獄裡。」");
+	message("「我丈夫因為偷了皇家果園的水果被關在不列顛城的監獄裡。」");
 	say();
 	UI_add_answer("偷竊");
 labelFunc04A9_00B9:

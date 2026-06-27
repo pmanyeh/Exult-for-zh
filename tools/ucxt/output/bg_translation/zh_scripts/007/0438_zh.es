@@ -41,19 +41,19 @@ labelFunc0438_005F:
 	UI_remove_answer("姓名");
 labelFunc0438_0075:
 	case "職業" attend labelFunc0438_0091:
-	message("「我的工作是負責管理 Britain 這裡的馬廄，如果你需要的話，也可以賣馬匹和馬車給你。」");
+	message("「我的工作是負責管理不列顛城這裡的馬廄，如果你需要的話，也可以賣馬匹和馬車給你。」");
 	say();
-	UI_add_answer(["馬廄", "Britain", "馬車"]);
+	UI_add_answer(["馬廄", "不列顛城", "馬車"]);
 labelFunc0438_0091:
 	case "馬廄" attend labelFunc0438_00A4:
-	message("「在這裡你會找到由 Lord British 御用馬匹飼育員培育出的頂級馬匹。如果你想買一匹，我相信我們可以商量出一個好價格。當然，牠們會附帶馬車。」");
+	message("「在這裡你會找到由不列顛王御用馬匹飼育員培育出的頂級馬匹。如果你想買一匹，我相信我們可以商量出一個好價格。當然，牠們會附帶馬車。」");
 	say();
 	UI_remove_answer("馬廄");
 labelFunc0438_00A4:
-	case "Britain" attend labelFunc0438_00BE:
-	message("「Britain 是個如此宏偉的城市，但如果你誰都不認識，可能會有些令人不安。幸運的是，我認識這裡的很多人。」");
+	case "不列顛城" attend labelFunc0438_00BE:
+	message("「不列顛城是個如此宏偉的城市，但如果你誰都不認識，可能會有些令人不安。幸運的是，我認識這裡的很多人。」");
 	say();
-	UI_remove_answer("Britain");
+	UI_remove_answer("不列顛城");
 	UI_add_answer("很多人");
 labelFunc0438_00BE:
 	case "馬車" attend labelFunc0438_0141:
@@ -86,7 +86,7 @@ labelFunc0438_013A:
 	UI_remove_answer("馬車");
 labelFunc0438_0141:
 	case "很多人" attend labelFunc0438_0167:
-	message("「我在 Britannia 認識很多朋友。其中包括 Greg 、 James 、 Brownie 和 Mack 。」");
+	message("「我在不列顛尼亞認識很多朋友。其中包括 Greg 、 James 、 Brownie 和 Mack 。」");
 	say();
 	UI_remove_answer("很多人");
 	UI_add_answer(["Greg", "James", "Brownie", "Mack"]);

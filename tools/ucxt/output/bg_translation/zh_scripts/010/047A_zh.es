@@ -179,7 +179,7 @@ labelFunc047A_02C8:
 	UI_remove_answer("房間");
 labelFunc047A_02CF:
 	case "Sprellic" attend labelFunc047A_02E9:
-	message("「沒有人比我更了解老 Sprellic 了。雖然他看起來不像，但他很可能是全不列顛尼亞(Britannia)最致命的戰鬥大師。」");
+	message("「沒有人比我更了解老 Sprellic 了。雖然他看起來不像，但他很可能是全不列顛尼亞(不列顛尼亞)最致命的戰鬥大師。」");
 	say();
 	UI_remove_answer("Sprellic");
 	UI_add_answer("大師");

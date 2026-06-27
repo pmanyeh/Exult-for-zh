@@ -45,18 +45,18 @@ labelFunc04ED_0075:
 	UI_remove_answer("姓名");
 labelFunc04ED_008B:
 	case "職業" attend labelFunc04ED_009E:
-	message("「我在 Britain 這裡經營藥劑店。」");
+	message("「我在不列顛城這裡經營藥劑店。」");
 	say();
 	UI_add_answer("藥劑師");
 labelFunc04ED_009E:
 	case "藥劑師" attend labelFunc04ED_00C1:
-	message("「雖然藥劑師的正常職責是管理藥水和魔法配方，但我現在幾乎專為 Lord British 工作，試圖研究一個特定的問題。」");
+	message("「雖然藥劑師的正常職責是管理藥水和魔法配方，但我現在幾乎專為不列顛王工作，試圖研究一個特定的問題。」");
 	say();
 	UI_remove_answer("藥劑師");
 	UI_add_answer(["藥水", "研究", "問題"]);
 labelFunc04ED_00C1:
 	case "藥水" attend labelFunc04ED_00E1:
-	message("「它們在 Britannia 這裡絕對不是最近的發明！藥水是具有某些魔法特性的液體，用於各種目的，例如治療傷害和疾病。如果你感興趣的話，我有一些可以出售。」");
+	message("「它們在不列顛尼亞這裡絕對不是最近的發明！藥水是具有某些魔法特性的液體，用於各種目的，例如治療傷害和疾病。如果你感興趣的話，我有一些可以出售。」");
 	say();
 	UI_remove_answer("藥水");
 	UI_add_answer(["魔法特性", "買藥水"]);
@@ -102,7 +102,7 @@ labelFunc04ED_017B:
 	UI_remove_answer("尋找");
 labelFunc04ED_0192:
 	case "其他困難" attend labelFunc04ED_01A5:
-	message("「人們需要被警告銀蛇毒液有多危險。為此，我希望在 Lord British 和領主與市長們的會議前發表我的發現，但為了做到這一點，我必須先完成我的研究。」");
+	message("「人們需要被警告銀蛇毒液有多危險。為此，我希望在不列顛王和領主與市長們的會議前發表我的發現，但為了做到這一點，我必須先完成我的研究。」");
 	say();
 	UI_remove_answer("其他困難");
 labelFunc04ED_01A5:

@@ -43,7 +43,7 @@ labelFunc046E_0054:
 labelFunc046E_0058:
 	converse attend labelFunc046E_02EE;
 	case "姓名" attend labelFunc046E_009B:
-	message("法師盯著你看了一會兒。「你是 Britannia 稅務委員會 (Tax Council) 的人嗎？」");
+	message("法師盯著你看了一會兒。「你是不列顛尼亞稅務委員會 (Tax Council) 的人嗎？」");
 	say();
 	var0000 = Func090A();
 	if (!var0000) goto labelFunc046E_007B;

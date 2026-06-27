@@ -120,7 +120,7 @@ labelFunc0884_01D0:
 	var0004 = Func090B(var0002);
 	if (!(var0004 == "皇冠寶石號 (Crown Jewel)")) goto labelFunc0884_0296;
 	gflags[0x0063] = true;
-	message("鎮長露出滿意的神情。~~「看來你確實有在查。依目前線索判斷，你應該前往 Britain，追查那名裝著鐵鉤的男子。」");
+	message("鎮長露出滿意的神情。~~「看來你確實有在查。依目前線索判斷，你應該前往不列顛城，追查那名裝著鐵鉤的男子。」");
 	say();
 	if (!(!gflags[0x0044])) goto labelFunc0884_0228;
 	message("「這是賞金的一半。等你證明兇手已經受到應有制裁，剩下的部分再交給你。」");

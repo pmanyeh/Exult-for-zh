@@ -69,7 +69,7 @@ labelFunc04AD_00B2:
 labelFunc04AD_00C5:
 	case "買東西" attend labelFunc04AD_00F0:
 	if (!(var0002 == 0x0007)) goto labelFunc04AD_00E5;
-	message("「在我的店裡可以買到許多稀有精美的東西。全 Britannia 其他地方都找不到的便宜貨。」");
+	message("「在我的店裡可以買到許多稀有精美的東西。全不列顛尼亞其他地方都找不到的便宜貨。」");
 	say();
 	UI_add_answer("許多精美的東西");
 	goto labelFunc04AD_00E9;
@@ -107,7 +107,7 @@ labelFunc04AD_0163:
 	UI_remove_answer("搖籃");
 labelFunc04AD_016A:
 	case "搖馬" attend labelFunc04AD_01B5:
-	message("「這匹搖馬曾經屬於一位名叫 Diane 的 Britain 小女孩。她長大後成為了騎術最精湛的馬術家之一。我可以讓你用十二枚金幣買下這件稀有而不尋常的物品。你想買嗎？」");
+	message("「這匹搖馬曾經屬於一位名叫 Diane 的不列顛城小女孩。她長大後成為了騎術最精湛的馬術家之一。我可以讓你用十二枚金幣買下這件稀有而不尋常的物品。你想買嗎？」");
 	say();
 	var0006 = Func090A();
 	if (!var0006) goto labelFunc04AD_01AA;

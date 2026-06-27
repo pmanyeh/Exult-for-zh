@@ -307,7 +307,7 @@ labelFunc009A_0539:
 	say();
 	message("正是這種好奇心把我帶到了這座島嶼， Mondain 和 Minax 的子嗣 Exodus 曾經試圖從這裡統治世界。");
 	say();
-	message("這裡的書籍和卷軸教會了我許多關於 Britannia 的歷史與其他……有趣的主題。」");
+	message("這裡的書籍和卷軸教會了我許多關於不列顛尼亞的歷史與其他……有趣的主題。」");
 	say();
 	message("他混濁的雙眼閃爍著智慧。但你忍不住好奇，書籍和卷軸對一個受失明之苦的人能有什麼用。");
 	say();
@@ -348,7 +348,7 @@ labelFunc009A_05C7:
 	say();
 	if (!UI_find_nearest(item, 0x01D1, 0x0028)) goto labelFunc009A_062C;
 	UI_show_npc_face(0xFFFF, 0x0000);
-	message("Iolo 帶著憤慨的神情說道：「請原諒，先生。但我必須讓你知道，關於聖者的民謠仍然為 Britannia 所有最高級的酒館增添光彩。」");
+	message("Iolo 帶著憤慨的神情說道：「請原諒，先生。但我必須讓你知道，關於聖者的民謠仍然為不列顛尼亞所有最高級的酒館增添光彩。」");
 	say();
 	UI_show_npc_face(0xFEE2, 0x0000);
 	message("「那真是種可疑的榮耀啊。」法師的嘴角泛起一絲微妙的微笑。");
@@ -488,7 +488,7 @@ labelFunc009A_07D7:
 	UI_remove_answer("釋放");
 labelFunc009A_07F1:
 	case "監獄" attend labelFunc009A_080B:
-	message("「確實如此。 Arcadion 試圖統治 Britannia ，並相信這顆寶石能讓他在此施展他的力量。事實上，以太寶石的作用恰恰相反，擁有這顆寶石的人將能夠使用他的力量。」");
+	message("「確實如此。 Arcadion 試圖統治不列顛尼亞，並相信這顆寶石能讓他在此施展他的力量。事實上，以太寶石的作用恰恰相反，擁有這顆寶石的人將能夠使用他的力量。」");
 	say();
 	UI_add_answer("以太寶石");
 	UI_remove_answer("監獄");
@@ -506,7 +506,7 @@ labelFunc009A_082E:
 	UI_remove_answer("魔像");
 labelFunc009A_0848:
 	case "原則神殿" attend labelFunc009A_085B:
-	message("「神殿就在大廳後方的門外。在那裡你可以找到三尊雕像，每一尊都獻給 Lord British 在啟蒙時代初期所設立的某項原則。」他神祕兮兮地補充道：「是有點古板，不過當衣架倒是挺不錯的。」");
+	message("「神殿就在大廳後方的門外。在那裡你可以找到三尊雕像，每一尊都獻給不列顛王在啟蒙時代初期所設立的某項原則。」他神祕兮兮地補充道：「是有點古板，不過當衣架倒是挺不錯的。」");
 	say();
 	UI_remove_answer("原則神殿");
 labelFunc009A_085B:
@@ -522,7 +522,7 @@ labelFunc009A_086E:
 labelFunc009A_0886:
 	var0019 = "英雄的";
 labelFunc009A_088C:
-	message("「我相信這是由 Lord British 發起的，為了考驗……」他朝著你的方向比劃了一下，「一位具備美德的");
+	message("「我相信這是由不列顛王發起的，為了考驗……」他朝著你的方向比劃了一下，「一位具備美德的");
 	message(var0019);
 	message("戰鬥能力和勇氣。不過，城堡後方的那些雕像可以告訴你更多關於考驗的事。」 Erethian 神秘地咧嘴笑了。");
 	say();

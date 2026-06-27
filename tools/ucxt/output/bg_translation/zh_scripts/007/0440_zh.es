@@ -32,7 +32,7 @@ labelFunc0440_0051:
 	UI_remove_answer("姓名");
 labelFunc0440_0067:
 	case "職業" attend labelFunc0440_007A:
-	message("「這些日子以來，我仍然擔任皇家守衛隊長的職位。我是 Lord British 的私人貼身侍衛，而且我負責城堡的安全。我現在沒有太多時間，也沒必要去冒險了。」");
+	message("「這些日子以來，我仍然擔任皇家守衛隊長的職位。我是不列顛王的私人貼身侍衛，而且我負責城堡的安全。我現在沒有太多時間，也沒必要去冒險了。」");
 	say();
 	UI_add_answer("冒險");
 labelFunc0440_007A:
@@ -43,18 +43,18 @@ labelFunc0440_007A:
 	UI_add_answer(["老了", "協助"]);
 labelFunc0440_009A:
 	case "老了" attend labelFunc0440_00AD:
-	message("「是的，以 Britannia 的曆法來算，我已經很久沒見過我的故鄉了。當你完成你的事情後，一定要回來告訴我我們家鄉發生的新聞。」");
+	message("「是的，以不列顛尼亞的曆法來算，我已經很久沒見過我的故鄉了。當你完成你的事情後，一定要回來告訴我我們家鄉發生的新聞。」");
 	say();
 	UI_remove_answer("老了");
 labelFunc0440_00AD:
 	case "協助" attend labelFunc0440_00CD:
-	message("「我給你的建議是，盡快累積你的經驗和技能。你已經離開 Britannia 很長一段時間了。你可能不再處於你上次在這裡冒險結束時的最佳狀態。」");
+	message("「我給你的建議是，盡快累積你的經驗和技能。你已經離開不列顛尼亞很長一段時間了。你可能不再處於你上次在這裡冒險結束時的最佳狀態。」");
 	say();
 	UI_remove_answer("協助");
 	UI_add_answer(["經驗", "狀態"]);
 labelFunc0440_00CD:
 	case "狀態" attend labelFunc0440_00E0:
-	message("「這顯然是我們兩個世界的另一個不同之處。每當你回來時，就好像你的肉體是第一次來到這裡一樣。這也是為什麼你許多同伴選擇留在這裡，儘管他們在 Britannia 的時間流逝中已經變老了。」");
+	message("「這顯然是我們兩個世界的另一個不同之處。每當你回來時，就好像你的肉體是第一次來到這裡一樣。這也是為什麼你許多同伴選擇留在這裡，儘管他們在不列顛尼亞的時間流逝中已經變老了。」");
 	say();
 	UI_remove_answer("狀態");
 labelFunc0440_00E0:

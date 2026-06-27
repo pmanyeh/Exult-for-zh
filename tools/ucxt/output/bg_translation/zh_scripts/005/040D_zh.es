@@ -72,14 +72,14 @@ labelFunc040D_010E:
 	UI_remove_answer("重擊");
 labelFunc040D_012E:
 	case "皇冠寶石號 (The Crown Jewel)" attend labelFunc040D_0152:
-	message("「我忘了說嗎？那是一艘整晚停靠在這裡的船。我相信它正準備駛往 Britain。你可以去問造船匠 Gargan 以確認這件事。總之，我沒看到襲擊我的人...」 守衛抱怨道。");
+	message("「我忘了說嗎？那是一艘整晚停靠在這裡的船。我相信它正準備駛往不列顛城。你可以去問造船匠 Gargan 以確認這件事。總之，我沒看到襲擊我的人...」 守衛抱怨道。");
 	say();
 	gflags[0x0040] = true;
 	UI_add_answer(["襲擊者", "Gargan"]);
 	UI_remove_answer("皇冠寶石號 (The Crown Jewel)");
 labelFunc040D_0152:
 	case "襲擊者" attend labelFunc040D_0165:
-	message("「嗯。我懷疑他們是不是跳上了那艘船！他們現在可能已經一路到了 Britain 了！」");
+	message("「嗯。我懷疑他們是不是跳上了那艘船！他們現在可能已經一路到了不列顛城了！」");
 	say();
 	UI_remove_answer("襲擊者");
 labelFunc040D_0165:

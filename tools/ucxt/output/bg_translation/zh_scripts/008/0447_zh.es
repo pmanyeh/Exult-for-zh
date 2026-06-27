@@ -10,7 +10,7 @@ void Func0447 object#(0x447) ()
 	if (!(!gflags[0x00C8])) goto labelFunc0447_0038;
 	message("一隻有翼石像鬼帶著興趣和明顯的智慧看著你。");
 	say();
-	message("「歡迎你來到 Britain ，聖者！」");
+	message("「歡迎你來到不列顛城，聖者！」");
 	say();
 	gflags[0x00C8] = true;
 	goto labelFunc0447_003C;
@@ -31,12 +31,12 @@ labelFunc0447_0059:
 	UI_remove_answer("Inwisloklem");
 labelFunc0447_006C:
 	case "職業" attend labelFunc0447_0085:
-	message("「確實在我的家鄉是名翻譯官。現在在大議會服侍我們最尊貴的統治者 Lord British 。很榮幸能成為議會中的兩名石像鬼之一。」");
+	message("「確實在我的家鄉是名翻譯官。現在在大議會服侍我們最尊貴的統治者不列顛王。很榮幸能成為議會中的兩名石像鬼之一。」");
 	say();
 	UI_add_answer(["石像鬼", "大議會"]);
 labelFunc0447_0085:
 	case "石像鬼" attend labelFunc0447_00A5:
-	message("「作為倖存的石像鬼之一，保存我們的遺產是我一生的工作。告訴你，我們的種族在很多很多年前移民到了 Britannia 。並定居在被稱為 Terfin 的島嶼上。」");
+	message("「作為倖存的石像鬼之一，保存我們的遺產是我一生的工作。告訴你，我們的種族在很多很多年前移民到了不列顛尼亞。並定居在被稱為 Terfin 的島嶼上。」");
 	say();
 	UI_add_answer(["倖存", "Terfin"]);
 	UI_remove_answer("石像鬼");
@@ -47,13 +47,13 @@ labelFunc0447_00A5:
 	UI_remove_answer("倖存");
 labelFunc0447_00B8:
 	case "Terfin" attend labelFunc0447_00D8:
-	message("「是個孤寂的地方。很荒涼。不是人類所謂的『舒適家園』。渴望在 Britannia 為石像鬼建立一種新的生活方式，並消除人類對我們種族的仇恨和誤解。知道無知會滋生偏見。而我是正在糾正這點的其中一人。」");
+	message("「是個孤寂的地方。很荒涼。不是人類所謂的『舒適家園』。渴望在不列顛尼亞為石像鬼建立一種新的生活方式，並消除人類對我們種族的仇恨和誤解。知道無知會滋生偏見。而我是正在糾正這點的其中一人。」");
 	say();
 	UI_add_answer(["生活方式", "其中一人"]);
 	UI_remove_answer("Terfin");
 labelFunc0447_00D8:
 	case "生活方式" attend labelFunc0447_00EB:
-	message("「渴望一個人類和石像鬼能在 Britannia 社會中作為平等個體和平共處的世界。」");
+	message("「渴望一個人類和石像鬼能在不列顛尼亞社會中作為平等個體和平共處的世界。」");
 	say();
 	UI_remove_answer("生活方式");
 labelFunc0447_00EB:
@@ -75,7 +75,7 @@ labelFunc0447_0118:
 	UI_remove_answer("大議會");
 labelFunc0447_0138:
 	case "Miranda" attend labelFunc0447_014B:
-	message("「告訴你， Miranda 是一位聰明的女性，她非常關心所有 Britannia 公民的福祉。她是 Lord British 最信任的顧問之一。」");
+	message("「告訴你， Miranda 是一位聰明的女性，她非常關心所有不列顛尼亞公民的福祉。她是不列顛王最信任的顧問之一。」");
 	say();
 	UI_remove_answer("Miranda");
 labelFunc0447_014B:

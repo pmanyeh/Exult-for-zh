@@ -61,7 +61,7 @@ labelFunc046D_00D6:
 	UI_remove_answer("地理");
 labelFunc046D_00E9:
 	case "自然" attend labelFunc046D_0109:
-	message("「Britannia 有這麼多美麗的事物可看。動物和植物都給觀察者帶來了興奮感。」");
+	message("「不列顛尼亞有這麼多美麗的事物可看。動物和植物都給觀察者帶來了興奮感。」");
 	say();
 	UI_remove_answer("自然");
 	UI_add_answer(["動物", "植物"]);

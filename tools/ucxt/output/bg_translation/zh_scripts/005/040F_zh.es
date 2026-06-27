@@ -58,7 +58,7 @@ labelFunc040F_00BC:
 	say();
 	if (!var0001) goto labelFunc040F_00F8;
 	UI_show_npc_face(0xFFD0, 0x0000);
-	message("「我們的父親是個明智又善良的人。他的死對整個 Britannia 來說都是損失。」她抽泣著。");
+	message("「我們的父親是個明智又善良的人。他的死對整個不列顛尼亞來說都是損失。」她抽泣著。");
 	say();
 	if (!(!gflags[0x02DD])) goto labelFunc040F_00E7;
 	message("「殺他的兇手該死。」");

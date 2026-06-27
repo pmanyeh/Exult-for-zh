@@ -49,7 +49,7 @@ labelFunc04A4_007C:
 	UI_add_answer("水晶");
 labelFunc04A4_00AA:
 	case "旅行" attend labelFunc04A4_00CA:
-	message("「我走遍了整個 Britannia，");
+	message("「我走遍了整個不列顛尼亞，");
 	message(var0001);
 	message("。這片土地上已經沒有什麼能讓我害怕的了。」~~他咧嘴一笑。「但這裡的一些居民就不是這樣了。」");
 	say();

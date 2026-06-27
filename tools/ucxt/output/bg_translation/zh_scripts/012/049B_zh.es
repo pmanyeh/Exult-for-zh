@@ -51,7 +51,7 @@ labelFunc049B_0083:
 	UI_add_answer(["Tolemac", "Morz"]);
 labelFunc049B_00A2:
 	case "Moonglow" attend labelFunc049B_00BC:
-	message("「現在這座城市佔據了整個島嶼，包括 Lycaeum。不過，大多數居民仍然住在南部。我們在 Britain 本島的正東方。」");
+	message("「現在這座城市佔據了整個島嶼，包括 Lycaeum。不過，大多數居民仍然住在南部。我們在不列顛城本島的正東方。」");
 	say();
 	UI_add_answer("居民");
 	UI_remove_answer("Moonglow");

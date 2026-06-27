@@ -57,7 +57,7 @@ labelFunc04F6_00B4:
 	UI_add_answer(["New Magincia", "工作室"]);
 labelFunc04F6_00CD:
 	case "New Magincia" attend labelFunc04F6_00E7:
-	message("這位賢者嘆了口氣。「我離開 Britannia 大陸，來到相對和平安寧的 New Magincia。我在這裡很滿足，因為它與世隔絕，而且免受……Britannia 正在發生的污穢和腐敗的影響。沒有多少人看到這一點。」");
+	message("這位賢者嘆了口氣。「我離開不列顛尼亞大陸，來到相對和平安寧的 New Magincia。我在這裡很滿足，因為它與世隔絕，而且免受……不列顛尼亞正在發生的污穢和腐敗的影響。沒有多少人看到這一點。」");
 	say();
 	UI_remove_answer("New Magincia");
 	UI_add_answer("腐敗");
@@ -79,7 +79,7 @@ labelFunc04F6_0114:
 	UI_remove_answer("鬼火");
 labelFunc04F6_0127:
 	case "腐敗" attend labelFunc04F6_0147:
-	message("「Britannia 的人民變得粗心且懶惰。他們不尋求真正的知識。他們不尊重他們的土地。他們不尊重彼此。我們土地的資源正在被浪費。礦工正在用危險的材料做實驗。這片土地上存在著一種邪惡，而我不確定它是否就在人民自己身上。」");
+	message("「不列顛尼亞的人民變得粗心且懶惰。他們不尋求真正的知識。他們不尊重他們的土地。他們不尊重彼此。我們土地的資源正在被浪費。礦工正在用危險的材料做實驗。這片土地上存在著一種邪惡，而我不確定它是否就在人民自己身上。」");
 	say();
 	UI_remove_answer("腐敗");
 	UI_add_answer(["真正的知識", "邪惡"]);

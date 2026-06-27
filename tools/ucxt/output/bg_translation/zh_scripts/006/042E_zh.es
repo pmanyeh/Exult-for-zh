@@ -57,7 +57,7 @@ labelFunc042E_0095:
 	UI_add_answer(["櫃檯人員", "不輕鬆"]);
 labelFunc042E_00B5:
 	case "旅店" attend labelFunc042E_00C8:
-	message("「這個地方叫做『旅人旅館』。它在 Britain 有著悠久而豐富的歷史。如果你的祖父母曾經來過這個城鎮，他們很可能就是住在這兒。」");
+	message("「這個地方叫做『旅人旅館』。它在不列顛城有著悠久而豐富的歷史。如果你的祖父母曾經來過這個城鎮，他們很可能就是住在這兒。」");
 	say();
 	UI_remove_answer("旅店");
 labelFunc042E_00C8:

@@ -102,7 +102,7 @@ labelFunc0488_0198:
 	UI_remove_answer("Robin");
 labelFunc0488_01AC:
 	case "職業" attend labelFunc0488_01E8:
-	message("「賭博是 Robin 賺錢的方式。但他花了很多時間談論 Lord British，你甚至會以為他是皇室成員還是什麼的！」");
+	message("「賭博是 Robin 賺錢的方式。但他花了很多時間談論不列顛王，你甚至會以為他是皇室成員還是什麼的！」");
 	say();
 	if (!var0002) goto labelFunc0488_01E1;
 	message("Leavell 臉上突然露出尷尬的表情，並停止了說話。*");

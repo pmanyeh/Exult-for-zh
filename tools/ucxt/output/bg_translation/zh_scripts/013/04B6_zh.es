@@ -69,7 +69,7 @@ labelFunc04B6_0115:
 	UI_add_answer("哪一個？");
 labelFunc04B6_012F:
 	case "哪一個？" attend labelFunc04B6_0142:
-	message("「告訴你另一個叫 Vesper 。位於 Britannia 東北方的沙漠中。不像這裡，那裡也有人類居住。」");
+	message("「告訴你另一個叫 Vesper 。位於不列顛尼亞東北方的沙漠中。不像這裡，那裡也有人類居住。」");
 	say();
 	UI_remove_answer("哪一個？");
 labelFunc04B6_0142:

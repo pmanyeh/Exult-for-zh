@@ -71,7 +71,7 @@ labelFunc0445_0119:
 	UI_add_answer(["Figg", "承認"]);
 labelFunc0445_012D:
 	case "Figg" attend labelFunc0445_016F:
-	message("「我相當肯定，他未經 Lord British 的同意，就免費把一籃籃的水果送給友誼會。」");
+	message("「我相當肯定，他未經不列顛王的同意，就免費把一籃籃的水果送給友誼會。」");
 	say();
 	gflags[0x0094] = true;
 	if (!var0001) goto labelFunc0445_0168;
@@ -91,7 +91,7 @@ labelFunc0445_016F:
 	UI_remove_answer("承認");
 labelFunc0445_0182:
 	case "情況" attend labelFunc0445_01C7:
-	message("「我不是 Britain 人，");
+	message("「我不是不列顛城人，");
 	message(var0000);
 	message("。我來自 Paws ，這也是他們認為我可以被隨便對待的另一個原因。」");
 	say();
@@ -118,12 +118,12 @@ labelFunc0445_01C7:
 	UI_show_npc_face(0xFFBB, 0x0000);
 labelFunc0445_020C:
 	case "小鎮" attend labelFunc0445_021F:
-	message("「不久前， Paws 還是一個繁榮的鄉村沿海村莊。但隨著 Britain 的擴張，我們大部分的當地企業都搬到了那裡。我們變成了一個農業小鎮，而那場七年的乾旱給了我們沉重的打擊，我們至今仍未恢復過來。」");
+	message("「不久前， Paws 還是一個繁榮的鄉村沿海村莊。但隨著不列顛城的擴張，我們大部分的當地企業都搬到了那裡。我們變成了一個農業小鎮，而那場七年的乾旱給了我們沉重的打擊，我們至今仍未恢復過來。」");
 	say();
 	UI_remove_answer("小鎮");
 labelFunc0445_021F:
 	case "貧窮" attend labelFunc0445_0264:
-	message("「我並不想哀嘆我的命運，但我的家人住在 Paws ——我的妻子 Alina 和我的孩子 Cassie 。他們快餓死了，我來 Britain 是為了給他們找食物。」");
+	message("「我並不想哀嘆我的命運，但我的家人住在 Paws ——我的妻子 Alina 和我的孩子 Cassie 。他們快餓死了，我來不列顛城是為了給他們找食物。」");
 	say();
 	if (!var0001) goto labelFunc0445_0250;
 	UI_show_npc_face(0xFEFE, 0x0000);
@@ -141,7 +141,7 @@ labelFunc0445_0264:
 	UI_remove_answer("家人");
 labelFunc0445_0277:
 	case "餓死" attend labelFunc0445_02BC:
-	message("「儘管有些愚人會說出相反的話，但 Britannia 的人民正被階級制度的惡毒暴政所壓榨。當少數人擁有比他們能享受的還多更多的東西時，有許多人每晚卻只能餓著肚子入睡。我的妻子和女兒就是其中兩個。」");
+	message("「儘管有些愚人會說出相反的話，但不列顛尼亞的人民正被階級制度的惡毒暴政所壓榨。當少數人擁有比他們能享受的還多更多的東西時，有許多人每晚卻只能餓著肚子入睡。我的妻子和女兒就是其中兩個。」");
 	say();
 	if (!var0001) goto labelFunc0445_02A8;
 	UI_show_npc_face(0xFEFE, 0x0000);
@@ -154,12 +154,12 @@ labelFunc0445_02A8:
 	UI_add_answer(["愚人", "階級制度"]);
 labelFunc0445_02BC:
 	case "愚人" attend labelFunc0445_02CF:
-	message("「像我們這位好朋友守衛這樣的愚人，會想讓我們相信 Britannia 在兩百多年來什麼都沒變。我們可以裝作所有的問題都不存在一樣地過日子。我告訴你，一開始就是像那樣的人製造了我們的問題。」");
+	message("「像我們這位好朋友守衛這樣的愚人，會想讓我們相信不列顛尼亞在兩百多年來什麼都沒變。我們可以裝作所有的問題都不存在一樣地過日子。我告訴你，一開始就是像那樣的人製造了我們的問題。」");
 	say();
 	UI_remove_answer("愚人");
 labelFunc0445_02CF:
 	case "階級制度" attend labelFunc0445_0321:
-	message("「雖然我肯定 Lord British 是一位公正公平的統治者，但他必定對他的王國裡發生的一切相當不知情。他絕對不會容忍這種不平等的。」");
+	message("「雖然我肯定不列顛王是一位公正公平的統治者，但他必定對他的王國裡發生的一切相當不知情。他絕對不會容忍這種不平等的。」");
 	say();
 	if (!var0001) goto labelFunc0445_0300;
 	UI_show_npc_face(0xFEFE, 0x0000);
@@ -168,7 +168,7 @@ labelFunc0445_02CF:
 	UI_remove_npc_face(0xFEFE);
 	UI_show_npc_face(0xFFBB, 0x0000);
 labelFunc0445_0300:
-	message("「你願意跟 Lord British 談談我的事嗎？我敢打賭他對我的案子完全不知情！拜託！你願意跟他談談嗎？」");
+	message("「你願意跟不列顛王談談我的事嗎？我敢打賭他對我的案子完全不知情！拜託！你願意跟他談談嗎？」");
 	say();
 	if (!Func090A()) goto labelFunc0445_0315;
 	message("「喔，感謝你，聖者！我的命運，以及我妻子和女兒的命運都掌握在你手中了！」");

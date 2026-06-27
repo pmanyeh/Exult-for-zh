@@ -47,7 +47,7 @@ labelFunc049F_006D:
 	UI_add_answer("東北海域");
 labelFunc049F_0099:
 	case "Moonglow" attend labelFunc049F_00AC:
-	message("「這座城鎮幾乎佔據了同名的整座島嶼。這座島位於 Britain 城的正東方，稍微偏南幾度。」");
+	message("「這座城鎮幾乎佔據了同名的整座島嶼。這座島位於不列顛城城的正東方，稍微偏南幾度。」");
 	say();
 	UI_remove_answer("Moonglow");
 labelFunc049F_00AC:

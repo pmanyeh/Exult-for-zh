@@ -31,7 +31,7 @@ void Func0437 object#(0x437) ()
 	goto labelFunc0437_0067;
 labelFunc0437_0052:
 	if (!gflags[0x00DA]) goto labelFunc0437_0062;
-	message("「現在 Batlin 到底會在哪裡？我想我們得在沒有他的情況下開會了！」");
+	message("「現在巴特林到底會在哪裡？我想我們得在沒有他的情況下開會了！」");
 	say();
 	goto labelFunc0437_006D;
 	goto labelFunc0437_0067;
@@ -61,7 +61,7 @@ labelFunc0437_0093:
 	UI_remove_answer("姓名");
 labelFunc0437_00AF:
 	case "職業" attend labelFunc0437_00C8:
-	message("「哎呀，在 Britain 這裡，我賣的是金錢能買到最好的防具和武器。空閒的時候，我為友誼會做事。」");
+	message("「哎呀，在不列顛城這裡，我賣的是金錢能買到最好的防具和武器。空閒的時候，我為友誼會做事。」");
 	say();
 	UI_add_answer(["買東西", "友誼會"]);
 labelFunc0437_00C8:

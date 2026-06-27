@@ -118,7 +118,7 @@ labelFunc04F5_01D7:
 	UI_remove_answer("隱形藥水");
 labelFunc04F5_01DE:
 	case "情報" attend labelFunc04F5_01F5:
-	message("「如果你帶給我隱形藥水，我會告訴你關於 Lord British 、友誼會，或是海盜巢穴 (Buccaneer's Den)的情報。」");
+	message("「如果你帶給我隱形藥水，我會告訴你關於不列顛王、友誼會，或是海盜巢穴 (Buccaneer's Den)的情報。」");
 	say();
 	gflags[0x012F] = true;
 	UI_remove_answer("情報");

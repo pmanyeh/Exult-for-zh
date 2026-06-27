@@ -24,7 +24,7 @@ void Func089F 0x89F (var var0000, var var0001)
 	var0003 = Func090F(var0002);
 	var0004 = Func0908();
 	if (!(var0003 == var0004)) goto labelFunc089F_0025;
-	var0003 = "you";
+	var0003 = "你";
 labelFunc089F_0025:
 	if (!(var0002 == 0x0000)) goto labelFunc089F_0032;
 	goto labelFunc089F_0110;

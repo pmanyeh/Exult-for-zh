@@ -85,14 +85,14 @@ labelFunc0403_TransBook:
 	UI_remove_answer("姓名");
 labelFunc0403_00DB:
 	case "職業" attend labelFunc0403_0106:
-	message("「我希望是跟你一起去冒險！我已經厭倦了在 Britain 閒晃。我們還有很多事可以做！話說回來，你到底去哪了？」");
+	message("「我希望是跟你一起去冒險！我已經厭倦了在不列顛城閒晃。我們還有很多事可以做！話說回來，你到底去哪了？」");
 	say();
 	if (!(!gflags[0x00D5])) goto labelFunc0403_00F9;
 	message("「但請告訴我，是什麼風把你吹來的！」");
 	say();
 	UI_add_answer("Trinsic 的謀殺案");
 labelFunc0403_00F9:
-	UI_add_answer(["Britain", "成就"]);
+	UI_add_answer(["不列顛城", "成就"]);
 labelFunc0403_0106:
 	case "成就" attend labelFunc0403_0126:
 	message("「嗯，我不知道你是否意識到了，但我們在整體魔法以及月之門方面遇到了很多問題。」");
@@ -100,15 +100,15 @@ labelFunc0403_0106:
 	UI_remove_answer("成就");
 	UI_add_answer(["魔法", "月之門"]);
 labelFunc0403_0126:
-	case "Britain" attend labelFunc0403_0146:
-	message("「是的，我最近都在 Britain ，試圖找工作。你知道冒險的機會太少了。人總得找些『其他』的消遣。這倒提醒我了……我有你的懷錶。」");
+	case "不列顛城" attend labelFunc0403_0146:
+	message("「是的，我最近都在不列顛城，試圖找工作。你知道冒險的機會太少了。人總得找些『其他』的消遣。這倒提醒我了……我有你的懷錶。」");
 	say();
-	UI_remove_answer("Britain");
+	UI_remove_answer("不列顛城");
 	UI_add_answer(["消遣", "懷錶"]);
 labelFunc0403_0146:
 	case "懷錶" attend labelFunc0403_0196:
 	if (!(!gflags[0x00D9])) goto labelFunc0403_0185;
-	message("「你上次造訪 Britannia 時把它留下了。拿去吧。」");
+	message("「你上次造訪不列顛尼亞時把它留下了。拿去吧。」");
 	say();
 	var0004 = UI_add_party_items(0x0001, 0x009F, 0xFE99, 0xFE99, false);
 	if (!var0004) goto labelFunc0403_017E;
@@ -130,7 +130,7 @@ labelFunc0403_018F:
 	UI_remove_answer("懷錶");
 labelFunc0403_0196:
 	case "消遣" attend labelFunc0403_0214:
-	message("「老樣子。我不常看到我們的老朋友，而 Lord British 也很少找我做事。我當然沒時間去尋歡作樂或喝酒——我長大了一點。」*");
+	message("「老樣子。我不常看到我們的老朋友，而不列顛王也很少找我做事。我當然沒時間去尋歡作樂或喝酒——我長大了一點。」*");
 	say();
 	UI_remove_answer("消遣");
 	var0005 = Func08F7(0xFFFF);
@@ -151,9 +151,9 @@ labelFunc0403_0196:
 	UI_show_npc_face(0xFFFD, 0x0000);
 	message("「你這頭豬， Iolo 。」");
 	say();
-	UI_add_answer(["Amber", "朋友們", "Lord British"]);
+	UI_add_answer(["Amber", "朋友們", "不列顛王"]);
 labelFunc0403_0214:
-	case "Lord British" attend labelFunc0403_0236:
+	case "不列顛王" attend labelFunc0403_0236:
 	if (!(!gflags[0x0098])) goto labelFunc0403_022B;
 	message("「我建議你立刻去見他！」*");
 	say();
@@ -163,7 +163,7 @@ labelFunc0403_022B:
 	message("「我很高興我看起來沒有『他』那麼老！」");
 	say();
 labelFunc0403_022F:
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc0403_0236:
 	case "朋友們" attend labelFunc0403_0256:
 	message("「我想你是指 Iolo 和 Dupre 吧？」");
@@ -290,7 +290,7 @@ labelFunc0403_043C:
 	case "魔法" attend labelFunc0403_0475:
 	if (!(!gflags[0x0003])) goto labelFunc0403_0464;
 	if (!(!gflags[0x006C])) goto labelFunc0403_045D;
-	message("「全 Britannia 的魔法似乎都受到了干擾。說，你還記得大森林裡的 Nicodemus 嗎？他瘋了，而且變得非常愚蠢。也許我們該去拜訪他。」");
+	message("「全不列顛尼亞的魔法似乎都受到了干擾。說，你還記得大森林裡的 Nicodemus 嗎？他瘋了，而且變得非常愚蠢。也許我們該去拜訪他。」");
 	say();
 	gflags[0x006C] = true;
 	goto labelFunc0403_0461;

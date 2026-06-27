@@ -32,7 +32,7 @@ void Func043F object#(0x43F) ()
 	goto labelFunc043F_005F;
 labelFunc043F_004A:
 	if (!gflags[0x00DA]) goto labelFunc043F_005A;
-	message("Millie 看起來有些不安。「Batlin 以前從未錯過任何一次集會。他想怎樣？難道他想要『我』來主持這場集會嗎？」");
+	message("Millie 看起來有些不安。「巴特林以前從未錯過任何一次集會。他想怎樣？難道他想要『我』來主持這場集會嗎？」");
 	say();
 	goto labelFunc043F_005F;
 	goto labelFunc043F_005F;
@@ -99,14 +99,14 @@ labelFunc043F_0125:
 	UI_add_answer("冥想營");
 labelFunc043F_013F:
 	case "冥想營" attend labelFunc043F_015D:
-	message("「它位於南 Britannia 靠近巨蛇據點（Serpent's Hold）的一座島上。大多數新加入的友誼會成員都會花些時間在那裡學習這個團體的教義。在營隊裡還可以學習如何聆聽『那聲音』。」");
+	message("「它位於南不列顛尼亞靠近巨蛇據點（Serpent's Hold）的一座島上。大多數新加入的友誼會成員都會花些時間在那裡學習這個團體的教義。在營隊裡還可以學習如何聆聽『那聲音』。」");
 	say();
 	UI_add_answer("那聲音");
 	UI_remove_answer("冥想營");
 	gflags[0x008B] = true;
 labelFunc043F_015D:
 	case "那聲音" attend labelFunc043F_0174:
-	message("「友誼會成員有一種會對他們說話的內在聲音。我還沒聽見過，但我正在努力。為了達到這點，我可能需要再去冥想營待個幾天。不過，Batlin 告訴我不要灰心。他說當我證明了自己的價值時，我就會聽見它了。」");
+	message("「友誼會成員有一種會對他們說話的內在聲音。我還沒聽見過，但我正在努力。為了達到這點，我可能需要再去冥想營待個幾天。不過，巴特林告訴我不要灰心。他說當我證明了自己的價值時，我就會聽見它了。」");
 	say();
 	UI_remove_answer("那聲音");
 	gflags[0x008A] = true;
@@ -131,7 +131,7 @@ labelFunc043F_019A:
 	var0006 = UI_die_roll(0x0001, 0x0004);
 	if (!(var0005 == 0x000C)) goto labelFunc043F_021B;
 	if (!(var0006 == 0x0001)) goto labelFunc043F_01DE;
-	var0007 = "Fellowship meeting tonight!@";
+	var0007 = "@今晚在友誼會集會上見！@";
 labelFunc043F_01DE:
 	if (!(var0006 == 0x0002)) goto labelFunc043F_01EE;
 	var0007 = "@追求團結！@";

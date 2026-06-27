@@ -177,7 +177,7 @@ labelFunc0415_02D3:
 	Func088D();
 labelFunc0415_02F1:
 	case "皇冠寶石號 (Crown Jewel)" attend labelFunc0415_031B:
-	message("「是的，那艘船昨晚停泊在這裡。」他查看了他的日誌。「她在日出時開往 Britain 。我不記得有看到任何人上船或下船。」～ Gargan 哼了一聲，又咳嗽了幾下。");
+	message("「是的，那艘船昨晚停泊在這裡。」他查看了他的日誌。「她在日出時開往不列顛城。我不記得有看到任何人上船或下船。」～ Gargan 哼了一聲，又咳嗽了幾下。");
 	say();
 	UI_remove_answer("皇冠寶石號 (Crown Jewel)");
 	var0002 = (var0002 + 0x0001);

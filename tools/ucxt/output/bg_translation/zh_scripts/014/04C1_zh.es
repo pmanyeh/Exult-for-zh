@@ -34,32 +34,32 @@ labelFunc04C1_005A:
 	UI_remove_answer("姓名");
 labelFunc04C1_0070:
 	case "職業" attend labelFunc04C1_0089:
-	message("「我是 Serpent's Hold 這裡的騎士。保護 Britannia 的公民是我的職責。」");
+	message("「我是 Serpent's Hold 這裡的騎士。保護不列顛尼亞的公民是我的職責。」");
 	say();
 	UI_add_answer(["保護", "Serpent's Hold"]);
 labelFunc04C1_0089:
 	case "保護" attend labelFunc04C1_00AF:
 	message("「是的，");
 	message(var0000);
-	message("。出了城鎮， Britannia 其實是個危險的地方。尤其現在統治派系已經變得軟弱了！」");
+	message("。出了城鎮，不列顛尼亞其實是個危險的地方。尤其現在統治派系已經變得軟弱了！」");
 	say();
 	UI_remove_answer("保護");
 	UI_add_answer(["統治派系", "軟弱"]);
 labelFunc04C1_00AF:
 	case "統治派系" attend labelFunc04C1_00C2:
-	message("「嗯，我指的是 Lord British 和他的顧問。」");
+	message("「嗯，我指的是不列顛王和他的顧問。」");
 	say();
 	UI_remove_answer("統治派系");
 labelFunc04C1_00C2:
 	case "軟弱", "無能" attend labelFunc04C1_00E9:
-	message("「雖然我願意追隨這片土地的理想直到天涯海角，但我很難接受 Britannia 的情況如此糟糕。強盜橫行，疾病肆虐城鎮，議會充滿了腐敗。要不是有友誼會，我恐怕很難避免拔劍自刎，儘管這種行為看起來有多麼不光彩。」");
+	message("「雖然我願意追隨這片土地的理想直到天涯海角，但我很難接受不列顛尼亞的情況如此糟糕。強盜橫行，疾病肆虐城鎮，議會充滿了腐敗。要不是有友誼會，我恐怕很難避免拔劍自刎，儘管這種行為看起來有多麼不光彩。」");
 	say();
 	var0001 = true;
 	UI_remove_answer(["軟弱", "無能"]);
 	UI_add_answer("友誼會");
 labelFunc04C1_00E9:
 	case "友誼會" attend labelFunc04C1_0102:
-	message("「一群高貴的人，努力在整個 Britannia 灌輸更多的精神知識。這只是時間問題，");
+	message("「一群高貴的人，努力在整個不列顛尼亞灌輸更多的精神知識。這只是時間問題，");
 	message(var0000);
 	message("，在所有人都能在眼前看見智慧之光。」");
 	say();
@@ -96,7 +96,7 @@ labelFunc04C1_015B:
 labelFunc04C1_0175:
 	case "Jehanne 女士" attend labelFunc04C1_0196:
 	gflags[0x0276] = true;
-	message("他搖搖頭。~~「你寧願相信一個女人的話，也不願相信堡壘騎士的話？你連蟲子都不如！」他瞪了你一會兒，然後表情變了。~~「好吧，」他說，「毀壞雕像的人就是我，但那是因為政府變得太無能、太軟弱了！」他羞愧地轉過身去。~~「如果你認為這樣最好，」他嘆了口氣，「明天我會向我的騎士同僚們乞求原諒。」");
+	message("他搖搖頭。~~「你寧願相信一個女人的話，也不願相信堡壘騎士的話？你連蟲子都不如！」他瞪了你一會兒，然後表情變了。~~「好吧，」他說，「毀壞雕像的人就是我，但那是因為官府變得太無能、太軟弱了！」他羞愧地轉過身去。~~「如果你認為這樣最好，」他嘆了口氣，「明天我會向我的騎士同僚們乞求原諒。」");
 	say();
 	UI_push_answers();
 	UI_add_answer(["這樣最妥當", "不需要"]);

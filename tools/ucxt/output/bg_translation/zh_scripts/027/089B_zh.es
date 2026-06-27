@@ -24,10 +24,10 @@ void Func089B 0x89B (var var0000, var var0001)
 	var0002 = Func0920();
 	var0003 = UI_get_npc_name(var0002);
 	if (!(var0002 == 0xFE9C)) goto labelFunc089B_0023;
-	var0004 = "your";
+	var0004 = "你的";
 	goto labelFunc089B_0029;
 labelFunc089B_0023:
-	var0004 = "their";
+	var0004 = "他們的";
 labelFunc089B_0029:
 	if (!(var0002 == 0x0000)) goto labelFunc089B_0036;
 	goto labelFunc089B_0150;
@@ -63,10 +63,10 @@ labelFunc089B_00AE:
 	message(" 枚金幣，訓練課程開始了。");
 	say();
 	if (!(var0002 == 0xFE9C)) goto labelFunc089B_00DF;
-	var0009 = "you begin";
+	var0009 = "你開始";
 	goto labelFunc089B_00E9;
 labelFunc089B_00DF:
-	var0009 = (var0003 + "begins");
+	var0009 = (var0003 + "開始");
 labelFunc089B_00E9:
 	message("石像鬼開始進行一些高強度的舉重，接著進行擲斧的標靶練習。最後，");
 	message(var0003);

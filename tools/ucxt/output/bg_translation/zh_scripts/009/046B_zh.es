@@ -80,7 +80,7 @@ labelFunc046B_0110:
 	UI_add_answer("家園");
 labelFunc046B_012A:
 	case "眼睛" attend labelFunc046B_013D:
-	message("「獨眼巨人的眼睛對 Britannia 一些不那麼文明的種族來說，被視為一種珍饈。曾經有兩次邪惡的生物試圖奪取我的眼睛，而我也兩次吃了他們的心臟。」");
+	message("「獨眼巨人的眼睛對不列顛尼亞一些不那麼文明的種族來說，被視為一種珍饈。曾經有兩次邪惡的生物試圖奪取我的眼睛，而我也兩次吃了他們的心臟。」");
 	say();
 	UI_remove_answer("眼睛");
 labelFunc046B_013D:

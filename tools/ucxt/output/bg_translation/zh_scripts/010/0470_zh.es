@@ -47,12 +47,12 @@ labelFunc0470_0077:
 	UI_add_answer(["他們", "等死"]);
 labelFunc0470_0097:
 	case "他們" attend labelFunc0470_00C5:
-	message("「是 Britannia 稅務委員會幹的。他們和這裡的兩個人—— Jeff 爵士和 Goth 。」");
+	message("「是不列顛尼亞稅務委員會幹的。他們和這裡的兩個人—— Jeff 爵士和 Goth 。」");
 	say();
 	UI_remove_answer("他們");
 	UI_add_answer(["Jeff 爵士", "Goth"]);
 	if (!(!var0002)) goto labelFunc0470_00C5;
-	UI_add_answer("Britannia 稅務委員會");
+	UI_add_answer("不列顛尼亞稅務委員會");
 labelFunc0470_00C5:
 	case "等死" attend labelFunc0470_00D8:
 	message("「他們告訴我餘生都要待在這裡。我也沒有理由懷疑他們！」");
@@ -60,7 +60,7 @@ labelFunc0470_00C5:
 	UI_remove_answer("等死");
 labelFunc0470_00D8:
 	case "Jeff 爵士" attend labelFunc0470_00EB:
-	message("「那隻驕傲的公雞以為自己高於 Britannia 的所有人。只因為他主持高等法院，他就以為可以對任何人進行審判。」");
+	message("「那隻驕傲的公雞以為自己高於不列顛尼亞的所有人。只因為他主持高等法院，他就以為可以對任何人進行審判。」");
 	say();
 	UI_remove_answer("Jeff 爵士");
 labelFunc0470_00EB:
@@ -69,11 +69,11 @@ labelFunc0470_00EB:
 	say();
 	UI_remove_answer("Goth");
 labelFunc0470_00FE:
-	case "Britannia 稅務委員會" attend labelFunc0470_0115:
+	case "不列顛尼亞稅務委員會" attend labelFunc0470_0115:
 	message("「全都是些小偷！想拿走別人辛苦賺來的金幣。如果他們自己出去賺錢，也許就不需要拿走我們所有的錢了！」");
 	say();
 	var0002 = true;
-	UI_remove_answer("Britannia 稅務委員會");
+	UI_remove_answer("不列顛尼亞稅務委員會");
 labelFunc0470_0115:
 	case "在乎" attend labelFunc0470_0157:
 	message("「你在乎是吧？好吧。如果你告訴我你的名字，我就告訴你我的名字，成交嗎？」");
@@ -98,11 +98,11 @@ labelFunc0470_0157:
 	UI_add_answer(["你的家", "海盜巢穴"]);
 labelFunc0470_0170:
 	case "你的家" attend labelFunc0470_0191:
-	message("「嗯，其實我是因為沒繳稅被關進來的。畢竟，那錢是我……賺來的，為什麼我要交給 Britannia 稅務委員會？」");
+	message("「嗯，其實我是因為沒繳稅被關進來的。畢竟，那錢是我……賺來的，為什麼我要交給不列顛尼亞稅務委員會？」");
 	say();
 	UI_remove_answer("你的家");
 	if (!(!var0002)) goto labelFunc0470_0191;
-	UI_add_answer("Britannia 稅務委員會");
+	UI_add_answer("不列顛尼亞稅務委員會");
 labelFunc0470_0191:
 	case "海盜巢穴" attend labelFunc0470_01B1:
 	message("「你聽過海盜巢穴 (Buccaneer's Den)，不是嗎？就在大陸正東方的那座島。那裡住著一些裝木腿、手是鐵鉤、肩膀上還停著鸚鵡的男人！哈！哈！」");

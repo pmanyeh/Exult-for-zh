@@ -204,7 +204,7 @@ labelFunc0489_02D6:
 	UI_remove_answer("Leavell");
 labelFunc0489_02E9:
 	case "New Magincia" attend labelFunc0489_02FC:
-	message("「我不是在這裡出生的。我年輕時來到這裡。我的父親是個貴族，他更感興趣的是我數金幣，而不是致力於學習。有一段時間我在世界各地旅行，直到我落腳在這裡。這是一個與 Britannia 其他地方都不同的特別之地。所以當你在這裡時，請幫我們好好照顧它。」");
+	message("「我不是在這裡出生的。我年輕時來到這裡。我的父親是個貴族，他更感興趣的是我數金幣，而不是致力於學習。有一段時間我在世界各地旅行，直到我落腳在這裡。這是一個與不列顛尼亞其他地方都不同的特別之地。所以當你在這裡時，請幫我們好好照顧它。」");
 	say();
 	UI_remove_answer("New Magincia");
 labelFunc0489_02FC:

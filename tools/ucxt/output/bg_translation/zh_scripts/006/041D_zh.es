@@ -55,7 +55,7 @@ labelFunc041D_007B:
 	message("「哎呀，我是 -真正的- Iolo ！」*");
 	say();
 	UI_show_npc_face(0xFFE3, 0x0000);
-	message("「你當然是。而我真的是 Lord British 。你一定把我當成笨蛋，以為我會相信那種事。」*");
+	message("「你當然是。而我真的是不列顛王。你一定把我當成笨蛋，以為我會相信那種事。」*");
 	say();
 	UI_show_npc_face(0xFFFF, 0x0000);
 	message("你的朋友對你耳語。「這些演員類型。一群敏感的傢伙，對吧？」*");

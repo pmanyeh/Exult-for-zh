@@ -124,7 +124,7 @@ labelFunc04DE_01D4:
 	Func088F();
 labelFunc04DE_01DF:
 	case "男女䳘" attend labelFunc04DE_01F2:
-	message("「他們來自全 Britannia 各地，來滿足你的每一個願望！我， Glenno ，向他們保證澡堂是已知世界中同類場所中最負盛名的。它可能也是已知世界中唯一這種類型的場所！」");
+	message("「他們來自全不列顛尼亞各地，來滿足你的每一個願望！我， Glenno ，向他們保證澡堂是已知世界中同類場所中最負盛名的。它可能也是已知世界中唯一這種類型的場所！」");
 	say();
 	UI_remove_answer("男女䳘");
 labelFunc04DE_01F2:
@@ -139,7 +139,7 @@ labelFunc04DE_0205:
 	UI_remove_answer("交誼廳");
 labelFunc04DE_0218:
 	case "精美藝術品" attend labelFunc04DE_022B:
-	message("「啊，是的，那些是 Britannia 藝術家 Glen Johnson 筆下的色情傑作。注意到那幅畫的曲線有多麼自然嗎，你不同意嗎？」");
+	message("「啊，是的，那些是不列顛尼亞藝術家 Glen Johnson 筆下的色情傑作。注意到那幅畫的曲線有多麼自然嗎，你不同意嗎？」");
 	say();
 	UI_remove_answer("精美藝術品");
 labelFunc04DE_022B:

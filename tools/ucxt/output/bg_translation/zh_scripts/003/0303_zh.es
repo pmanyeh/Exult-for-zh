@@ -36,7 +36,7 @@ labelFunc0303_00BC:
 	goto labelFunc0303_00D5;
 labelFunc0303_00BF:
 	UI_show_npc_face(0xFFE6, 0x0000);
-	message("法杖發出微弱的光芒。Batlin 假笑著。\"時候未到，聖者。\"");
+	message("法杖發出微弱的光芒。巴特林假笑著。「時候未到，聖者。」");
 	say();
 	UI_remove_npc_face(0xFFE6);
 	abort;

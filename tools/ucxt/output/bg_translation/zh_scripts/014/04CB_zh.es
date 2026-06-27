@@ -71,7 +71,7 @@ labelFunc04CB_0120:
 	UI_remove_answer("姓名");
 labelFunc04CB_0127:
 	case "職業" attend labelFunc04CB_0143:
-	message("「我負責監督 Britannia 礦業公司在 Vesper 的分部。我們開採許多不同的礦物。」");
+	message("「我負責監督不列顛尼亞礦業公司在 Vesper 的分部。我們開採許多不同的礦物。」");
 	say();
 	UI_add_answer(["Vesper", "我們", "礦物"]);
 labelFunc04CB_0143:

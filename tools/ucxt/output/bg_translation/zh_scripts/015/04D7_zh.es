@@ -110,14 +110,14 @@ labelFunc04D7_0186:
 	case "Anmanivas" attend labelFunc04D7_01CD:
 	var0002 = UI_is_dead(UI_get_npc_object(0xFF27));
 	if (!var0002) goto labelFunc04D7_01AF;
-	var0003 = "have been";
+	var0003 = "官府已下令";
 	message("「就在這個酒館被你殺了。不記得了嗎？~~這雖然是他的錯，但還是要告訴你，我對他和他的兄弟感到懊悔。」");
 	say();
 	goto labelFunc04D7_01B5;
 labelFunc04D7_01AF:
-	var0003 = "be";
+	var0003 = "如今官府已下令";
 labelFunc04D7_01B5:
-	message("「曾和 Lap-Lem 一起在礦區工作，但最近才剛離開。」他搖搖頭。~~「恨在那裡工作，以及住在綠洲另一邊的人類。太過暴力。");
+	message("「曾和 Lap-Lem 一起在礦區工作，但最近才剛離開。」他搖搖頭。~~「他痛恨在那裡工作，以及住在綠洲另一邊的人類。他們太過暴力。");
 	message(var0003);
 	message(" 不再被允許到另一側。」");
 	say();
@@ -127,10 +127,10 @@ labelFunc04D7_01CD:
 	case "Foranamo" attend labelFunc04D7_0209:
 	var0004 = UI_is_dead(UI_get_npc_object(0xFF26));
 	if (!var0004) goto labelFunc04D7_01F2;
-	var0005 = "have been";
+	var0005 = "官府已下令";
 	goto labelFunc04D7_01F8;
 labelFunc04D7_01F2:
-	var0005 = "be";
+	var0005 = "如今官府已下令";
 labelFunc04D7_01F8:
 	message("「是 Anmanivas 的兄弟，且由同一個父母撫養長大。和 Anmanivas 一樣憎恨人類，並且，」他嘆了口氣，「");
 	message(var0005);

@@ -63,7 +63,7 @@ labelFunc04E7_0086:
 	message("「是的，女士。我幾個月前來過這裡。」*");
 	say();
 	UI_show_npc_face(0xFF19, 0x0000);
-	message("「我記得了！你在為 Brommer 的 Britannia 旅遊指南工作！你是個酒館評論家！」*");
+	message("「我記得了！你在為 Brommer 的不列顛尼亞旅遊指南工作！你是個酒館評論家！」*");
 	say();
 	UI_show_npc_face(0xFFFC, 0x0000);
 	message("「沒錯，女士。」*");

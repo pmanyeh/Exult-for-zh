@@ -103,7 +103,7 @@ labelFunc04C6_0170:
 	UI_add_answer(["Iolo's South", "販售"]);
 labelFunc04C6_0189:
 	case "Iolo's South" attend labelFunc04C6_01A9:
-	message("「本店在 Britain。但我這裡的生意也做得很好。」");
+	message("「本店在不列顛城。但我這裡的生意也做得很好。」");
 	say();
 	UI_remove_answer("Iolo's South");
 	UI_add_answer(["最初設的店", "堡壘"]);
@@ -132,7 +132,7 @@ labelFunc04C6_01C9:
 	message("「聽著，流氓，我真的『是』……」*");
 	say();
 	UI_show_npc_face(0xFF3A, 0x0000);
-	message("「是的，是的，我知道。你真的『是』 Iolo ……而我是 Lord British ！」*");
+	message("「是的，是的，我知道。你真的『是』 Iolo ……而我是不列顛王！」*");
 	say();
 	UI_remove_npc_face(0xFFFF);
 labelFunc04C6_021E:

@@ -156,7 +156,7 @@ labelFunc0409_0217:
 	abort;
 labelFunc0409_0231:
 	case "New Magincia" attend labelFunc0409_024B:
-	message("「我們這裡與世隔絕。我們得不到外面世界的任何消息。生活跟兩百年前你上次造訪 Britannia 時差不多。我在這裡有很多朋友。」");
+	message("「我們這裡與世隔絕。我們得不到外面世界的任何消息。生活跟兩百年前你上次造訪不列顛尼亞時差不多。我在這裡有很多朋友。」");
 	say();
 	UI_add_answer("與世隔絕");
 	UI_remove_answer("New Magincia");
@@ -259,7 +259,7 @@ labelFunc0409_03DD:
 	message("Dupre 看起來很困惑。「我的學業，女士？」*");
 	say();
 	UI_show_npc_face(0xFFF7, 0x0000);
-	message("「對於 Britannia 各式各樣的飲酒場所的研究！」*");
+	message("「對於不列顛尼亞各式各樣的飲酒場所的研究！」*");
 	say();
 	UI_show_npc_face(0xFFFC, 0x0000);
 	message("「噢，是的，當然，我的學業！繼續我的教育對我來說一直是最重要的。」*");

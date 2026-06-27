@@ -57,7 +57,7 @@ labelFunc0442_0090:
 	UI_add_answer(["皇家育嬰室", "城堡", "老鼠食物"]);
 labelFunc0442_00A4:
 	case "皇家育嬰室" attend labelFunc0442_00C4:
-	message("「孩子們太有趣了。我喜歡讀他們最喜歡的故事給他們聽。碰巧那也是 Lord British 最喜歡的童話故事！很多很多年前，他也曾讀給我聽過。」");
+	message("「孩子們太有趣了。我喜歡讀他們最喜歡的故事給他們聽。碰巧那也是不列顛王最喜歡的童話故事！很多很多年前，他也曾讀給我聽過。」");
 	say();
 	UI_remove_answer("皇家育嬰室");
 	UI_add_answer(["孩子們", "故事"]);
@@ -68,7 +68,7 @@ labelFunc0442_00C4:
 	UI_remove_answer("孩子們");
 labelFunc0442_00D7:
 	case "城堡" attend labelFunc0442_00EA:
-	message("「這跟妳上次來的時候差不多。有稍微改建了一下。畢竟，距離你上次來已經兩百年了！我相信 Lord British 有一個裡面裝了不少裝備的儲藏室。」");
+	message("「這跟妳上次來的時候差不多。有稍微改建了一下。畢竟，距離你上次來已經兩百年了！我相信不列顛王有一個裡面裝了不少裝備的儲藏室。」");
 	say();
 	UI_remove_answer("城堡");
 labelFunc0442_00EA:

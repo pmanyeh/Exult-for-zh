@@ -53,7 +53,7 @@ labelFunc0878_0085:
 	var0007 = Func090F(var0002);
 	var0008 = Func0908();
 	if (!(var0007 == var0008)) goto labelFunc0878_00C2;
-	var0007 = "you";
+	var0007 = "你";
 labelFunc0878_00C2:
 	message("這堂課包含各種手法和假動作攻擊的技巧，花費了相當短的時間。~~De Snel 突然挺直身子並收起他的刀刃。「今天就到此為止。如果你希望進行更多訓練，你絕對能從我的經驗中獲益。」他傲慢地上下打量著");
 	message(var0007);

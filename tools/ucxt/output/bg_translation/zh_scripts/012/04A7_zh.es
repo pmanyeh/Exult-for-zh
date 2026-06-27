@@ -92,7 +92,7 @@ labelFunc04A7_016B:
 	say();
 	var0006 = Func090A();
 	if (!var0006) goto labelFunc04A7_0196;
-	message("「那你必須去見 Britain 的 Batlin。他是友誼會的創始人。」");
+	message("「那你必須去見不列顛城的巴特林。他是友誼會的創始人。」");
 	say();
 	goto labelFunc04A7_019A;
 labelFunc04A7_0196:
@@ -101,13 +101,13 @@ labelFunc04A7_0196:
 labelFunc04A7_019A:
 	goto labelFunc04A7_01A1;
 labelFunc04A7_019D:
-	message("「溫和的聖者，你來我們這個簡陋的小鎮真是太好了。你很清楚，如果要減輕 Britannia 不幸者的痛苦，友誼會還有很多工作要做。」");
+	message("「溫和的聖者，你來我們這個簡陋的小鎮真是太好了。你很清楚，如果要減輕不列顛尼亞不幸者的痛苦，友誼會還有很多工作要做。」");
 	say();
 labelFunc04A7_01A1:
 	UI_remove_answer("友誼會");
 labelFunc04A7_01A8:
 	case "庇護所" attend labelFunc04A7_01BB:
-	message("「這是全 Britannia 唯一一個為援助和照顧窮人而設的地方。這是一項艱苦的工作，但我們努力使自己配得上我們想要得到的東西。」");
+	message("「這是全不列顛尼亞唯一一個為援助和照顧窮人而設的地方。這是一項艱苦的工作，但我們努力使自己配得上我們想要得到的東西。」");
 	say();
 	UI_remove_answer("庇護所");
 labelFunc04A7_01BB:
@@ -137,7 +137,7 @@ labelFunc04A7_020A:
 	UI_add_answer("有才華");
 labelFunc04A7_0224:
 	case "有才華" attend labelFunc04A7_0237:
-	message("「以他這個年紀的男孩來說，他把排笛吹得非常好！Brita 和我都很驕傲。當他長大後，他或許能進入 Britain 的音樂廳！」");
+	message("「以他這個年紀的男孩來說，他把排笛吹得非常好！Brita 和我都很驕傲。當他長大後，他或許能進入不列顛城的音樂廳！」");
 	say();
 	UI_remove_answer("有才華");
 labelFunc04A7_0237:
@@ -177,7 +177,7 @@ labelFunc04A7_02D6:
 	UI_remove_answer("庇護所居民");
 labelFunc04A7_02F6:
 	case "Alina" attend labelFunc04A7_0309:
-	message("「她的丈夫目前在 Britain 的某個地方。我不知道詳情。她有一個小孩子。」");
+	message("「她的丈夫目前在不列顛城的某個地方。我不知道詳情。她有一個小孩子。」");
 	say();
 	UI_remove_answer("Alina");
 labelFunc04A7_0309:

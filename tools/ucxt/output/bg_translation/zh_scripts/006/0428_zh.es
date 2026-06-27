@@ -51,7 +51,7 @@ labelFunc0428_0097:
 	UI_add_answer("教學");
 labelFunc0428_00B1:
 	case "音樂廳" attend labelFunc0428_00C4:
-	message("「Lord British 幾年前任命我為音樂老師。這是一份很棒的工作！」");
+	message("「不列顛王幾年前任命我為音樂老師。這是一份很棒的工作！」");
 	say();
 	UI_remove_answer("音樂廳");
 labelFunc0428_00C4:

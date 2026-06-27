@@ -113,7 +113,7 @@ labelFunc0638_0116:
 	say();
 	message("     在這本手抄書的書頁中，有許多關於具有毀滅性力量裝置的參考。其中包括了 Mondain 的頭骨與不朽寶石、Minax 的水晶戒指，以及 Exodus 記憶的黑暗核心。");
 	say();
-	message("     較近期的條目描述了巫妖王之冠、靈魂之井，以及一把神秘的黑石劍，顯然這把劍擁有能夠殺死像 Lord British 這樣強大人物的力量。");
+	message("     較近期的條目描述了巫妖王之冠、靈魂之井，以及一把神秘的黑石劍，顯然這把劍擁有能夠殺死像不列顛王這樣強大人物的力量。");
 	say();
 	message("     一篇簡短的文章提到一塊掛在門上方的金屬板，解釋了一種似乎更簡單的方法來解決這位高貴的君主。");
 	say();
@@ -127,7 +127,7 @@ labelFunc0638_0142:
 	if (!(var0000 == 0x006A)) goto labelFunc0638_0154;
 	message("~~ ~~Codavar~~ ~~Nexa 著*");
 	say();
-	message("     這本小說的書頁中包含了一個關於篡位領主的故事，似乎是受到兩百多年前 Lord British 失蹤期間 Blackthorn 暴虐統治的啟發。");
+	message("     這本小說的書頁中包含了一個關於篡位領主的故事，似乎是受到兩百多年前不列顛王失蹤期間 Blackthorn 暴虐統治的啟發。");
 	say();
 labelFunc0638_0154:
 	if (!(var0000 == 0x006B)) goto labelFunc0638_016A;
@@ -141,9 +141,9 @@ labelFunc0638_016A:
 	if (!(var0000 == 0x006C)) goto labelFunc0638_0180;
 	message("~~ ~~位面旅行途徑~~ ~~Nicodemus 著*");
 	say();
-	message("     這裡有許多在眾多不同存在位面之間旅行和穿越所需的複雜公式。每個位面都由月門進入，甚至我們自己的 Lord British 也是通過月門從這些位面之一來到不列顛尼亞的。~");
+	message("     這裡有許多在眾多不同存在位面之間旅行和穿越所需的複雜公式。每個位面都由月門進入，甚至我們自己的不列顛王也是通過月門從這些位面之一來到不列顛尼亞的。~");
 	say();
-	message("     然而，這也引發了一些擔憂。到目前為止，每一個從其他位面進入不列顛尼亞的人都是仁慈的（最著名的是 Lord British 和聖者）。但如果他們有能力使用這些傳送門，難道就沒有其他邪惡的生物也可能隨意闖入我們這片美好土地的機會嗎？這是一個未來必須考慮的問題。");
+	message("     然而，這也引發了一些擔憂。到目前為止，每一個從其他位面進入不列顛尼亞的人都是仁慈的（最著名的是不列顛王和聖者）。但如果他們有能力使用這些傳送門，難道就沒有其他邪惡的生物也可能隨意闖入我們這片美好土地的機會嗎？這是一個未來必須考慮的問題。");
 	say();
 labelFunc0638_0180:
 	if (!(var0000 == 0x006D)) goto labelFunc0638_0196;
@@ -177,7 +177,7 @@ labelFunc0638_01CC:
 	say();
 	message("~~ ~~登記簿*");
 	say();
-	message("~ ~來自 Vesper 的 Dosklin~~Shamino 領主~~來自 Moonglow 的 Erstran~~來自 Britain 的 Aaron~~來自海盜巢穴 (Buccaneer's Den)的 Karman~~聖者……");
+	message("~ ~來自 Vesper 的 Dosklin~~Shamino 領主~~來自 Moonglow 的 Erstran~~來自不列顛城的 Aaron~~來自海盜巢穴 (Buccaneer's Den)的 Karman~~聖者……");
 	say();
 labelFunc0638_01E2:
 	if (!(var0000 == 0x0072)) goto labelFunc0638_01F8;
@@ -185,7 +185,7 @@ labelFunc0638_01E2:
 	say();
 	message("~~ ~~登記簿*");
 	say();
-	message("~ ~Dupre 爵士~~Iolo 領主~~來自 Britain 的 Rasmereng~~來自 Paws 的 Hetteth~~來自 New Magincia 的 Dukat~~來自 Britain 的 Newon……");
+	message("~ ~Dupre 爵士~~Iolo 領主~~來自不列顛城的 Rasmereng~~來自 Paws 的 Hetteth~~來自 New Magincia 的 Dukat~~來自不列顛城的 Newon……");
 	say();
 labelFunc0638_01F8:
 	if (!(var0000 == 0x0073)) goto labelFunc0638_020E;
@@ -201,7 +201,7 @@ labelFunc0638_020E:
 	say();
 	message("~~ ~~登記簿*");
 	say();
-	message("~ ~來自 Britain 的 Walter~~來自 Yew 的 Jaffe~~Jaana~~來自 Serpent's Hold 的 Atans……");
+	message("~ ~來自不列顛城的 Walter~~來自 Yew 的 Jaffe~~Jaana~~來自 Serpent's Hold 的 Atans……");
 	say();
 labelFunc0638_0224:
 	if (!(var0000 == 0x0075)) goto labelFunc0638_023A;
@@ -209,7 +209,7 @@ labelFunc0638_0224:
 	say();
 	message("~~ ~~登記簿*");
 	say();
-	message("~ ~來自 Britain 的 Tyors~~來自海盜巢穴 (Buccaneer's Den)的 Kellin~~Dupre 爵士~~來自 Trinsic 的 Wentok~~來自 Minoc 的 Uberak……");
+	message("~ ~來自不列顛城的 Tyors~~來自海盜巢穴 (Buccaneer's Den)的 Kellin~~Dupre 爵士~~來自 Trinsic 的 Wentok~~來自 Minoc 的 Uberak……");
 	say();
 labelFunc0638_023A:
 	if (!(var0000 == 0x0076)) goto labelFunc0638_0250;
@@ -225,7 +225,7 @@ labelFunc0638_0250:
 	say();
 	message("~~ ~~登記簿*");
 	say();
-	message("~ ~來自 Minoc 的 Carson~~Iolo 領主~~Gwenno 女士~~來自 Britain 的 Yethrod~~來自 Yew 的 Addom……");
+	message("~ ~來自 Minoc 的 Carson~~Iolo 領主~~Gwenno 女士~~來自不列顛城的 Yethrod~~來自 Yew 的 Addom……");
 	say();
 labelFunc0638_0266:
 	if (!(var0000 == 0x0078)) goto labelFunc0638_0278;
@@ -239,7 +239,7 @@ labelFunc0638_0278:
 	say();
 	message("~~ ~~登記簿*");
 	say();
-	message("~ ~來自 Yew 的 Addom~~聖者~~來自 Britain 的 Jalal~~來自 Yew 的 Tim~~來自 Vesper 的 Blorn~~Dupre 爵士~~來自 Cove 的 Penelope……");
+	message("~ ~來自 Yew 的 Addom~~聖者~~來自不列顛城的 Jalal~~來自 Yew 的 Tim~~來自 Vesper 的 Blorn~~Dupre 爵士~~來自 Cove 的 Penelope……");
 	say();
 labelFunc0638_028E:
 	if (!(var0000 == 0x007A)) goto labelFunc0638_02A4;
@@ -263,7 +263,7 @@ labelFunc0638_02A4:
 	say();
 	message("飛毯：反覆出現的魔法。~");
 	say();
-	message("     毫無疑問地，你們許多人都知道飛毯在聖者從三位暗影領主手中拯救 Lord British 的傳奇任務中是不可或缺的。然而，很少人意識到這件迷人的傳說物品已經被重新發現，而且根據我的消息來源，它就藏在 Destard 地城裡，（還是 Despise，我總是把這兩個搞混（注意：出版前要查證一下））。這張驚人的地毯可以毫無不良影響地飛過水面和沼澤，是普通冒險者的神奇工具，更是聖者的必備品。（一個有趣的花絮：根據一本古老的書冊，這張地毯實際上被它的創造者認為是一件失敗的作品，因為它無法升起超過地面幾英寸的高度）*");
+	message("     毫無疑問地，你們許多人都知道飛毯在聖者從三位暗影領主手中拯救不列顛王的傳奇任務中是不可或缺的。然而，很少人意識到這件迷人的傳說物品已經被重新發現，而且根據我的消息來源，它就藏在 Destard 地城裡，（還是 Despise，我總是把這兩個搞混（注意：出版前要查證一下））。這張驚人的地毯可以毫無不良影響地飛過水面和沼澤，是普通冒險者的神奇工具，更是聖者的必備品。（一個有趣的花絮：根據一本古老的書冊，這張地毯實際上被它的創造者認為是一件失敗的作品，因為它無法升起超過地面幾英寸的高度）*");
 	say();
 	message("魔杖：可怕的武器三重奏。~");
 	say();
@@ -323,7 +323,7 @@ labelFunc0638_033C:
 	if (!(var0000 == 0x007D)) goto labelFunc0638_035A;
 	message("~~ ~~石門堡歷史~~ ~~Shazle 著*");
 	say();
-	message("     石門堡的故事確實很有趣。在 Lord British 失蹤以及 Blackthorn 邪惡統治期間，這座堡壘曾一度被暗影領主佔據。然而，一旦聖者將我們高貴的君主送回王位，並將暗影領主從不列顛尼亞消滅後，一個獨眼巨人家族就把這座城堡當成了他們的家。~");
+	message("     石門堡的故事確實很有趣。在不列顛王失蹤以及 Blackthorn 邪惡統治期間，這座堡壘曾一度被暗影領主佔據。然而，一旦聖者將我們高貴的君主送回王位，並將暗影領主從不列顛尼亞消滅後，一個獨眼巨人家族就把這座城堡當成了他們的家。~");
 	say();
 	message("     大約不到三十年後，城牆被廢棄了。然而，這只持續了很短的時間，因為一小群無翼石像鬼在堡壘內找到了庇護所。三年後，他們被 Jhelom 的 Vemelon 領主趕了出去，他決定為了自己的目的保留這座城堡~");
 	say();
@@ -377,7 +377,7 @@ labelFunc0638_03CC:
 	if (!(var0000 == 0x0083)) goto labelFunc0638_03DE;
 	message("~~ ~~論表演~~ ~~Laurence Olivier 著*");
 	say();
-	message("     這本書的書頁中包含了表演的理論與方法，以及一位來自遙遠土地的著名戲劇演員所寫的個人軼事。顯然，這本書是 Lord British 帶到不列顛尼亞的眾多書籍之一。");
+	message("     這本書的書頁中包含了表演的理論與方法，以及一位來自遙遠土地的著名戲劇演員所寫的個人軼事。顯然，這本書是不列顛王帶到不列顛尼亞的眾多書籍之一。");
 	say();
 labelFunc0638_03DE:
 	if (!(var0000 == 0x0084)) goto labelFunc0638_03F8;
@@ -475,11 +475,11 @@ labelFunc0638_04C2:
 	say();
 	message("     不列顛尼亞人民的階級制度遵循著傳統的秩序。雖然這裡的內容很少是法律規定的，但全部內容都是根據在全國各地所做的觀察彙編而成的。~");
 	say();
-	message("     顯然，不列顛尼亞的所有公民都必須向公正高貴的 Lord British 效忠。接下來值得我們尊敬的是大議會的成員，該議會由來自不列顛尼亞每個城鎮或城市的一名公民組成。~");
+	message("     顯然，不列顛尼亞的所有公民都必須向公正高貴的不列顛王效忠。接下來值得我們尊敬的是大議會的成員，該議會由來自不列顛尼亞每個城鎮或城市的一名公民組成。~");
 	say();
 	message("     緊隨大議會成員之後的是有翼石像鬼，因為他們受過高等教育，對生活的各個方面都非常精通。許多有翼的朋友都曾向在 Terfin 冒險的旅行者提供智慧之語。~");
 	say();
-	message("     在有翼石像鬼之下的，是令人驚嘆的廣大民眾，沒有他們，經濟和政府方面就會崩潰。當然，緊隨這些人之後的，是較不世故，但非常、非常強壯的無翼石像鬼。~");
+	message("     在有翼石像鬼之下的，是令人驚嘆的廣大民眾，沒有他們，經濟和官府方面就會崩潰。當然，緊隨這些人之後的，是較不世故，但非常、非常強壯的無翼石像鬼。~");
 	say();
 	message("     對我們經濟體系的許多影響來自……");
 	say();

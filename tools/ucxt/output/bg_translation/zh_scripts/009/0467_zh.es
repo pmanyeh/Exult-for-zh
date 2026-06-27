@@ -53,18 +53,18 @@ labelFunc0467_0097:
 	UI_add_answer(["使命", "瘟疫"]);
 labelFunc0467_00B0:
 	case "使命" attend labelFunc0467_00CA:
-	message("「我為此奉獻了我的一生，沒有什麼能阻擋我，連 Batlin 也不能。」");
+	message("「我為此奉獻了我的一生，沒有什麼能阻擋我，連巴特林也不能。」");
 	say();
 	UI_remove_answer("使命");
-	UI_add_answer("Batlin");
+	UI_add_answer("巴特林");
 labelFunc0467_00CA:
-	case "Batlin" attend labelFunc0467_00EB:
+	case "巴特林" attend labelFunc0467_00EB:
 	message("「他是那個被詛咒的組織，友誼會的首領！」");
 	say();
 	if (!(!var0003)) goto labelFunc0467_00E4;
 	UI_add_answer("友誼會");
 labelFunc0467_00E4:
-	UI_remove_answer("Batlin");
+	UI_remove_answer("巴特林");
 labelFunc0467_00EB:
 	case "瘟疫" attend labelFunc0467_0113:
 	message("「你肯定聽過友誼會，一個最齷齪邪惡的組織。它甚至已經入侵了美麗的 Yew 森林！」");

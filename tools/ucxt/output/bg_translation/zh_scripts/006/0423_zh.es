@@ -36,7 +36,7 @@ labelFunc0423_004D:
 	UI_add_answer("晉升");
 labelFunc0423_006A:
 	case "職業" attend labelFunc0423_0076:
-	message("「我是 Britain 的治療師，已經很多年了。如果你希望雇用我的服務，請告訴我。我非常樂意幫忙。」");
+	message("「我是不列顛城的治療師，已經很多年了。如果你希望雇用我的服務，請告訴我。我非常樂意幫忙。」");
 	say();
 labelFunc0423_0076:
 	case "晉升" attend labelFunc0423_0096:
@@ -46,10 +46,10 @@ labelFunc0423_0076:
 	UI_add_answer(["病人", "診所"]);
 labelFunc0423_0096:
 	case "病人" attend labelFunc0423_00B0:
-	message("「很快我在三個島上都有了病人。就在那時， Lord British 聽說了我的診所。」");
+	message("「很快我在三個島上都有了病人。就在那時，不列顛王聽說了我的診所。」");
 	say();
 	UI_remove_answer("病人");
-	UI_add_answer("Lord British");
+	UI_add_answer("不列顛王");
 labelFunc0423_00B0:
 	case "診所" attend labelFunc0423_012A:
 	message("「我的診所發展迅速。我是個謙虛的人，但我不介意說我是一個受歡迎的治療師。」");
@@ -58,7 +58,7 @@ labelFunc0423_00B0:
 	var0001 = Func08F7(0xFFFD);
 	if (!var0001) goto labelFunc0423_012A;
 	UI_show_npc_face(0xFFFD, 0x0000);
-	message("「他可能是全 Britannia 最好的治療師。哎呀，他立刻治好了我的一個，呃，特殊問題。」*");
+	message("「他可能是全不列顛尼亞最好的治療師。哎呀，他立刻治好了我的一個，呃，特殊問題。」*");
 	say();
 	var0002 = Func08F7(0xFFFF);
 	if (!var0002) goto labelFunc0423_0119;
@@ -74,10 +74,10 @@ labelFunc0423_0119:
 	UI_remove_npc_face(0xFFFD);
 	UI_show_npc_face(0xFFDD, 0x0000);
 labelFunc0423_012A:
-	case "Lord British" attend labelFunc0423_014A:
-	message("「嗯，Lord British 自己也感染了某種疾病。他派人找我。我一離開病人就趕到城堡檢查了國王。在我看來，似乎有什麼東西侵入了他的血液。我對此有一個理論，我堅信它是正確的。然而，其他人並不認同我的觀點。」");
+	case "不列顛王" attend labelFunc0423_014A:
+	message("「嗯，不列顛王自己也感染了某種疾病。他派人找我。我一離開病人就趕到城堡檢查了國王。在我看來，似乎有什麼東西侵入了他的血液。我對此有一個理論，我堅信它是正確的。然而，其他人並不認同我的觀點。」");
 	say();
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 	UI_add_answer(["理論", "其他人"]);
 labelFunc0423_014A:
 	case "理論" attend labelFunc0423_0174:

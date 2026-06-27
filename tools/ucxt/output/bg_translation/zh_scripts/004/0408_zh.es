@@ -49,7 +49,7 @@ labelFunc0408_007A:
 	UI_add_answer("加入");
 labelFunc0408_0087:
 	if (!(!gflags[0x001B])) goto labelFunc0408_0099;
-	message("你看到了 Julia ，她是你之前某次造訪 Britannia 時冒險隊伍的成員。");
+	message("你看到了 Julia ，她是你之前某次造訪不列顛尼亞時冒險隊伍的成員。");
 	say();
 	gflags[0x001B] = true;
 	goto labelFunc0408_00A3;
@@ -78,7 +78,7 @@ labelFunc0408_TransBook:
 labelFunc0408_00BF:
 	case "職業" attend labelFunc0408_010E:
 	if (!gflags[0x011F]) goto labelFunc0408_00F3;
-	message("「自從上次在 Britannia 陪伴你冒險之後，我成了 Minoc 的修補匠。我為鎮上的人修理東西。但我的職責和義務並沒有緊迫到會阻止我再次加入你，只要你願意的話。畢竟，當你在 Britannia 時，你通常是來修復非常重要的事情，並協助讓世界恢復正常的。」");
+	message("「自從上次在不列顛尼亞陪伴你冒險之後，我成了 Minoc 的修補匠。我為鎮上的人修理東西。但我的職責和義務並沒有緊迫到會阻止我再次加入你，只要你願意的話。畢竟，當你在不列顛尼亞時，你通常是來修復非常重要的事情，並協助讓世界恢復正常的。」");
 	say();
 	UI_add_answer(["修補匠", "Minoc"]);
 	if (!(!(var0002 in var0001))) goto labelFunc0408_00F0;
@@ -198,7 +198,7 @@ labelFunc0408_02B5:
 	UI_remove_answer("Frederico 和 Tania");
 labelFunc0408_02C8:
 	case "可怕" attend labelFunc0408_02DB:
-	message("「Frederico 和 Tania 被謀殺的方式暗示著一場儀式性殺戮。從我聽到的消息來看，它與你在 Trinsic 遇到的那起，以及前陣子在 Britain 發生的那起很相似。這是個最令人困惑的謎團。」");
+	message("「Frederico 和 Tania 被謀殺的方式暗示著一場儀式性殺戮。從我聽到的消息來看，它與你在 Trinsic 遇到的那起，以及前陣子在不列顛城發生的那起很相似。這是個最令人困惑的謎團。」");
 	say();
 	UI_remove_answer("可怕");
 labelFunc0408_02DB:

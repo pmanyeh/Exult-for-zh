@@ -85,7 +85,7 @@ labelFunc0478_0134:
 labelFunc0478_0154:
 	case "Elizabeth 和 Abraham" attend labelFunc0478_0180:
 	if (!(!gflags[0x0088])) goto labelFunc0478_016E;
-	message("「Elizabeth 和 Abraham ？」 Joseph 抓了抓頭。「喔，對了！他們就是剛剛來過的友誼會成員！他們試圖在 Jhelom 建立分會。我還沒決定要怎麼回覆他們。我們可能需要召開鎮民大會來決定是否要在這裡設立分會。這對夫婦說他們要回 Britain 幾天。」");
+	message("「Elizabeth 和 Abraham ？」 Joseph 抓了抓頭。「喔，對了！他們就是剛剛來過的友誼會成員！他們試圖在 Jhelom 建立分會。我還沒決定要怎麼回覆他們。我們可能需要召開鎮民大會來決定是否要在這裡設立分會。這對夫婦說他們要回不列顛城幾天。」");
 	say();
 	gflags[0x016B] = true;
 	goto labelFunc0478_0172;
@@ -121,7 +121,7 @@ labelFunc0478_01C6:
 	UI_remove_answer("De Snel");
 labelFunc0478_01D9:
 	case "傷疤圖書館" attend labelFunc0478_01EC:
-	message("「它吸引了來自全 Britannia 想要向 De Snel 學習的戰士。他們是一群不守規矩的人。你最好離他們遠點。」");
+	message("「它吸引了來自全不列顛尼亞想要向 De Snel 學習的戰士。他們是一群不守規矩的人。你最好離他們遠點。」");
 	say();
 	UI_remove_answer("傷疤圖書館");
 labelFunc0478_01EC:

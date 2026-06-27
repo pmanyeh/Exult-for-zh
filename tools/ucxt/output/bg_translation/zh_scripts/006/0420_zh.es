@@ -61,7 +61,7 @@ labelFunc0420_00CF:
 	UI_remove_answer("Binky");
 labelFunc0420_00E2:
 	case "唱歌" attend labelFunc0420_00F5:
-	message("Max 站得筆直，大聲吼道：「老 Lord British 有個農場，-e-i-e-i-o-！在這個農場裡他有一隻公鴨，-e-i-e-i-o-！這裡 -嘎- -嘎-，那裡 -嘎- -嘎-，到處都是 -嘎- -嘎-！老 Lord British 有個農場，-e-i-e-i-o-！」");
+	message("Max 站得筆直，大聲吼道：「老不列顛王有個農場，-e-i-e-i-o-！在這個農場裡他有一隻公鴨，-e-i-e-i-o-！這裡 -嘎- -嘎-，那裡 -嘎- -嘎-，到處都是 -嘎- -嘎-！老不列顛王有個農場，-e-i-e-i-o-！」");
 	say();
 	UI_remove_answer("唱歌");
 labelFunc0420_00F5:

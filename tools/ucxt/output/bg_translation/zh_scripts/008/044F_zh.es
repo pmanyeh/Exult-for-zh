@@ -47,12 +47,12 @@ labelFunc044F_00AD:
 	say();
 labelFunc044F_00B1:
 	case "餐點" attend labelFunc044F_00C4:
-	message("「翡翠酒館很高興能為你提供 Britain 這一帶最美味的佳餚。你也許會想嚐嚐我們的特餐——銀葉。」");
+	message("「翡翠酒館很高興能為你提供不列顛城這一帶最美味的佳餚。你也許會想嚐嚐我們的特餐——銀葉。」");
 	say();
 	UI_add_answer("銀葉");
 labelFunc044F_00C4:
 	case "銀葉" attend labelFunc044F_00D7:
-	message("她對你眨了眨眼。「有人說它是一種強效的催情劑……不管怎樣，它非常美味。它來自生長在 Britannia 某處一種奇特樹木的根部。」");
+	message("她對你眨了眨眼。「有人說它是一種強效的催情劑……不管怎樣，它非常美味。它來自生長在不列顛尼亞某處一種奇特樹木的根部。」");
 	say();
 	UI_remove_answer("銀葉");
 labelFunc044F_00D7:

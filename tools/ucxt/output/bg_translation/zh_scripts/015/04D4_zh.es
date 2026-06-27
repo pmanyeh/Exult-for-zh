@@ -85,7 +85,7 @@ labelFunc04D4_0116:
 	UI_add_answer("Catherine");
 labelFunc04D4_011D:
 	case "友誼會" attend labelFunc04D4_013E:
-	message("「你沒聽過友誼會嗎？它是個很棒的組織。他們舉辦遊行和節慶，甚至為全 Britannia 的無家可歸者建造了庇護所。我的丈夫一段時間前得知了他們，從那之後我們就一直是快樂的成員。」");
+	message("「你沒聽過友誼會嗎？它是個很棒的組織。他們舉辦遊行和節慶，甚至為全不列顛尼亞的無家可歸者建造了庇護所。我的丈夫一段時間前得知了他們，從那之後我們就一直是快樂的成員。」");
 	say();
 	if (!(!var0002)) goto labelFunc04D4_0137;
 	UI_add_answer("丈夫");
@@ -94,11 +94,11 @@ labelFunc04D4_0137:
 labelFunc04D4_013E:
 	case "Cador", "丈夫" attend labelFunc04D4_0196:
 	if (!var0003) goto labelFunc04D4_0156;
-	message("「Cador 是我的丈夫。他是這裡 Vesper 的 Britannia 礦業公司的監督。我不敢相信他已經走了，」她啜泣著。~~「我一次又一次地告訴他，酒館不是個消磨夜晚的好地方。而現在，他死了，留下我和 Catherine 沒有丈夫也沒有父親！」");
+	message("「Cador 是我的丈夫。他是這裡 Vesper 的不列顛尼亞礦業公司的監督。我不敢相信他已經走了，」她啜泣著。~~「我一次又一次地告訴他，酒館不是個消磨夜晚的好地方。而現在，他死了，留下我和 Catherine 沒有丈夫也沒有父親！」");
 	say();
 	goto labelFunc04D4_017E;
 labelFunc04D4_0156:
-	message("「Cador 是我的丈夫。他是這裡 Vesper 的 Britannia 礦業公司的監督。」");
+	message("「Cador 是我的丈夫。他是這裡 Vesper 的不列顛尼亞礦業公司的監督。」");
 	say();
 	var0007 = UI_part_of_day();
 	if (!((var0007 == 0x0006) || (var0007 == 0x0007))) goto labelFunc04D4_017E;

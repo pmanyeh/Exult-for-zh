@@ -101,7 +101,7 @@ labelFunc04C4_015E:
 	UI_add_answer("騎士");
 labelFunc04C4_0178:
 	case "騎士" attend labelFunc04C4_019B:
-	message("「John-Paul 領主負責監督這座堡壘，不過 Horffe 爵士才是衛兵隊長。當然，我們其他人都在此服務 Lord British 以及 Britannia 的需求。」");
+	message("「John-Paul 領主負責監督這座堡壘，不過 Horffe 爵士才是衛兵隊長。當然，我們其他人都在此服務不列顛王以及不列顛尼亞的需求。」");
 	say();
 	UI_remove_answer("騎士");
 	UI_add_answer(["John-Paul", "Horffe", "需求"]);

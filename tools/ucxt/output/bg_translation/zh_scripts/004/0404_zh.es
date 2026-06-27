@@ -95,7 +95,7 @@ labelFunc0404_0136:
 	UI_remove_answer("古文譯本");
 labelFunc0404_TransBook:
 	case "姓名" attend labelFunc0404_01A7:
-	message("「哎呀，你不認得我了嗎？是我， Lord British ！」他笑著說。「當你看到你的朋友 Dupre 時，你認不出他來了嗎，");
+	message("「哎呀，你不認得我了嗎？是我，不列顛王！」他笑著說。「當你看到你的朋友 Dupre 時，你認不出他來了嗎，");
 	message(var0003);
 	message("？」");
 	say();
@@ -122,7 +122,7 @@ labelFunc0404_01A0:
 labelFunc0404_01A7:
 	case "職業" attend labelFunc0404_01DE:
 	if (!(!gflags[0x016D])) goto labelFunc0404_01D3;
-	message("「我有段時間沒見到我們的老朋友了。目前我正在對 Britannia 各式各樣的飲酒場所進行研究。目前我大約完成了一半。但這並不能阻止我跟你一起冒險，");
+	message("「我有段時間沒見到我們的老朋友了。目前我正在對不列顛尼亞各式各樣的飲酒場所進行研究。目前我大約完成了一半。但這並不能阻止我跟你一起冒險，");
 	message(var0003);
 	message("。」");
 	say();
@@ -185,7 +185,7 @@ labelFunc0404_02A4:
 	UI_remove_answer("離隊");
 labelFunc0404_02D0:
 	case "Jhelom" attend labelFunc0404_02F0:
-	message("「這有點像 Britannia 的舊時代，在你上次造訪的那段日子，只是更加嗜血。 Jhelom 當地的運動是決鬥。」");
+	message("「這有點像不列顛尼亞的舊時代，在你上次造訪的那段日子，只是更加嗜血。 Jhelom 當地的運動是決鬥。」");
 	say();
 	UI_remove_answer("Jhelom");
 	UI_add_answer(["舊時代", "決鬥"]);

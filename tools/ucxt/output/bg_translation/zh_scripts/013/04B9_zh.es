@@ -61,13 +61,13 @@ labelFunc04B9_00CB:
 	UI_remove_answer("聲音");
 labelFunc04B9_00DE:
 	case "Terfin" attend labelFunc04B9_00FE:
-	message("「是 Britannia 唯一的石像鬼城市。這片土地上的石像鬼數量比你上次訪問 Britannia 時還要少，人類。」他搖了搖頭。");
+	message("「是不列顛尼亞唯一的石像鬼城市。這片土地上的石像鬼數量比你上次訪問不列顛尼亞時還要少，人類。」他搖了搖頭。");
 	say();
 	UI_add_answer(["更少", "石像鬼"]);
 	UI_remove_answer("Terfin");
 labelFunc04B9_00FE:
 	case "更少" attend labelFunc04B9_0111:
-	message("「是因為屈服於最近襲擊 Britannia 的疾病和飢荒。告訴你，石像鬼繁殖的頻率較低，我們沒有時間彌補人口的損失。~~然而，要獲得新希望，」他咧嘴一笑，「就得加入友誼會。」");
+	message("「是因為屈服於最近襲擊不列顛尼亞的疾病和飢荒。告訴你，石像鬼繁殖的頻率較低，我們沒有時間彌補人口的損失。~~然而，要獲得新希望，」他咧嘴一笑，「就得加入友誼會。」");
 	say();
 	UI_remove_answer("更少");
 labelFunc04B9_0111:

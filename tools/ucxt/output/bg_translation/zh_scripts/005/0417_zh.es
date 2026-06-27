@@ -38,7 +38,7 @@ labelFunc0417_000C:
 	var0001 = Func0908();
 	if (!gflags[0x001E]) goto labelFunc0417_0027;
 	UI_show_npc_face(0xFFE9, 0x0000);
-	message("「愚蠢！！到底是什麼驅使你施展那個該死的『末日決戰（Armageddon Spell）』？我就知道那很危險！你也知道那很危險！！現在看看我們！我們是整個星球上唯二孤伶伶的人！ Britannia 全毀了！你算哪門子的聖者！？現在，沒有了月之門的運作，我們兩人都被迫要在這片被毀滅的荒原中度過永恆！~~」「當然，這也許可以看作是解決我們所有問題的聰明辦法。畢竟，現在就連那個所謂的守護者也不會想要 Britannia 了！」*");
+	message("「愚蠢！！到底是什麼驅使你施展那個該死的『末日決戰（Armageddon Spell）』？我就知道那很危險！你也知道那很危險！！現在看看我們！我們是整個星球上唯二孤伶伶的人！不列顛尼亞全毀了！你算哪門子的聖者！？現在，沒有了月之門的運作，我們兩人都被迫要在這片被毀滅的荒原中度過永恆！~~」「當然，這也許可以看作是解決我們所有問題的聰明辦法。畢竟，現在就連那個所謂的守護者也不會想要不列顛尼亞了！」*");
 	say();
 	abort;
 labelFunc0417_0027:
@@ -46,7 +46,7 @@ labelFunc0417_0027:
 	if (!(!gflags[0x030D])) goto labelFunc0417_0049;
 	var0000 = true;
 	UI_show_npc_face(0xFFE9, 0x0000);
-	message("「我感覺到 Exodus 的殘骸已經從這個領域中消逝。這讓我肩上卸下了一塊大石。因此，聖者，我不能讓這項成就得不到獎賞。請跪下，我的朋友。」當你遵從指示時， Lord British 伸出了他的雙手。");
+	message("「我感覺到 Exodus 的殘骸已經從這個領域中消逝。這讓我肩上卸下了一塊大石。因此，聖者，我不能讓這項成就得不到獎賞。請跪下，我的朋友。」當你遵從指示時，不列顛王伸出了他的雙手。");
 	say();
 	goto labelFunc0417_0743;
 labelFunc0417_0049:
@@ -80,7 +80,7 @@ labelFunc0417_00DF:
 	UI_remove_answer("守護者");
 labelFunc0417_00EC:
 	if (!(!gflags[0x0098])) goto labelFunc0417_010B;
-	message("你看到你的老朋友 Lord British ，看起來比你上次見到他時老了一些。他看到你時眼睛閃爍著光芒。~~「歡迎，我的朋友，」他擁抱著你說道。「請告訴我，是什麼風把你吹來 Britannia 的！或者，更重要的是，是什麼『帶』你來的？」");
+	message("你看到你的老朋友不列顛王，看起來比你上次見到他時老了一些。他看到你時眼睛閃爍著光芒。~~「歡迎，我的朋友，」他擁抱著你說道。「請告訴我，是什麼風把你吹來不列顛尼亞的！或者，更重要的是，是什麼『帶』你來的？」");
 	say();
 	gflags[0x0098] = true;
 	UI_add_answer(["紅色月之門", "月之寶珠"]);
@@ -88,7 +88,7 @@ labelFunc0417_00EC:
 labelFunc0417_010B:
 	message("\"「是的，");
 	message(var0001);
-	message("？」 Lord British 問道。");
+	message("？」不列顛王問道。");
 	say();
 labelFunc0417_0115:
 	if (gflags[0x0345] && UI_count_objects(0xFE9B, 0x0282, 149, 0) == 0 && !talked_book) {
@@ -96,16 +96,16 @@ labelFunc0417_0115:
 	}
 	converse attend labelFunc0417_072A;
 	case "姓名" attend labelFunc0417_012B:
-	message("Lord British 大笑。「什麼，你在開玩笑嗎，聖者？難道你認不出你的老朋友了？」");
+	message("不列顛王大笑。「什麼，你在開玩笑嗎，聖者？難道你認不出你的老朋友了？」");
 	say();
 	UI_remove_answer("姓名");
 labelFunc0417_012B:
 	case "職業" attend labelFunc0417_0148:
-	message("Lord British 翻了個白眼。「我們一定要走這個過場嗎？」他搖著頭笑道。");
+	message("不列顛王翻了個白眼。「我們一定要走這個過場嗎？」他搖著頭笑道。");
 	say();
-	message("「很好。如你所知，我是 Britannia 的統治者，而且已經統治一段時間了。儘管我來自你的家鄉，但我選擇在這裡生活。」");
+	message("「很好。如你所知，我是不列顛尼亞的統治者，而且已經統治一段時間了。儘管我來自你的家鄉，但我選擇在這裡生活。」");
 	say();
-	UI_add_answer(["Britannia", "家鄉"]);
+	UI_add_answer(["不列顛尼亞", "家鄉"]);
 labelFunc0417_0148:
 	case "家鄉" attend labelFunc0417_0162:
 	message("「我知道距離我造訪我們的地球已經有很多年了，但你肯定還記得我們兩人都來自同一個時間和地點吧？而且，身為同鄉兄弟，你也應該記得，你可以在需要時隨時向我尋求協助。」");
@@ -123,21 +123,21 @@ labelFunc0417_0189:
 	gflags[0x00D3] = true;
 	UI_remove_answer("協助");
 labelFunc0417_0194:
-	case "Britannia" attend labelFunc0417_01C5:
-	message("「這個國家的狀況繁榮無比。你意識到你已經離開 200 個 Britannia 年了嗎？」 Lord British 對你搖了搖手指。~~「我敢肯定你的朋友們都為你的缺席感到惋惜。你離開這麼久真是太可惜了！但是... 我真的很高興見到你。 Britannia 繁榮而豐饒。看看你周圍。探索這座新翻修的城堡。在各地旅行。四處都充滿了和平。~~」「是的， Britannia 從未如此美好。嗯，幾乎從未。」");
+	case "不列顛尼亞" attend labelFunc0417_01C5:
+	message("「這個國家的狀況繁榮無比。你意識到你已經離開 200 個不列顛尼亞年了嗎？」不列顛王對你搖了搖手指。~~「我敢肯定你的朋友們都為你的缺席感到惋惜。你離開這麼久真是太可惜了！但是... 我真的很高興見到你。不列顛尼亞繁榮而豐饒。看看你周圍。探索這座新翻修的城堡。在各地旅行。四處都充滿了和平。~~」「是的，不列顛尼亞從未如此美好。嗯，幾乎從未。」");
 	say();
-	UI_remove_answer("Britannia");
+	UI_remove_answer("不列顛尼亞");
 	UI_add_answer(["朋友們", "城堡", "幾乎沒有"]);
 	if (!(!gflags[0x0066])) goto labelFunc0417_01C5;
 	UI_add_answer("魔法");
 labelFunc0417_01C5:
 	case "幾乎沒有" attend labelFunc0417_01D8:
-	message("「嗯，『事情』確實很好。我擔心的是『人』。~~」「 Britannia 發生了一些不對勁的事情，但我不知道是什麼。有一種東西籠罩在 Britannia 人民的頭上。他們很不快樂。從他們的眼睛裡就能看出來。既然和平了這麼久，已經沒有什麼能將人民團結在一起了。~~」「也許你能查明發生了什麼事。我懇求你走到人群中去。觀察他們的日常工作。與他們交談。與他們一起工作。與他們共進一餐。也許他們需要像聖者這樣的人來關心他們的生活。」");
+	message("「嗯，『事情』確實很好。我擔心的是『人』。~~」「不列顛尼亞發生了一些不對勁的事情，但我不知道是什麼。有一種東西籠罩在不列顛尼亞人民的頭上。他們很不快樂。從他們的眼睛裡就能看出來。既然和平了這麼久，已經沒有什麼能將人民團結在一起了。~~」「也許你能查明發生了什麼事。我懇求你走到人群中去。觀察他們的日常工作。與他們交談。與他們一起工作。與他們共進一餐。也許他們需要像聖者這樣的人來關心他們的生活。」");
 	say();
 	UI_remove_answer("幾乎沒有");
 labelFunc0417_01D8:
 	case "紅色月之門" attend labelFunc0417_0207:
-	message("你講述了一個紅色的月之門如何出現在你家後方，並神秘地將你帶到 Trinsic 的故事。~~ Lord British 的眉頭隨著你的講述而皺起。最後他說：「我並沒有派紅色的月之門去接你。一定是有某人或某物啟動了那個月之門。這確實很奇怪，因為我們最近在月之門上遇到了一些麻煩。事實上，我們在魔法方面也普遍遇到了麻煩！」");
+	message("你講述了一個紅色的月之門如何出現在你家後方，並神秘地將你帶到 Trinsic 的故事。~~不列顛王的眉頭隨著你的講述而皺起。最後他說：「我並沒有派紅色的月之門去接你。一定是有某人或某物啟動了那個月之門。這確實很奇怪，因為我們最近在月之門上遇到了一些麻煩。事實上，我們在魔法方面也普遍遇到了麻煩！」");
 	say();
 	UI_remove_answer("紅色月之門");
 	if (!(!var0007)) goto labelFunc0417_01F9;
@@ -159,11 +159,11 @@ labelFunc0417_0224:
 	message("「我懂了。」");
 	say();
 labelFunc0417_0228:
-	message("「嗯。你可能會被困在 Britannia 。來，不如試試我的吧？我把它借給你。也許它對你有用。不過要小心。月之門已經變得危險了。」");
+	message("「嗯。你可能會被困在不列顛尼亞。來，不如試試我的吧？我把它借給你。也許它對你有用。不過要小心。月之門已經變得危險了。」");
 	say();
 	var0009 = UI_add_party_items(0x0001, 0x0311, 0xFE99, 0xFE99, false);
 	if (!var0009) goto labelFunc0417_0251;
-	message("Lord British 將他的月之寶珠交給了你。");
+	message("不列顛王將他的月之寶珠交給了你。");
 	say();
 	gflags[0x00DD] = true;
 	goto labelFunc0417_0255;
@@ -214,7 +214,7 @@ labelFunc0417_02FF:
 	message("「啊，你也許應該調查一下！」");
 	say();
 labelFunc0417_0303:
-	message("國王停頓了一會兒。「既然你提到了這點，我在過去幾個月裡也收到過其他類似謀殺案的報告。事實上，三四年前在 Britain 就發生過一起。屍體以儀式性的方式被肢解。顯然有一個瘋狂的殺手在逃。但我毫不懷疑，像你這樣的聖者，一定能找到他！」");
+	message("國王停頓了一會兒。「既然你提到了這點，我在過去幾個月裡也收到過其他類似謀殺案的報告。事實上，三四年前在不列顛城就發生過一起。屍體以儀式性的方式被肢解。顯然有一個瘋狂的殺手在逃。但我毫不懷疑，像你這樣的聖者，一定能找到他！」");
 	say();
 	UI_remove_answer("一樁謀殺案");
 	UI_pop_answers();
@@ -237,20 +237,20 @@ labelFunc0417_0356:
 	UI_add_answer("皇冠寶石號（The Crown Jewel）");
 labelFunc0417_0363:
 	case "友誼會" attend labelFunc0417_0383:
-	message("「他們是一群非常有用和有生產力的公民。你絕對應該去參觀一下位於 Britain 的友誼會總部，並與 Batlin 交談。友誼會在 Britannia 各地做了許多善事，包括提供食物給窮人、教育和幫助有需要的人，以及促進普遍的善意與和平。」");
+	message("「他們是一群非常有用和有生產力的公民。你絕對應該去參觀一下位於不列顛城的友誼會總部，並與巴特林交談。友誼會在不列顛尼亞各地做了許多善事，包括提供食物給窮人、教育和幫助有需要的人，以及促進普遍的善意與和平。」");
 	say();
 	UI_remove_answer("友誼會");
-	UI_add_answer(["Batlin", "總部"]);
+	UI_add_answer(["巴特林", "總部"]);
 labelFunc0417_0383:
 	case "總部" attend labelFunc0417_0396:
 	message("「是的，它離城堡不遠，在西南方。就在劇院的南邊。」");
 	say();
 	UI_remove_answer("總部");
 labelFunc0417_0396:
-	case "Batlin" attend labelFunc0417_03A9:
+	case "巴特林" attend labelFunc0417_03A9:
 	message("「他是一名德魯伊，大約二十年前創立了友誼會。他非常聰明，而且是一個溫暖而溫和的人。」");
 	say();
-	UI_remove_answer("Batlin");
+	UI_remove_answer("巴特林");
 labelFunc0417_03A9:
 	case "Hook" attend labelFunc0417_03BC:
 	message("「一個帶著鐵鉤的男人？」國王摸了摸下巴。~~「不，我不記得曾經見過一個帶著鐵鉤的男人。」");
@@ -284,7 +284,7 @@ labelFunc0417_0427:
 	UI_add_answer("Trinsic");
 labelFunc0417_0435:
 	case "Shamino" attend labelFunc0417_049B:
-	message("「那個無賴不常來，雖然我知道他最近大部分時間都在 Britain ！」");
+	message("「那個無賴不常來，雖然我知道他最近大部分時間都在不列顛城！」");
 	say();
 	if (!var0005) goto labelFunc0417_0494;
 	message("「你對自己有什麼要說的嗎， Shamino ？」*");
@@ -316,7 +316,7 @@ labelFunc0417_049B:
 	message("「哦，到處跑，大人，」戰士回答道。*");
 	say();
 	UI_show_npc_face(0xFFE9, 0x0000);
-	message("「我在 Britannia 這裡很少有來自我們家鄉的朋友。你必須特地多來拜訪！尤其既然你是一位騎士！」*");
+	message("「我在不列顛尼亞這裡很少有來自我們家鄉的朋友。你必須特地多來拜訪！尤其既然你是一位騎士！」*");
 	say();
 	UI_show_npc_face(0xFFFC, 0x0000);
 	message("「如您所願，大人，」 Dupre 鞠躬說道。*");
@@ -335,9 +335,9 @@ labelFunc0417_050D:
 	case "魔法" attend labelFunc0417_054E:
 	message("「有些不對勁。魔法已經很長一段時間無法運作了。我甚至連用魔法變出食物都有困難！這一定與魔法以太有關。~~」「有些人說魔法正在消亡，因為月之門的麻煩和 Nystul 的情況。我開始懷疑他們可能是對的！」");
 	say();
-	message("Lord British 端詳了你一會兒。");
+	message("不列顛王端詳了你一會兒。");
 	say();
-	message("「也許魔法對你來說會更有用。你來 Britannia 還沒多久。有可能無論是什麼影響了魔法，都還沒有在你身上留下印記。請試試看。一本法術書和你的其他裝備存放在一起。」");
+	message("「也許魔法對你來說會更有用。你來不列顛尼亞還沒多久。有可能無論是什麼影響了魔法，都還沒有在你身上留下印記。請試試看。一本法術書和你的其他裝備存放在一起。」");
 	say();
 	gflags[0x0066] = true;
 	UI_remove_answer("魔法");
@@ -382,13 +382,13 @@ labelFunc0417_05C5:
 	message("「他是一位才華洋溢且受人尊敬的法師。但近年來他發生了一些事。他似乎完全變得老態龍鍾了。」");
 	say();
 	if (!gflags[0x0099]) goto labelFunc0417_05DB;
-	message("突然間，某件事喚醒了 Lord British 的記憶。「我想知道 Rudyom 身上發生的事和 Nystul 遭遇的事之間是否有所關聯！」");
+	message("突然間，某件事喚醒了不列顛王的記憶。「我想知道 Rudyom 身上發生的事和 Nystul 遭遇的事之間是否有所關聯！」");
 	say();
 labelFunc0417_05DB:
 	UI_remove_answer("Rudyom");
 labelFunc0417_05E2:
 	case "Cove" attend labelFunc0417_05F5:
-	message("「你肯定還記得 Cove 。那是 Britain 東邊一個非常宜人的小鎮。相當令人放鬆。」");
+	message("「你肯定還記得 Cove 。那是不列顛城東邊一個非常宜人的小鎮。相當令人放鬆。」");
 	say();
 	UI_remove_answer("Cove");
 labelFunc0417_05F5:
@@ -424,7 +424,7 @@ labelFunc0417_0665:
 	var0006 = true;
 labelFunc0417_067D:
 	case "Weston" attend labelFunc0417_06A1:
-	message("Lord British 聽了你關於 Weston 的故事。他看起來很擔憂。~~「我不記得這個案子。讓我查一下...嗯...」他快速掃視了一大卷卷軸。~~「因為從皇家果園偷了一顆蘋果而被監禁... 太荒謬了！一定是有人篡奪了我的權力。你可以認為這個人已經被赦免了。我們將立即針對他被捕的情況以及這個叫 Figg 的傢伙展開調查。感謝你，聖者。」");
+	message("不列顛王聽了你關於 Weston 的故事。他看起來很擔憂。~~「我不記得這個案子。讓我查一下...嗯...」他快速掃視了一大卷卷軸。~~「因為從皇家果園偷了一顆蘋果而被監禁... 太荒謬了！一定是有人篡奪了我的權力。你可以認為這個人已經被赦免了。我們將立即針對他被捕的情況以及這個叫 Figg 的傢伙展開調查。感謝你，聖者。」");
 	say();
 	gflags[0x00CC] = true;
 	Func0911(0x0014);
@@ -432,7 +432,7 @@ labelFunc0417_067D:
 	UI_remove_answer("Weston");
 labelFunc0417_06A1:
 	case "隆隆聲" attend labelFunc0417_06BB:
-	message("Lord British 神情凝重地看著你，「一座島嶼的升起動搖了 Britannia 的根基。這起事件並非隨機的災難，而是出於某種巫術意圖。」");
+	message("不列顛王神情凝重地看著你，「一座島嶼的升起動搖了不列顛尼亞的根基。這起事件並非隨機的災難，而是出於某種巫術意圖。」");
 	say();
 	UI_add_answer("島嶼");
 	UI_remove_answer("隆隆聲");
@@ -466,7 +466,7 @@ labelFunc0417_0709:
 labelFunc0417_071C:
 	case "古文譯本" attend labelFunc0417_0722:
 	if (!gflags[0x0346]) {
-		message("「哦？你說你遇到了一些看不懂的古文招牌？」 Lord British 沉思了一會。");
+		message("「哦？你說你遇到了一些看不懂的古文招牌？」不列顛王沉思了一會。");
 		say();
 		message("「的確，那些是古老的不列顛盧恩符文。現在已經很少人使用了。」");
 		say();
@@ -475,7 +475,7 @@ labelFunc0417_071C:
 		UI_add_party_items(1, 0x0282, 149, 0, false);
 		gflags[0x0346] = true;
 	} else {
-		message("「你弄丟了我給你的那本『古文譯本』嗎？」 Lord British 嘆了口氣。");
+		message("「你弄丟了我給你的那本『古文譯本』嗎？」不列顛王嘆了口氣。");
 		say();
 		message("「好吧，看在你身負重任的份上，我再給你一本。這次可別再弄丟了！」");
 		say();

@@ -122,7 +122,7 @@ labelFunc0497_01CA:
 	UI_remove_npc_face(0xFFFF);
 	UI_show_npc_face(0xFF69, 0x0000);
 labelFunc0497_01FB:
-	message("「Ambrosia ，不列顛尼亞 (Britannia) 失落的島嶼！你真的在這裡！」");
+	message("「Ambrosia ，不列顛尼亞 (不列顛尼亞) 失落的島嶼！你真的在這裡！」");
 	say();
 	UI_remove_answer("Ambrosia");
 	UI_add_answer("失落的島嶼");

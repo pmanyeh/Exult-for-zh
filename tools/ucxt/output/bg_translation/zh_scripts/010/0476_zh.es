@@ -71,14 +71,14 @@ labelFunc0476_00E1:
 labelFunc0476_00F7:
 	case "Phearcy" attend labelFunc0476_0134:
 	if (!(var0001 == 0x0007)) goto labelFunc0476_0112;
-	var0003 = "here";
+	var0003 = "這裡";
 	goto labelFunc0476_0118;
 labelFunc0476_0112:
-	var0003 = "at the Friendly Knave";
+	var0003 = "『親切惡棍酒館』";
 labelFunc0476_0118:
-	message("「他是老闆兼酒保。每天晚上 9 點，他都會去參加友誼會的聚會，所以我替他提供茶點服務。");
+	message("「他是老闆兼酒保。每天晚上 9 點，他都會去參加友誼會的聚會，所以我在");
 	message(var0003);
-	message("。」");
+	message("替他代班。」");
 	say();
 	var0002 = true;
 	UI_remove_answer("Phearcy");

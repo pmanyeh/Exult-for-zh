@@ -59,12 +59,12 @@ labelFunc043D_00C4:
 	UI_remove_answer("生物");
 labelFunc043D_00D7:
 	case "另一個地方" attend labelFunc043D_00EA:
-	message("「我只能說，這個世界上絕對沒有這種生物！他們的船也不像在 Britannia 任何地方見過的任何船隻。」");
+	message("「我只能說，這個世界上絕對沒有這種生物！他們的船也不像在不列顛尼亞任何地方見過的任何船隻。」");
 	say();
 	UI_remove_answer("另一個地方");
 labelFunc043D_00EA:
 	case "親眼見過" attend labelFunc043D_0104:
-	message("「我親眼見過一隻星際生物，以及讓它能旅行到 Britannia 的莫名交通工具！我向你發誓！我完全理智！我有證據！」");
+	message("「我親眼見過一隻星際生物，以及讓它能旅行到不列顛尼亞的莫名交通工具！我向你發誓！我完全理智！我有證據！」");
 	say();
 	UI_remove_answer("親眼見過");
 	UI_add_answer("證據");

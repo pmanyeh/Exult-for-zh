@@ -51,18 +51,18 @@ labelFunc042A_005F:
 	UI_remove_answer("姓名");
 labelFunc042A_0075:
 	case "職業" attend labelFunc042A_008E:
-	message("「我是造幣廠 (Mint) 的出納員。我也是 Britannia 稅務委員會的一員。」");
+	message("「我是造幣廠 (Mint) 的出納員。我也是不列顛尼亞稅務委員會的一員。」");
 	say();
-	UI_add_answer(["造幣廠", "Britannia 稅務委員會"]);
+	UI_add_answer(["造幣廠", "不列顛尼亞稅務委員會"]);
 labelFunc042A_008E:
 	case "造幣廠" attend labelFunc042A_00BD:
-	message("「在造幣廠，我們儲存黃金，監督硬幣的生產，並準確統計王國有多少可用資金，用於農業、修建道路、開發淡水資源、照顧公民的健康、維護貴族的莊園、招募守衛民兵以及執行 Lord British 的法令。」");
+	message("「在造幣廠，我們儲存黃金，監督硬幣的生產，並準確統計王國有多少可用資金，用於農業、修建道路、開發淡水資源、照顧公民的健康、維護貴族的莊園、招募守衛民兵以及執行不列顛王的法令。」");
 	say();
 	UI_remove_answer("造幣廠");
 	UI_add_answer(["資金", "農業", "道路", "淡水", "健康", "莊園", "守衛"]);
 labelFunc042A_00BD:
-	case "Britannia 稅務委員會" attend labelFunc042A_00F5:
-	message("「Britannia 稅務委員會負責稅收的會計、評估和徵收。如果你要在 Britannia 這裡賺錢，你需要拿著這份文件。」");
+	case "不列顛尼亞稅務委員會" attend labelFunc042A_00F5:
+	message("「不列顛尼亞稅務委員會負責稅收的會計、評估和徵收。如果你要在不列顛尼亞這裡賺錢，你需要拿著這份文件。」");
 	say();
 	var0002 = UI_add_party_items(0x0001, 0x031D, 0x000C, 0xFE99, true);
 	if (!var0002) goto labelFunc042A_00EA;
@@ -73,7 +73,7 @@ labelFunc042A_00EA:
 	message("「你帶了太多東西了。等你沒有背負那麼重時再來，我會把文件給你。」");
 	say();
 labelFunc042A_00EE:
-	UI_remove_answer("Britannia 稅務委員會");
+	UI_remove_answer("不列顛尼亞稅務委員會");
 labelFunc042A_00F5:
 	case "資金" attend labelFunc042A_0119:
 	message("「為了保持貨幣標準的穩定，我們也為那些擁有大量黃金的人提供兌換服務。~~我們提供等值於他們黃金的王國流通硬幣，然後將我們收到的黃金轉換成更多的錢。所以，如你所見，這是一個非常有效率的系統。」");
@@ -88,7 +88,7 @@ labelFunc042A_0119:
 	UI_remove_answer("農業");
 labelFunc042A_012C:
 	case "道路" attend labelFunc042A_013F:
-	message("「馬車使用量的增加導致 Britannia 各地的許多道路迅速惡化。修建新道路並保持它們的維修需要花費大量的資金。」");
+	message("「馬車使用量的增加導致不列顛尼亞各地的許多道路迅速惡化。修建新道路並保持它們的維修需要花費大量的資金。」");
 	say();
 	UI_remove_answer("道路");
 labelFunc042A_013F:
@@ -98,7 +98,7 @@ labelFunc042A_013F:
 	UI_remove_answer("淡水");
 labelFunc042A_0152:
 	case "健康" attend labelFunc042A_0165:
-	message("「由於 Britannia 的人口在過去兩百年間大幅增加，傳染病的風險也隨之增加，例如那些服用銀蛇毒液的人所感染的神秘皮膚惡化症。王國需要的治療師數量急劇上升。」");
+	message("「由於不列顛尼亞的人口在過去兩百年間大幅增加，傳染病的風險也隨之增加，例如那些服用銀蛇毒液的人所感染的神秘皮膚惡化症。王國需要的治療師數量急劇上升。」");
 	say();
 	UI_remove_answer("健康");
 labelFunc042A_0165:
@@ -108,12 +108,12 @@ labelFunc042A_0165:
 	UI_remove_answer("莊園");
 labelFunc042A_0178:
 	case "守衛" attend labelFunc042A_018B:
-	message("「軍事訓練在 Serpent's Hold 進行，保護 Britannia 所有城鎮的守衛都在那裡受訓。這是由皇家金庫資助的。」");
+	message("「軍事訓練在 Serpent's Hold 進行，保護不列顛尼亞所有城鎮的守衛都在那裡受訓。這是由皇家金庫資助的。」");
 	say();
 	UI_remove_answer("守衛");
 labelFunc042A_018B:
 	case "系統" attend labelFunc042A_019E:
-	message("「這不僅適用於黃金，也適用於所有礦物。我們負責監督 Britannia 礦業公司 (Britannian Mining Company) 開採的珍貴礦石的銷售和兌換率。但我們不處理寶石的銷售。城裡有一家珠寶商負責處理那部分。」");
+	message("「這不僅適用於黃金，也適用於所有礦物。我們負責監督不列顛尼亞礦業公司 (不列顛尼亞n Mining Company) 開採的珍貴礦石的銷售和兌換率。但我們不處理寶石的銷售。城裡有一家珠寶商負責處理那部分。」");
 	say();
 	UI_remove_answer("系統");
 labelFunc042A_019E:

@@ -36,7 +36,7 @@ void Func043A object#(0x43A) ()
 	goto labelFunc043A_006D;
 labelFunc043A_0058:
 	if (!gflags[0x00DA]) goto labelFunc043A_0068;
-	message("「Batlin 究竟在哪裡？他開會遲到了！」");
+	message("「巴特林究竟在哪裡？他開會遲到了！」");
 	say();
 	goto labelFunc043A_006D;
 	goto labelFunc043A_006D;
@@ -75,7 +75,7 @@ labelFunc043A_00C8:
 	abort;
 	goto labelFunc043A_0144;
 labelFunc043A_00E3:
-	message("「我有你在全 Britannia 能嚐到最棒的炸魚薯條。我的價格只要每份 8 枚金幣。你想來點嗎？」");
+	message("「我有你在全不列顛尼亞能嚐到最棒的炸魚薯條。我的價格只要每份 8 枚金幣。你想來點嗎？」");
 	say();
 	var0005 = Func090A();
 	if (!var0005) goto labelFunc043A_0140;
@@ -85,7 +85,7 @@ labelFunc043A_00E3:
 	if (!var0007) goto labelFunc043A_0132;
 	message("他遞給你一個盤子。");
 	say();
-	message("「這真的是全 Britannia 最棒的炸魚薯條。」");
+	message("「這真的是全不列顛尼亞最棒的炸魚薯條。」");
 	say();
 	goto labelFunc043A_0136;
 labelFunc043A_0132:
@@ -111,15 +111,15 @@ labelFunc043A_014B:
 	UI_add_answer(["生意", "海盜巢穴"]);
 labelFunc043A_016B:
 	case "生意" attend labelFunc043A_018B:
-	message("「自從我成為友誼會成員後，生意就穩定成長。我改良並提升了炸魚麵糊的食譜，從那以後它就成了幾乎所有 Britain 人最喜歡的一餐。我甚至還把炸魚薯條供應給 Lord British 本人。」");
+	message("「自從我成為友誼會成員後，生意就穩定成長。我改良並提升了炸魚麵糊的食譜，從那以後它就成了幾乎所有不列顛城人最喜歡的一餐。我甚至還把炸魚薯條供應給不列顛王本人。」");
 	say();
-	UI_add_answer(["友誼會", "Lord British"]);
+	UI_add_answer(["友誼會", "不列顛王"]);
 	UI_remove_answer("生意");
 labelFunc043A_018B:
-	case "Lord British" attend labelFunc043A_019E:
+	case "不列顛王" attend labelFunc043A_019E:
 	message("「你知道的——就是那個戴著王冠、舉止像國王的傢伙。」");
 	say();
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc043A_019E:
 	case "友誼會" attend labelFunc043A_01D4:
 	if (!var0001) goto labelFunc043A_01CA;

@@ -30,20 +30,20 @@ void Func08A6 0x8A6 (var var0000, var var0001)
 labelFunc08A6_0019:
 	var0004 = Func090F(var0002);
 	if (!(var0004 == var0003)) goto labelFunc08A6_0047;
-	var0004 = "you";
-	var0005 = "you";
-	var0006 = "your";
-	var0007 = "find";
+	var0004 = "你";
+	var0005 = "妳";
+	var0006 = "你的";
+	var0007 = "找到";
 	goto labelFunc08A6_0082;
 labelFunc08A6_0047:
-	var0007 = "finds";
+	var0007 = "找到";
 	if (!((var0002 == 0xFFFB) || ((var0002 == 0xFFF8) || (var0002 == 0xFFF7)))) goto labelFunc08A6_0076;
-	var0005 = "she";
-	var0006 = "her";
+	var0005 = "她";
+	var0006 = "她的";
 	goto labelFunc08A6_0082;
 labelFunc08A6_0076:
-	var0005 = "he";
-	var0006 = "his";
+	var0005 = "他";
+	var0006 = "他的";
 labelFunc08A6_0082:
 	var0008 = 0x0003;
 	var0009 = Func0922(var0000, var0001, var0002, var0008);

@@ -37,7 +37,7 @@ labelFunc0469_0060:
 	UI_add_answer(["官員", "修道院"]);
 labelFunc0469_0079:
 	case "官員" attend labelFunc0469_0093:
-	message("「我是 Britannia 政府司法部門的人。我的工作就是確保罪犯受到法律制裁。」");
+	message("「我是不列顛尼亞官府司法部門的人。我的工作就是確保罪犯受到法律制裁。」");
 	say();
 	UI_add_answer("罪犯");
 	UI_remove_answer("官員");

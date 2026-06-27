@@ -16,18 +16,17 @@ void Func04C5 object#(0x4C5) ()
 	var0000 = UI_get_distance(0xFF3B, 0xFF3D);
 	if (!(var0000 < 0x000B)) goto labelFunc04C5_0058;
 	if (!gflags[0x026C]) goto labelFunc04C5_004F;
-	var0001 = "站在 John-Paul 爵士身後，行舉手禮。";
+	var0001 = "，站在 John-Paul 爵士身後，行舉手禮。";
 	goto labelFunc04C5_0055;
 labelFunc04C5_004F:
-	var0001 = "站在另一名騎士身後，行舉手禮。";
+	var0001 = "，站在另一名騎士身後，行舉手禮。";
 labelFunc04C5_0055:
 	goto labelFunc04C5_005E;
 labelFunc04C5_0058:
-	var0001 = ".";
+	var0001 = "。";
 labelFunc04C5_005E:
-	message("你看到一隻表情非常嚴肅的石像鬼，");
+	message("你看到一隻表情非常嚴肅的石像鬼");
 	message(var0001);
-	message("");
 	say();
 	var0002 = Func08F7(0xFF3D);
 	gflags[0x026E] = true;

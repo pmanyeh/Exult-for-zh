@@ -44,14 +44,14 @@ labelFunc0418_0064:
 labelFunc0418_006B:
 	case "職業" attend labelFunc0418_0092:
 	if (!(!gflags[0x0003])) goto labelFunc0418_0081;
-	message("「嗯，我以前經常施展魔法，」他帶著歉意說。「至少... 我『認為』我以前是這麼做的。我想，有一個叫 Lord British 的人。我為他工作。」");
+	message("「嗯，我以前經常施展魔法，」他帶著歉意說。「至少... 我『認為』我以前是這麼做的。我想，有一個叫不列顛王的人。我為他工作。」");
 	say();
 	goto labelFunc0418_0085;
 labelFunc0418_0081:
-	message("「我是 Lord British 的皇家法師！」");
+	message("「我是不列顛王的皇家法師！」");
 	say();
 labelFunc0418_0085:
-	UI_add_answer(["魔法", "Lord British"]);
+	UI_add_answer(["魔法", "不列顛王"]);
 labelFunc0418_0092:
 	case "魔法" attend labelFunc0418_00F2:
 	if (!(!gflags[0x0003])) goto labelFunc0418_00DA;
@@ -97,7 +97,7 @@ labelFunc0418_0132:
 	message("「喔。那就算了。」");
 	say();
 labelFunc0418_0136:
-	case "Lord British" attend labelFunc0418_0157:
+	case "不列顛王" attend labelFunc0418_0157:
 	if (!(!gflags[0x0003])) goto labelFunc0418_014C;
 	message("「什麼王？你是說那個有時候會坐在王座上的老頭子嗎？」");
 	say();
@@ -106,7 +106,7 @@ labelFunc0418_014C:
 	message("「他是這片土地上有史以來最偉大的統治者，我為能侍奉他而感到自豪。」");
 	say();
 labelFunc0418_0150:
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc0418_0157:
 	case "告辭" attend labelFunc0418_0162:
 	goto labelFunc0418_0165;

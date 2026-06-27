@@ -44,7 +44,7 @@ labelFunc043C_0058:
 	UI_remove_answer("姓名");
 labelFunc043C_006E:
 	case "職業" attend labelFunc043C_0087:
-	message("「嗯，我曾經競選過 Britain 的市長，但我落選了。現在我又回到了我從小就在做的事。在農場工作。」");
+	message("「嗯，我曾經競選過不列顛城的市長，但我落選了。現在我又回到了我從小就在做的事。在農場工作。」");
 	say();
 	UI_add_answer(["市長", "農場"]);
 labelFunc043C_0087:
@@ -94,7 +94,7 @@ labelFunc043C_012E:
 	UI_remove_answer("秘密");
 labelFunc043C_0141:
 	case "農場" attend labelFunc043C_0161:
-	message("「我還是覺得在農場種蔬菜比較自在。還有另一個農夫叫 Mack ，他也在 Britain 附近經營農場。他養雞。」");
+	message("「我還是覺得在農場種蔬菜比較自在。還有另一個農夫叫 Mack ，他也在不列顛城附近經營農場。他養雞。」");
 	say();
 	UI_remove_answer("農場");
 	UI_add_answer(["蔬菜", "Mack"]);

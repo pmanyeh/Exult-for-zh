@@ -110,7 +110,7 @@ labelFunc04A6_0190:
 	UI_remove_answer("麵粉");
 labelFunc04A6_0197:
 	case "Paws" attend labelFunc04A6_01B8:
-	message("「如果你沒注意到，住在這兒的人沒有他們住在 Britain 的親戚那麼富裕。事實上，我們最近甚至發生了一起竊盜案。」");
+	message("「如果你沒注意到，住在這兒的人沒有他們住在不列顛城的親戚那麼富裕。事實上，我們最近甚至發生了一起竊盜案。」");
 	say();
 	UI_remove_answer("Paws");
 	if (!(!gflags[0x0218])) goto labelFunc04A6_01B8;

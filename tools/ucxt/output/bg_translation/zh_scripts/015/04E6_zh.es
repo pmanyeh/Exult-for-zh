@@ -90,7 +90,7 @@ labelFunc04E6_0128:
 	UI_add_answer(["老闆 (The Mister)", "賭坊 (House of Games)", "技巧"]);
 labelFunc04E6_0138:
 	case "賭坊 (House of Games)" attend labelFunc04E6_0158:
-	message("「賭坊 (House of Games) 是六年前用……一位利益相關者的資金建立的。它吸引了來自全 Britannia 想要用他們的錢過危險生活的人。這門生意非常有利可圖。」他拍了拍他的袋子，發出金幣叮噹的聲音。「非常有利可圖。」他笑著說。");
+	message("「賭坊 (House of Games) 是六年前用……一位利益相關者的資金建立的。它吸引了來自全不列顛尼亞想要用他們的錢過危險生活的人。這門生意非常有利可圖。」他拍了拍他的袋子，發出金幣叮噹的聲音。「非常有利可圖。」他笑著說。");
 	say();
 	UI_remove_answer("賭坊 (House of Games)");
 	UI_add_answer(["靠山", "有利可圖"]);
@@ -121,7 +121,7 @@ labelFunc04E6_01A9:
 	UI_remove_answer("技巧");
 labelFunc04E6_01B0:
 	case "有利可圖" attend labelFunc04E6_01C3:
-	message("「嗯，海盜巢穴 (Buccaneer's Den)不在 Britannia 稅務委員會的管轄範圍內。我們不受 Britannia 的稅收約束。」 Gordy 邪惡地笑著。「而那……非常有利可圖！」");
+	message("「嗯，海盜巢穴 (Buccaneer's Den)不在不列顛尼亞稅務委員會的管轄範圍內。我們不受不列顛尼亞的稅收約束。」 Gordy 邪惡地笑著。「而那……非常有利可圖！」");
 	say();
 	UI_remove_answer("有利可圖");
 labelFunc04E6_01C3:

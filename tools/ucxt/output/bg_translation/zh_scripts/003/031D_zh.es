@@ -21,7 +21,7 @@ labelFunc031D_0017:
 	goto labelFunc031D_0487;
 labelFunc031D_0035:
 	if (!(var0000 == 0x0000)) goto labelFunc031D_0046;
-	message("來自 Lord British 的辦公桌");
+	message("來自不列顛王的辦公桌");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0046:
@@ -57,7 +57,7 @@ labelFunc031D_0046:
 	goto labelFunc031D_0487;
 labelFunc031D_008B:
 	if (!(var0000 == 0x0002)) goto labelFunc031D_009C;
-	message("保持 Britannia 乾淨 —— 把石像鬼送回去！ ~~ ~~ ~~ 贊助者：Britannia 純潔聯盟");
+	message("保持不列顛尼亞乾淨 —— 把石像鬼送回去！ ~~ ~~ ~~ 贊助者：不列顛尼亞純潔聯盟");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_009C:
@@ -91,7 +91,7 @@ labelFunc031D_00E0:
 labelFunc031D_00F1:
 	if (!(var0000 == 0x0007)) goto labelFunc031D_0127;
 	var0001 = Func0908();
-	message("Finster - Britain (x)");
+	message("Finster -不列顛城(x)");
 	say();
 	message("Duncan - 海盜巢穴 (Buccaneer's Den)(x)");
 	say();
@@ -103,7 +103,7 @@ labelFunc031D_00F1:
 	say();
 	message("Alagner - New Magincia  (x)");
 	say();
-	message("Lord British - Britain ( )");
+	message("不列顛王-不列顛城( )");
 	say();
 	message(var0001);
 	message("，聖者 - ( )");
@@ -132,7 +132,7 @@ labelFunc031D_015E:
 	goto labelFunc031D_0487;
 labelFunc031D_016F:
 	if (!(var0000 == 0x000C)) goto labelFunc031D_0188;
-	message("BRITANNIA 稅務委員會");
+	message("不列顛尼亞稅務委員會");
 	say();
 	message("稅務申報單");
 	say();
@@ -146,44 +146,44 @@ labelFunc031D_0188:
 	goto labelFunc031D_0487;
 labelFunc031D_0199:
 	if (!(var0000 == 0x000E)) goto labelFunc031D_01AE;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
 	message("     船契~~船名：The Scaly Eel~~完工日期：7-21-0355~~ 檢查日期：8-2-0355~~造船匠：Trinsic 的 Gargan");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_01AE:
 	if (!(var0000 == 0x000F)) goto labelFunc031D_01C3;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     船契~~船名：The Beast~~完工日期：3-12-0358~~ 檢查日期：3-19-0358~~造船匠：Britain 的 Clint");
+	message("     船契~~船名：The Beast~~完工日期：3-12-0358~~ 檢查日期：3-19-0358~~造船匠：不列顛城的 Clint");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_01C3:
 	if (!(var0000 == 0x0010)) goto labelFunc031D_01D8;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
 	message("     船契~~船名：The Excellencia~~完工日期：~~ 檢查日期：~~造船匠：Minoc 的 Owen");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_01D8:
 	if (!(var0000 == 0x0011)) goto labelFunc031D_01ED;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
 	message("     船契~~船名：The Nymphet~~完工日期：12-22-0357~~ 檢查日期：1-3-0358~~造船匠：New Magincia 的 Russell");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_01ED:
 	if (!(var0000 == 0x0012)) goto labelFunc031D_0202;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
 	message("     船契~~船名：The Lusty Wench~~完工日期：6-14-0327~~ 檢查日期：6-24-0359~~造船匠：Moonglow 的 Kethron");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0202:
 	if (!(var0000 == 0x0013)) goto labelFunc031D_0217;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     船契~~船名：The Dragon's Breath~~完工日期：5-18-0342~~ 檢查日期：5-23-0342~~造船匠：Britain 的 Rohden");
+	message("     船契~~船名：The Dragon's Breath~~完工日期：5-18-0342~~ 檢查日期：5-23-0342~~造船匠：不列顛城的 Rohden");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0217:
@@ -208,7 +208,7 @@ labelFunc031D_024A:
 	goto labelFunc031D_0487;
 labelFunc031D_025B:
 	if (!(var0000 == 0x0018)) goto labelFunc031D_0270;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
 	message("     船契~~船名：~~完工日期：~~檢查日期：~~ 造船匠：");
 	say();
@@ -225,17 +225,17 @@ labelFunc031D_0281:
 	goto labelFunc031D_0487;
 labelFunc031D_0292:
 	if (!(var0000 == 0x001B)) goto labelFunc031D_02A3;
-	message("~~在這些石柱之間，這座石座之上，曾經放置著終極智慧法典 (CODEX OF ULTIMATE WISDOM)。~~現在它位處虛空無盡的黑暗之中，永遠作為知識的燈塔，照耀著人類與石像鬼種族。~~那些尋求其中智慧的人，必須像兩百多年前的聖者一樣，將神祕的透鏡結合起來。~Lord British~~透過控制、熱情和勤奮來尋找奇異點。~~Lord Draxinusom");
+	message("~~在這些石柱之間，這座石座之上，曾經放置著終極智慧法典 (CODEX OF ULTIMATE WISDOM)。~~現在它位處虛空無盡的黑暗之中，永遠作為知識的燈塔，照耀著人類與石像鬼種族。~~那些尋求其中智慧的人，必須像兩百多年前的聖者一樣，將神祕的透鏡結合起來。~不列顛王~~透過控制、熱情和勤奮來尋找奇異點。~~Lord Draxinusom");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_02A3:
 	if (!(var0000 == 0x001C)) goto labelFunc031D_02B4;
-	message("~     馬匹與馬車所有權~~此狀授予持有人對馬車及其配屬馬匹 Fletcher 的所有權及使用權。非對上述馬車與馬匹擁有完全所有權者濫用此狀，將根據 Britannia 稅務委員會執行的《私人貨物與牲畜所有權法》第 7890.3D5 條予以處罰。");
+	message("~     馬匹與馬車所有權~~此狀授予持有人對馬車及其配屬馬匹 Fletcher 的所有權及使用權。非對上述馬車與馬匹擁有完全所有權者濫用此狀，將根據不列顛尼亞稅務委員會執行的《私人貨物與牲畜所有權法》第 7890.3D5 條予以處罰。");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_02B4:
 	if (!(var0000 == 0x001D)) goto labelFunc031D_02C5;
-	message("~     馬匹與馬車所有權~~此狀授予持有人對馬車及其配屬馬匹 Brikabrak 的所有權及使用權。非對上述馬車與馬匹擁有完全所有權者濫用此狀，將根據 Britannia 稅務委員會執行的《私人貨物與牲畜所有權法》第 7890.3D5 條予以處罰。");
+	message("~     馬匹與馬車所有權~~此狀授予持有人對馬車及其配屬馬匹 Brikabrak 的所有權及使用權。非對上述馬車與馬匹擁有完全所有權者濫用此狀，將根據不列顛尼亞稅務委員會執行的《私人貨物與牲畜所有權法》第 7890.3D5 條予以處罰。");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_02C5:
@@ -261,21 +261,21 @@ labelFunc031D_02EF:
 	goto labelFunc031D_0487;
 labelFunc031D_0304:
 	if (!(var0000 == 0x0021)) goto labelFunc031D_0319;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
 	message("     船契~~船名：Anne's Revenge~~完工日期：11-23-0198 ~~檢查日期：1-17-0199~~造船匠：New Magincia 的 Alluria");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0319:
 	if (!(var0000 == 0x0022)) goto labelFunc031D_032E;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
 	message("     船契~~船名：Golden Hinde~~完工日期：7-08-0105 ~~檢查日期：7-12-0105~~造船匠：Trinsic 的 Gendra");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_032E:
 	if (!(var0000 == 0x0023)) goto labelFunc031D_0343;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
 	message("     船契~~船名：Bounty~~完工日期：5-27-0185 ~~檢查日期：6-04-0185~~造船匠：Minoc 的 Gibson");
 	say();
@@ -283,7 +283,7 @@ labelFunc031D_032E:
 labelFunc031D_0343:
 	if (!(var0000 == 0x0024)) goto labelFunc031D_0360;
 	var0001 = Func0908();
-	message("最親愛的 Iolo，~     在海盜巢穴 (Buccaneer's Den)，我遇到了一位老海盜，他告訴我，他航行過 Britannia 海域的次數比我經歷過的夏天還要多。出於賭博的心態，我問他是否聽說過傳說中的巨蛇島 (Serpent Isle)。他聽過！而且他甚至還有一張標示著如何找到該島嶼的地圖。我買下了地圖，並已經開始了我的尋找之旅。不過，我留了一份副本，好讓你在完成目前的冒險後可以跟上我。我已將副本交給 Lord British，但他答應我，直到你與 ");
+	message("最親愛的 Iolo，~     在海盜巢穴 (Buccaneer's Den)，我遇到了一位老海盜，他告訴我，他航行過不列顛尼亞海域的次數比我經歷過的夏天還要多。出於賭博的心態，我問他是否聽說過傳說中的巨蛇島 (Serpent Isle)。他聽過！而且他甚至還有一張標示著如何找到該島嶼的地圖。我買下了地圖，並已經開始了我的尋找之旅。不過，我留了一份副本，好讓你在完成目前的冒險後可以跟上我。我已將副本交給不列顛王，但他答應我，直到你與 ");
 	message(var0001);
 	message(" 完成探索之前，他不會把地圖交給你。~~     直到我們再次相見，我的愛人！~     Gwenno");
 	say();
@@ -295,12 +295,12 @@ labelFunc031D_0360:
 	goto labelFunc031D_0487;
 labelFunc031D_0371:
 	if (!(var0000 == 0x0026)) goto labelFunc031D_0382;
-	message("~     馬匹與馬車所有權~~此狀授予持有人對馬車及其配屬馬匹 ____________ 的所有權及使用權。非對上述馬車與馬匹擁有完全所有權者濫用此狀，將根據 Britannia 稅務委員會執行的《私人貨物與牲畜所有權法》第 7890.3D5 條予以處罰。");
+	message("~     馬匹與馬車所有權~~此狀授予持有人對馬車及其配屬馬匹 ____________ 的所有權及使用權。非對上述馬車與馬匹擁有完全所有權者濫用此狀，將根據不列顛尼亞稅務委員會執行的《私人貨物與牲畜所有權法》第 7890.3D5 條予以處罰。");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0382:
 	if (!(var0000 == 0x0027)) goto labelFunc031D_0393;
-	message("~很好。我們同意在第七天的黎明攻擊 Lord British 的城堡。~~Fransisa~Corwin~ Brax~Athelas");
+	message("~很好。我們同意在第七天的黎明攻擊不列顛王的城堡。~~Fransisa~Corwin~ Brax~Athelas");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0393:
@@ -327,18 +327,18 @@ labelFunc031D_03C1:
 	say();
 labelFunc031D_03D3:
 	if (!(var0000 == 0x002B)) goto labelFunc031D_03EC;
-	message("~     Lord British 的最終遺囑與聲明：~~");
+	message("~不列顛王的最終遺囑與聲明：~~");
 	say();
 	message("     在我身心健康之際，我在此將我所有的財產遺贈給... Nell，我心愛的女僕。她陪伴我度過了許多溫暖的夜晚，這是我對多數我那群該死臣民無法言喻的！而對於我們未出生的孩子，我將我的王冠遺贈給他/她。國王萬歲。或是女王，不管是哪個！~~");
 	say();
-	message("          Lord British");
+	message("不列顛王");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_03EC:
 	if (!(var0000 == 0x002C)) goto labelFunc031D_0401;
-	message("奉 Lord British 詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
+	message("奉不列顛王詔令，此為官方文件，表明對文件中，所記載之帆船的所有權。根據第 1989832.A5 號法律第 809 條，禁止偽造此所有權狀。");
 	say();
-	message("     船契~~船名：Golden Ankh~~完工日期：3-8-0338~~ 檢查日期：3-18-0338~~造船匠：Britain 的 Clint");
+	message("     船契~~船名：Golden Ankh~~完工日期：3-8-0338~~ 檢查日期：3-18-0338~~造船匠：不列顛城的 Clint");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_0401:
@@ -374,7 +374,7 @@ labelFunc031D_0448:
 	goto labelFunc031D_0487;
 labelFunc031D_045D:
 	if (!(var0000 == 0x0032)) goto labelFunc031D_046E;
-	message("       無限卷軸 (SCROLL OF INFINITY)~~ 神器 無限護身符 (TalismanOfInfinity) -~ 如果 實相 (Reality) 為 魔法 (Magic) -~ 如果 區域 (Locale)(神器) 為 虛空 (Void) -~ 凸透鏡 (Convex) 為 在 Britannia 尋找(凸透鏡)~ 凹透鏡 (Concave) 為 在 Britannia 尋找(凹透鏡)~ ~ 如果 執行光線測試 (凹透鏡，凸透鏡) -~ 護身符清單 為 Britannia 搜尋(護身符)~ ~~ 計數器 為 0~ 對於 護身符清單 中的每個護身符 -~ 如果 知道類型(護身符) 為 真理 (Truth) -~ 計數器 為 計數器 與 1~ --~ 如果 知道類型(護身符) 為 愛 (Love) -~ 計數器 為 計數器 與 1~ --~ 如果 知道類型(護身符) 為 勇氣 (Courage) -~ 計數器 為 計數器 與 1~ --~ ~ 如果 計數器 為 3 -~ 執行虛空存取()~ ~~ 無限行動 為 行動(實例,~ 位面旅行，Britannia,~ 回呼，無限護身符)~ --~ 如果 實相 為 偽科學 (PseudoScience) -~ 邪惡實體 為 實體搜尋(全部，強大，邪惡)~ 如果 邪惡實體 -~ 檢查 為 推動實相(邪惡實體)~ 如果 未 檢查 -~ 測試(「你絕對看不到這個！」)");
+	message("       無限卷軸 (SCROLL OF INFINITY)~~ 神器 無限護身符 (TalismanOfInfinity) -~ 如果 實相 (Reality) 為 魔法 (Magic) -~ 如果 區域 (Locale)(神器) 為 虛空 (Void) -~ 凸透鏡 (Convex) 為 在不列顛尼亞尋找(凸透鏡)~ 凹透鏡 (Concave) 為 在不列顛尼亞尋找(凹透鏡)~ ~ 如果 執行光線測試 (凹透鏡，凸透鏡) -~ 護身符清單 為不列顛尼亞搜尋(護身符)~ ~~ 計數器 為 0~ 對於 護身符清單 中的每個護身符 -~ 如果 知道類型(護身符) 為 真理 (Truth) -~ 計數器 為 計數器 與 1~ --~ 如果 知道類型(護身符) 為 愛 (Love) -~ 計數器 為 計數器 與 1~ --~ 如果 知道類型(護身符) 為 勇氣 (Courage) -~ 計數器 為 計數器 與 1~ --~ ~ 如果 計數器 為 3 -~ 執行虛空存取()~ ~~ 無限行動 為 行動(實例,~ 位面旅行，不列顛尼亞,~ 回呼，無限護身符)~ --~ 如果 實相 為 偽科學 (PseudoScience) -~ 邪惡實體 為 實體搜尋(全部，強大，邪惡)~ 如果 邪惡實體 -~ 檢查 為 推動實相(邪惡實體)~ 如果 未 檢查 -~ 測試(「你絕對看不到這個！」)");
 	say();
 	goto labelFunc031D_0487;
 labelFunc031D_046E:

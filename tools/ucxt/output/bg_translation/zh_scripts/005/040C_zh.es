@@ -213,7 +213,7 @@ labelFunc040C_02BD:
 labelFunc040C_02C3:
 	message("「 Trinsic 曾經是榮譽之城。我想現在依然是。我們的榮譽符文很多年前 ");
 	message(var0008);
-	message("我相信它現在被保存在 Britain 的皇家博物館中，然而城鎮中心仍留著空蕩蕩的基座。我覺得這象徵著這個城鎮本身。它是相當空虛的——沒有人氣，沒有生氣，也沒有榮譽。真的很悲哀。」");
+	message("我相信它現在被保存在不列顛城的皇家博物館中，然而城鎮中心仍留著空蕩蕩的基座。我覺得這象徵著這個城鎮本身。它是相當空虛的——沒有人氣，沒有生氣，也沒有榮譽。真的很悲哀。」");
 	say();
 	message("「然後當然還有這起謀殺案。我們暫時關閉了城門，需要口令才能進出。」");
 	say();
@@ -246,9 +246,9 @@ labelFunc040C_032C:
 	say();
 	message("鎮長猶豫了一下，然後湊近小聲說道。");
 	say();
-	message("「事實上，我以前見過類似的情況。大約是四年前，在 Britain。」");
+	message("「事實上，我以前見過類似的情況。大約是四年前，在不列顛城。」");
 	say();
-	UI_add_answer(["Gilberto", "Christopher", "Inamo", "Britain", "報告"]);
+	UI_add_answer(["Gilberto", "Christopher", "Inamo", "不列顛城", "報告"]);
 	gflags[0x005B] = true;
 	UI_remove_answer("謀殺");
 	goto labelFunc040C_036F;
@@ -256,10 +256,10 @@ labelFunc040C_036B:
 	message("「我希望你的謀殺案調查有所進展。」");
 	say();
 labelFunc040C_036F:
-	case "Britain" attend labelFunc040C_0382:
+	case "不列顛城" attend labelFunc040C_0382:
 	message("「那是在我來到 Trinsic 之前的事了。曾經發生過一起有著驚人相似之處的謀殺案。發現了一具被肢解的屍體，就像可憐的 Christopher 一樣。那看起來像是一場儀式性的殺戮。我敢打賭，當年那起謀殺案的凶手就是這次事件的幕後黑手。」");
 	say();
-	UI_remove_answer("Britain");
+	UI_remove_answer("不列顛城");
 labelFunc040C_0382:
 	case "兒子" attend labelFunc040C_0395:
 	message("「Christopher 的兒子名叫 Spark。他們的房子在城鎮的西北區。」");

@@ -24,7 +24,7 @@ labelFunc08B2_0032:
 	say();
 	goto labelFunc08B2_004F;
 labelFunc08B2_004B:
-	message("「我猜想，你被帶到 Britannia 是有原因的。如果你不知道那是什麼，你不該去尋找嗎？」");
+	message("「我猜想，你被帶到不列顛尼亞是有原因的。如果你不知道那是什麼，你不該去尋找嗎？」");
 	say();
 labelFunc08B2_004F:
 	UI_remove_answer("任務");

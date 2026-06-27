@@ -30,7 +30,7 @@ void Func0422 object#(0x422) ()
 	goto labelFunc0422_0067;
 labelFunc0422_0052:
 	if (!gflags[0x00DA]) goto labelFunc0422_0062;
-	message("「我無法想像 Batlin 在哪裡。他從未缺席過友誼會的集會！」");
+	message("「我無法想像巴特林在哪裡。他從未缺席過友誼會的集會！」");
 	say();
 	goto labelFunc0422_0067;
 	goto labelFunc0422_0067;
@@ -61,7 +61,7 @@ labelFunc0422_00A3:
 	UI_add_answer(["皇家育兒室", "保母", "孩子們"]);
 labelFunc0422_00BF:
 	case "皇家育兒室" attend labelFunc0422_013C:
-	message("「近年來 Britannia 出生了許多嬰兒，所以 Lord British 建立了這個育兒室。貴族男女能有這種奢侈的服務真是不錯，這樣他們就能專心處理日常職務了。」");
+	message("「近年來不列顛尼亞出生了許多嬰兒，所以不列顛王建立了這個育兒室。貴族男女能有這種奢侈的服務真是不錯，這樣他們就能專心處理日常職務了。」");
 	say();
 	UI_remove_answer("皇家育兒室");
 	UI_add_answer("奢侈");
@@ -91,7 +91,7 @@ labelFunc0422_013C:
 	UI_add_answer(["書籍", "Sherry"]);
 labelFunc0422_015C:
 	case "書籍" attend labelFunc0422_016F:
-	message("「Lord British 把這些書從他的家鄉帶來的。這些對我們 Britannia 來說非常陌生，但孩子們一樣很喜歡。」");
+	message("「不列顛王把這些書從他的家鄉帶來的。這些對我們不列顛尼亞來說非常陌生，但孩子們一樣很喜歡。」");
 	say();
 	UI_remove_answer("書籍");
 labelFunc0422_016F:
@@ -112,19 +112,19 @@ labelFunc0422_01B1:
 	UI_remove_answer("孩子們");
 labelFunc0422_01B8:
 	case "奢侈" attend labelFunc0422_01D2:
-	message("「是的，我想這真的是一種奢侈。Britannia 較貧窮的人當然沒有這種照顧他們孩子的服務。富人確實有優勢。」你從她的聲音中聽出了一絲苦澀。");
+	message("「是的，我想這真的是一種奢侈。不列顛尼亞較貧窮的人當然沒有這種照顧他們孩子的服務。富人確實有優勢。」你從她的聲音中聽出了一絲苦澀。");
 	say();
 	UI_remove_answer("奢侈");
 	UI_add_answer("優勢");
 labelFunc0422_01D2:
 	case "優勢" attend labelFunc0422_01F2:
-	message("「我絕不是要抱怨。我很熱愛我的工作。但與許多貴族男女的想法相反，Britannia 的階級結構比以往任何時候都存在。稅收令人難以承受。俗話說，富人越來越富，窮人越來越窮。」");
+	message("「我絕不是要抱怨。我很熱愛我的工作。但與許多貴族男女的想法相反，不列顛尼亞的階級結構比以往任何時候都存在。稅收令人難以承受。俗話說，富人越來越富，窮人越來越窮。」");
 	say();
 	UI_remove_answer("優勢");
 	UI_add_answer(["階級結構", "稅收"]);
 labelFunc0422_01F2:
 	case "稅收" attend labelFunc0422_0205:
-	message("「Britannia 稅務委員會把我們都榨乾了。尤其是中下階層。」");
+	message("「不列顛尼亞稅務委員會把我們都榨乾了。尤其是中下階層。」");
 	say();
 	UI_remove_answer("稅收");
 labelFunc0422_0205:

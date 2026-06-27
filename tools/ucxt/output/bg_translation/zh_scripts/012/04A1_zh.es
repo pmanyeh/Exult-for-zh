@@ -108,7 +108,7 @@ labelFunc04A1_016B:
 	UI_remove_answer("Moonglow");
 labelFunc04A1_018B:
 	case "位置" attend labelFunc04A1_019E:
-	message("「Moonglow 位於 Britain 和 Paws 交界處正東方的一個島嶼上。」");
+	message("「Moonglow 位於不列顛城和 Paws 交界處正東方的一個島嶼上。」");
 	say();
 	UI_remove_answer("位置");
 labelFunc04A1_019E:

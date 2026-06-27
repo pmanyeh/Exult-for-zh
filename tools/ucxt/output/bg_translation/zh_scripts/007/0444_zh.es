@@ -48,7 +48,7 @@ labelFunc0444_006F:
 	UI_add_answer(["僕人總管", "餐點"]);
 labelFunc0444_0088:
 	case "僕人總管" attend labelFunc0444_009B:
-	message("「是的，我擔任僕人總管已經很多年了。我整個家族都在為 Lord British 工作。我的兒子是國王的貼身男僕。我的女兒是皇家女僕。我的妻子是主廚。我們很榮幸能為 Lord British 工作。」");
+	message("「是的，我擔任僕人總管已經很多年了。我整個家族都在為不列顛王工作。我的兒子是國王的貼身男僕。我的女兒是皇家女僕。我的妻子是主廚。我們很榮幸能為不列顛王工作。」");
 	say();
 	UI_remove_answer("僕人總管");
 labelFunc0444_009B:

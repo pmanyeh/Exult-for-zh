@@ -93,7 +93,7 @@ labelFunc04E5_013C:
 	UI_add_answer("友誼會");
 labelFunc04E5_0159:
 	case "護甲" attend labelFunc04E5_0168:
-	message("「 Budo 商行只提供全 Britannia 品質最好的護甲。我有所有最好的裝備可供選擇。」");
+	message("「 Budo 商行只提供全不列顛尼亞品質最好的護甲。我有所有最好的裝備可供選擇。」");
 	say();
 	Func0859();
 labelFunc04E5_0168:

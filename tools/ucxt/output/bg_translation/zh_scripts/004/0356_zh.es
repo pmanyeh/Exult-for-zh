@@ -20,7 +20,7 @@ labelFunc0356_000F:
 	if (!(var0000 == 0x0010)) goto labelFunc0356_007E;
 	UI_show_npc_face(0xFEE1, 0x0000);
 	if (!gflags[0x030C]) goto labelFunc0356_0036;
-	message("「我們感謝你，聖者。你拯救了 Britannia 免於陷入可能的第二次黑暗時代。你再次證明了你作為 Lord British 意志體現者的價值。」");
+	message("「我們感謝你，聖者。你拯救了不列顛尼亞免於陷入可能的第二次黑暗時代。你再次證明了你作為不列顛王意志體現者的價值。」");
 	say();
 	abort;
 labelFunc0356_0036:
@@ -51,12 +51,12 @@ labelFunc0356_007E:
 	if (!(var0000 == 0x000E)) goto labelFunc0356_00BF;
 	UI_show_npc_face(0xFEE1, 0x0001);
 	if (!gflags[0x030C]) goto labelFunc0356_009D;
-	message("「你對生命的愛是無限的。你發自內心的行動是全 Britannia 的閃亮典範。」*");
+	message("「你對生命的愛是無限的。你發自內心的行動是全不列顛尼亞的閃亮典範。」*");
 	say();
 	abort;
 labelFunc0356_009D:
 	if (!gflags[0x0327]) goto labelFunc0356_00A8;
-	message("「歡迎你，聖者。我無法再幫助你，除了提供我之前給過的建議：一股巨大的邪惡正在 Britannia 中蠢蠢欲動……」*");
+	message("「歡迎你，聖者。我無法再幫助你，除了提供我之前給過的建議：一股巨大的邪惡正在不列顛尼亞中蠢蠢欲動……」*");
 	say();
 	abort;
 labelFunc0356_00A8:
@@ -74,7 +74,7 @@ labelFunc0356_00BF:
 	if (!(var0000 == 0x000F)) goto labelFunc0356_0100;
 	UI_show_npc_face(0xFEE1, 0x0002);
 	if (!gflags[0x030C]) goto labelFunc0356_00DE;
-	message("「你的重擔已經減輕， Britannia 再次從 Exodus 的魔爪中解脫。你的事蹟將作為這片土地歷史上最勇敢的壯舉而被長久銘記。」*");
+	message("「你的重擔已經減輕，不列顛尼亞再次從 Exodus 的魔爪中解脫。你的事蹟將作為這片土地歷史上最勇敢的壯舉而被長久銘記。」*");
 	say();
 	abort;
 labelFunc0356_00DE:
@@ -164,7 +164,7 @@ labelFunc0356_03BA:
 	UI_show_npc_face(0xFEE1, 0x0001);
 	message("「現在你已經認真地體驗了愛的一切。這是一種永遠不能輕視的益處，因為愛是強大的動力。永遠記住你所掌握的關於同情、犧牲和正義的教訓。」");
 	say();
-	message("愛之守護者的聲音充滿了同情。「請多保重，聖者。因為一股巨大的邪惡正在 Britannia 中蠢蠢欲動，我不知道它的來源。」*");
+	message("愛之守護者的聲音充滿了同情。「請多保重，聖者。因為一股巨大的邪惡正在不列顛尼亞中蠢蠢欲動，我不知道它的來源。」*");
 	say();
 	gflags[0x0317] = false;
 	abort;

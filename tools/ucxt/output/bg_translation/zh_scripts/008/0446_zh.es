@@ -51,7 +51,7 @@ labelFunc0446_0072:
 	UI_add_answer(["大議會", "法案", "小孩"]);
 labelFunc0446_008E:
 	case "大議會" attend labelFunc0446_00A8:
-	message("「大議會協助 Lord British 制訂 Britannia 的法律。我很榮幸能成為在議會服務的三名女性之一。」");
+	message("「大議會協助不列顛王制訂不列顛尼亞的法律。我很榮幸能成為在議會服務的三名女性之一。」");
 	say();
 	UI_add_answer("女性");
 	UI_remove_answer("大議會");

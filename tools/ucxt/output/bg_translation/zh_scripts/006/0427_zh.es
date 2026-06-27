@@ -40,7 +40,7 @@ labelFunc0427_0065:
 	UI_remove_answer("姓名");
 labelFunc0427_007B:
 	case "職業" attend labelFunc0427_0094:
-	message("「我正在學習成為 Britannia 有史以來最偉大的吟遊詩人。我可能 -已經- 是 Britannia 有史以來最偉大的吟遊詩人了。」你注意到 Neno 一點也不謙虛。");
+	message("「我正在學習成為不列顛尼亞有史以來最偉大的吟遊詩人。我可能 -已經- 是不列顛尼亞有史以來最偉大的吟遊詩人了。」你注意到 Neno 一點也不謙虛。");
 	say();
 	UI_add_answer(["吟遊詩人", "學習"]);
 labelFunc0427_0094:

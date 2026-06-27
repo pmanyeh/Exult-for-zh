@@ -87,7 +87,7 @@ labelFunc04D1_013C:
 labelFunc04D1_0142:
 	message("「我盡可能與盡多市民保持聯繫，但我並不是非常了解所有人。我認識 Cador");
 	message(var0005);
-	message("自從 Britannia 礦業公司地方分部開設以來，就一直負責該分部。他與 Yvella 結婚了。我相信他們是那個友誼會組織的成員。~~「當然，還有 Eldroth ，還有一位訓練師，以及 Yongi 。還有，」他皺著眉頭補充最後一個，「Blorn 。另外，你應該跟 Liana 談談。她認識一些我不認識的人。恐怕我對每個人的了解不如我應該有的那麼多。」");
+	message("自從不列顛尼亞礦業公司地方分部開設以來，就一直負責該分部。他與 Yvella 結婚了。我相信他們是那個友誼會組織的成員。~~「當然，還有 Eldroth ，還有一位訓練師，以及 Yongi 。還有，」他皺著眉頭補充最後一個，「Blorn 。另外，你應該跟 Liana 談談。她認識一些我不認識的人。恐怕我對每個人的了解不如我應該有的那麼多。」");
 	say();
 	UI_add_answer(["訓練師", "Yongi", "Liana"]);
 	if (!(!var0003)) goto labelFunc04D1_016A;
@@ -115,7 +115,7 @@ labelFunc04D1_01A9:
 	UI_remove_answer("訓練師");
 labelFunc04D1_01BC:
 	case "Yongi" attend labelFunc04D1_01CF:
-	message("「他在酒館供應飲料。許多人稱他為沙漠這一側最好的酒保。來自全 Britannia 的人都來找他談話，」他自豪地說。");
+	message("「他在酒館供應飲料。許多人稱他為沙漠這一側最好的酒保。來自全不列顛尼亞的人都來找他談話，」他自豪地說。");
 	say();
 	UI_remove_answer("Yongi");
 labelFunc04D1_01CF:
@@ -127,7 +127,7 @@ labelFunc04D1_01CF:
 labelFunc04D1_01E6:
 	case "Elizabeth 與 Abraham" attend labelFunc04D1_020B:
 	if (!(!gflags[0x01EF])) goto labelFunc04D1_0200;
-	message("「他們是友誼會成員。他們剛剛來到這裡是為了看看在 Vesper 設立分部的事。我想我們會允許的。我相信這對夫婦已經前往 Moonglow 了。他們說他們正在前往那裡為當地的分部負責人進行培訓課程。但我知道他們在出城的路上會停在 Britannia 礦業公司的分部。我不知道為什麼。」");
+	message("「他們是友誼會成員。他們剛剛來到這裡是為了看看在 Vesper 設立分部的事。我想我們會允許的。我相信這對夫婦已經前往 Moonglow 了。他們說他們正在前往那裡為當地的分部負責人進行培訓課程。但我知道他們在出城的路上會停在不列顛尼亞礦業公司的分部。我不知道為什麼。」");
 	say();
 	gflags[0x0284] = true;
 	goto labelFunc04D1_0204;

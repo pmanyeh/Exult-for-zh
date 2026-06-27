@@ -95,7 +95,7 @@ labelFunc04BA_015B:
 	UI_remove_answer("分享");
 labelFunc04BA_0162:
 	case "物質幸福" attend labelFunc04BA_017C:
-	message("「在財務和個人層面上支持 Paws 的救濟院。在 Britannia 舉辦宴會和節慶來提振士氣。是所有石像鬼和人類都非常需要的團體。我自己也需要友誼會！」");
+	message("「在財務和個人層面上支持 Paws 的救濟院。在不列顛尼亞舉辦宴會和節慶來提振士氣。是所有石像鬼和人類都非常需要的團體。我自己也需要友誼會！」");
 	say();
 	UI_add_answer("需要友誼會");
 	UI_remove_answer("物質幸福");

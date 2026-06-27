@@ -71,7 +71,7 @@ labelFunc0407_TransBook:
 	UI_remove_answer("姓名");
 labelFunc0407_0098:
 	case "職業" attend labelFunc0407_00D4:
-	message("「當我不和老朋友去冒險時，我是 Britain 的一名教練。我專精於劍術戰鬥。如你所記，我對那方面相當在行。」");
+	message("「當我不和老朋友去冒險時，我是不列顛城的一名教練。我專精於劍術戰鬥。如你所記，我對那方面相當在行。」");
 	say();
 	var0002 = UI_get_party_list();
 	if (!(!(var0003 in var0002))) goto labelFunc0407_00C1;
@@ -79,7 +79,7 @@ labelFunc0407_0098:
 	say();
 	UI_add_answer("加入");
 labelFunc0407_00C1:
-	UI_add_answer(["Britain", "劍術", "訓練", "朋友們"]);
+	UI_add_answer(["不列顛城", "劍術", "訓練", "朋友們"]);
 labelFunc0407_00D4:
 	case "朋友們" attend labelFunc0407_00F7:
 	message("「我不常看到我們的老朋友 Iolo 、 Shamino 或 Dupre 。」");
@@ -137,17 +137,17 @@ labelFunc0407_01B0:
 	UI_set_schedule_type(UI_get_npc_object(0xFFF9), 0x000B);
 	abort;
 labelFunc0407_01D4:
-	case "Britain" attend labelFunc0407_01EE:
+	case "不列顛城" attend labelFunc0407_01EE:
 	message("「我開始對這個地方感到厭倦了。它正經歷著資產階級未曾察覺的成長痛。一切並不像貴族們所呈現的那麼寧靜。」");
 	say();
-	UI_remove_answer("Britain");
+	UI_remove_answer("不列顛城");
 	UI_add_answer("不寧靜");
 labelFunc0407_01EE:
 	case "不寧靜" attend labelFunc0407_0208:
-	message("「嗯，舉例來說，試著去其中一個小鎮看看，比方說 Paws 。那是個窮人的地方。而且還很臭。它就位在 Britain 鎮界之外。應該投入更多資金來改善整個地區的環境，而不僅僅是在首都建造新建築。我不知道 Lord British 在想什麼！」");
+	message("「嗯，舉例來說，試著去其中一個小鎮看看，比方說 Paws 。那是個窮人的地方。而且還很臭。它就位在不列顛城鎮界之外。應該投入更多資金來改善整個地區的環境，而不僅僅是在首都建造新建築。我不知道不列顛王在想什麼！」");
 	say();
 	UI_remove_answer("不寧靜");
-	UI_add_answer("Lord British");
+	UI_add_answer("不列顛王");
 labelFunc0407_0208:
 	case "訓練" attend labelFunc0407_0277:
 	if (!(!gflags[0x00DB])) goto labelFunc0407_026A;
@@ -257,10 +257,10 @@ labelFunc0407_03DD:
 labelFunc0407_03E1:
 	UI_remove_answer("Dupre");
 labelFunc0407_03E8:
-	case "Lord British" attend labelFunc0407_03FB:
+	case "不列顛王" attend labelFunc0407_03FB:
 	message("「我不常看到他。他一直待在他那座城堡裡。他從來不出來。難怪他對這個國家正在發生的事情一無所知。」");
 	say();
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc0407_03FB:
 	case "告辭" attend labelFunc0407_0406:
 	goto labelFunc0407_0409;

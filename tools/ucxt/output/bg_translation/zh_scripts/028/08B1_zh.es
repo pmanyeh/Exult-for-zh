@@ -12,7 +12,7 @@ void Func08B1 0x8B1 ()
 
 	UI_show_npc_face(0xFF73, 0x0001);
 	var0000 = Func0908();
-	message("「聖者，你再次證明了你始終是 Britannia 和無辜者的守護者。我無法充分表達我的感激之情；然而，請收下這份小小的謝禮。我希望它能在你的任務中幫助到你。」");
+	message("「聖者，你再次證明了你始終是不列顛尼亞和無辜者的守護者。我無法充分表達我的感激之情；然而，請收下這份小小的謝禮。我希望它能在你的任務中幫助到你。」");
 	say();
 	var0001 = UI_create_new_object(0x0229);
 	if (!var0001) goto labelFunc08B1_005B;

@@ -21,7 +21,7 @@ void Func0856 0x856 (var var0000, var var0001)
 	var0002 = Func0920();
 	var0003 = UI_get_npc_name(var0002);
 	if (!(var0002 == 0xFE9C)) goto labelFunc0856_0020;
-	var0003 = "you";
+	var0003 = "你";
 labelFunc0856_0020:
 	if (!(var0002 == 0x0000)) goto labelFunc0856_002D;
 	goto labelFunc0856_015A;
@@ -60,13 +60,13 @@ labelFunc0856_00BF:
 	message(" 枚金幣，訓練課程開始。");
 	say();
 	if (!(var0002 == 0xFE9C)) goto labelFunc0856_00F0;
-	var0008 = "You";
+	var0008 = "你";
 	goto labelFunc0856_00F6;
 labelFunc0856_00F0:
 	var0008 = var0003;
 labelFunc0856_00F6:
 	if (!(var0002 == 0xFE9C)) goto labelFunc0856_0109;
-	var0009 = "you";
+	var0009 = "你";
 	goto labelFunc0856_010F;
 labelFunc0856_0109:
 	var0009 = var0003;
@@ -81,7 +81,7 @@ labelFunc0856_0128:
 	message(" 和 Bradman 花了一些時間用弓進行標靶練習。不久之後，");
 	message(var0009);
 	message(" 注意到");
-	message(var000A);
+	#message(var000A);
 	message(" 手眼協調能力有顯著提升。");
 	say();
 	var000B = Func0910(var0002, 0x0001);

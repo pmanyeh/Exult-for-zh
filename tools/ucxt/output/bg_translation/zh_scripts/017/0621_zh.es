@@ -126,7 +126,7 @@ labelFunc0621_0254:
 	var0003 = 0x0001;
 labelFunc0621_0270:
 	if (!(var0001 == 0x0015)) goto labelFunc0621_028C;
-	var0000 = "Britain 真大！";
+	var0000 = "不列顛城真大！";
 	var0002 = 0xFFFE;
 	var0003 = 0x0000;
 labelFunc0621_028C:

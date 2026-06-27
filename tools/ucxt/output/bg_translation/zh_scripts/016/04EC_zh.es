@@ -58,7 +58,7 @@ labelFunc04EC_00AC:
 	UI_remove_answer("友誼會");
 labelFunc04EC_00CC:
 	case "分會辦公室" attend labelFunc04EC_00DF:
-	message("「友誼會在全 Britannia 都有分會。這是一個非常受歡迎的理念社團。」");
+	message("「友誼會在全不列顛尼亞都有分會。這是一個非常受歡迎的理念社團。」");
 	say();
 	UI_remove_answer("分會辦公室");
 labelFunc04EC_00DF:

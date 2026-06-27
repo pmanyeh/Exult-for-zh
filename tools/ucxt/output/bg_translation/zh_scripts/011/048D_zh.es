@@ -108,10 +108,10 @@ labelFunc048D_0168:
 labelFunc048D_0178:
 	converse attend labelFunc048D_033D;
 	case "姓名" attend labelFunc048D_019B:
-	message("巫妖乾燥的面容呈現出一種傲慢的神情。「你可以叫我 Lord Horance。這樣做是明智的，因為我總有一天會統治整個不列顛尼亞。~~「驚訝嗎，聖者？拜託。你當然不會認為 Lord British 會阻礙我。我知道該怎麼對付他那種人。」");
+	message("巫妖乾燥的面容呈現出一種傲慢的神情。「你可以叫我 Lord Horance。這樣做是明智的，因為我總有一天會統治整個不列顛尼亞。~~「驚訝嗎，聖者？拜託。你當然不會認為不列顛王會阻礙我。我知道該怎麼對付他那種人。」");
 	say();
 	UI_remove_answer("姓名");
-	UI_add_answer(["Lord Horance", "Lord British"]);
+	UI_add_answer(["Lord Horance", "不列顛王"]);
 labelFunc048D_019B:
 	case "Lord Horance" attend labelFunc048D_01BB:
 	message("「啊，很高興能從聖者那裡聽到這樣的敬意。或許你在我的新秩序中會有一席之地。」巫妖用一種介於惡意與幽默之間的表情看著你。");
@@ -145,11 +145,11 @@ labelFunc048D_020E:
 	say();
 	UI_pop_answers();
 labelFunc048D_021E:
-	case "Lord British" attend labelFunc048D_023E:
-	message("『邪惡』都不足以形容巫妖乾裂嘴唇上出現的冷笑。「我最近注意到，在不列顛尼亞地表發現的某種礦石，如果經過適當的鍛造，可以成為那備受推崇的 Lord British 的剋星。~~「我了解這種礦石，並且以前曾將它用於其他用途。我將再次利用它來毀滅那個所謂的君王。」");
+	case "不列顛王" attend labelFunc048D_023E:
+	message("『邪惡』都不足以形容巫妖乾裂嘴唇上出現的冷笑。「我最近注意到，在不列顛尼亞地表發現的某種礦石，如果經過適當的鍛造，可以成為那備受推崇的不列顛王的剋星。~~「我了解這種礦石，並且以前曾將它用於其他用途。我將再次利用它來毀滅那個所謂的君王。」");
 	say();
 	UI_add_answer(["礦石", "其他用途"]);
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc048D_023E:
 	case "其他用途" attend labelFunc048D_025F:
 	if (!(!gflags[0x0003])) goto labelFunc048D_0254;

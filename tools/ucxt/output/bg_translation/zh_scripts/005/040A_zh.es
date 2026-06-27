@@ -233,7 +233,7 @@ labelFunc040A_0328:
 	case var0006 attend labelFunc040A_03AC:
 	UI_remove_answer(var0006);
 	if (!gflags[0x001D]) goto labelFunc040A_037A;
-	message("「不久前，友誼會開始在整個 Britannia 擴展其影響力。");
+	message("「不久前，友誼會開始在整個不列顛尼亞擴展其影響力。");
 	say();
 	message("「在他們早期，他們吸引了許多聰明熱情的年輕人，其中就包括我的愛人， M 女士。");
 	say();

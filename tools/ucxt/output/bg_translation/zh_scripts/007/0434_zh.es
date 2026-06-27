@@ -63,7 +63,7 @@ labelFunc0434_00B7:
 	UI_remove_answer("姓名");
 labelFunc0434_00CD:
 	case "職業" attend labelFunc0434_0190:
-	message("「我是這裡 Britain 的烘焙師，我做的是你嚐過最甜的麵包！");
+	message("「我是這裡不列顛城的烘焙師，我做的是你嚐過最甜的麵包！");
 	say();
 	if (!(var0002 == 0x0012)) goto labelFunc0434_018C;
 	message("「你有機會嚐過我的麵包了嗎？」");
@@ -176,7 +176,7 @@ labelFunc0434_0278:
 	UI_remove_answer("Gaye");
 labelFunc0434_028B:
 	case "麵包" attend labelFunc0434_02AB:
-	message("「我的麵包是 Britannia 最好的。它以美味和合理的價格聞名。但是要做出足夠的數量來滿足不斷的需求是很辛苦的工作。我需要僱用人來幫我。」");
+	message("「我的麵包是不列顛尼亞最好的。它以美味和合理的價格聞名。但是要做出足夠的數量來滿足不斷的需求是很辛苦的工作。我需要僱用人來幫我。」");
 	say();
 	UI_remove_answer("麵包");
 	UI_add_answer(["買東西", "僱用"]);

@@ -64,7 +64,7 @@ labelFunc0472_00BA:
 	UI_remove_answer("修道院");
 labelFunc0472_00D4:
 	case "Taylor" attend labelFunc0472_00E7:
-	message("「他也是位僧侶。他把時間花在研究 Britannia 的植物、動物和地理上。」");
+	message("「他也是位僧侶。他把時間花在研究不列顛尼亞的植物、動物和地理上。」");
 	say();
 	UI_remove_answer("Taylor");
 labelFunc0472_00E7:

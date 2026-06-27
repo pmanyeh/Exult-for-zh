@@ -169,13 +169,13 @@ labelFunc06F8_0386:
 	if (!(event == 0x0002)) goto labelFunc06F8_096E;
 	if (!gflags[0x030C]) goto labelFunc06F8_03BF;
 	if (!(!gflags[0x02EE])) goto labelFunc06F8_03A7;
-	Func08FF("@'Tis sad that Erethian's lust for power has brought him to this evil pass.@");
-	Func08FF("@Perhaps, at last, he is at rest.@");
+	Func08FF("@Erethian 對力量的渴望讓他落得如此邪惡的下場，真是令人悲哀。@");
+	Func08FF("@也許他終於得到了安息。@");
 labelFunc06F8_03A7:
 	if (!(!UI_is_dead(0xFFE9))) goto labelFunc06F8_03B8;
-	Func08FF("@I am sure that Lord British even now awaits news of Exodus' exile.@");
+	Func08FF("@我確信不列顛王此刻正在等待 Exodus 被放逐的消息。@");
 labelFunc06F8_03B8:
-	Func08FF("@It is time to leave this barren island behind.@");
+	Func08FF("@是時候離開這座荒涼的島嶼了。@");
 	abort;
 labelFunc06F8_03BF:
 	var0005 = UI_get_object_position(item);

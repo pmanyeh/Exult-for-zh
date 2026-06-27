@@ -69,7 +69,7 @@ labelFunc04C7_00E7:
 	case "職業" attend labelFunc04C7_0109:
 	message("「我是酒館老闆，");
 	message(var0001);
-	message("。我販賣茶點給 Britannia 的公民，特別是 Serpent's Hold 的騎士們。」");
+	message("。我販賣茶點給不列顛尼亞的公民，特別是 Serpent's Hold 的騎士們。」");
 	say();
 	UI_add_answer(["販賣", "Serpent's Hold", "騎士"]);
 labelFunc04C7_0109:

@@ -16,12 +16,12 @@ void Func08B5 0x8B5 ()
 	var0002 = UI_give_last_created(UI_get_npc_object(0xFE9C));
 	var0003 = false;
 	if (!var0002) goto labelFunc08B5_0044;
-	message("Lord British 將船契交給了你。");
+	message("不列顛王將船契交給了你。");
 	say();
 	goto labelFunc08B5_005A;
 labelFunc08B5_0044:
 	var0002 = UI_update_last_created(UI_get_object_position(0xFE9C));
-	message("Lord British 將船契交給你，但它從你手中滑落，掉到了地上。");
+	message("不列顛王將船契交給你，但它從你手中滑落，掉到了地上。");
 	say();
 	var0003 = true;
 labelFunc08B5_005A:
@@ -31,17 +31,17 @@ labelFunc08B5_005A:
 	UI_set_item_frame(var0004, 0x000E);
 	var0005 = UI_give_last_created(UI_get_npc_object(0xFE9C));
 	if (!var0005) goto labelFunc08B5_008D;
-	message("Lord British 將水晶交給了你。");
+	message("不列顛王將水晶交給了你。");
 	say();
 	goto labelFunc08B5_00AD;
 labelFunc08B5_008D:
 	var0005 = UI_update_last_created(UI_get_object_position(0xFE9C));
 	if (!(!var0003)) goto labelFunc08B5_00A9;
-	message("Lord British 將水晶交給你，但它從你手中滑落，掉到了地上。幸運的是，它完好無損。");
+	message("不列顛王將水晶交給你，但它從你手中滑落，掉到了地上。幸運的是，它完好無損。");
 	say();
 	goto labelFunc08B5_00AD;
 labelFunc08B5_00A9:
-	message("Lord British 將水晶交給你，而你超載的狀態再次讓你變得笨拙。幸運的是，在摔了一下之後，它依然完好無損。");
+	message("不列顛王將水晶交給你，而你超載的狀態再次讓你變得笨拙。幸運的是，在摔了一下之後，它依然完好無損。");
 	say();
 labelFunc08B5_00AD:
 	gflags[0x02FE] = true;

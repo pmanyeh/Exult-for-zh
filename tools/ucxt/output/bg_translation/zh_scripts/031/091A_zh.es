@@ -15,7 +15,7 @@ void Func091A 0x91A ()
 	say();
 	var0001 = Func090A();
 	if (!var0001) goto labelFunc091A_0029;
-	message("「那你應該立刻去 Britain 的友誼會大廳總部找 Batlin。」");
+	message("「那你應該立刻去不列顛城的友誼會大廳總部找巴特林。」");
 	say();
 	goto labelFunc091A_002D;
 labelFunc091A_0029:

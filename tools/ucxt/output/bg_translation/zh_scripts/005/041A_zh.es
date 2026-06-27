@@ -34,18 +34,18 @@ void Func041A object#(0x41A) ()
 	var0000 = UI_get_schedule_type(UI_get_npc_object(0xFFE6));
 	var0001 = Func0931(0xFE9B, 0x0001, 0x03D5, 0xFE99, 0x0001);
 	if (!var0001) goto labelFunc041A_0057;
-	message("Batlin 雙眼瞇成紅色的細縫，目光彷彿要將你看穿。");
+	message("巴特林雙眼瞇成紅色的細縫，目光彷彿要將你看穿。");
 	say();
 	message("「你有立方體（Cube）！你不能用它來對付 -我- ！」");
 	say();
-	message("說完， Batlin 猛然轉身，在你的眼前消失了！*");
+	message("說完，巴特林猛然轉身，在你的眼前消失了！*");
 	say();
 	gflags[0x00DA] = true;
 	UI_remove_npc(UI_get_npc_object(0xFFE6));
 	abort;
 labelFunc041A_0057:
 	if (!gflags[0x001E]) goto labelFunc041A_0066;
-	message("Batlin 看著你，他的目光又回到了『末日決戰（Armageddon）』的冬季風暴中。「多年前，聖者，我去了幽靈之城 Skara Brae 。現在世界的樣子讓我想起了那個死寂的地方。在 Skara Brae ，我有過一次非常深刻的精神體驗，深刻到我從未對任何人提起過。我現在想與你分享那個體驗，聖者。");
+	message("巴特林看著你，他的目光又回到了『末日決戰（Armageddon）』的冬季風暴中。「多年前，聖者，我去了幽靈之城 Skara Brae 。現在世界的樣子讓我想起了那個死寂的地方。在 Skara Brae ，我有過一次非常深刻的精神體驗，深刻到我從未對任何人提起過。我現在想與你分享那個體驗，聖者。");
 	say();
 	message("「在那裡，在 Skara Brae ，我看到一個被稱為『受折磨的人』的人。我問這個死人，請告訴我，生與死的問題的答案是什麼？他沒有回答我，我又問了他一次。我懇求他傳授我一些微小的智慧。生與死的問題的答案是什麼？！他什麼也沒說，但在他的眼中... 在他的眼中，我能看到，聖者，他無法回答我，因為根本沒有答案可以給。沒有生與死問題的答案！就在那時，我明白了。沒有意義！沒有美德！沒有價值觀！！！...我讚賞你，聖者，因為你達到了同樣令人解脫的啟蒙！」*");
 	say();
@@ -60,7 +60,7 @@ labelFunc041A_0066:
 	if (!(var0000 == 0x001C)) goto labelFunc041A_0099;
 	message("「太棒了，聖者！」");
 	say();
-	message("你壓抑著猶豫的顫抖，從高腳杯中深深地喝了一大口。 Batlin 走向你。「願這個消息傳遍四方，我們最新的成員正是聖者！」");
+	message("你壓抑著猶豫的顫抖，從高腳杯中深深地喝了一大口。巴特林走向你。「願這個消息傳遍四方，我們最新的成員正是聖者！」");
 	say();
 	message("其他的友誼會成員高興地歡呼起來。");
 	say();
@@ -74,7 +74,7 @@ labelFunc041A_009D:
 	gflags[0x0006] = true;
 	Func0911(0x01F4);
 	if (!var0002) goto labelFunc041A_00D0;
-	message("「請容我為你獻上你的友誼會徽章。」 Batlin 將徽章交給你。「請——隨時戴著你的徽章，因為它將向所有看到它的人象徵著你與友誼會同行。立刻把它戴在脖子上吧！喔，還有... 歡迎加入友誼會，聖者。」*");
+	message("「請容我為你獻上你的友誼會徽章。」巴特林將徽章交給你。「請——隨時戴著你的徽章，因為它將向所有看到它的人象徵著你與友誼會同行。立刻把它戴在脖子上吧！喔，還有... 歡迎加入友誼會，聖者。」*");
 	say();
 	gflags[0x0090] = true;
 	goto labelFunc041A_00D4;
@@ -174,22 +174,22 @@ labelFunc041A_0254:
 labelFunc041A_0267:
 	message("「");
 	message(var0007);
-	message("，我親愛的朋友！很高興再次見到你！」 Batlin 說。");
+	message("，我親愛的朋友！很高興再次見到你！」巴特林說。");
 	say();
 labelFunc041A_0271:
 	converse attend labelFunc041A_0690;
 	case "姓名" attend labelFunc041A_0287:
-	message("「我的名字，好朋友，是 Batlin 。能親眼見到聖者確實是我的榮幸。」");
+	message("「我的名字，好朋友，是巴特林。能親眼見到聖者確實是我的榮幸。」");
 	say();
 	UI_remove_answer("姓名");
 labelFunc041A_0287:
 	case "職業" attend labelFunc041A_029A:
-	message("「我曾經是一名德魯伊。現在我是友誼會的領袖和創始人。它在整個 Britannia 迅速發展，讓我非常忙碌，你可以想像。哈哈哈！」");
+	message("「我曾經是一名德魯伊。現在我是友誼會的領袖和創始人。它在整個不列顛尼亞迅速發展，讓我非常忙碌，你可以想像。哈哈哈！」");
 	say();
 	UI_add_answer("友誼會");
 labelFunc041A_029A:
 	case "友誼會" attend labelFunc041A_02B4:
-	message("「友誼會是二十年前在 Lord British 的完全批准和支持下成立的。這是一個精神追求者的協會，他們努力達到人類潛能的最高境界，並與所有人自由分享這些知識。」");
+	message("「友誼會是二十年前在不列顛王的完全批准和支持下成立的。這是一個精神追求者的協會，他們努力達到人類潛能的最高境界，並與所有人自由分享這些知識。」");
 	say();
 	UI_remove_answer("友誼會");
 	UI_add_answer("精神上的");
@@ -224,7 +224,7 @@ labelFunc041A_031B:
 	UI_add_answer(["致力合一", "信賴你的兄弟", "價值先行於報償"]);
 labelFunc041A_033E:
 	case "致力合一" attend labelFunc041A_0358:
-	message("「當我們說『致力合一』時，這只是我們表達 Britannia 人民應該如何合作與共同努力的方式。這是一種非常有價值的觀念，我相信你也會同意。」");
+	message("「當我們說『致力合一』時，這只是我們表達不列顛尼亞人民應該如何合作與共同努力的方式。這是一種非常有價值的觀念，我相信你也會同意。」");
 	say();
 	UI_remove_answer("致力合一");
 	UI_add_answer("加入");
@@ -256,7 +256,7 @@ labelFunc041A_03B2:
 	say();
 labelFunc041A_03C1:
 	if (!(gflags[0x016B] && (!gflags[0x0284]))) goto labelFunc041A_03D4;
-	message("Batlin 笑了笑，搖了搖頭。「你追蹤他們的運氣不太好，是吧？他們來過這裡，在 Jhelom 處理了一些工作，但現在他們已經去了 Vesper ，看看能不能在那裡成立分會。」");
+	message("巴特林笑了笑，搖了搖頭。「你追蹤他們的運氣不太好，是吧？他們來過這裡，在 Jhelom 處理了一些工作，但現在他們已經去了 Vesper ，看看能不能在那裡成立分會。」");
 	say();
 	gflags[0x0088] = true;
 labelFunc041A_03D4:
@@ -334,7 +334,7 @@ labelFunc041A_04D6:
 	UI_add_answer("任務");
 	goto labelFunc041A_050B;
 labelFunc041A_04E4:
-	message("Batlin 驚訝地睜大了眼睛。");
+	message("巴特林驚訝地睜大了眼睛。");
 	say();
 	message("「發生了什麼事？你把包裹弄丟了嗎？」");
 	say();
@@ -366,7 +366,7 @@ labelFunc041A_0530:
 	UI_remove_answer("箱子");
 labelFunc041A_0556:
 	case "攔路強盜" attend labelFunc041A_0570:
-	message("「哎呀，你的故事太離譜了！我拒絕相信！」 Batlin 惱火地嗤之以鼻。");
+	message("「哎呀，你的故事太離譜了！我拒絕相信！」巴特林惱火地嗤之以鼻。");
 	say();
 	UI_remove_answer("攔路強盜");
 	UI_add_answer("加入");
@@ -384,7 +384,7 @@ labelFunc041A_0596:
 	UI_add_answer("加入");
 labelFunc041A_05B0:
 	case "船沉了" attend labelFunc041A_05CA:
-	message("Batlin 緩慢地翻了個白眼。「你應該去當個吟遊詩人，你用這種故事來款待我！」");
+	message("巴特林緩慢地翻了個白眼。「你應該去當個吟遊詩人，你用這種故事來款待我！」");
 	say();
 	UI_remove_answer("船沉了");
 	UI_add_answer("加入");
@@ -392,7 +392,7 @@ labelFunc041A_05CA:
 	case "medallion" attend labelFunc041A_0605:
 	var0002 = UI_add_party_items(0x0001, 0x03BB, 0xFE99, 0x0001, false);
 	if (!var0002) goto labelFunc041A_05FE;
-	message("「請容我為你獻上你的友誼會徽章。」 Batlin 將徽章交給你。「請——隨時戴著這枚徽章。立刻把它戴在脖子上吧！喔，還有... 歡迎加入友誼會，聖者。」");
+	message("「請容我為你獻上你的友誼會徽章。」巴特林將徽章交給你。「請——隨時戴著這枚徽章。立刻把它戴在脖子上吧！喔，還有... 歡迎加入友誼會，聖者。」");
 	say();
 	gflags[0x0090] = true;
 	UI_remove_answer("medallion");
@@ -403,7 +403,7 @@ labelFunc041A_05FE:
 	goto labelFunc041A_0690;
 labelFunc041A_0605:
 	case "蘋果" attend labelFunc041A_0618:
-	message("「當你在這裡的時候，請隨意享用蘋果。我敢肯定你會發現這是全 Britannia 最好的蘋果。它們是由皇家果園提供給友誼會的。」");
+	message("「當你在這裡的時候，請隨意享用蘋果。我敢肯定你會發現這是全不列顛尼亞最好的蘋果。它們是由皇家果園提供給友誼會的。」");
 	say();
 	UI_remove_answer("蘋果");
 labelFunc041A_0618:

@@ -42,7 +42,7 @@ labelFunc08D3_008A:
 	if (!(var000A == 0x0001)) goto labelFunc08D3_00B4;
 	message("「我完全理解，");
 	message(var0000);
-	message("。自從 Britannian Tax Council 制定了如此離譜的稅率以來，整個大陸的物價都上漲了。」");
+	message("。自從不列顛尼亞n Tax Council 制定了如此離譜的稅率以來，整個大陸的物價都上漲了。」");
 	say();
 	var0001 = false;
 	goto labelFunc08D3_014D;

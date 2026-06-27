@@ -62,9 +62,9 @@ labelFunc0401_0173:
 	message(var0000);
 	message("我有沒有看錯？剛剛才正心想：『要是聖者那傢伙在這就好了！』然後...你看看！誰說魔法完蛋了? 這就是活生生的證明！~~ 喂，你可知道，");
 	message(var0000);
-	message("。從上次見面到現在，Britannia 已經過兩百年了，怎麼你都沒老？」");
+	message("。從上次見面到現在，不列顛尼亞已經過兩百年了，怎麼你都沒老？」");
 	say();
-	message("Iolo 嘴裡咕噥著：「看來大概 Britannia 的時間結構不同？哎，隨便啦。」~~他恢復了正常的音量。「好吧，我確實老了一點。沒辦法，這段時間我一直在留在 Britannia 。」~~ 「不過...聖者！等我告訴其他人！他們一定很高興見到你！歡迎來到 Trinsic！」");
+	message("Iolo 嘴裡咕噥著：「看來大概不列顛尼亞的時間結構不同？哎，隨便啦。」~~他恢復了正常的音量。「好吧，我確實老了一點。沒辦法，這段時間我一直在留在不列顛尼亞。」~~ 「不過...聖者！等我告訴其他人！他們一定很高興見到你！歡迎來到 Trinsic！」");
 	say();
 	UI_show_npc_face(0xFFF5, 0x0000);
 	if (!var0004) goto labelFunc0401_01B8;
@@ -209,7 +209,7 @@ labelFunc0401_040A:
 labelFunc0401_040E:
 	UI_remove_answer("謀殺");
 labelFunc0401_0415:
-	case "Lord British" attend labelFunc0401_0452:
+	case "不列顛王" attend labelFunc0401_0452:
 	var000A = true;
 	if (!gflags[0x0065]) goto labelFunc0401_0432;
 	message("「嗯，這我們私下講，他看起來比我老多了！」");
@@ -218,17 +218,17 @@ labelFunc0401_0415:
 	say();
 	goto labelFunc0401_0436;
 labelFunc0401_0432:
-	message("「LB看到你一定樂壞了。我們得趕快去 Britain 一趟。他知道的事一向不少，應該能告訴你，這兩百年到底發生了什麼。」");
+	message("「不列顛王看到你一定樂壞了。我們得趕快去不列顛城一趟。他知道的事一向不少，應該能告訴你，這兩百年到底發生了什麼。」");
 	say();
 labelFunc0401_0436:
 	if (!(!var000B)) goto labelFunc0401_0444;
-	UI_add_answer("Britain");
+	UI_add_answer("不列顛城");
 labelFunc0401_0444:
 	UI_add_answer("情報");
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc0401_0452:
 	case "情報" attend labelFunc0401_0473:
-	message("「當然。LB 總是有許多驚人的情報，對吧？他話可能不多，但是個好聽眾。應該是這原因，積了不少消息。」");
+	message("「當然。不列顛王總是有許多驚人的情報，對吧？他話可能不多，但是個好聽眾。應該是這原因，積了不少消息。」");
 	say();
 	if (!var0009) goto labelFunc0401_0468;
 	message("「你說對吧，Shamino？」~~Shamino 一臉疑問轉過頭去，Iolo 在一旁偷笑。");
@@ -269,10 +269,10 @@ labelFunc0401_04E0:
 	say();
 	goto labelFunc0401_0503;
 labelFunc0401_04F1:
-	message("「這是真的！LB最近真的封他當騎士了。不知道吾王倒底...在想啥！」");
+	message("「這是真的！不列顛王最近真的封他當騎士了。不知道吾王倒底...在想啥！」");
 	say();
 	if (!(!var000A)) goto labelFunc0401_0503;
-	UI_add_answer("Lord British");
+	UI_add_answer("不列顛王");
 labelFunc0401_0503:
 	UI_remove_answer("Dupre");
 labelFunc0401_050A:
@@ -293,10 +293,10 @@ labelFunc0401_050A:
 	say();
 	goto labelFunc0401_0560;
 labelFunc0401_054E:
-	message("「你要找那個傢伙的話...去 Britain 看看。他女朋友在皇家劇院當演員。」");
+	message("「你要找那個傢伙的話...去不列顛城看看。他女朋友在皇家劇院當演員。」");
 	say();
 	if (!(!var000B)) goto labelFunc0401_0560;
-	UI_add_answer("Britain");
+	UI_add_answer("不列顛城");
 labelFunc0401_0560:
 	UI_remove_answer("Shamino");
 labelFunc0401_0567:
@@ -311,18 +311,18 @@ labelFunc0401_0587:
 	say();
 	UI_remove_answer("防備心");
 labelFunc0401_059A:
-	case "Britain" attend labelFunc0401_05C6:
+	case "不列顛城" attend labelFunc0401_05C6:
 	var000B = true;
-	message("「從你上次來到現在，它又變大了。Paws 現在已經是　Britain 實質上的附屬城鎮了！它主宰了不列顛尼亞的東海岸。」~~「不過LB的城堡仍然是最引人注目的地標。」");
+	message("「從你上次來到現在，它又變大了。Paws 現在已經是不列顛城實質上的附屬城鎮了！它主宰了不列顛尼亞的東海岸。」~~「不過不列顛王的城堡仍然是最引人注目的地標。」");
 	say();
-	UI_remove_answer("Britain");
+	UI_remove_answer("不列顛城");
 	if (!(!var000A)) goto labelFunc0401_05BF;
-	UI_add_answer("Lord British");
+	UI_add_answer("不列顛王");
 labelFunc0401_05BF:
 	UI_add_answer("Paws");
 labelFunc0401_05C6:
 	case "Paws" attend labelFunc0401_05D9:
-	message("「它基本上還是在 Britain 和 Trinsic 之間，但土地範圍已經擴到 Britain 內部。」");
+	message("「它基本上還是在不列顛城和 Trinsic 之間，但土地範圍已經擴到不列顛城內部。」");
 	say();
 	UI_remove_answer("Paws");
 labelFunc0401_05D9:
@@ -392,12 +392,12 @@ labelFunc0401_06E3:
 	say();
 labelFunc0401_06E7:
 	case "石像鬼" attend labelFunc0401_06FA:
-	message("「你上次離開 Britannia 後，石像鬼 已經開始與人類生活在一起。他們大多住在 Sutek 的舊島上，現在改名為 『Terfin』。不過，你偶爾還是會在各地看到一兩個。」");
+	message("「你上次離開不列顛尼亞後，石像鬼 已經開始與人類生活在一起。他們大多住在 Sutek 的舊島上，現在改名為 『Terfin』。不過，你偶爾還是會在各地看到一兩個。」");
 	say();
 	UI_remove_answer("石像鬼");
 labelFunc0401_06FA:
 	case "友誼會" attend labelFunc0401_070D:
-	message("「我跟他們不熟。我知道應該是慈善團體，成立大概二十幾年吧？大家蠻喜歡他們，在 Britannia 到處都有分會。不過我個人沒有和他們打過交道。」");
+	message("「我跟他們不熟。我知道應該是慈善團體，成立大概二十幾年吧？大家蠻喜歡他們，在不列顛尼亞到處都有分會。不過我個人沒有和他們打過交道。」");
 	say();
 	UI_remove_answer("友誼會");
 labelFunc0401_070D:

@@ -108,7 +108,7 @@ labelFunc04CA_01A0:
 	var0002 = "「然後你";
 labelFunc04CA_01A6:
 	message(var0002);
-	message("必須去 Britain 和我們總部的 Batlin 談談。只有他能正式引導你加入友誼會。」");
+	message("必須去不列顛城和我們總部的巴特林談談。只有他能正式引導你加入友誼會。」");
 	say();
 labelFunc04CA_01AD:
 	UI_remove_answer("鑰匙");

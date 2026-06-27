@@ -102,7 +102,7 @@ labelFunc045B_014E:
 	UI_add_answer("揭幕");
 labelFunc045B_0168:
 	case "揭幕" attend labelFunc045B_017B:
-	message("「哎呀，就連 Lord British 本人也會出席！能獲得私下覲見是個難得的機會。」");
+	message("「哎呀，就連不列顛王本人也會出席！能獲得私下覲見是個難得的機會。」");
 	say();
 	UI_remove_answer("揭幕");
 labelFunc045B_017B:

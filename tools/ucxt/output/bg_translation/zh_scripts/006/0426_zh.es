@@ -40,9 +40,9 @@ labelFunc0426_0060:
 	UI_remove_answer("姓名");
 labelFunc0426_0076:
 	case "職業" attend labelFunc0426_0092:
-	message("「哎呀，我在 Britain 這裡經營雜貨店。這是無畏勇者的第二個家。」");
+	message("「哎呀，我在不列顛城這裡經營雜貨店。這是無畏勇者的第二個家。」");
 	say();
-	UI_add_answer(["雜貨店", "Britain", "購買"]);
+	UI_add_answer(["雜貨店", "不列顛城", "購買"]);
 labelFunc0426_0092:
 	case "雜貨店" attend labelFunc0426_00AC:
 	message("「哎呀，你看起來像是一個對冒險毫不陌生的人。無論你是在爬山、航行在海洋、穿越沙漠、探索地城或在星空下露宿，我都有你可能需要的東西。」");
@@ -50,11 +50,11 @@ labelFunc0426_0092:
 	UI_remove_answer("雜貨店");
 	UI_add_answer("需要的東西");
 labelFunc0426_00AC:
-	case "Britain" attend labelFunc0426_00CC:
-	message("「我把我的店搬到這裡，是為了服務 Lord British ，他專門委託我為他的各種探險隊提供裝備。這是真的！」");
+	case "不列顛城" attend labelFunc0426_00CC:
+	message("「我把我的店搬到這裡，是為了服務不列顛王，他專門委託我為他的各種探險隊提供裝備。這是真的！」");
 	say();
-	UI_remove_answer("Britain");
-	UI_add_answer(["搬家", "Lord British"]);
+	UI_remove_answer("不列顛城");
+	UI_add_answer(["搬家", "不列顛王"]);
 labelFunc0426_00CC:
 	case "搬家" attend labelFunc0426_00DF:
 	message("「我以前的店開在 Paws 。但 Paws 沒有人有錢買太多東西。」");
@@ -83,8 +83,8 @@ labelFunc0426_0132:
 	say();
 	UI_remove_answer("救了他的命");
 labelFunc0426_0145:
-	case "Lord British" attend labelFunc0426_0196:
-	message("「這是 Lord British 最喜歡的雜貨店。他親口告訴我的。各種著名的冒險家都會走進這扇門。哎呀，就在上週，聖者本人就來過我這家店！」");
+	case "不列顛王" attend labelFunc0426_0196:
+	message("「這是不列顛王最喜歡的雜貨店。他親口告訴我的。各種著名的冒險家都會走進這扇門。哎呀，就在上週，聖者本人就來過我這家店！」");
 	say();
 	var0004 = Func0931(0xFE9C, 0x0001, 0x0346, 0xFE99, 0xFE99);
 	if (!var0004) goto labelFunc0426_0177;
@@ -98,7 +98,7 @@ labelFunc0426_0177:
 	UI_add_answer("搶個精光？");
 labelFunc0426_0188:
 	UI_add_answer("另一個聖者？");
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc0426_0196:
 	case "另一個聖者？" attend labelFunc0426_01A9:
 	message("「嗯，他說他是聖者。但話說回來，遇到一些瘋子或傻瓜自稱是聖者也沒什麼不尋常的！」他看著你，有一瞬間顯得有些尷尬。");

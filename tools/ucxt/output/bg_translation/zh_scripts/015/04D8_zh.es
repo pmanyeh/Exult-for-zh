@@ -80,12 +80,12 @@ labelFunc04D8_0109:
 	UI_remove_answer("For-Lem");
 labelFunc04D8_011C:
 	case "Lap-Lem" attend labelFunc04D8_012F:
-	message("「是 Britannia 礦業公司的礦工。」");
+	message("「是不列顛尼亞礦業公司的礦工。」");
 	say();
 	UI_remove_answer("Lap-Lem");
 labelFunc04D8_012F:
 	case "Anmanivas" attend labelFunc04D8_0142:
-	message("「是 Britannia 礦業公司的礦工。」");
+	message("「是不列顛尼亞礦業公司的礦工。」");
 	say();
 	UI_remove_answer("Anmanivas");
 labelFunc04D8_0142:

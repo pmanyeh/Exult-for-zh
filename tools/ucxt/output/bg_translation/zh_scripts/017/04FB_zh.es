@@ -95,7 +95,7 @@ labelFunc04FB_0124:
 	say();
 	goto labelFunc04FB_0145;
 labelFunc04FB_0141:
-	message("「現在海盜巢穴是一個島嶼天堂。它有自己的商業。它向 Lord British 納稅。這裡的海盜現在都是商人。他們的人生有所成就。");
+	message("「現在海盜巢穴是一個島嶼天堂。它有自己的商業。它向不列顛王納稅。這裡的海盜現在都是商人。他們的人生有所成就。");
 	say();
 labelFunc04FB_0145:
 	message("「因此，浴場和遊戲之屋是全國最賺錢的兩家機構。」");
@@ -140,7 +140,7 @@ labelFunc04FB_01BB:
 	UI_add_answer("Elizabeth");
 labelFunc04FB_01C9:
 	case "Elizabeth" attend labelFunc04FB_01ED:
-	message("「Elizabeth 是一位極為聰明的女性，擔任特別計畫總監。她通常和不列顛的 Batlin 一起工作，但她大部分時間都在各分會間旅行。」");
+	message("「Elizabeth 是一位極為聰明的女性，擔任特別計畫總監。她通常和不列顛的巴特林一起工作，但她大部分時間都在各分會間旅行。」");
 	say();
 	if (!var0002) goto labelFunc04FB_01DF;
 	message("隨著立方體震動，Danag 補充道，「她，嗯……也是個十足的母狗，隨時都可能謀殺你。」");
@@ -171,7 +171,7 @@ labelFunc04FB_022A:
 	UI_add_answer("鑰匙");
 labelFunc04FB_0244:
 	case "鑰匙" attend labelFunc04FB_0257:
-	message("「我沒有。只有 Elizabeth 和 Abraham 、 Batlin 以及 Hook 本人才有。Hook 可能把他的鑰匙放在他的住處。」");
+	message("「我沒有。只有 Elizabeth 和 Abraham 、巴特林以及 Hook 本人才有。Hook 可能把他的鑰匙放在他的住處。」");
 	say();
 	UI_remove_answer("鑰匙");
 labelFunc04FB_0257:

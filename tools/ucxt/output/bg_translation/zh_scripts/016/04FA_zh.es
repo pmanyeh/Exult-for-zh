@@ -340,7 +340,7 @@ labelFunc04FA_04A8:
 labelFunc04FA_04B6:
 	message("「如果你對友誼會感興趣，");
 	message(var0000);
-	message("，去不列顛找 Batlin 。再見，");
+	message("，去不列顛找巴特林。再見，");
 	message(var0000);
 	message("。」*");
 	say();

@@ -4,6 +4,10 @@
 
 ## 專有名詞與稱謂
 - **Avatar** ➔ **聖者**
+- **Britannia** ➔ **不列顛尼亞**
+- **Lord British** ➔ **不列顛王**
+- **LB** ➔ **不列顛王**
+- **Batlin** ➔ **巴特林**
 - **Fellowship** ➔ **友誼會**
 - **milord** ➔ **大人**
 - **milady** ➔ **女士**
@@ -47,6 +51,7 @@
 - **THE WAYFARERER'S INN** ➔ **旅人旅館**
 - **THE FALLEN VIRGIN** ➔ **落難少女旅店**
 - **Salty Dog** ➔ **老海狗酒館**
+- **THE FRIENDLY KNAVE** ➔ **親切惡棍酒館**
 - **Ferryman** ➔ **擺渡人**
 - **Wisp** ➔ **鬼火**
 - **Wisps** ➔ **鬼火**

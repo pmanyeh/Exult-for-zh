@@ -109,10 +109,10 @@ labelFunc0405_0143:
 	Func089E(0x001E, 0x000F, 0x0190);
 labelFunc0405_014F:
 	case "朋友們" attend labelFunc0405_0175:
-	message("「我們的老朋友—— Iolo 、 Shamino 和 Dupre 。那些以 Lord British 之名征服邪惡的男人們！」");
+	message("「我們的老朋友—— Iolo 、 Shamino 和 Dupre 。那些以不列顛王之名征服邪惡的男人們！」");
 	say();
 	UI_remove_answer("朋友們");
-	UI_add_answer(["Iolo", "Shamino", "Dupre", "Lord British"]);
+	UI_add_answer(["Iolo", "Shamino", "Dupre", "不列顛王"]);
 labelFunc0405_0175:
 	case "加入" attend labelFunc0405_01D3:
 	var0004 = 0x0000;
@@ -262,10 +262,10 @@ labelFunc0405_03DF:
 	UI_remove_answer("Dupre");
 	UI_show_npc_face(0xFFFB, 0x0000);
 labelFunc0405_03F0:
-	case "Lord British" attend labelFunc0405_0403:
+	case "不列顛王" attend labelFunc0405_0403:
 	message("「我已經很多年沒見到我們的君主了。」");
 	say();
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc0405_0403:
 	case "告辭" attend labelFunc0405_040E:
 	goto labelFunc0405_0411;

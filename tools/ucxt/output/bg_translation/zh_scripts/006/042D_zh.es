@@ -34,7 +34,7 @@ void Func042D object#(0x42D) ()
 	goto labelFunc042D_005F;
 labelFunc042D_004A:
 	if (!gflags[0x00DA]) goto labelFunc042D_005A;
-	message("「你有看到 Batlin 嗎？他在哪裡？他需要來主持我們的聚會！」");
+	message("「你有看到巴特林嗎？他在哪裡？他需要來主持我們的聚會！」");
 	say();
 	goto labelFunc042D_005F;
 	goto labelFunc042D_005F;
@@ -68,7 +68,7 @@ labelFunc042D_00A5:
 	UI_remove_answer("姓名");
 labelFunc042D_00BB:
 	case "職業" attend labelFunc042D_00D4:
-	message("「我是 Britain 這裡皇家果園 (Royal Orchards) 的管理員。」");
+	message("「我是不列顛城這裡皇家果園 (Royal Orchards) 的管理員。」");
 	say();
 	UI_add_answer(["管理員", "皇家果園"]);
 labelFunc042D_00D4:
@@ -89,13 +89,13 @@ labelFunc042D_010A:
 	UI_remove_answer("採摘工");
 labelFunc042D_011D:
 	case "小偷" attend labelFunc042D_0137:
-	message("「如果我給他們機會，他們會把我們搶到只剩最後一根樹枝！我冒著生命危險保護這片果園，Lord British 應該親自頒發獎章給我。哎呀，我最近剛抓到另一個小偷。他的名字是 Weston 。」");
+	message("「如果我給他們機會，他們會把我們搶到只剩最後一根樹枝！我冒著生命危險保護這片果園，不列顛王應該親自頒發獎章給我。哎呀，我最近剛抓到另一個小偷。他的名字是 Weston 。」");
 	say();
 	UI_remove_answer("小偷");
 	UI_add_answer("Weston");
 labelFunc042D_0137:
 	case "皇家果園" attend labelFunc042D_014A:
-	message("「這裡種植著全 Britannia 最好的蘋果。我想讓你嚐嚐看，但這會違法，因為你顯然不是貴族血統。」");
+	message("「這裡種植著全不列顛尼亞最好的蘋果。我想讓你嚐嚐看，但這會違法，因為你顯然不是貴族血統。」");
 	say();
 	UI_remove_answer("皇家果園");
 labelFunc042D_014A:

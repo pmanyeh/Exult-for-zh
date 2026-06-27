@@ -29,7 +29,7 @@ labelFunc048A_0009:
 	UI_add_answer("Iriale");
 labelFunc048A_004E:
 	if (!(!gflags[0x02BB])) goto labelFunc048A_0060;
-	message("你看到一張熟悉的臉，是個嚴肅的大鬍子戰士，你曾在上一次前往 Britannia 的旅途中見過他。");
+	message("你看到一張熟悉的臉，是個嚴肅的大鬍子戰士，你曾在上一次前往不列顛尼亞的旅途中見過他。");
 	say();
 	gflags[0x02BB] = true;
 	goto labelFunc048A_0064;
@@ -56,15 +56,15 @@ labelFunc048A_0095:
 	UI_add_answer(["Balema", "英雄壯舉"]);
 labelFunc048A_00AE:
 	case "Balema" attend labelFunc048A_00C8:
-	message("「嗨， Balema 就是我的出生地。我小時候在那裡。那是個由白雪覆蓋的山脈和黑暗森林組成的奇妙之地。那不是輕鬆的生活，但那是個把男孩鍛造成強壯英雄的地方。那是我來到 Britannia 之前的事了。」");
+	message("「嗨， Balema 就是我的出生地。我小時候在那裡。那是個由白雪覆蓋的山脈和黑暗森林組成的奇妙之地。那不是輕鬆的生活，但那是個把男孩鍛造成強壯英雄的地方。那是我來到不列顛尼亞之前的事了。」");
 	say();
 	UI_remove_answer("Balema");
-	UI_add_answer("Britannia");
+	UI_add_answer("不列顛尼亞");
 labelFunc048A_00C8:
-	case "Britannia" attend labelFunc048A_00DB:
-	message("「嗨！我穿過一道月之門（Moongate）來到 Britannia ，就像你一樣。那是很多很多年前的事了。」");
+	case "不列顛尼亞" attend labelFunc048A_00DB:
+	message("「嗨！我穿過一道月之門（Moongate）來到不列顛尼亞，就像你一樣。那是很多很多年前的事了。」");
 	say();
-	UI_remove_answer("Britannia");
+	UI_remove_answer("不列顛尼亞");
 labelFunc048A_00DB:
 	case "英雄壯舉" attend labelFunc048A_00F5:
 	message("「我以 Brom 的名義執行英雄壯舉。我做的每一件事都是為了服侍他。」");

@@ -37,7 +37,7 @@ void Func0435 object#(0x435) ()
 	goto labelFunc0435_006D;
 labelFunc0435_0058:
 	if (!gflags[0x00DA]) goto labelFunc0435_0068;
-	message("「我無法想像 Batlin 在哪裡。我很擔心他……」");
+	message("「我無法想像巴特林在哪裡。我很擔心他……」");
 	say();
 	goto labelFunc0435_006D;
 	goto labelFunc0435_006D;
@@ -71,7 +71,7 @@ labelFunc0435_00B6:
 	UI_add_answer(["服飾店", "買東西", "友誼會"]);
 labelFunc0435_00D2:
 	case "服飾店" attend labelFunc0435_00E5:
-	message("「在我們的服飾店，我們有你見過最精美的絲綢和服裝，從 Britannia 的各個角落進口，以迎合所有的品味。」");
+	message("「在我們的服飾店，我們有你見過最精美的絲綢和服裝，從不列顛尼亞的各個角落進口，以迎合所有的品味。」");
 	say();
 	UI_remove_answer("服飾店");
 labelFunc0435_00E5:
@@ -131,7 +131,7 @@ labelFunc0435_01AD:
 	if (!(!var0001)) goto labelFunc0435_01BF;
 	Func0919();
 labelFunc0435_01BF:
-	message("「你會想參加今晚九點的友誼會集會的。聆聽我們創始人 Batlin 的演講，總是一次令人感動的體驗。」");
+	message("「你會想參加今晚九點的友誼會集會的。聆聽我們創始人巴特林的演講，總是一次令人感動的體驗。」");
 	say();
 	UI_remove_answer("友誼會");
 	UI_remove_answer("理念");

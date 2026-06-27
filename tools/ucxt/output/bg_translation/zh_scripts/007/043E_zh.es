@@ -85,39 +85,39 @@ labelFunc043E_00DE:
 	message("「前幾天我在跟一個友誼會成員討論理念，他問我：『依你看，什麼是愚蠢的最高境界？』~~「所以我說：『我不知道。你有多高？』~~「不，說真的，我雖然拿友誼會開玩笑，但我是真心的……」");
 	say();
 	UI_remove_answer("友誼會笑話");
-	UI_add_answer(["友誼會", "Lord British 笑話"]);
+	UI_add_answer(["友誼會", "不列顛王的笑話"]);
 labelFunc043E_00FE:
 	case "友誼會" attend labelFunc043E_0111:
 	message("「這就是我深深喜愛友誼會的原因。他們總是開得起玩笑！~~「而且據我所知，他們自己也開很有趣的玩笑！就像他們在 Trinsic 開的那個玩笑！」");
 	say();
 	UI_remove_answer("友誼會");
 labelFunc043E_0111:
-	case "Lord British 笑話" attend labelFunc043E_0178:
+	case "不列顛王的笑話" attend labelFunc043E_0178:
 	message("「只要一枚金幣，我就再跟你說一個。你想聽嗎？」");
 	say();
 	var0003 = Func090A();
 	if (!(!var0003)) goto labelFunc043E_0138;
 	message("「看來我已經達到了你的幽默感極限了。」");
 	say();
-	UI_remove_answer("Lord British 笑話");
+	UI_remove_answer("不列顛王的笑話");
 	goto labelFunc043E_0178;
 labelFunc043E_0138:
 	var0004 = UI_remove_party_items(0x0001, 0x0284, 0xFE99, 0xFE99, true);
 	if (!var0004) goto labelFunc043E_016D;
-	message("「前幾天我在 Lord British 的城堡裡，我注意到他有三個大水池。所以我問他為什麼有三個。~~「他指著第一個說，第一個是用來在涼水中游泳的。~~「第二個是讓朋友們在溫水中游泳的。~~「我注意到第三個水池是空的，所以我問他為什麼。~~「他說那是給不會游泳的人用的！」");
+	message("「前幾天我在不列顛王的城堡裡，我注意到他有三個大水池。所以我問他為什麼有三個。~~「他指著第一個說，第一個是用來在涼水中游泳的。~~「第二個是讓朋友們在溫水中游泳的。~~「我注意到第三個水池是空的，所以我問他為什麼。~~「他說那是給不會游泳的人用的！」");
 	say();
-	UI_remove_answer("Lord British 笑話");
-	UI_add_answer(["Lord British", "Weston 笑話"]);
+	UI_remove_answer("不列顛王的笑話");
+	UI_add_answer(["不列顛王", "Weston 笑話"]);
 	goto labelFunc043E_0178;
 labelFunc043E_016D:
 	message("「你比我還窮！如果我現在再跟你說任何笑話，你可能會偷走我的飯碗！」");
 	say();
-	UI_remove_answer("Lord British 笑話");
+	UI_remove_answer("不列顛王的笑話");
 labelFunc043E_0178:
-	case "Lord British" attend labelFunc043E_018B:
-	message("「可憐的 Lord British ！當面對威脅他整個王國的巨大威脅時，他是一位極其能幹的統治者。~~「但當有成千上萬件間接威脅他人民福祉的小事發生時呢？~~「這就是留給你解開的謎題了！」");
+	case "不列顛王" attend labelFunc043E_018B:
+	message("「可憐的不列顛王！當面對威脅他整個王國的巨大威脅時，他是一位極其能幹的統治者。~~「但當有成千上萬件間接威脅他人民福祉的小事發生時呢？~~「這就是留給你解開的謎題了！」");
 	say();
-	UI_remove_answer("Lord British");
+	UI_remove_answer("不列顛王");
 labelFunc043E_018B:
 	case "Weston 笑話" attend labelFunc043E_01F8:
 	message("「只要一枚金幣，我就再跟你說一個。你想聽嗎？」");

@@ -112,12 +112,12 @@ labelFunc0410_019B:
 	UI_add_answer("同伴");
 labelFunc0410_01B5:
 	case "測驗" attend labelFunc0410_01C8:
-	message("「Britain 的 Batlin 很樂意為你進行我們的測驗。你一定要參加。誰知道呢？你可能會發現自己內心有什麼需要改進的地方。」");
+	message("「不列顛城的巴特林很樂意為你進行我們的測驗。你一定要參加。誰知道呢？你可能會發現自己內心有什麼需要改進的地方。」");
 	say();
 	UI_remove_answer("測驗");
 labelFunc0410_01C8:
 	case "同伴" attend labelFunc0410_01DF:
-	message("「他們已經去了 Britain 的友誼會總部。他們來這裡是為了運送友誼會的資金。他們的名字是 Elizabeth 和 Abraham。」");
+	message("「他們已經去了不列顛城的友誼會總部。他們來這裡是為了運送友誼會的資金。他們的名字是 Elizabeth 和 Abraham。」");
 	say();
 	gflags[0x0041] = true;
 	UI_remove_answer("同伴");

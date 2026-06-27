@@ -78,7 +78,7 @@ labelFunc040E_00F4:
 	say();
 	var0002 = Func090A();
 	if (!var0002) goto labelFunc040E_0113;
-	message("「那你就應該去 Britain 找 Batlin。」");
+	message("「那你就應該去不列顛城找巴特林。」");
 	say();
 	goto labelFunc040E_0117;
 labelFunc040E_0113:

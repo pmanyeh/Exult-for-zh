@@ -107,7 +107,7 @@ labelFunc04A3_014E:
 	UI_add_answer(["Moonglow", "買東西"]);
 labelFunc04A3_0167:
 	case "友誼會" attend labelFunc04A3_0181:
-	message("「哦，你是指這個？」他指著他的徽章問道。「你沒聽說過友誼會嗎？我強烈建議你去分會辦公室和 Rankin 或 Balayna 談談。友誼會為我們鎮上，甚至整個 Britannia 做了許多事。我是一個堅定的新現實主義信徒。」");
+	message("「哦，你是指這個？」他指著他的徽章問道。「你沒聽說過友誼會嗎？我強烈建議你去分會辦公室和 Rankin 或 Balayna 談談。友誼會為我們鎮上，甚至整個不列顛尼亞做了許多事。我是一個堅定的新現實主義信徒。」");
 	say();
 	UI_add_answer("新現實主義");
 	UI_remove_answer("友誼會");
@@ -279,7 +279,7 @@ labelFunc04A3_0418:
 	goto labelFunc04A3_0138;
 labelFunc04A3_041B:
 	endconv;
-	message("「記住！告訴他們你是在 Friendly Knave 吃的！」*");
+	message("「記住！告訴他們你是在『親切惡棍酒館』吃的！」*");
 	say();
 labelFunc04A3_0420:
 	if (!(event == 0x0000)) goto labelFunc04A3_042E;

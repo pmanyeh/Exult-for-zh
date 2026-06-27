@@ -69,7 +69,7 @@ labelFunc0493_00DF:
 labelFunc0493_00EB:
 	goto labelFunc0493_00FA;
 labelFunc0493_00EE:
-	var0006 = "Mistress Mordra";
+	var0006 = "Mordra 女士";
 	var0007 = "Mordra 女士";
 labelFunc0493_00FA:
 	goto labelFunc0493_0109;

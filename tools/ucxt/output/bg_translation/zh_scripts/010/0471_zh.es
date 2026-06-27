@@ -78,20 +78,20 @@ labelFunc0471_00F0:
 labelFunc0471_0110:
 	case "Smith" attend labelFunc0471_0165:
 	if (!var0002) goto labelFunc0471_0127;
-	var0004 = "still want";
+	var0004 = "仍然想要";
 	goto labelFunc0471_012D;
 labelFunc0471_0127:
-	var0004 = "want";
+	var0004 = "想要";
 labelFunc0471_012D:
-	message("「對，這就是我告訴你怎麼叫我的名字。喔，我懂了！你」");
+	message("「對，這就是我的『名字』。喔～我懂了！你");
 	message(var0004);
-	message("，你想從我這裡得到什麼，對吧？」");
+	message("從我這裡得到什麼，對吧？」");
 	say();
 	var0005 = Func090A();
 	if (!var0005) goto labelFunc0471_0160;
-	message("「我就知道。你一直都是個自私的人。你想要什麼？讓我想想……金錢？建議？幸福？不，你通常想要某種線索，對吧。當然，在過去兩百年間你也許變得無私了……~~我知道了！你想要拯救 Britannia ！」");
+	message("「我就知道。你一直都是個自私的人。你想要什麼？讓我想想……金錢？建議？幸福？不，你通常想要某種線索，對吧。當然，在過去兩百年間你也許變得無私了……~~我知道了！你想要拯救不列顛尼亞！」");
 	say();
-	UI_add_answer(["金錢", "建議", "線索", "幸福", "拯救 Britannia"]);
+	UI_add_answer(["金錢", "建議", "線索", "幸福", "拯救不列顛尼亞"]);
 	goto labelFunc0471_0165;
 labelFunc0471_0160:
 	message("「那你跟我說話做什麼？」*");
@@ -101,7 +101,7 @@ labelFunc0471_0165:
 	case "金錢" attend labelFunc0471_0187:
 	message("「從一匹馬身上？對！說得好像我有錢給你一樣。」");
 	say();
-	UI_remove_answer(["金錢", "建議", "線索", "幸福", "拯救 Britannia"]);
+	UI_remove_answer(["金錢", "建議", "線索", "幸福", "拯救不列顛尼亞"]);
 labelFunc0471_0187:
 	case "建議" attend labelFunc0471_0194:
 	message("「別跟馬說話！」*");
@@ -111,17 +111,17 @@ labelFunc0471_0194:
 	case "幸福" attend labelFunc0471_01B6:
 	message("「誰不想？」");
 	say();
-	UI_remove_answer(["金錢", "建議", "線索", "幸福", "拯救 Britannia"]);
+	UI_remove_answer(["金錢", "建議", "線索", "幸福", "拯救不列顛尼亞"]);
 labelFunc0471_01B6:
-	case "拯救 Britannia" attend labelFunc0471_01D8:
+	case "拯救不列顛尼亞" attend labelFunc0471_01D8:
 	message("「你真的以為我會相信嗎？你做這些只是為了錢。」");
 	say();
-	UI_remove_answer(["金錢", "建議", "線索", "幸福", "拯救 Britannia"]);
+	UI_remove_answer(["金錢", "建議", "線索", "幸福", "拯救不列顛尼亞"]);
 labelFunc0471_01D8:
 	case "線索" attend labelFunc0471_020D:
 	message("「現在我們進入正題了。好吧，我給你一個線索，但我能得到什麼好處？讓我猜猜。金錢？愛情？不，以我對你的了解，大概什麼都沒有。如果我運氣好，你會走開別煩我。」");
 	say();
-	UI_remove_answer(["金錢", "建議", "線索", "幸福", "拯救 Britannia"]);
+	UI_remove_answer(["金錢", "建議", "線索", "幸福", "拯救不列顛尼亞"]);
 	UI_add_answer(["金錢", "愛情", "什麼都沒有", "不會把你做成膠水"]);
 labelFunc0471_020D:
 	case "什麼都沒有" attend labelFunc0471_021A:
