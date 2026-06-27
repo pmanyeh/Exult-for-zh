@@ -59,6 +59,8 @@ libgumps_la_SOURCES = \
 	VideoOptions_gump.h	\
 	GameDisplayOptions_gump.cc	\
 	GameDisplayOptions_gump.h	\
+	ChineseFontOptions_gump.cc	\
+	ChineseFontOptions_gump.h	\
 	GameEngineOptions_gump.cc \
 	GameEngineOptions_gump.h \
 	Modal_gump.cc \

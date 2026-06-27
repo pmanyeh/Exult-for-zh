@@ -159,6 +159,7 @@ GUMPS_OBJS:= \
 	gumps/File_gump.o \
 	gumps/Gamemenu_gump.o \
 	gumps/GameDisplayOptions_gump.o \
+	gumps/ChineseFontOptions_gump.o \
 	gumps/Mixer_gump.o \
 	gumps/Modal_gump.o \
 	gumps/Gump.o \
@@ -581,6 +582,8 @@ gumps/Gamemenu_gump.o : gumps/Gamemenu_gump.cc $(EXULT_FLX)
 gumps/Gump.o : gumps/Gump.cc $(EXULT_BG_FLX) $(EXULT_SI_FLX)
 
 gumps/GameDisplayOptions_gump.o : gumps/GameDisplayOptions_gump.cc $(EXULT_FLX)
+
+gumps/ChineseFontOptions_gump.o : gumps/ChineseFontOptions_gump.cc $(EXULT_FLX)
 
 gumps/Mixer_gump.o : gumps/Mixer_gump.cc $(EXULT_FLX)
 gumps/ItemMenu_gump.o : gumps/ItemMenu_gump.cc $(EXULT_FLX)

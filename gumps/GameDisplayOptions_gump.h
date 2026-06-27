@@ -62,6 +62,7 @@ private:
 		id_android_autolaunch,
 		id_language,
 		id_fonts,
+		id_chinese_font_options,    // Exult-zh: opens Chinese font settings sub-dialog
 
 		id_count
 	};
@@ -81,6 +82,7 @@ public:
 	void save_settings();
 	void cancel();
 	void help();
+	void chinese_font_options();    // Exult-zh: opens Chinese font sub-dialog
 
 	void toggle_facestats(int state) {
 		facestats = state;

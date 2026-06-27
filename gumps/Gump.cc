@@ -73,11 +73,11 @@ float get_ui_scale() {
 	const int gw = win->get_game_width();
 	const int gh = win->get_game_height();
 	
-	FILE* f = fopen("exult_debug.log", "a");
-	if (f) {
-		fprintf(f, "get_ui_scale: game_w=%d game_h=%d win_w=%d win_h=%d\n", gw, gh, win->get_display_width(), win->get_display_height());
-		fclose(f);
-	}
+//	FILE* f = fopen("exult_debug.log", "a");
+//	if (f) {
+//		fprintf(f, "get_ui_scale: game_w=%d game_h=%d win_w=%d win_h=%d\n", gw, gh, win->get_display_width(), win->get_display_height());
+//		fclose(f);
+//	}
 
 	if (gw <= 0 || gh <= 0) return 1.0f;
 	const float sx = static_cast<float>(gw) / 320.0f;
@@ -738,11 +738,11 @@ void Gump::set_pos_scaled(int scale) {
 	const int gw = gwin->get_width();
 	const int gh = gwin->get_height();
 	
-	FILE* fp = fopen("exult_debug.log", "a");
-	if (fp) {
-		fprintf(fp, "set_pos_scaled: scale=%d s->width=%d sw=%d gw=%d xleft=%d\n", scale, s->get_width(), sw, gw, s->get_xleft());
-		fclose(fp);
-	}
+//	FILE* fp = fopen("exult_debug.log", "a");
+//	if (fp) {
+//		fprintf(fp, "set_pos_scaled: scale=%d s->width=%d sw=%d gw=%d xleft=%d\n", scale, s->get_width(), sw, gw, s->get_xleft());
+//		fclose(fp);
+//	}
 
 	// Hot-spot is at (xleft, yabove) from top-left of scaled shape
 	x = (gw - sw) / 2 + s->get_xleft() * scale;

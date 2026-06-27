@@ -38,6 +38,7 @@
 #endif    // __GNUC__
 
 #include "Configuration.h"
+#include "ChineseFontOptions_gump.h"    // Exult-zh: Chinese font sub-dialog
 #include "Enabled_button.h"
 #include "Face_stats.h"
 #include "GameDisplayOptions_gump.h"
@@ -349,6 +350,14 @@ void GameDisplayOptions_gump::build_buttons() {
 			this, &GameDisplayOptions_gump::toggle_fonts, fonts_txt, fonts, get_button_pos_for_label(Strings::Fonts_()),
 			yForRow(++y_index), large_size);
 
+	// Exult-zh: Chinese font settings sub-dialog button (always shown last)
+	// The label is intentionally hardcoded in Traditional Chinese as this feature
+	// is exclusively for the Chinese localisation.
+	const char* kChineseFontLabel = "Chinese Setup";
+	buttons[id_chinese_font_options] = std::make_unique<GameDisplayOptions_button>(
+			this, &GameDisplayOptions_gump::chinese_font_options, kChineseFontLabel,
+			get_button_pos_for_label(kChineseFontLabel), yForRow(++y_index), large_size);
+
 	// Risize to fit all
 	ResizeWidthToFitWidgets(tcb::span(buttons.data() + id_first, id_count));
 
@@ -408,7 +417,7 @@ void GameDisplayOptions_gump::load_settings() {
 }
 
 GameDisplayOptions_gump::GameDisplayOptions_gump() : Modal_gump(nullptr, -1) {
-	SetProceduralBackground(TileRect(0, 0, 100, yForRow(13)), -1);
+	SetProceduralBackground(TileRect(0, 0, 100, yForRow(14)), -1);
 
 	for (auto& btn : buttons) {
 		btn.reset();
@@ -493,6 +502,13 @@ void GameDisplayOptions_gump::save_settings() {
 	config->write_back();
 }
 
+// Exult-zh: open the Chinese font settings sub-dialog
+void GameDisplayOptions_gump::chinese_font_options() {
+	auto* zh_opts = new ChineseFontOptions_gump();
+	gumpman->do_modal_gump(zh_opts, Mouse::hand);
+	delete zh_opts;
+}
+
 void GameDisplayOptions_gump::paint() {
 	Modal_gump::paint();
 	for (auto& btn : buttons) {
@@ -527,6 +543,12 @@ void GameDisplayOptions_gump::paint() {
 	}
 	if (buttons[id_fonts]) {
 		font->paint_text(iwin->get_ib8(), Strings::Fonts_(), x + label_margin, y + yForRow(++y_index) + 1);
+	}
+	// Exult-zh: label for Chinese font options button
+	if (buttons[id_chinese_font_options]) {
+		const char* kChineseFontLabel = "Chinese Setup";
+		++y_index;    // advance past the button row (button paints its own text)
+		(void)kChineseFontLabel;    // label is painted by the button itself
 	}
 	gwin->set_painted();
 }
