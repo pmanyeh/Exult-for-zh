@@ -70,10 +70,6 @@ private:
 	int  load_internal(IDataSource& data, int hlead, int vlead);
 	int get_original_height();
 	int get_chinese_font_size();
-	int get_text_height_for(const char* text);
-	int get_text_baseline_for(const char* text);
-	int get_text_height_for(const char* text, int len);
-	int get_text_baseline_for(const char* text, int len);
 
 public:
 	static bool is_painting_bark;
@@ -81,6 +77,11 @@ public:
 	static bool is_painting_avatar_choices;
 	static int avatar_choices_font_size_adjust;
 	
+	int get_text_height_for(const char* text);
+	int get_text_baseline_for(const char* text);
+	int get_text_height_for(const char* text, int len);
+	int get_text_baseline_for(const char* text, int len);
+
 	int get_rendered_line_height_for(const char* text);
 	int get_rendered_line_height_for(const char* text, int len);
 

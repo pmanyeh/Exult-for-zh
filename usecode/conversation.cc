@@ -567,9 +567,9 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 			line_height = rendered_h + font0->get_ver_lead() + 2;
 		}
 		if (has_chinese) {
-			// CJK glyphs (15pt FreeType) need at least 22px per row.
-			// Shrink cjk_min slightly if we are actively shrinking font size.
-			const int cjk_min = (22 - retry) + (font0 ? font0->get_ver_lead() : 0);
+			// Query the actual rendered height for CJK glyphs to dynamically support font size changes.
+			int cjk_h = font0 ? font0->get_rendered_line_height_for("\x80") : 15;
+			const int cjk_min = (std::max(22, cjk_h + 4) - retry) + (font0 ? font0->get_ver_lead() : 0);
 			if (line_height < cjk_min) {
 				line_height = cjk_min;
 			}
@@ -679,7 +679,16 @@ void Conversation::show_avatar_choices(int num_choices, char** choices) {
 			y += has_chinese ? line_height : line_height - 1;
 		}
 		// Store info.
-		conv_choices[i] = TileRect(tbox.x + x, tbox.y + y, width, line_height);
+		int hit_h = line_height;
+		std::shared_ptr<Font> font0 = sman->get_font(0);
+		if (has_chinese && font0) {
+			// Dynamically expand hit box to cover TTF ascender offsets and descenders
+			int baseline = font0->get_text_baseline_for("\x80");
+			int text_h = font0->get_text_height_for("\x80");
+			int text_bottom = baseline + text_h / 4 + 2; 
+			hit_h = std::max(line_height, text_bottom);
+		}
+		conv_choices[i] = TileRect(tbox.x + x, tbox.y + y, width, hit_h);
 		conv_choices[i] = conv_choices[i].intersect(sbox);
 		avatar_face     = avatar_face.add(conv_choices[i]);
 		// Draw shading with line_height, shifted down to align with text.

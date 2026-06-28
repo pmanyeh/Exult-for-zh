@@ -173,13 +173,19 @@ void Deferred_text_renderer::draw_glyph(
 	if (wch == 127) {
 		// Load original font size just to get the ascender
 		int ascender = 10;
+		int ppem = 15;
 		if (TTF::load_font(font_path.c_str(), pixel_size)) {
 			ascender = TTF::face->size->metrics.ascender >> 6;
+			ppem = TTF::face->size->metrics.y_ppem;
 		}
 		int gb = (image_win->get_inter_surface() != image_win->get_display_surface()) ? image_win->get_guard_band() : 0;
-		int scaled_dot_x = (x + win->get_offset_x() + gb + 3) * scale;
-		int scaled_dot_y = (y + win->get_offset_y() + gb + ascender - 5) * scale;
-		int dot_size = 2 * scale;
+		
+		int base_dot_w = std::max(8, ppem / 2 + 1);
+		int base_dot_size = std::max(2, ppem / 7);
+		
+		int scaled_dot_x = (x + win->get_offset_x() + gb + base_dot_w / 2 - base_dot_size / 2) * scale;
+		int scaled_dot_y = (y + win->get_offset_y() + gb + ascender - ppem / 3 - base_dot_size / 2) * scale;
+		int dot_size = base_dot_size * scale;
 
 		SDL_Color fg_rgb;
 		SDL_Color bg_rgb;
