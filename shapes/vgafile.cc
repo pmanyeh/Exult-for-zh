@@ -707,6 +707,14 @@ void Shape_frame::paint_rle_scaled(Image_buffer8* win, int xoff, int yoff, int s
 	win->paint_rle_scaled(xoff, yoff, data.get(), scale);
 }
 
+void Shape_frame::paint_rle_translucent_scaled(Image_buffer8* win, int xoff, int yoff, int scale, const Xform_palette* xforms, int xfcnt) {
+	win->paint_rle_scaled(xoff, yoff, data.get(), scale, xforms, xfcnt, nullptr);
+}
+
+void Shape_frame::paint_rle_remapped_scaled(Image_buffer8* win, int xoff, int yoff, int scale, const unsigned char* trans) {
+	win->paint_rle_scaled(xoff, yoff, data.get(), scale, nullptr, 0, trans);
+}
+
 /*
  *  Check if a screen-space point (sx, sy) hits this shape when it is
  *  rendered at scale `scale` centred at origin (0,0).

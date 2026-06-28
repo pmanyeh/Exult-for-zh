@@ -171,6 +171,21 @@ public:
 		}
 	}
 
+	// Paint scaled shape in window.
+	void paint_shape_scaled(int xoff, int yoff, int scale, Shape_frame* shape, bool translucent = false, unsigned char* trans = nullptr) {
+		if (!shape || !shape->get_data()) {
+			CERR("nullptr SHAPE!!!");
+		} else if (!shape->is_rle()) {
+			shape->paint(xoff, yoff);
+		} else if (trans) {
+			shape->paint_rle_remapped_scaled(xoff, yoff, scale, trans);
+		} else if (!translucent) {
+			shape->paint_rle_scaled(xoff, yoff, scale);
+		} else {
+			shape->paint_rle_translucent_scaled(xoff, yoff, scale, xforms.data(), xforms.size());
+		}
+	}
+
 	inline void paint_invisible(int xoff, int yoff, Shape_frame* shape) {
 		if (shape) {
 			shape->paint_rle_transformed(xoff, yoff, *invis_xform);
@@ -342,6 +357,16 @@ public:
 			transtable = Get_palette_transform_table(table);
 		}
 		sman->paint_shape(xoff, yoff, cache.shape, force_trans ? *force_trans : cache.has_trans, transtable);
+	}
+
+	void paint_shape_scaled(int xoff, int yoff, int scale, std::optional<bool> force_trans = std::nullopt) const {
+		auto           cache      = cache_shape();
+		unsigned char* transtable = nullptr;
+		unsigned char  table[256];
+		if (palette_transform != 0) {
+			transtable = Get_palette_transform_table(table);
+		}
+		sman->paint_shape_scaled(xoff, yoff, scale, cache.shape, force_trans ? *force_trans : cache.has_trans, transtable);
 	}
 
 	void paint_invisible(int xoff, int yoff) const {

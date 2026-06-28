@@ -47,13 +47,10 @@ using std::size_t;
 
 static void Paint_ShapeID_scaled(const ShapeID& s, int x, int y, int scale, std::optional<bool> force_trans = std::nullopt) {
 	if (scale > 1) {
-		Shape_frame* frame = s.get_shape();
-		if (frame && frame->is_rle()) {
-			frame->paint_rle_scaled(x, y, scale);
-			return;
-		}
+		s.paint_shape_scaled(x, y, scale, force_trans);
+	} else {
+		s.paint_shape(x, y, force_trans);
 	}
-	s.paint_shape(x, y, force_trans);
 }
 
 /*

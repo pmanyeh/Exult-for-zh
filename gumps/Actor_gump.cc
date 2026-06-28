@@ -33,13 +33,10 @@ using std::size_t;
 
 static void Paint_ShapeID_scaled_Actor(const ShapeID& s, int x, int y, int scale) {
 	if (scale > 1) {
-		Shape_frame* frame = s.get_shape();
-		if (frame && frame->is_rle()) {
-			frame->paint_rle_scaled(x, y, scale);
-			return;
-		}
+		s.paint_shape_scaled(x, y, scale);
+	} else {
+		s.paint_shape(x, y);
 	}
-	s.paint_shape(x, y);
 }
 
 #define TWO_HANDED_BROWN_SHAPE 48

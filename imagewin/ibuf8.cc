@@ -673,8 +673,8 @@ void Image_buffer8::paint_rle(int xoff, int yoff, const unsigned char* inptr) {
  *  Each original pixel is expanded into a (scale x scale) block.
  *  Handles both raw and encoded RLE scanlines with full clip-rect safety.
  */
-void Image_buffer8::paint_rle_scaled(int xoff, int yoff, const unsigned char* inptr, int scale) {
-	if (scale <= 1) {
+void Image_buffer8::paint_rle_scaled(int xoff, int yoff, const unsigned char* inptr, int scale, const Xform_palette* xforms, int xfcnt, const unsigned char* trans) {
+	if (scale <= 1 && !xforms && !trans) {
 		paint_rle(xoff, yoff, inptr);
 		return;
 	}
@@ -684,7 +684,13 @@ void Image_buffer8::paint_rle_scaled(int xoff, int yoff, const unsigned char* in
 	const int    bottom = clipy + cliph;
 
 	// Helper lambda: paint one (scale x scale) pixel block at (bx, by)
+	const int xfstart = 0xff - xfcnt;
 	auto paint_block = [&](int bx, int by, unsigned char pix) {
+		unsigned char final_pix = pix;
+		if (trans) {
+			final_pix = trans[pix];
+			if (final_pix == 255) return;
+		}
 		const int x0 = bx;
 		const int y0 = by;
 		const int x1 = bx + scale;
@@ -693,7 +699,12 @@ void Image_buffer8::paint_rle_scaled(int xoff, int yoff, const unsigned char* in
 			if (py < clipy || py >= bottom) continue;
 			for (int px = x0; px < x1; px++) {
 				if (px < clipx || px >= right) continue;
-				bits[py * line_width + px] = pix;
+				unsigned char& dest = bits[py * line_width + px];
+				if (!trans && xforms && pix >= xfstart && pix <= 0xfe) {
+					dest = xforms[pix - xfstart][dest];
+				} else {
+					dest = final_pix;
+				}
 			}
 		}
 	};

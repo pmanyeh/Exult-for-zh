@@ -572,7 +572,7 @@ void Spellbook_gump::paint() {
 		Shape_frame* fr      = shape.get_shape();
 		const int    spritex = x + (object_area.x + fr->get_xleft() + TPXOFF) * scale;
 		const int    spritey = y + (fr->get_yabove() + TPYOFF) * scale;
-		fr->paint_rle_scaled(spritex, spritey, scale);
+		shape.paint_shape_scaled(spritex, spritey, scale);
 		turning_frame += turning_page;
 		if (turning_frame < 0 || turning_frame >= shape.get_num_frames()) {
 			turning_page = 0;    // Last one.

@@ -122,11 +122,8 @@ Gump_widget* Gump_widget::findSorted(int sx, int sy, Sort_Order sort, Sort_Order
 void Gump_widget::paint_shape(int xoff, int yoff, std::optional<bool> force_trans) const {
 	int scale = get_widget_scale();
 	if (scale > 1) {
-		Shape_frame* s = get_shape();
-		if (s && s->is_rle()) {
-			s->paint_rle_scaled(xoff, yoff, scale);
-			return;
-		}
+		ShapeID::paint_shape_scaled(xoff, yoff, scale, force_trans);
+	} else {
+		ShapeID::paint_shape(xoff, yoff, force_trans);
 	}
-	ShapeID::paint_shape(xoff, yoff, force_trans);
 }

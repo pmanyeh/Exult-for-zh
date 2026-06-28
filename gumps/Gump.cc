@@ -541,8 +541,8 @@ void Gump::paint() {
 		int draw_x = x + object_area.x * scale + obj->get_tx() * scale;
 		int draw_y = y + object_area.y * scale + obj->get_ty() * scale;
 		
-		if (scale > 1 && shape && shape->is_rle()) {
-			shape->paint_rle_scaled(draw_x, draw_y, scale);
+		if (scale > 1) {
+			obj->paint_shape_scaled(draw_x, draw_y, scale);
 		} else {
 			obj->paint_shape(draw_x, draw_y);
 		}
@@ -700,16 +700,7 @@ void Gump::paint_shape_scaled(int scale) const {
 		paint_shape(x, y);
 		return;
 	}
-	Shape_frame* s = get_shape();
-	if (!s || !s->get_data()) return;
-	if (!s->is_rle()) {
-		// Non-RLE shapes: fall back to unscaled paint (rare for gumps)
-		paint_shape(x, y);
-		return;
-	}
-	// Force recompile: The inline paint_rle_scaled in vgafile.h has been fixed
-	// to subtract (xleft * scale) and (yabove * scale), ensuring hot-spot alignment.
-	s->paint_rle_scaled(x, y, scale);
+	ShapeID::paint_shape_scaled(x, y, scale);
 }
 
 /*

@@ -318,9 +318,8 @@ void Dragging_info::paint() {
 						draw_x, draw_y, obj->get_framenum(), Game_window::get_instance()->get_win()->get_ib8(), bbox, 2);
 			}
 
-			Shape_frame* frame = obj->get_shape();
-			if (scale > 1 && frame && frame->is_rle()) {
-				frame->paint_rle_scaled(draw_x, draw_y, scale);
+			if (scale > 1) {
+				obj->paint_shape_scaled(draw_x, draw_y, scale);
 			} else {
 				obj->paint_shape(draw_x, draw_y);
 			}

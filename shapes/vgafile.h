@@ -124,6 +124,14 @@ public:
 	void paint_rle_scaled(int px, int py, int scale) {
 		paint_rle_scaled(scrwin, px, py, scale);
 	}
+	void paint_rle_translucent_scaled(Image_buffer8* win, int xoff, int yoff, int scale, const Xform_palette* xforms, int xfcnt);
+	void paint_rle_translucent_scaled(int px, int py, int scale, const Xform_palette* xforms, int xfcnt) {
+		paint_rle_translucent_scaled(scrwin, px, py, scale, xforms, xfcnt);
+	}
+	void paint_rle_remapped_scaled(Image_buffer8* win, int xoff, int yoff, int scale, const unsigned char* trans);
+	void paint_rle_remapped_scaled(int px, int py, int scale, const unsigned char* trans) {
+		paint_rle_remapped_scaled(scrwin, px, py, scale, trans);
+	}
 
 	// Point-in-shape check for scaled rendering (inverse-scales the point).
 	bool has_point_scaled(int x, int y, int scale) const;
