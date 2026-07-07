@@ -69,7 +69,7 @@ jobs:
           autoreconf -v -i
       - name: Configure
         run: |
-          export LDFLAGS="-headerpad_max_install_names -L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix freetype)/lib"
+          export LDFLAGS="-Wl,-headerpad_max_install_names -L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix freetype)/lib"
           export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix freetype)/include/freetype2"
           export PATH="$(brew --prefix bison)/bin:$(brew --prefix flex)/bin:$(brew --prefix libxml2)/bin:$PATH"
           export PKG_CONFIG_PATH="$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix freetype)/lib/pkgconfig"
@@ -79,7 +79,7 @@ jobs:
             --disable-alsa --disable-timidity-midi
       - name: Build
         run: |
-          export LDFLAGS="-headerpad_max_install_names -L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix freetype)/lib"
+          export LDFLAGS="-Wl,-headerpad_max_install_names -L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix freetype)/lib"
           export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix freetype)/include/freetype2"
           export PATH="$(brew --prefix bison)/bin:$(brew --prefix flex)/bin:$(brew --prefix libxml2)/bin:$PATH"
           export PKG_CONFIG_PATH="$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix freetype)/lib/pkgconfig"
