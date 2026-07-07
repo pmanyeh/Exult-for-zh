@@ -2,9 +2,9 @@ import zipfile
 import os
 
 # 您要打包的資料夾路徑
-source_dir = r"G:\U7_中文化_20260607\Ultima_7_CHT_Release_1\Mac\Ultima7_BlackGate_zhTW_v1.1_for_Mac"
+source_dir = r"D:\U7_project\Test_Portable"
 # 產出的壓縮檔路徑
-output_zip = r"G:\U7_中文化_20260607\Ultima_7_CHT_Release_1\Mac\Ultima7_BlackGate_zhTW_v1.1_for_Mac.zip"
+output_zip = r"D:\U7_project\Ultima7_BlackGate_zhTW_v1.1_for_Mac.zip"
 
 def create_mac_zip():
     print(f"開始打包: {output_zip}")
@@ -19,9 +19,9 @@ def create_mac_zip():
                 info = zipfile.ZipInfo(arcname)
                 
                 # 核心關鍵：判斷是否為需要執行的檔案
-                if file == 'exult' or file.endswith('.command'):
+                if file == 'exult' or file == 'ExultLauncher' or file.endswith('.command'):
                     # 賦予 755 (rwxr-xr-x) 權限，Mac 上即可執行
-                    info.external_attr = 0o100755 << 16 
+                    info.external_attr = 0o100755 << 16
                     print(f"[加入並賦予執行權限] {arcname}")
                 else:
                     # 一般檔案 644 (rw-r--r--)
