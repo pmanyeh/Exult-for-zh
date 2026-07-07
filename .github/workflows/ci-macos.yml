@@ -86,23 +86,6 @@ jobs:
           export LIBS="-lfreetype"
           make -j3
           make bundle_shared
-          
-          # Workaround for dylibbundler failing to rewrite Homebrew paths
-          for lib in $(otool -L Exult.app/Contents/MacOS/exult | grep '/opt/homebrew' | awk '{print $1}'); do
-            base=$(basename $lib)
-            install_name_tool -change "$lib" "@executable_path/../Resources/lib/$base" Exult.app/Contents/MacOS/exult || true
-          done
-          for dylib in Exult.app/Contents/Resources/lib/*.dylib; do
-            for lib in $(otool -L "$dylib" | grep '/opt/homebrew' | awk '{print $1}'); do
-              base=$(basename $lib)
-              install_name_tool -change "$lib" "@executable_path/../Resources/lib/$base" "$dylib" || true
-            done
-            # Re-sign the dylib if needed on ARM64
-            codesign --force --sign - "$dylib" || true
-          done
-          # Re-sign the executable
-          codesign --force --sign - Exult.app/Contents/MacOS/exult || true
-
           make osxdmg
       - name: Upload Artifact
         uses: actions/upload-artifact@v4

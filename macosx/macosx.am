@@ -34,10 +34,11 @@ if WITH_OSX_CODE_SIGNATURE
 endif
 
 bundle_shared: bundle
+	mkdir -p $(bundle_name)/Contents/MacOS/lib
 	dylibbundler -ns -od -b \
 	  -x $(bundle_name)/Contents/MacOS/$(bin_PROGRAMS) \
-	  -d $(bundle_name)/Contents/Resources/lib \
-	  -p @executable_path/../Resources/lib \
+	  -d $(bundle_name)/Contents/MacOS/lib \
+	  -p @executable_path/lib \
 	  -i /usr/lib
 if WITH_OSX_CODE_SIGNATURE
 	  codesign \
@@ -45,7 +46,7 @@ if WITH_OSX_CODE_SIGNATURE
 	  --timestamp \
 	  --strip-disallowed-xattrs \
 	  -f -s "$(OSX_CODE_SIGNATURE)" \
-	  $(bundle_name)/Contents/Resources/lib/*.dylib
+	  $(bundle_name)/Contents/MacOS/lib/*.dylib
 endif
 
 studiobundle: $(exult_studio)
