@@ -40,6 +40,8 @@ bundle_shared: bundle
 	  -d $(bundle_name)/Contents/MacOS/lib \
 	  -p @executable_path/lib \
 	  -i /usr/lib
+	codesign --force --sign - $(bundle_name)/Contents/MacOS/lib/*.dylib || true
+	codesign --force --sign - $(bundle_name)/Contents/MacOS/$(bin_PROGRAMS) || true
 if WITH_OSX_CODE_SIGNATURE
 	  codesign \
 	  --options runtime \
