@@ -85,7 +85,6 @@ jobs:
           export PKG_CONFIG_PATH="$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix freetype)/lib/pkgconfig"
           export LIBS="-lfreetype"
           make -j3
-          make bundle_shared
           make osxdmg
       - name: Upload Artifact
         uses: actions/upload-artifact@v4

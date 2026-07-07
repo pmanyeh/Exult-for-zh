@@ -75,7 +75,7 @@ install-exec-local: bundle
 	cp -r $(bundle_name) $(DESTDIR)/Applications/
 endif
 
-osxdmg: bundle
+osxdmg: bundle_shared
 	mkdir -p Exult-snapshot
 	mkdir -p ./Exult-snapshot/images
 	cp $(srcdir)/AUTHORS ./Exult-snapshot/Authors
