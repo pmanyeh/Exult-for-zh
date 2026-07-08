@@ -62,6 +62,7 @@ def zip_portable(source_dir, zip_filepath):
                 dir_path = os.path.join(root, d)
                 arcname = os.path.join(OUTPUT_NAME, os.path.relpath(dir_path, source_dir)) + '/'
                 dir_info = zipfile.ZipInfo(arcname)
+                dir_info.create_system = 3 # 3 = UNIX (必須設定才能讓 Mac 吃到權限)
                 dir_info.external_attr = 0o40755 << 16 # 40000 = 目錄, 755 = rwxr-xr-x
                 zf.writestr(dir_info, '')
 
@@ -76,6 +77,7 @@ def zip_portable(source_dir, zip_filepath):
                 arcname = os.path.join(OUTPUT_NAME, os.path.relpath(file_path, source_dir))
                 
                 info = zipfile.ZipInfo(arcname)
+                info.create_system = 3 # 3 = UNIX (必須設定)
                 
                 # 賦予 Mac 執行權限 (不分大小寫)
                 lower_file = file.lower()
@@ -112,7 +114,7 @@ def main():
     inject_launcher(app_dir)
     modify_plist(app_dir)
 
-    print("5. 進行 ZIP 打包...")
+    print("6. 進行 ZIP 打包...")
     zip_portable(OUTPUT_DIR, OUTPUT_ZIP)
 
     # 移除暫存資料夾
