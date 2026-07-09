@@ -54,7 +54,7 @@ on:
 
 jobs:
   ci-macos:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - name: Install dependencies
         run: |
@@ -69,6 +69,7 @@ jobs:
           autoreconf -v -i
       - name: Configure
         run: |
+          export MACOSX_DEPLOYMENT_TARGET="11.0"
           export LDFLAGS="-Wl,-headerpad_max_install_names -L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix freetype)/lib"
           export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix freetype)/include/freetype2"
           export PATH="$(brew --prefix bison)/bin:$(brew --prefix flex)/bin:$(brew --prefix libxml2)/bin:$PATH"
@@ -79,6 +80,7 @@ jobs:
             --disable-alsa --disable-timidity-midi
       - name: Build
         run: |
+          export MACOSX_DEPLOYMENT_TARGET="11.0"
           export LDFLAGS="-Wl,-headerpad_max_install_names -L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix freetype)/lib"
           export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix freetype)/include/freetype2"
           export PATH="$(brew --prefix bison)/bin:$(brew --prefix flex)/bin:$(brew --prefix libxml2)/bin:$PATH"
