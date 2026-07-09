@@ -54,14 +54,15 @@ on:
 
 jobs:
   ci-macos:
-    runs-on: macos-13
+    runs-on: macos-latest
     steps:
-      - name: Install dependencies
+      - name: Install Intel Homebrew and dependencies
         run: |
-          brew update
-          brew upgrade || true
-          brew install automake libtool pkg-config libpng libogg libvorbis fluid-synth freetype gtk+3 libxml2 bison flex
-          brew install sdl3 sdl3_image icu4c mt32emu autoconf-archive dylibbundler create-dmg
+          echo "Installing Intel Homebrew via Rosetta 2..."
+          arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          IBREW="/usr/local/bin/brew"
+          $IBREW update
+          $IBREW install automake libtool pkg-config libpng libogg libvorbis fluid-synth freetype gtk+3 libxml2 bison flex sdl3 sdl3_image icu4c mt32emu autoconf-archive dylibbundler create-dmg
       - name: Checkout code
         uses: actions/checkout@v6
       - name: Run autoreconf
@@ -70,21 +71,31 @@ jobs:
       - name: Configure
         run: |
           export MACOSX_DEPLOYMENT_TARGET="11.0"
-          export LDFLAGS="-Wl,-headerpad_max_install_names -L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix freetype)/lib"
-          export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix freetype)/include/freetype2"
-          export PATH="$(brew --prefix bison)/bin:$(brew --prefix flex)/bin:$(brew --prefix libxml2)/bin:$PATH"
-          export PKG_CONFIG_PATH="$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix freetype)/lib/pkgconfig"
+          export CFLAGS="-arch x86_64"
+          export CXXFLAGS="-arch x86_64"
+          export OBJCFLAGS="-arch x86_64"
+          export OBJCXXFLAGS="-arch x86_64"
+          IBREW="/usr/local/bin/brew"
+          export LDFLAGS="-arch x86_64 -Wl,-headerpad_max_install_names -L$($IBREW --prefix bison)/lib -L$($IBREW --prefix flex)/lib -L$($IBREW --prefix freetype)/lib"
+          export CPPFLAGS="-I$($IBREW --prefix flex)/include -I$($IBREW --prefix freetype)/include/freetype2"
+          export PATH="$($IBREW --prefix bison)/bin:$($IBREW --prefix flex)/bin:$($IBREW --prefix libxml2)/bin:/usr/local/bin:$PATH"
+          export PKG_CONFIG_PATH="$($IBREW --prefix libxml2)/lib/pkgconfig:$($IBREW --prefix icu4c)/lib/pkgconfig:$($IBREW --prefix freetype)/lib/pkgconfig"
           export LIBS="-lfreetype"
-          ./configure --with-debug=extreme --enable-exult-studio --enable-exult-studio-support --enable-compiler \
+          ./configure --host=x86_64-apple-darwin --with-debug=extreme --enable-exult-studio --enable-exult-studio-support --enable-compiler \
             --enable-zip-support --enable-shared --enable-shp-thumbnailer --enable-data --enable-mods --enable-aseprite-plugin \
             --disable-alsa --disable-timidity-midi
       - name: Build
         run: |
           export MACOSX_DEPLOYMENT_TARGET="11.0"
-          export LDFLAGS="-Wl,-headerpad_max_install_names -L$(brew --prefix bison)/lib -L$(brew --prefix flex)/lib -L$(brew --prefix freetype)/lib"
-          export CPPFLAGS="-I$(brew --prefix flex)/include -I$(brew --prefix freetype)/include/freetype2"
-          export PATH="$(brew --prefix bison)/bin:$(brew --prefix flex)/bin:$(brew --prefix libxml2)/bin:$PATH"
-          export PKG_CONFIG_PATH="$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix freetype)/lib/pkgconfig"
+          export CFLAGS="-arch x86_64"
+          export CXXFLAGS="-arch x86_64"
+          export OBJCFLAGS="-arch x86_64"
+          export OBJCXXFLAGS="-arch x86_64"
+          IBREW="/usr/local/bin/brew"
+          export LDFLAGS="-arch x86_64 -Wl,-headerpad_max_install_names -L$($IBREW --prefix bison)/lib -L$($IBREW --prefix flex)/lib -L$($IBREW --prefix freetype)/lib"
+          export CPPFLAGS="-I$($IBREW --prefix flex)/include -I$($IBREW --prefix freetype)/include/freetype2"
+          export PATH="$($IBREW --prefix bison)/bin:$($IBREW --prefix flex)/bin:$($IBREW --prefix libxml2)/bin:/usr/local/bin:$PATH"
+          export PKG_CONFIG_PATH="$($IBREW --prefix libxml2)/lib/pkgconfig:$($IBREW --prefix icu4c)/lib/pkgconfig:$($IBREW --prefix freetype)/lib/pkgconfig"
           export LIBS="-lfreetype"
           make -j3
           make osxdmg
