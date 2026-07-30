@@ -110,7 +110,7 @@ void Object_sfx::handle_event(
 		unsigned long curtime,    // Current time of day.
 		uintptr       udata       // Game window.
 ) {
-	const int delay = 100;    // Guessing this will be enough.
+	const int delay = 500;    // Update position every 500ms (reduced from 100ms to lower CPU overhead)
 
 	// AudioMixer *mixer = AudioMixer::get_instance();
 	// bool active = channel != -1 ? mixer->isPlaying(channel) : false;
