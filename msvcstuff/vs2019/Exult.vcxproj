@@ -144,7 +144,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\include;$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>$(SolutionDir)msvc_include.h</PrecompiledHeaderFile>
@@ -159,7 +159,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL3.lib;libpng16d.lib;libpng16.lib;zlibd.lib;zlib.lib;freetyped.lib;freetype.lib;libfluidsynth-3.lib;mt32emu.lib;ogg.lib;vorbis.lib;vorbisfile.lib;winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -183,7 +184,7 @@ exit /b 0
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\include;$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>$(SolutionDir)msvc_include.h</PrecompiledHeaderFile>
@@ -198,7 +199,8 @@ exit /b 0
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL3.lib;libpng16d.lib;libpng16.lib;zlibd.lib;zlib.lib;freetyped.lib;freetype.lib;libfluidsynth-3.lib;mt32emu.lib;ogg.lib;vorbis.lib;vorbisfile.lib;winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.dll" "$(OutDir)"
@@ -216,7 +218,7 @@ exit /b 0
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;USE_CONSOLE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\include;$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>$(SolutionDir)msvc_include.h</PrecompiledHeaderFile>
@@ -235,7 +237,8 @@ exit /b 0
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL3.lib;libpng16d.lib;libpng16.lib;zlibd.lib;zlib.lib;freetyped.lib;freetype.lib;libfluidsynth-3.lib;mt32emu.lib;ogg.lib;vorbis.lib;vorbisfile.lib;winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.dll" "$(OutDir)"
@@ -252,7 +255,7 @@ exit /b 0
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\include;$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>$(SolutionDir)msvc_include.h</PrecompiledHeaderFile>
@@ -270,7 +273,8 @@ exit /b 0
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL3.lib;libpng16d.lib;libpng16.lib;zlibd.lib;zlib.lib;freetyped.lib;freetype.lib;libfluidsynth-3.lib;mt32emu.lib;ogg.lib;vorbis.lib;vorbisfile.lib;winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -289,6 +293,7 @@ exit /b 0
       <ExcludedFromBuild>false</ExcludedFromBuild>
       <FileType>Document</FileType>
       <Command>
+set PATH=%LOCALAPPDATA%\Programs\Git\cmd;%PATH%
 echo Generating gitinfo.h
 echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
 for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;..\..\gitinfo.h
@@ -305,7 +310,8 @@ echo.  &gt;&gt;..\..\gitinfo.h</Command>
       <BuildInParallel>true</BuildInParallel>
       <AdditionalInputs>..\..\.git\HEAD;..\..\.git\config</AdditionalInputs>
       <DeploymentContent>false</DeploymentContent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">echo Generating gitinfo.h
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">set PATH=%LOCALAPPDATA%\Programs\Git\cmd;%PATH%
+echo Generating gitinfo.h
 echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
 
 for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;;..\..\gitinfo.h 
@@ -316,7 +322,8 @@ for /f "tokens=* delims=" %%c in ('git branch --show-current') do git branch  --
 echo. &gt;&gt;..\..\gitinfo.h
 for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT_REMOTE_URL "%%u"&gt;&gt;..\..\gitinfo.h 
 </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">echo Generating gitinfo.h
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">set PATH=%LOCALAPPDATA%\Programs\Git\cmd;%PATH%
+echo Generating gitinfo.h
 echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
 
 for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;;..\..\gitinfo.h 
@@ -327,7 +334,8 @@ for /f "tokens=* delims=" %%c in ('git branch --show-current') do git branch  --
 echo. &gt;&gt;..\..\gitinfo.h
 for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT_REMOTE_URL "%%u"&gt;&gt;..\..\gitinfo.h 
 </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">echo Generating gitinfo.h
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">set PATH=%LOCALAPPDATA%\Programs\Git\cmd;%PATH%
+echo Generating gitinfo.h
 echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
 
 for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;;..\..\gitinfo.h 
@@ -338,7 +346,8 @@ for /f "tokens=* delims=" %%c in ('git branch --show-current') do git branch  --
 echo. &gt;&gt;..\..\gitinfo.h
 for /f "tokens=* delims=" %%u in ('git ls-remote --get-url') do echo #define GIT_REMOTE_URL "%%u"&gt;&gt;..\..\gitinfo.h 
 </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">echo Generating gitinfo.h
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">set PATH=%LOCALAPPDATA%\Programs\Git\cmd;%PATH%
+echo Generating gitinfo.h
 echo //this file is generated by the exult build process &gt;..\..\gitinfo.h
 
 for /f "tokens=* delims=" %%r in ('git rev-parse HEAD') do echo #define GIT_REVISION "%%r"&gt;&gt;;..\..\gitinfo.h 

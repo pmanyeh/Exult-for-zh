@@ -44,6 +44,7 @@
 #include "mouse.h"
 #include "spellbook.h"
 
+#include <cmath>
 #include <cstdio>
 #include <string>
 #include <vector>
@@ -51,6 +52,7 @@
 #include "fnames.h"
 #include "utils.h"
 #include "effects.h"
+#include "font.h"
 
 const int REAGENTS = 842;    // Shape #.
 
@@ -396,6 +398,30 @@ void Spellbook_gump::do_spell(int spell) {
 	}
 }
 
+int Spellbook_gump::find_spell_on_side(int pg, int side, int preferred_snum) const {
+	if (pg < 0 || pg > 8) return -1;
+	int best_snum = -1;
+	int min_dist = 999;
+	for (int s = 0; s < 4; ++s) {
+		int spell_idx = (pg * 8) | side | s;
+		if (spells[spell_idx] != nullptr) {
+			int dist = std::abs(s - preferred_snum);
+			if (dist < min_dist) {
+				min_dist = dist;
+				best_snum = s;
+			}
+		}
+	}
+	return (best_snum != -1) ? ((pg * 8) | side | best_snum) : -1;
+}
+
+int Spellbook_gump::find_spell_on_page(int pg, int preferred_side, int preferred_snum) const {
+	int target = find_spell_on_side(pg, preferred_side, preferred_snum);
+	if (target != -1) return target;
+	int other_side = (preferred_side == 0) ? 4 : 0;
+	return find_spell_on_side(pg, other_side, preferred_snum);
+}
+
 /*
  *  Change page.
  */
@@ -419,6 +445,12 @@ void Spellbook_gump::change_page(int delta) {
 	for (i = 0; i < nframes; i++) {    // Animate.
 		if (i == nframes / 2) {
 			page += delta;      // Change page halfway through.
+			if (book->bookmark < 0 || book->bookmark / 8 != page || spells[book->bookmark] == nullptr) {
+				int target = find_spell_on_page(page, (book->bookmark >= 0) ? (book->bookmark & 4) : 0, (book->bookmark >= 0) ? (book->bookmark & 3) : 0);
+				if (target != -1) {
+					book->bookmark = target;
+				}
+			}
 			bookmark->set();    // Update bookmark for new page.
 		}
 		gwin->add_dirty(get_rect());
@@ -558,11 +590,13 @@ void Spellbook_gump::paint() {
 		int spell = book->bookmark;
 		if (spell >= 0 && spell < 72 && !custom_spell_names[spell].empty()) {
 			const char* name_str = custom_spell_names[spell].c_str();
-			// Use font 0 (Normal Yellow) to match NPC dialogue/item names and use font_size_dialog
+			// Use Font::is_painting_bark = true so font size follows Overhead Font Size (font_size_bark)
+			Font::is_painting_bark = true;
 			int text_w = sman->get_text_width(0, name_str);
 			int px = x + (object_area.x + object_area.w / 2) * scale - text_w / 2;
 			int py = y + (object_area.y + object_area.h + 4) * scale; // Draw just below the spellbook
 			sman->paint_text(0, name_str, px, py);
+			Font::is_painting_bark = false;
 		}
 	}
 	if (turning_page) {    // Animate turning page.
@@ -604,6 +638,10 @@ bool Spellbook_gump::handle_kbd_event(void* vev) {
 	if (ev.type != SDL_EVENT_KEY_DOWN) {
 		return false;
 	}
+	int cur_spell = (book->bookmark >= 0) ? book->bookmark : (page * 8);
+	int cur_side  = cur_spell & 4;
+	int cur_snum  = cur_spell & 3;
+
 	switch (chr) {
 	case SDLK_RETURN:
 	case SDLK_SPACE: {
@@ -628,44 +666,70 @@ bool Spellbook_gump::handle_kbd_event(void* vev) {
 	case SDLK_PAGEDOWN:
 		change_page(1);
 		break;
-	case SDLK_LEFT:
-		if (book->bookmark >= 0 && (book->bookmark / 8) == page && (book->bookmark & 4) == 0) {
-			if (page > 0) {
-				int snum = book->bookmark & 3;
+	case SDLK_LEFT: {
+		if (cur_side == 4) {
+			int target = find_spell_on_side(page, 0, cur_snum);
+			if (target != -1) {
+				select_spell(target);
+			} else if (page > 0) {
+				int prev_target = find_spell_on_page(page - 1, 4, cur_snum);
 				change_page(-1);
-				select_spell((page * 8) | snum | 4);
+				if (prev_target != -1) select_spell(prev_target);
 			}
 		} else {
-			select_spell((page * 8) | (book->bookmark & 3));
+			if (page > 0) {
+				int prev_target = find_spell_on_page(page - 1, 4, cur_snum);
+				change_page(-1);
+				if (prev_target != -1) select_spell(prev_target);
+			}
 		}
 		break;
-	case SDLK_RIGHT:
-		if (book->bookmark >= 0 && (book->bookmark / 8) == page && (book->bookmark & 4) == 4) {
-			if (page < 8) {
-				int snum = book->bookmark & 3;
+	}
+	case SDLK_RIGHT: {
+		if (cur_side == 0) {
+			int target = find_spell_on_side(page, 4, cur_snum);
+			if (target != -1) {
+				select_spell(target);
+			} else if (page < 8) {
+				int next_target = find_spell_on_page(page + 1, 0, cur_snum);
 				change_page(1);
-				select_spell((page * 8) | snum);
+				if (next_target != -1) select_spell(next_target);
 			}
 		} else {
-			select_spell((page * 8) | (book->bookmark & 3) | 4);
+			if (page < 8) {
+				int next_target = find_spell_on_page(page + 1, 0, cur_snum);
+				change_page(1);
+				if (next_target != -1) select_spell(next_target);
+			}
 		}
 		break;
+	}
 	case SDLK_UP: {
-		const int snum = book->bookmark & 3;
-		if (snum == 0) {
-			break;
+		int target = -1;
+		for (int s = cur_snum - 1; s >= 0; --s) {
+			int candidate = (page * 8) | cur_side | s;
+			if (spells[candidate] != nullptr) {
+				target = candidate;
+				break;
+			}
 		}
-		const int side = book->bookmark & 4;
-		select_spell((page * 8) | side | (snum - 1));
+		if (target != -1) {
+			select_spell(target);
+		}
 		break;
 	}
 	case SDLK_DOWN: {
-		const int snum = book->bookmark & 3;
-		if (snum == 3) {
-			break;
+		int target = -1;
+		for (int s = cur_snum + 1; s < 4; ++s) {
+			int candidate = (page * 8) | cur_side | s;
+			if (spells[candidate] != nullptr) {
+				target = candidate;
+				break;
+			}
 		}
-		const int side = book->bookmark & 4;
-		select_spell((page * 8) | side | (snum + 1));
+		if (target != -1) {
+			select_spell(target);
+		}
 		break;
 	}
 	default:

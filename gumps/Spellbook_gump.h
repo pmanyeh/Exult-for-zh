@@ -62,6 +62,8 @@ class Spellbook_gump : public Spelltype_gump {
 	Gump_button*     spells[9 * 8];        // ->spell 'buttons'.
 	int              spwidth, spheight;    // Dimensions of a spell shape.
 	void             set_avail();          // Set up counts.
+	int              find_spell_on_side(int pg, int side, int preferred_snum) const;
+	int              find_spell_on_page(int pg, int preferred_side, int preferred_snum) const;
 public:
 	friend class Bookmark_button;
 	Spellbook_gump(Spellbook_object* b);

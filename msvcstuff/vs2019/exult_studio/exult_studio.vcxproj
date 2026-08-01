@@ -121,7 +121,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\mapedit;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\gtk-3.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\glib-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\lib\glib-2.0\include;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\pango-1.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\harfbuzz;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\cairo;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\gdk-pixbuf-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\atk-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include;$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\mapedit;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\gtk-3.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\glib-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\lib\glib-2.0\include;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\pango-1.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\harfbuzz;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\cairo;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\gdk-pixbuf-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\atk-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -132,11 +132,12 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CoreLibraryDependencies);Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gtk-3.lib;gdk-3.lib;gdk_pixbuf-2.0.lib;glib-2.0.lib;gobject-2.0.lib;gio-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;cairo.lib;pango-1.0.lib;pangocairo-1.0.lib;atk-1.0.lib;icuuc.lib;icuin.lib;getopt.lib;libpng16.lib;zlib.lib;freetype.lib;freetyped.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.dll" "$(OutDir)"
-copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.pdb" "$(OutDir)"
+      <Command>copy "$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\bin\*.dll" "$(OutDir)"
+copy "$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\bin\*.pdb" "$(OutDir)"
 exit /b 0
 </Command>
       <Message>Copy vcpkg package binaries to exult studio dir</Message>
@@ -150,7 +151,7 @@ exit /b 0
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\mapedit;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\gtk-3.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\glib-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\lib\glib-2.0\include;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\pango-1.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\harfbuzz;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\cairo;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\gdk-pixbuf-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\atk-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include;$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\mapedit;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\gtk-3.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\glib-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\lib\glib-2.0\include;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\pango-1.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\harfbuzz;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\cairo;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\gdk-pixbuf-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\atk-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -162,11 +163,12 @@ exit /b 0
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CoreLibraryDependencies);Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gtk-3.lib;gdk-3.lib;gdk_pixbuf-2.0.lib;glib-2.0.lib;gobject-2.0.lib;gio-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;cairo.lib;pango-1.0.lib;pangocairo-1.0.lib;atk-1.0.lib;icuuc.lib;icuin.lib;getopt.lib;libpng16.lib;zlib.lib;freetype.lib;freetyped.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.dll" "$(OutDir)"
-copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.pdb" "$(OutDir)"
+      <Command>copy "$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\bin\*.dll" "$(OutDir)"
+copy "$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\bin\*.pdb" "$(OutDir)"
 exit /b 0
 </Command>
       <Message>Copy vcpkg package binaries to exult studio dir</Message>
@@ -178,7 +180,7 @@ exit /b 0
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\mapedit;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\gtk-3.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\glib-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\lib\glib-2.0\include;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\pango-1.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\harfbuzz;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\cairo;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\gdk-pixbuf-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\atk-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include;$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\mapedit;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\gtk-3.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\glib-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\lib\glib-2.0\include;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\pango-1.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\harfbuzz;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\cairo;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\gdk-pixbuf-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\atk-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -189,11 +191,12 @@ exit /b 0
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CoreLibraryDependencies);Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gtk-3.lib;gdk-3.lib;gdk_pixbuf-2.0.lib;glib-2.0.lib;gobject-2.0.lib;gio-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;cairo.lib;pango-1.0.lib;pangocairo-1.0.lib;atk-1.0.lib;icuuc.lib;icuin.lib;getopt.lib;libpng16.lib;zlib.lib;freetype.lib;freetyped.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.dll" "$(OutDir)"
-copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\debug\bin\*.pdb" "$(OutDir)"
+      <Command>copy "$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\bin\*.dll" "$(OutDir)"
+copy "$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\bin\*.pdb" "$(OutDir)"
 exit /b 0
 </Command>
       <Message>Copy vcpkg package binaries to exult studio dir</Message>
@@ -207,7 +210,7 @@ exit /b 0
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\mapedit;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\gtk-3.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\glib-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\lib\glib-2.0\include;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\pango-1.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\harfbuzz;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\cairo;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\gdk-pixbuf-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\include\atk-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include;$(SolutionDir)../..;$(SolutionDir)../../files;$(SolutionDir)..\..\Gamemgr;$(SolutionDir)..\..\Gumps;$(SolutionDir)..\..\data;$(SolutionDir)..\..\conf;$(SolutionDir)..\..\filc;$(SolutionDir)..\..\imagewin;$(SolutionDir)..\..\objs;$(SolutionDir)..\..\mapedit;$(SolutionDir)..\..\pathfinder;$(SolutionDir)..\..\shapes;$(SolutionDir)..\..\shapes\shapeinf;$(SolutionDir)..\..\usecode;$(SolutionDir)..\..\Audio;$(SolutionDir)..\..\Audio\MIDI_drivers;$(SolutionDir)..\..\server;$(SolutionDir)..\..\Headers;$(SolutionDir)..\..\tools;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\gtk-3.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\glib-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\lib\glib-2.0\include;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\pango-1.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\harfbuzz;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\cairo;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\gdk-pixbuf-2.0;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\include\atk-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(SolutionDir)msvc_include.h</ForcedIncludeFiles>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -219,11 +222,12 @@ exit /b 0
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CoreLibraryDependencies);Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(ProjectDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gtk-3.lib;gdk-3.lib;gdk_pixbuf-2.0.lib;glib-2.0.lib;gobject-2.0.lib;gio-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;cairo.lib;pango-1.0.lib;pangocairo-1.0.lib;atk-1.0.lib;icuuc.lib;icuin.lib;getopt.lib;libpng16.lib;zlib.lib;freetype.lib;freetyped.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.dll" "$(OutDir)"
-copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.pdb" "$(OutDir)"
+      <Command>copy "$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\bin\*.dll" "$(OutDir)"
+copy "$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\bin\*.pdb" "$(OutDir)"
 exit /b 0
 </Command>
       <Message>Copy vcpkg package binaries to exult studio dir</Message>
