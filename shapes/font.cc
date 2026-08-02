@@ -574,22 +574,7 @@ int Font::paint_text(
 	bool is_si = chinese_is_serpent_isle_pfn ? chinese_is_serpent_isle_pfn() : false;
 	if (is_si && (get_font_name() == "SIINTRO_FONT" || get_font_name() == "EXULT_END_FONT" || get_font_name() == "EXULT_AT_FONT")) {
 		if (!chinese_in_paint_text_box) {
-			static uint32_t last_draw_ticks = 0;
-			static int first_line_y = -9999;
-			static int current_line_index = 0;
-
-			uint32_t current_ticks = chinese_get_ticks_pfn ? chinese_get_ticks_pfn() : 0;
-
-			if (current_ticks - last_draw_ticks > 50 || yoff < first_line_y) {
-				first_line_y = yoff;
-				current_line_index = 0;
-			} else if (yoff > first_line_y) {
-				current_line_index = (yoff - first_line_y + 5) / 13;
-			}
-
-			last_draw_ticks = current_ticks;
-			int extra_lead = get_effective_ver_lead() - ver_lead;
-			yoff = yoff - 10 + (current_line_index * extra_lead);
+			yoff = yoff - 6;
 		}
 	}
 	ignore_unused_variable_warning(win);

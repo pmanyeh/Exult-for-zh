@@ -1050,13 +1050,13 @@ struct ExSubEvent {
 			suby = centery + 87 + vlead;
 			break;
 		case 2:
-			suby = centery + 74 + vlead;
+			suby = centery + 71 + vlead;
 			break;
 		default:
-			suby = centery + 61 + vlead;
+			suby = centery + 55 + vlead;
 			break;
 		}
-		for (int ii = first_sub; ii < first_sub + num_subs; ii++, suby += 13) {
+		for (int ii = first_sub; ii < first_sub + num_subs; ii++, suby += 16) {
 			sub_font->draw_text(ibuf, centerx - sub_font->get_text_width(get_text_msg(ii)) / 2, suby, get_text_msg(ii));
 		}
 	}
