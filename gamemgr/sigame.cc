@@ -551,8 +551,9 @@ void SI_Game::play_intro() {
 			next = fli2.play(win, j, j, next);
 
 			if (subtitles || jive) {
+				const int intro_line_step = sifont->get_chinese_font_size() + 2;
 				Deferred_text_renderer::instance().clear();
-				sifont->draw_text(ibuf, centerx + 150 - sifont->get_text_width(all_we[0]), centery + 74 + vlead, all_we[0]);
+				sifont->draw_text(ibuf, centerx + 150 - sifont->get_text_width(all_we[0]), centery + 87 + vlead - intro_line_step, all_we[0]);
 				sifont->draw_text(ibuf, centerx + 160 - sifont->get_text_width(all_we[1]), centery + 87 + vlead, all_we[1]);
 			}
 
@@ -572,9 +573,10 @@ void SI_Game::play_intro() {
 		fli2.play(win, j, j, next);
 
 		if (subtitles || jive) {
-			const char* const and_a[2] = {get_text_msg(and_a0), get_text_msg(and_a0 + 1)};
+			const int         intro_line_step = sifont->get_chinese_font_size() + 2;
+			const char* const and_a[2]        = {get_text_msg(and_a0), get_text_msg(and_a0 + 1)};
 			Deferred_text_renderer::instance().clear();
-			sifont->draw_text(ibuf, centerx + 150 - sifont->get_text_width(and_a[0]), centery + 74 + vlead, and_a[0]);
+			sifont->draw_text(ibuf, centerx + 150 - sifont->get_text_width(and_a[0]), centery + 87 + vlead - intro_line_step, and_a[0]);
 			sifont->draw_text(ibuf, centerx + 150 - sifont->get_text_width(and_a[1]), centery + 87 + vlead, and_a[1]);
 		}
 
@@ -615,8 +617,9 @@ void SI_Game::play_intro() {
 				Deferred_text_renderer::instance().clear();
 				sifont->draw_text(ibuf, topx + 40, centery + 74 + vlead, get_text_msg(iree));
 			} else if (subtitles) {
+				const int intro_line_step = sifont->get_chinese_font_size() + 2;
 				Deferred_text_renderer::instance().clear();
-				sifont->draw_text(ibuf, topx + 40, centery + 74 + vlead, get_text_msg(indeed));
+				sifont->draw_text(ibuf, topx + 40, centery + 87 + vlead - intro_line_step, get_text_msg(indeed));
 				sifont->draw_text(ibuf, topx + 40, centery + 87 + vlead, get_text_msg(indeed + 1));
 			}
 
@@ -730,16 +733,19 @@ void SI_Game::play_intro() {
 				sifont->center_text(ibuf, centerx, centery + 74 + vlead, get_text_msg(soon_i));
 				sifont->center_text(ibuf, centerx, centery + 87 + vlead, get_text_msg(soon_i + 1));
 			} else if (j < 100 && (subtitles)) {
+				const int intro_line_step = sifont->get_chinese_font_size() + 2;
 				Deferred_text_renderer::instance().clear();
-				sifont->center_text(ibuf, centerx, centery + 74 + vlead, get_text_msg(batlin));
+				sifont->center_text(ibuf, centerx, centery + 87 + vlead - intro_line_step, get_text_msg(batlin));
 				sifont->center_text(ibuf, centerx, centery + 87 + vlead, get_text_msg(batlin + 1));
 			} else if (j < 200 && (subtitles)) {
+				const int intro_line_step = sifont->get_chinese_font_size() + 2;
 				Deferred_text_renderer::instance().clear();
-				sifont->center_text(ibuf, centerx, centery + 74 + vlead, get_text_msg(you_shall));
+				sifont->center_text(ibuf, centerx, centery + 87 + vlead - intro_line_step, get_text_msg(you_shall));
 				sifont->center_text(ibuf, centerx, centery + 87 + vlead, get_text_msg(you_shall + 1));
 			} else if (j < 300 && (subtitles)) {
+				const int intro_line_step = sifont->get_chinese_font_size() + 2;
 				Deferred_text_renderer::instance().clear();
-				sifont->center_text(ibuf, centerx, centery + 74 + vlead, get_text_msg(there_i));
+				sifont->center_text(ibuf, centerx, centery + 87 + vlead - intro_line_step, get_text_msg(there_i));
 				sifont->center_text(ibuf, centerx, centery + 87 + vlead, get_text_msg(there_i + 1));
 			}
 
@@ -793,8 +799,9 @@ void SI_Game::play_intro() {
 				Deferred_text_renderer::instance().clear();
 				sifont->center_text(ibuf, centerx, centery + 74 + vlead, get_text_msg(tis_my));
 			} else if (j > 22 && (subtitles || jive)) {
+				const int intro_line_step = sifont->get_chinese_font_size() + 2;
 				Deferred_text_renderer::instance().clear();
-				sifont->center_text(ibuf, centerx, centery + 74 + vlead, get_text_msg(tis_my + 1));
+				sifont->center_text(ibuf, centerx, centery + 87 + vlead - intro_line_step, get_text_msg(tis_my + 1));
 				sifont->center_text(ibuf, centerx, centery + 87 + vlead, get_text_msg(tis_my + 2));
 			}
 
