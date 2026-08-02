@@ -455,9 +455,10 @@ void SI_Game::play_intro() {
 				next = fli1.play(win, j, j, next) + 30;
 			}
 
+			const int intro_line_step = sifont->get_chinese_font_size() + 2;
 			for (int i = 0; i < 3; i++) {
 				if (i == 0) Deferred_text_renderer::instance().clear();
-				sifont->center_text(ibuf, centerx, centery + 50 + vlead + 15 * i, get_text_msg(bg_fellow + i));
+				sifont->center_text(ibuf, centerx, centery + 50 + vlead + intro_line_step * i, get_text_msg(bg_fellow + i));
 			}
 
 			prev = num;
@@ -1044,19 +1045,9 @@ struct ExSubEvent {
 			: time(t), first_sub(first), num_subs(cnt), sub_font(fnt) {}
 
 	void show_sub(Image_buffer8* ibuf, int centerx, int centery) {
-		int suby;
-		switch (num_subs) {
-		case 1:
-			suby = centery + 87 + vlead;
-			break;
-		case 2:
-			suby = centery + 71 + vlead;
-			break;
-		default:
-			suby = centery + 55 + vlead;
-			break;
-		}
-		for (int ii = first_sub; ii < first_sub + num_subs; ii++, suby += 16) {
+		const int line_step = sub_font->get_chinese_font_size() + 2;
+		int       suby      = centery + 87 + vlead - (num_subs - 1) * line_step;
+		for (int ii = first_sub; ii < first_sub + num_subs; ii++, suby += line_step) {
 			sub_font->draw_text(ibuf, centerx - sub_font->get_text_width(get_text_msg(ii)) / 2, suby, get_text_msg(ii));
 		}
 	}
