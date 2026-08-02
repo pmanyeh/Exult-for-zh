@@ -69,9 +69,9 @@ private:
 	void clean_up();
 	int  load_internal(IDataSource& data, int hlead, int vlead);
 	int get_original_height();
-	int get_chinese_font_size();
 
 public:
+	int get_chinese_font_size();
 	static bool is_painting_bark;
 	static bool is_painting_sign;
 	static bool is_painting_avatar_choices;
