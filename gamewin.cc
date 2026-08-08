@@ -2000,6 +2000,18 @@ bool Game_window::activate_item(
 			return true;
 		}
 	}
+	// Fallback for keyrings: if searching for BG keyring (1100), try SI keyring (485), and vice-versa
+	if (shnum == 1100 || shnum == 485) {
+		const int alt_shnum = (shnum == 1100) ? 485 : 1100;
+		for (int i = 0; i < cnt; i++) {
+			Actor*       person = party[i];
+			Game_object* obj    = person->find_item(alt_shnum, qual, frnum);
+			if (obj) {
+				obj->activate();
+				return true;
+			}
+		}
+	}
 	// Special case: Archwizard mode spellbook - create a temporary one with
 	// all spells.
 	if (shnum == 761 && cheat.in_wizard_mode()) {

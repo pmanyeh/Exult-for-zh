@@ -47,6 +47,7 @@
 #include "gump_utils.h"
 #include "ignore_unused_variable_warning.h"
 #include "items.h"
+#include "keyring.h"
 #include "keys.h"
 #include "mouse.h"
 #include "palette.h"
@@ -412,6 +413,24 @@ void ActionTryKeys(const int* params) {
 					ucmachine->restore_intercept(oldtarg, oldtile);
 					return;
 				}
+			}
+		}
+	}
+	// Check if key is on engine keyring
+	Usecode_machine* ucmachine = gwin->get_usecode();
+	if (ucmachine && ucmachine->getKeyring() && ucmachine->getKeyring()->checkkey(qual)) {
+		for (int i = 0; i < party_cnt; i++) {
+			Actor*       act  = party[i];
+			Game_object* ring = act->find_item(1100);
+			if (!ring) ring  = act->find_item(485);
+			if (ring) {
+				Game_object* oldtarg;
+				Tile_coord*  oldtile;
+				ucmachine->save_intercept(oldtarg, oldtile);
+				ucmachine->intercept_click_on_item(obj);
+				ring->activate();
+				ucmachine->restore_intercept(oldtarg, oldtile);
+				return;
 			}
 		}
 	}
