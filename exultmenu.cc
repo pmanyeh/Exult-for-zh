@@ -79,7 +79,7 @@ public:
 	}
 
 	static const char* version_label() {
-		return VERSION " & Exult_for_zh v1.5 (modified by PmanYeh)";
+		return "Exult_for_zh v1.6 (base on " VERSION ")";
 	}
 
 	static auto SETUP() {
