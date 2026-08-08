@@ -124,7 +124,7 @@ static int parse_color_value(const char* key, int default_val) {
 	}
 }
 
-static Deferred_glyph_style get_deferred_style(Font* font) {
+static TTF::Render_Style get_chinese_ttf_style(Font* font) {
 	TTF::Render_Style style = {0, 0, -1, 1, 1, -1, -1, 1.0f};
 	if (!config) return style;
 
