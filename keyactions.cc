@@ -421,8 +421,8 @@ void ActionTryKeys(const int* params) {
 	if (ucmachine && ucmachine->getKeyring() && ucmachine->getKeyring()->checkkey(qual)) {
 		for (int i = 0; i < party_cnt; i++) {
 			Actor*       act  = party[i];
-			Game_object* ring = act->find_item(1100);
-			if (!ring) ring  = act->find_item(485);
+			Game_object* ring = act->find_item(1100, c_any_qual, c_any_framenum);
+			if (!ring) ring  = act->find_item(485, c_any_qual, c_any_framenum);
 			if (ring) {
 				Game_object* oldtarg;
 				Tile_coord*  oldtile;
