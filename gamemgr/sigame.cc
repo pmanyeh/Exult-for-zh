@@ -1069,6 +1069,10 @@ std::vector<unsigned int> SI_Game::get_congratulations_messages() {
 // Serpent Isle Endgame
 //
 void SI_Game::end_game(bool success, bool within_game) {
+	struct EndgameGuard {
+		EndgameGuard() { Font::is_painting_endgame = true; }
+		~EndgameGuard() { Font::is_painting_endgame = false; }
+	} endgame_guard;
 	ignore_unused_variable_warning(success);
 	waitforspeech();
 	Audio* audio = Audio::get_ptr();

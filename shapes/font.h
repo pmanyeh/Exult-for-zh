@@ -75,6 +75,7 @@ public:
 	static bool is_painting_bark;
 	static bool is_painting_sign;
 	static bool is_painting_avatar_choices;
+	static bool is_painting_endgame;
 	static int avatar_choices_font_size_adjust;
 	
 	int get_text_height_for(const char* text);

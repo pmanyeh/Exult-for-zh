@@ -62,6 +62,7 @@ namespace TTF {
 bool Font::is_painting_bark = false;
 bool Font::is_painting_sign = false;
 bool Font::is_painting_avatar_choices = false;
+bool Font::is_painting_endgame = false;
 int Font::avatar_choices_font_size_adjust = 0;
 
 // ---------------------------------------------------------------------------
@@ -133,8 +134,8 @@ static TTF::Render_Style get_chinese_ttf_style(Font* font) {
 	const std::string& fname = font->get_font_name();
 	bool is_si = chinese_is_serpent_isle_pfn ? chinese_is_serpent_isle_pfn() : false;
 
-	bool is_si_intro = is_si && (fname == "SIINTRO_FONT");
-	bool is_si_ending = is_si && (fname == "EXULT_END_FONT" || fname == "EXULT_AT_FONT");
+	bool is_si_ending = is_si && (Font::is_painting_endgame || fname == "EXULT_END_FONT" || fname == "EXULT_AT_FONT");
+	bool is_si_intro = is_si && !is_si_ending && (fname == "SIINTRO_FONT");
 
 	bool is_bg_intro = !is_si && font->get_force_not_book() && (f_idx == 11 || f_idx == 3);
 	bool is_bg_ending = !is_si && (font->get_force_not_book() && (f_idx == 12 || f_idx == 13 || f_idx == 14 || f_idx == 4 || f_idx == 5 || f_idx == 0 || fname == "NORMAL_FONT"));
@@ -1040,8 +1041,8 @@ int Font::get_chinese_font_size() {
 		final_size = user_size > 0 ? user_size : 15;    // Bark default
 	} else {
 		bool is_si = chinese_is_serpent_isle_pfn ? chinese_is_serpent_isle_pfn() : false;
-		bool is_si_intro = is_si && (get_font_name() == "SIINTRO_FONT");
-		bool is_si_ending = is_si && (get_font_name() == "EXULT_END_FONT" || get_font_name() == "EXULT_AT_FONT");
+		bool is_si_ending = is_si && (Font::is_painting_endgame || get_font_name() == "EXULT_END_FONT" || get_font_name() == "EXULT_AT_FONT");
+		bool is_si_intro = is_si && !is_si_ending && (get_font_name() == "SIINTRO_FONT");
 		bool is_bg_intro = !is_si && force_not_book && (font_index == 11 || font_index == 3);
 		bool is_bg_ending = !is_si && (force_not_book && (font_index == 12 || font_index == 13 || font_index == 14 || font_index == 4 || font_index == 5 || font_index == 0 || get_font_name() == "NORMAL_FONT"));
 

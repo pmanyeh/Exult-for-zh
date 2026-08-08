@@ -1552,6 +1552,10 @@ std::vector<unsigned int> BG_Game::get_congratulations_messages() {
 }
 
 void BG_Game::end_game(bool success, bool within_game) {
+	struct EndgameGuard {
+		EndgameGuard() { Font::is_painting_endgame = true; }
+		~EndgameGuard() { Font::is_painting_endgame = false; }
+	} endgame_guard;
 	waitforspeech();
 	Audio*                audio = Audio::get_ptr();
 	std::shared_ptr<Font> font  = fontManager.get_font("MENU_FONT");
