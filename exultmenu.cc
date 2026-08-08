@@ -392,12 +392,13 @@ BaseGameInfo* ExultMenu::show_mods_menu(ModManager* selgame) {
 	logox = centerx - exultlogo->get_width() / 2;
 	logoy = centery - exultlogo->get_height() / 2;
 
+	const char* const version_label = VERSION " & Exult_for_zh v1.5 (modified by PmanYeh)";
 	do {
 		// Interferes with the menu.
 		sman->paint_shape(logox, logoy, exultlogo);
 		font->draw_text(
-				gwin->get_win()->get_ib8(), gwin->get_win()->get_end_x() - font->get_text_width(VERSION),
-				gwin->get_win()->get_end_y() - font->get_text_height() - 5, VERSION);
+				gwin->get_win()->get_ib8(), gwin->get_win()->get_end_x() - font->get_text_width(version_label),
+				gwin->get_win()->get_end_y() - font->get_text_height() - 5, version_label);
 		const int choice = menu->handle_events(gwin);
 		switch (choice) {
 		case -10:    // The incompatibility notice; do nothing
@@ -517,8 +518,8 @@ BaseGameInfo* ExultMenu::run() {
 		// Interferes with the menu.
 		sman->paint_shape(logox, logoy, exultlogo);
 		font->draw_text(
-				gwin->get_win()->get_ib8(), gwin->get_win()->get_end_x() - font->get_text_width(VERSION),
-				gwin->get_win()->get_end_y() - font->get_text_height() - 5, VERSION);
+				gwin->get_win()->get_ib8(), gwin->get_win()->get_end_x() - font->get_text_width(version_label),
+				gwin->get_win()->get_end_y() - font->get_text_height() - 5, version_label);
 		const int choice = menu->handle_events(gwin);
 
 		switch (choice) {
