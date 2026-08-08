@@ -105,7 +105,26 @@ static std::string get_chinese_font_path(int font_size = -1) {
 	return get_system_path(path);
 }
 
-static TTF::Render_Style get_chinese_ttf_style(Font* font) {
+static int parse_color_value(const char* key, int default_val) {
+	if (!config) return default_val;
+	std::string val_str;
+	config->value(key, val_str, "");
+	if (val_str.empty()) return default_val;
+
+	if (val_str[0] == '#') {
+		return static_cast<int>(strtoul(val_str.c_str() + 1, nullptr, 16));
+	} else if (val_str.size() > 2 && val_str[0] == '0' && (val_str[1] == 'x' || val_str[1] == 'X')) {
+		return static_cast<int>(strtoul(val_str.c_str(), nullptr, 16));
+	}
+
+	try {
+		return std::stoi(val_str);
+	} catch (...) {
+		return default_val;
+	}
+}
+
+static Deferred_glyph_style get_deferred_style(Font* font) {
 	TTF::Render_Style style = {0, 0, -1, 1, 1, -1, -1, 1.0f};
 	if (!config) return style;
 
@@ -133,8 +152,8 @@ static TTF::Render_Style get_chinese_ttf_style(Font* font) {
 		config->value("config/video/chinese/shadow_type_si_intro", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_si_intro", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_si_intro", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_si_intro", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_si_intro", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_si_intro", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_si_intro", -1);
 		int boost_int = 100;
 		config->value("config/video/chinese/hires_brightness_boost_si_intro", boost_int, 100);
 		style.brightness_boost = boost_int / 100.0f;
@@ -144,8 +163,8 @@ static TTF::Render_Style get_chinese_ttf_style(Font* font) {
 		config->value("config/video/chinese/shadow_type_si_ending", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_si_ending", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_si_ending", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_si_ending", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_si_ending", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_si_ending", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_si_ending", -1);
 		int boost_int_e = 100;
 		config->value("config/video/chinese/hires_brightness_boost_si_ending", boost_int_e, 100);
 		style.brightness_boost = boost_int_e / 100.0f;
@@ -155,8 +174,8 @@ static TTF::Render_Style get_chinese_ttf_style(Font* font) {
 		config->value("config/video/chinese/shadow_type_intro", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_intro", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_intro", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_intro", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_intro", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_intro", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_intro", -1);
 		// Brightness boost: compensate for anti-aliasing darkening in high-res mode.
 		// Only read by Deferred_text_renderer; ignored in 8-bit mode.
 		// Stored as integer * 100: e.g. 130 = 1.30x boost. Default 100 = no boost.
@@ -169,8 +188,8 @@ static TTF::Render_Style get_chinese_ttf_style(Font* font) {
 		config->value("config/video/chinese/shadow_type_ending", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_ending", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_ending", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_ending", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_ending", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_ending", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_ending", -1);
 		// Brightness boost: compensate for anti-aliasing darkening in high-res mode.
 		// Only read by Deferred_text_renderer; ignored in 8-bit mode.
 		// Stored as integer * 100: e.g. 130 = 1.30x boost. Default 100 = no boost.
@@ -183,51 +202,51 @@ static TTF::Render_Style get_chinese_ttf_style(Font* font) {
 		config->value("config/video/chinese/shadow_type_woodsign", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_woodsign", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_woodsign", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_woodsign", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_woodsign", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_woodsign", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_woodsign", -1);
 	} else if (is_tombstone) {
 		config->value("config/video/chinese/letter_spacing_tombstone", style.letter_spacing, 0);
 		config->value("config/video/chinese/font_weight_tombstone", style.weight, 0);
 		config->value("config/video/chinese/shadow_type_tombstone", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_tombstone", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_tombstone", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_tombstone", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_tombstone", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_tombstone", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_tombstone", -1);
 	} else if (is_goldsign) {
 		config->value("config/video/chinese/letter_spacing_goldsign", style.letter_spacing, 0);
 		config->value("config/video/chinese/font_weight_goldsign", style.weight, 0);
 		config->value("config/video/chinese/shadow_type_goldsign", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_goldsign", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_goldsign", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_goldsign", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_goldsign", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_goldsign", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_goldsign", -1);
 	} else if (is_sign) {
 		config->value("config/video/chinese/letter_spacing_sign", style.letter_spacing, 0);
 		config->value("config/video/chinese/font_weight_sign", style.weight, 0);
 		config->value("config/video/chinese/shadow_type_sign", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_sign", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_sign", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_sign", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_sign", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_sign", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_sign", -1);
 	} else if (is_book && !is_bark) {
 		config->value("config/video/chinese/letter_spacing_book", style.letter_spacing, 0);
 		config->value("config/video/chinese/font_weight_book", style.weight, 0);
 		config->value("config/video/chinese/shadow_type_book", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x_book", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y_book", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color_book", style.shadow_color, -1);
-		config->value("config/video/chinese/font_color_book", style.fg_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color_book", -1);
+		style.fg_color = parse_color_value("config/video/chinese/font_color_book", -1);
 	} else {
 		config->value("config/video/chinese/letter_spacing", style.letter_spacing, 0);
 		config->value("config/video/chinese/font_weight", style.weight, 0);
 		config->value("config/video/chinese/shadow_type", style.shadow_type, -1);
 		config->value("config/video/chinese/shadow_offset_x", style.shadow_offset_x, 1);
 		config->value("config/video/chinese/shadow_offset_y", style.shadow_offset_y, 1);
-		config->value("config/video/chinese/shadow_color", style.shadow_color, -1);
+		style.shadow_color = parse_color_value("config/video/chinese/shadow_color", -1);
 		if (is_bark) {
-			config->value("config/video/chinese/font_color_bark", style.fg_color, -1);
+			style.fg_color = parse_color_value("config/video/chinese/font_color_bark", -1);
 		} else {
-			config->value("config/video/chinese/font_color_dialog", style.fg_color, -1);
+			style.fg_color = parse_color_value("config/video/chinese/font_color_dialog", -1);
 		}
 	}
 	return style;

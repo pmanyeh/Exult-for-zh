@@ -134,6 +134,43 @@ static inline void put_pixel_rgba(SDL_Surface* surf, int px, int py, uint8_t r, 
 	*p = SDL_MapRGBA(fmt, pal, out_r, out_g, out_b, out_a);
 }
 
+static SDL_Color resolve_effective_color(int style_color, unsigned char palette_index, Palette* exult_pal, const SDL_Color* palette) {
+	SDL_Color col;
+	if (style_color > 255) {
+		// 24-bit direct RGB (0xRRGGBB / #RRGGBB)
+		col.r = static_cast<uint8_t>((style_color >> 16) & 0xFF);
+		col.g = static_cast<uint8_t>((style_color >> 8) & 0xFF);
+		col.b = static_cast<uint8_t>(style_color & 0xFF);
+	} else if (style_color >= 0) {
+		// 8-bit palette index specified in style
+		if (exult_pal) {
+			col.r = exult_pal->get_red(style_color) * 4;
+			col.g = exult_pal->get_green(style_color) * 4;
+			col.b = exult_pal->get_blue(style_color) * 4;
+		} else {
+			col = palette[style_color];
+		}
+	} else {
+		// Default: lookup palette_index
+		if (exult_pal) {
+			if (palette_index == 255 && exult_pal->get_border_index() == 255) {
+				unsigned char br, bg, bb;
+				Palette::get_border(br, bg, bb);
+				col.r = br;
+				col.g = bg;
+				col.b = bb;
+			} else {
+				col.r = exult_pal->get_red(palette_index) * 4;
+				col.g = exult_pal->get_green(palette_index) * 4;
+				col.b = exult_pal->get_blue(palette_index) * 4;
+			}
+		} else {
+			col = palette[palette_index];
+		}
+	}
+	return col;
+}
+
 /*
  *  Render a single glyph onto the text_surface at scaled coordinates.
  *  Uses FreeType at scaled pixel size for crisp rendering.
@@ -184,36 +221,8 @@ void Deferred_text_renderer::draw_glyph(
 		int scaled_dot_y = (y + win->get_offset_y() + gb + ascender - ppem / 3 - base_dot_size / 2) * scale;
 		int dot_size = base_dot_size * scale;
 
-		SDL_Color fg_rgb;
-		SDL_Color bg_rgb;
-		Palette* exult_pal = gwin->get_pal();
-		if (exult_pal) {
-			if (fg_palette == 255 && exult_pal->get_border_index() == 255) {
-				unsigned char br, bg, bb;
-				Palette::get_border(br, bg, bb);
-				fg_rgb.r = br;
-				fg_rgb.g = bg;
-				fg_rgb.b = bb;
-			} else {
-				fg_rgb.r = exult_pal->get_red(fg_palette) * 4;
-				fg_rgb.g = exult_pal->get_green(fg_palette) * 4;
-				fg_rgb.b = exult_pal->get_blue(fg_palette) * 4;
-			}
-			if (bg_palette == 255 && exult_pal->get_border_index() == 255) {
-				unsigned char br, bg, bb;
-				Palette::get_border(br, bg, bb);
-				bg_rgb.r = br;
-				bg_rgb.g = bg;
-				bg_rgb.b = bb;
-			} else {
-				bg_rgb.r = exult_pal->get_red(bg_palette) * 4;
-				bg_rgb.g = exult_pal->get_green(bg_palette) * 4;
-				bg_rgb.b = exult_pal->get_blue(bg_palette) * 4;
-			}
-		} else {
-			fg_rgb = palette[fg_palette];
-			bg_rgb = palette[bg_palette];
-		}
+		SDL_Color fg_rgb = resolve_effective_color(style.fg_color, fg_palette, gwin->get_pal(), palette);
+		SDL_Color bg_rgb = resolve_effective_color(style.shadow_color, bg_palette, gwin->get_pal(), palette);
 		// Apply brightness boost for intro/ending scenes to compensate for
 		// anti-aliasing darkening effect on dark backgrounds.
 		if (style.brightness_boost > 1.0f) {
@@ -287,37 +296,9 @@ void Deferred_text_renderer::draw_glyph(
 	int left_x = sx + TTF::face->glyph->bitmap_left;
 	int top_y  = sy + ascender - TTF::face->glyph->bitmap_top;
 
-	// Get RGB colors from palette (use base colors to avoid capturing black during a fade out)
-	SDL_Color fg_rgb;
-	SDL_Color bg_rgb;
-	Palette* exult_pal = gwin->get_pal();
-	if (exult_pal) {
-		if (fg_palette == 255 && exult_pal->get_border_index() == 255) {
-			unsigned char br, bg, bb;
-			Palette::get_border(br, bg, bb);
-			fg_rgb.r = br;
-			fg_rgb.g = bg;
-			fg_rgb.b = bb;
-		} else {
-			fg_rgb.r = exult_pal->get_red(fg_palette) * 4;
-			fg_rgb.g = exult_pal->get_green(fg_palette) * 4;
-			fg_rgb.b = exult_pal->get_blue(fg_palette) * 4;
-		}
-		if (bg_palette == 255 && exult_pal->get_border_index() == 255) {
-			unsigned char br, bg, bb;
-			Palette::get_border(br, bg, bb);
-			bg_rgb.r = br;
-			bg_rgb.g = bg;
-			bg_rgb.b = bb;
-		} else {
-			bg_rgb.r = exult_pal->get_red(bg_palette) * 4;
-			bg_rgb.g = exult_pal->get_green(bg_palette) * 4;
-			bg_rgb.b = exult_pal->get_blue(bg_palette) * 4;
-		}
-	} else {
-		fg_rgb = palette[fg_palette];
-		bg_rgb = palette[bg_palette];
-	}
+	// Get RGB colors from palette or direct 24-bit RGB style
+	SDL_Color fg_rgb = resolve_effective_color(style.fg_color, fg_palette, gwin->get_pal(), palette);
+	SDL_Color bg_rgb = resolve_effective_color(style.shadow_color, bg_palette, gwin->get_pal(), palette);
 	// Apply brightness boost for intro/ending scenes to compensate for
 	// anti-aliasing darkening effect on dark backgrounds.
 	if (style.brightness_boost > 1.0f) {
