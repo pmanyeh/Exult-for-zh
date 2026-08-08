@@ -121,7 +121,7 @@ class Keyring_data {
 	var is_on_keyring (var target) {
 		// Check BG mod's own key list first;
 		// also check SI engine keyring.dat so both keyrings share access.
-		return (target in keys) || UI_is_on_keyring(target);
+		return (target in keys) || SI_is_on_keyring(target);
 	}
 	var add_to_keyring (var keyring, var key) {
 		var qual = key->get_item_quality();
@@ -142,7 +142,7 @@ class Keyring_data {
 					keys << qual;
 					// Also sync into SI engine-layer keyring.dat
 					// so SI door-unlock (Alt+K / K-key) logic can use it too.
-					UI_add_to_keyring(qual);
+					SI_add_to_keyring(qual);
 				}
 				set_keyring_frame(keyring);
 				// Delete the key from the world:
@@ -184,7 +184,7 @@ class Keyring_data {
 						keys << quality;
 					}
 					// Also sync into SI engine-layer keyring.dat:
-					UI_add_to_keyring(quality);
+					SI_add_to_keyring(quality);
 					//Remove key:
 					key->remove_item();
 					added += 1;

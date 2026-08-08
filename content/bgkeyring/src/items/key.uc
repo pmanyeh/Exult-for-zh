@@ -45,7 +45,7 @@ void Key shape#(0x281) () {
 	//Add to SI engine-layer keyring (keyring.dat) so SI door-unlock logic works.
 	if (target->get_item_shape() == SHAPE_SI_KEYRING) {
 		var qual = get_item_quality();
-		UI_add_to_keyring(qual);
+		SI_add_to_keyring(qual);
 		item->remove_item();
 		return;
 	}
