@@ -35,9 +35,18 @@ void Key shape#(0x281) () {
 	struct<ObjPos> target = UI_click_on_item();
 	//var target_quality;
 
-	//Target is the keyring:
+	//Target is the BG Keyring Mod's keyring:
 	if (target->get_item_shape() == SHAPE_KEYRING) {
 		get_keyring()->add_to_keyring(target, item);
+		return;
+	}
+
+	//Target is the SI native keyring (Shape 485):
+	//Add to SI engine-layer keyring (keyring.dat) so SI door-unlock logic works.
+	if (target->get_item_shape() == SHAPE_SI_KEYRING) {
+		var qual = get_item_quality();
+		UI_add_to_keyring(qual);
+		item->remove_item();
 		return;
 	}
 

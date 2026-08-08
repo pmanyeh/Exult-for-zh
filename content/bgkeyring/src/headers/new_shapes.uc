@@ -25,7 +25,8 @@
  */
 
 const int SHAPE_NEW_BODIES				= 1099;	//0x44B
-const int SHAPE_KEYRING					= 1100;	//0x44C
+const int SHAPE_KEYRING					= 1100;	//0x44C  BG Keyring Mod's keyring
+const int SHAPE_SI_KEYRING				= 485;	//0x1E5  SI native keyring (Serpent Isle built-in)
 const int SHAPE_BARRIER					= 1101;	//0x44D
 const int SHAPE_JOURNAL					= 1102;	//0x44E
 const int SHAPE_LAURIANNA_MONSTER		= 1103;	//0x44F
