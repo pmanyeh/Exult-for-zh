@@ -199,8 +199,8 @@ exit /b 0
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL3.lib;libpng16d.lib;libpng16.lib;zlibd.lib;zlib.lib;freetyped.lib;freetype.lib;libfluidsynth-3.lib;mt32emu.lib;ogg.lib;vorbis.lib;vorbisfile.lib;winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL3.lib;libpng16.lib;zlib.lib;freetype.lib;libfluidsynth-3.lib;mt32emu.lib;ogg.lib;vorbis.lib;vorbisfile.lib;winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy "$(_ZVcpkgManifestRoot)vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\*.dll" "$(OutDir)"
@@ -273,8 +273,8 @@ exit /b 0
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL3.lib;libpng16d.lib;libpng16.lib;zlibd.lib;zlib.lib;freetyped.lib;freetype.lib;libfluidsynth-3.lib;mt32emu.lib;ogg.lib;vorbis.lib;vorbisfile.lib;winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vcpkg_installed\$(VcpkgTriplet)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL3.lib;libpng16.lib;zlib.lib;freetype.lib;libfluidsynth-3.lib;mt32emu.lib;ogg.lib;vorbis.lib;vorbisfile.lib;winmm.lib;Ws2_32.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
