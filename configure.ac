@@ -768,6 +768,15 @@ if test x$enable_android_apk = xyes; then
 	enable_exult_studio=no
 fi
 
+# Freetype2 (required: shapes/ttf_font.cc needs it for Chinese TTF rendering)
+PKG_CHECK_MODULES(FREETYPE2, freetype2, have_freetype=yes, have_freetype=no)
+if test x$have_freetype = xyes; then
+	AC_DEFINE(HAVE_FREETYPE2, 1, [Have freetype2])
+else
+	echo "Exult (Chinese TTF rendering) requires FreeType2, but it is not installed."
+	exit 1
+fi
+
 # library dependencies
 AC_MSG_CHECKING([if we want to build Exult Studio])
 if test x$enable_exult_studio = xyes; then
@@ -776,11 +785,6 @@ if test x$enable_exult_studio = xyes; then
 	PKG_CHECK_MODULES(ICU, icu-uc, have_icu=yes, have_icu=no)
 # Gtk
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.16, have_gtk=yes, have_gtk=no)
-# Freetype2 (optional, used in ExultStudio, shapes/fontgen.cc)
-	PKG_CHECK_MODULES(FREETYPE2, freetype2, have_freetype=yes, have_freetype=no)
-	if test x$have_freetype = xyes; then
-		AC_DEFINE(HAVE_FREETYPE2, 1, [Have freetype2])
-	fi
 else
 	AC_MSG_RESULT(no)
 fi
