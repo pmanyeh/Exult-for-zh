@@ -993,7 +993,49 @@ static string Get_gamehome_dir(const string& home_dir, const string& config_dir)
 #endif
 }
 
+#ifdef MACOSX
+// Portable mode: if an exult.cfg sits in the folder containing the app
+// bundle (or the exult executable), use that folder for configuration and
+// savegames, and make it the working directory so relative paths in the
+// config file resolve against it.
+static string Get_portable_dir() {
+	std::unique_ptr<std::remove_pointer<CFURLRef>::type, CFDeleter> bundleUrl{
+			std::move(CFBundleCopyBundleURL(CFBundleGetMainBundle()))};
+	if (!bundleUrl) {
+		return "";
+	}
+	unsigned char buf[MAXPATHLEN];
+	if (!CFURLGetFileSystemRepresentation(bundleUrl.get(), true, buf, sizeof(buf))) {
+		return "";
+	}
+	string path(reinterpret_cast<const char*>(buf));
+	// Running from an .app bundle: look next to the bundle itself.
+	if (path.size() > 4 && path.compare(path.size() - 4, 4, ".app") == 0) {
+		const size_t pos = path.find_last_of('/');
+		if (pos == string::npos) {
+			return "";
+		}
+		path.erase(pos);
+	}
+	if (!U7exists(path + "/exult.cfg")) {
+		return "";
+	}
+	return path;
+}
+#endif
+
 void setup_program_paths() {
+#ifdef MACOSX
+	const string portable_dir(Get_portable_dir());
+	if (!portable_dir.empty() && chdir(portable_dir.c_str()) == 0) {
+		std::cout << "Portable mode: using " << portable_dir << std::endl;
+		add_system_path("<HOME>", portable_dir);
+		add_system_path("<CONFIG>", portable_dir);
+		add_system_path("<SAVEHOME>", portable_dir);
+		add_system_path("<GAMEHOME>", portable_dir);
+		return;
+	}
+#endif
 	const string home_dir(Get_home());
 	const string config_dir(Get_config_dir(home_dir));
 	const string savehome_dir(Get_savehome_dir(home_dir, config_dir));
