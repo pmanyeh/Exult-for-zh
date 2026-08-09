@@ -47,12 +47,17 @@ struct str_int_pair {
 #define GAME_SS  (Game::get_game_type() == SERPENT_ISLE && Game::has_expansion())
 #define GAME_SIB (Game::get_game_type() == SERPENT_ISLE && Game::is_si_beta())
 
+#include "conf/Configuration.h"
+#include "istring.h"
+
+extern Configuration* config;
+
 class Game : public Game_singletons {
 private:
-	static bool          new_game_flag;
-	static Exult_Game    game_type;
-	static Game_Language language;
-	static bool          expansion, sibeta;
+	static bool                 new_game_flag;
+	inline static Exult_Game    game_type = NONE;
+	inline static Game_Language language  = Game_Language::ENGLISH;
+	static bool                 expansion, sibeta;
 	using shapes_map = std::unordered_map<const char*, int, hashstr, eqstr>;
 	using rsc_map    = std::unordered_map<const char*, str_int_pair, hashstr, eqstr>;
 	shapes_map          shapes;
@@ -100,7 +105,28 @@ public:
 		return game_type != NONE ? language : Game_Language::ENGLISH;
 	}
 
-	static Game_Language get_game_message_language();
+	static Game_Language get_game_message_language() {
+		std::string   value;
+		Game_Language selected = language;
+
+		if (config) {
+			config->value("config/gameplay/language", value, "");
+			Pentagram::tolower(value);
+			if (value == "zh" || value == "zh_tw" || value == "chinese") {
+				selected = Game_Language::CHINESE;
+			} else if (value == "en") {
+				selected = Game_Language::ENGLISH;
+			} else if (value == "fr") {
+				selected = Game_Language::FRENCH;
+			} else if (value == "de") {
+				selected = Game_Language::GERMAN;
+			} else if (value == "es") {
+				selected = Game_Language::SPANISH;
+			}
+		}
+		language = selected;
+		return selected;
+	}
 
 	static bool is_chinese_mode() {
 		return get_game_message_language() == Game_Language::CHINESE;

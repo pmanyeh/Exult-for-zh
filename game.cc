@@ -67,8 +67,6 @@ using std::string;
 bool          Game::new_game_flag = false;
 bool          Game::editing_flag  = false;
 Game*         game                = nullptr;
-Exult_Game    Game::game_type     = NONE;
-Game_Language Game::language      = Game_Language::ENGLISH;
 bool          Game::expansion     = false;
 bool          Game::sibeta        = false;
 
@@ -169,37 +167,7 @@ Game* Game::create_game(BaseGameInfo* mygame) {
 	return game;
 }
 
-Game_Language Game::get_game_message_language() {
-	std::string   value;
-	Game_Language selected = language;
 
-	for (int i = 0; i < 2; i++) {
-		if (i == 0) {
-			config->value("config/gameplay/language", value, "");
-		} else if (get_game_type() != NONE) {
-			config->value("config/disk/game/" + Game::get_gametitle() + "/language", value, "");
-		} else {
-			continue;
-		}
-
-		// make the string lowercase
-		Pentagram::tolower(value);
-		// Only
-		if (value == "en") {
-			selected = Game_Language::ENGLISH;
-		} else if (value == "fr") {
-			selected = Game_Language::FRENCH;
-		} else if (value == "de") {
-			selected = Game_Language::GERMAN;
-		} else if (value == "es") {
-			selected = Game_Language::SPANISH;
-		} else if (value == "zh" || value == "zh_tw" || value == "chinese") {
-			selected = Game_Language::CHINESE;
-		}
-	}
-	language = selected;
-	return selected;
-}
 
 void Game::setup_text() {
 	// Check font config to determine if special character translation is needed
