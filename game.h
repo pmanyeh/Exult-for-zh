@@ -102,6 +102,10 @@ public:
 
 	static Game_Language get_game_message_language();
 
+	static bool is_chinese_mode() {
+		return get_game_message_language() == Game_Language::CHINESE;
+	}
+
 	static void setup_text();
 	static void setup_fonts();
 

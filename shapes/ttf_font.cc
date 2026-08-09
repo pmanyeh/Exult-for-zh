@@ -204,30 +204,31 @@ namespace TTF {
             }
         }
         
+        // Check for specific core color in row h/4 for book fonts that explicitly define custom text color
         int core_color = -1;
-        for (int r = h / 4; r < (h * 3) / 4; ++r) {
-            for (int c = w / 4; c < (w * 3) / 4; ++c) {
-                unsigned char p = bits[r * w + c];
-                if (p != 0 && p != 255) {
-                    core_color = p;
-                    break;
+        if (is_book) {
+            for (int r = h / 4; r < (h * 3) / 4; ++r) {
+                for (int c = w / 4; c < (w * 3) / 4; ++c) {
+                    unsigned char p = bits[r * w + c];
+                    if (p != 0 && p != 255) {
+                        core_color = p;
+                        break;
+                    }
                 }
+                if (core_color != -1) break;
             }
-            if (core_color != -1) break;
         }
         
-        int final_color = (core_color != -1) ? core_color : ((best_count > 0) ? best_color : 254);
-        
-        // Always update colors!
+        // Coexisting color selection logic:
         if (!is_book) {
-            cached_fg = final_color;
+            // Dialogue / OP / ED / Signs / Barks: Use full-frame histogram frequency count
+            // to reliably pick bright yellow (254) without taking edge shadow pixels.
+            cached_fg = (best_count > 0) ? best_color : 254;
             cached_bg = 255;
         } else {
-            if (core_color != -1) {
-                cached_fg = final_color; // Colored book text (e.g. spell names if they use a colored book font)
-            } else {
-                cached_fg = 255; // Pure black font, force black
-            }
+            // Books & Scrolls: Standard paper fonts use pure black ink (255) on light paper,
+            // unless a book font explicitly has a custom core color.
+            cached_fg = (core_color != -1) ? core_color : 255;
             cached_bg = 0; // Standard book fonts have no outline
         }
     }

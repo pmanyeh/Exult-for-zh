@@ -171,7 +171,7 @@ Game* Game::create_game(BaseGameInfo* mygame) {
 
 Game_Language Game::get_game_message_language() {
 	std::string   value;
-	Game_Language selected = get_game_language();
+	Game_Language selected = language;
 
 	for (int i = 0; i < 2; i++) {
 		if (i == 0) {
@@ -193,10 +193,12 @@ Game_Language Game::get_game_message_language() {
 			selected = Game_Language::GERMAN;
 		} else if (value == "es") {
 			selected = Game_Language::SPANISH;
+		} else if (value == "zh" || value == "zh_tw" || value == "chinese") {
+			selected = Game_Language::CHINESE;
 		}
 	}
+	language = selected;
 	return selected;
-	;
 }
 
 void Game::setup_text() {

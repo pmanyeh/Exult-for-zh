@@ -24,6 +24,7 @@
 #endif
 
 #include "shapevga.h"
+#include "game.h"
 
 #include "ammoinf.h"
 #include "aniinf.h"
@@ -189,6 +190,10 @@ void Read_text_data_file(
 		return Text_msg_file_reader(ds);
 	}();
 	Text_msg_file_reader patch_reader = [&]() {
+		bool in_game = (Game::get_game_type() != NONE && Game::get_game_type() != EXULT_MENU_GAME);
+		if (in_game && std::string_view(fname) == "shape_info" && !Game::is_chinese_mode()) {
+			return Text_msg_file_reader();
+		}
 		std::string file = "<PATCH>/" + std::string(fname) + ".txt";
 		if (!U7exists(file)) {
 			return Text_msg_file_reader();

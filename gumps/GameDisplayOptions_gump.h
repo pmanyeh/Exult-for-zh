@@ -96,13 +96,8 @@ public:
 		sc_outline = state;
 	}
 
-	void toggle_language(int state) {
-		language = state;
-	}
-
-	void toggle_fonts(int state) {
-		fonts = state;
-	}
+	void toggle_language(int state);
+	void toggle_fonts(int state);
 
 	void toggle_sb_hide_missing(int state) {
 		sb_hide_missing = state;

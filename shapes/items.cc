@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #endif
 
 #include "items.h"
+#include "game.h"
 
 #include "databuf.h"
 #include "exceptions.h"
@@ -384,7 +385,8 @@ void Setup_text(bool si, bool expansion, bool sibeta, Game_Language language, bo
 	}
 
 	// Exult new-style messages?
-	if (is_patch && U7exists(PATCH_TEXTMSGS)) {
+	bool in_game = (Game::get_game_type() != NONE && Game::get_game_type() != EXULT_MENU_GAME);
+	if (is_patch && U7exists(PATCH_TEXTMSGS) && !(in_game && !Game::is_chinese_mode())) {
 		IFileDataSource txtfile(PATCH_TEXTMSGS, true);
 		if (!txtfile.good()) {
 			return;

@@ -77,6 +77,10 @@ bool Gump_ToggleTextButton::activate(MouseButton button) {
 
 void Gump_ToggleTextButton::setselection(int selectionnum) {
 	set_frame(selectionnum);
+	if (selectionnum >= 0 && size_t(selectionnum) < selections.size()) {
+		text = selections[selectionnum];
+		init();
+	}
 	gwin->add_dirty(get_rect());
 }
 

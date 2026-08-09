@@ -85,7 +85,8 @@ static void Load_spell_names() {
 	}
 	spell_names_loaded = true;
 	custom_spell_names.resize(72);
-	if (!U7exists("<PATCH>/spellnames.txt")) {
+	bool in_game = (Game::get_game_type() != NONE && Game::get_game_type() != EXULT_MENU_GAME);
+	if ((in_game && !Game::is_chinese_mode()) || !U7exists("<PATCH>/spellnames.txt")) {
 		return;
 	}
 	auto in = U7open_in("<PATCH>/spellnames.txt");

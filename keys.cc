@@ -752,7 +752,8 @@ void KeyBinder::LoadFromFile(const char* filename) {
 }
 
 void KeyBinder::LoadFromPatch() {
-	if (U7exists(PATCH_KEYS)) {
+	bool in_game = (Game::get_game_type() != NONE && Game::get_game_type() != EXULT_MENU_GAME);
+	if (U7exists(PATCH_KEYS) && !(in_game && !Game::is_chinese_mode())) {
 		cout << "Loading patch keybindings" << endl;
 		LoadFromFileInternal(PATCH_KEYS);
 	}

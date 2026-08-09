@@ -1569,14 +1569,24 @@ void Game_window::read_map() {
  */
 
 void Game_window::reload_usecode() {
-	// Get custom usecode functions.
-	if (is_system_path_defined("<PATCH>") && U7exists(PATCH_USECODE)) {
-		auto pFile = U7open_in(PATCH_USECODE);
-		if (!pFile) {
-			return;
+	if (Game::is_chinese_mode()) {
+		// Get custom Chinese usecode functions.
+		if (is_system_path_defined("<PATCH>") && U7exists(PATCH_USECODE)) {
+			auto pFile = U7open_in(PATCH_USECODE);
+			if (!pFile) {
+				return;
+			}
+			auto& file = *pFile;
+			usecode->read_usecode(file, true);
 		}
-		auto& file = *pFile;
-		usecode->read_usecode(file, true);
+	} else {
+		// Reload original English STATIC usecode when switching away from Chinese
+		if (U7exists(USECODE)) {
+			auto pFile = U7open_in(USECODE);
+			if (pFile) {
+				usecode->read_usecode(*pFile, false);
+			}
+		}
 	}
 }
 

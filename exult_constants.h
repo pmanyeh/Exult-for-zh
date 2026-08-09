@@ -124,8 +124,9 @@ enum Exult_Game {
 // For the original released translations
 enum class Game_Language {
 	ENGLISH,
-	FRENCH,    // Black Gate only
-	GERMAN,    // Black Gate only
-	SPANISH    // Black Gate and Serpent Isle
+	FRENCH,     // Black Gate only
+	GERMAN,     // Black Gate only
+	SPANISH,    // Black Gate and Serpent Isle
+	CHINESE
 };
 #endif

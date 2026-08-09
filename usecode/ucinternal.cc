@@ -1890,8 +1890,9 @@ Usecode_internal::Usecode_internal() : stack(new Usecode_value[1024]) {
 		std::cerr << "Warning (map-editing): Couldn't open '" << USECODE << "'" << endl;
 	}
 
-	// Get custom usecode functions.
-	if (is_system_path_defined("<PATCH>") && U7exists(PATCH_USECODE)) {
+	// Get custom usecode functions (Chinese translation patch).
+	bool in_game = (Game::get_game_type() != NONE && Game::get_game_type() != EXULT_MENU_GAME);
+	if (is_system_path_defined("<PATCH>") && U7exists(PATCH_USECODE) && !(in_game && !Game::is_chinese_mode())) {
 		auto pFile = U7open_in(PATCH_USECODE);
 		if (!pFile) {
 			throw file_open_exception(PATCH_USECODE);
