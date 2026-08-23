@@ -1569,6 +1569,11 @@ void Game_window::read_map() {
  */
 
 void Game_window::reload_usecode() {
+	if (!usecode) {
+		// No game running yet (e.g. language switched from the Exult menu);
+		// usecode is loaded when the game starts.
+		return;
+	}
 	if (Game::is_chinese_mode()) {
 		// Get custom Chinese usecode functions.
 		if (is_system_path_defined("<PATCH>") && U7exists(PATCH_USECODE)) {
