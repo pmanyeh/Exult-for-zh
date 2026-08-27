@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #endif
 
 #include "playfli.h"
+#include "deferred_text.h"
 
 #include "databuf.h"
 #include "endianio.h"
@@ -108,6 +109,10 @@ void playfli::info(fliinfo* fi) const {
 }
 
 int playfli::play(Image_window* win, int first_frame, int last_frame, unsigned long ticks, int brightness) {
+	if (Deferred_text_renderer::instance().is_active()) {
+		Deferred_text_renderer::instance().clear();
+	}
+
 	const int xoffset   = (win->get_game_width() - fli_width) / 2;
 	const int yoffset   = (win->get_game_height() - fli_height) / 2;
 	bool      dont_show = false;
